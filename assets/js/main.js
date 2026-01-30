@@ -17,7 +17,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     const servicesDropdown = servicesBtn.closest('.services-dropdown');
+    const industriesDropdown = industriesBtn.closest('.industries-dropdown');
     let servicesCloseTimer = null;
+    let industriesCloseTimer = null;
     
     // Función para cerrar todos los mega menús
     function closeAllMegaMenus() {
@@ -73,17 +75,55 @@ document.addEventListener("DOMContentLoaded", () => {
         menuOverlay.classList.add('active');
     }
     
-    // Abrir/cerrar mega menú de industrias
+    function openIndustriesMenu() {
+        industriesBtn.classList.add('active');
+        industriesMegaMenu.classList.add('active');
+        menuOverlay.classList.add('active');
+    }
+    
+    // Industries: hover = mostrar mega-menú (igual que Services)
+    if (industriesDropdown) {
+        industriesDropdown.addEventListener('mouseenter', () => {
+            if (industriesCloseTimer) {
+                clearTimeout(industriesCloseTimer);
+                industriesCloseTimer = null;
+            }
+            if (servicesMegaMenu.classList.contains('active')) {
+                closeAllMegaMenus();
+                setTimeout(openIndustriesMenu, 50);
+            } else {
+                openIndustriesMenu();
+            }
+        });
+        industriesDropdown.addEventListener('mouseleave', () => {
+            industriesCloseTimer = setTimeout(() => {
+                industriesBtn.classList.remove('active');
+                industriesMegaMenu.classList.remove('active');
+                menuOverlay.classList.remove('active');
+                industriesCloseTimer = null;
+            }, 180);
+        });
+        industriesMegaMenu.addEventListener('mouseenter', () => {
+            if (industriesCloseTimer) {
+                clearTimeout(industriesCloseTimer);
+                industriesCloseTimer = null;
+            }
+        });
+        industriesMegaMenu.addEventListener('mouseleave', () => {
+            industriesCloseTimer = setTimeout(() => {
+                industriesBtn.classList.remove('active');
+                industriesMegaMenu.classList.remove('active');
+                menuOverlay.classList.remove('active');
+                industriesCloseTimer = null;
+            }, 150);
+        });
+    }
+    
+    // Clic en Industries: ir a la página si es enlace, o abrir menú (para móvil/touch)
     industriesBtn.addEventListener('click', (e) => {
+        e.preventDefault();
         e.stopPropagation();
-        if (servicesMegaMenu.classList.contains('active')) {
-            closeAllMegaMenus();
-            setTimeout(() => {
-                industriesBtn.classList.add('active');
-                industriesMegaMenu.classList.add('active');
-                menuOverlay.classList.add('active');
-            }, 100);
-        } else {
+        if (window.matchMedia('(hover: none)').matches) {
             industriesBtn.classList.toggle('active');
             industriesMegaMenu.classList.toggle('active');
             menuOverlay.classList.toggle('active');
