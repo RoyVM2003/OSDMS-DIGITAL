@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OSDEMS Digital | Mantto Web & Digital Trends</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <link rel="prefetch" href="services.html" />
+</head>
+<body>
+    <div class="menu-overlay" id="menuOverlay"></div>
+
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="index.html#inicio" class="logo">
+                <i class="fas fa-rocket"></i>
+                OSDEMS<span>Digital</span>
+            </a>
+            <nav class="main-nav">
+                <a href="index.html#inicio">Home</a>
+                <a href="about.html">About Us</a>
+
+                <div class="services-dropdown">
+                    <a href="services.html" class="services-btn" id="servicesBtn">
+                        <i class="fas fa-cogs"></i> Services <i class="fas fa-chevron-down"></i>
+                    </a>
+                    <div class="mega-menu" id="servicesMegaMenu">
+                        <div class="mega-menu-category">
+                            <h3><i class="fas fa-paint-brush"></i> Web Design</h3>
+                            <ul>
+                                <li><a href="#"><i class="fas fa-arrow-right"></i> Website Design & Development</a></li>
+                                <li><a href="#"><i class="fab fa-wordpress"></i> WordPress Development</a></li>
+                                <li><a href="#"><i class="fas fa-shopping-cart"></i> E-commerce Development</a></li>
+                                <li><a href="#"><i class="fas fa-palette"></i> UI/UX Design</a></li>
+                                <li><a href="#"><i class="fas fa-search"></i> Website Discovery</a></li>
+                                <li><a href="#"><i class="fas fa-sitemap"></i> Sitemaps & Wireframes</a></li>
+                                <li><a href="#"><i class="fas fa-pen"></i> Website Content Writing</a></li>
+                                <li><a href="#"><i class="fas fa-server"></i> Website Maintenance & Hosting</a></li>
+                                <li><a href="#"><i class="fas fa-landmark"></i> Landing Page Design</a></li>
+                                <li><a href="#"><i class="fas fa-store"></i> Shopify Development</a></li>
+                                <li><a href="#"><i class="fas fa-cog"></i> Custom CMS Development</a></li>
+                                <li><a href="#"><i class="fas fa-code"></i> Headless CMS Development</a></li>
+                                <li><a href="#"><i class="fas fa-clipboard-check"></i> Design Audits</a></li>
+                            </ul>
+                        </div>
+                        <div class="mega-menu-category">
+                            <h3><i class="fas fa-bullhorn"></i> Digital Marketing</h3>
+                            <ul>
+                                <li><a href="#"><i class="fas fa-chart-line"></i> Marketing Strategy</a></li>
+                                <li><a href="#"><i class="fas fa-search-plus"></i> Search Engine Optimization (SEO)</a></li>
+                                <li><a href="#"><i class="fas fa-ad"></i> Paid Ad Campaigns (PPC)</a></li>
+                                <li><a href="#"><i class="fas fa-users"></i> Social Media Management</a></li>
+                                <li><a href="#"><i class="fas fa-envelope"></i> Email Marketing</a></li>
+                                <li><a href="#"><i class="fas fa-robot"></i> Sales Support & Automation (CRM)</a></li>
+                                <li><a href="#"><i class="fas fa-file-alt"></i> Content Strategy & Execution</a></li>
+                                <li><a href="#"><i class="fas fa-brain"></i> Generative Engine Optimization (GEO)</a></li>
+                            </ul>
+                        </div>
+                        <div class="mega-menu-category">
+                            <h3><i class="fas fa-mobile-alt"></i> App Development</h3>
+                            <ul>
+                                <li><a href="#"><i class="fas fa-globe"></i> Web App Development</a></li>
+                                <li><a href="#"><i class="fas fa-mobile"></i> Mobile App Development</a></li>
+                                <li><a href="#"><i class="fas fa-tachometer-alt"></i> Portal & Dashboard Development</a></li>
+                                <li><a href="#"><i class="fas fa-graduation-cap"></i> LMS Development</a></li>
+                                <li><a href="#"><i class="fas fa-handshake"></i> CRM Integration</a></li>
+                                <li><a href="#"><i class="fab fa-react"></i> React Development</a></li>
+                                <li><a href="#"><i class="fab fa-node-js"></i> Node.js Development</a></li>
+                                <li><a href="#"><i class="fab fa-laravel"></i> Laravel Development</a></li>
+                                <li><a href="#"><i class="fas fa-code"></i> No Code Development</a></li>
+                                <li><a href="#"><i class="fas fa-robot"></i> Advanced AI Development</a></li>
+                                <li><a href="#"><i class="fas fa-link"></i> Blockchain Development</a></li>
+                            </ul>
+                        </div>
+                        <div class="mega-menu-category">
+                            <h3><i class="fas fa-building"></i> Enterprise Solutions</h3>
+                            <ul>
+                                <li><a href="#"><i class="fas fa-cogs"></i> Application Maintenance</a></li>
+                                <li><a href="#"><i class="fas fa-cloud"></i> Cloud Hosting Services</a></li>
+                            </ul>
+                        </div>
+                        <div class="mega-menu-category">
+                            <h3><i class="fas fa-pen-fancy"></i> Design & Branding</h3>
+                            <ul>
+                                <li><a href="#"><i class="fas fa-trademark"></i> Brand Development</a></li>
+                                <li><a href="#"><i class="fas fa-icons"></i> Logo Design</a></li>
+                                <li><a href="#"><i class="fas fa-book"></i> Brand Guidelines</a></li>
+                                <li><a href="#"><i class="fas fa-comment-alt"></i> Brand Identity Messaging</a></li>
+                                <li><a href="#"><i class="fas fa-sync-alt"></i> Rebranding Services</a></li>
+                                <li><a href="#"><i class="fas fa-ad"></i> Ad Creative Design</a></li>
+                                <li><a href="#"><i class="fas fa-share-alt"></i> Social Media Design</a></li>
+                                <li><a href="#"><i class="fas fa-presentation"></i> Presentation Design</a></li>
+                                <li><a href="#"><i class="fas fa-mail-bulk"></i> Email Design</a></li>
+                                <li><a href="#"><i class="fas fa-draw-polygon"></i> Illustrations & Iconography</a></li>
+                                <li><a href="#"><i class="fas fa-chart-bar"></i> Corporate Reports</a></li>
+                                <li><a href="#"><i class="fas fa-file-contract"></i> Product Sheets & One Pagers</a></li>
+                                <li><a href="#"><i class="fas fa-box-open"></i> Print & Packaging Design</a></li>
+                            </ul>
+                        </div>
+                        <div class="mega-menu-category">
+                            <h3><i class="fas fa-video"></i> Photo & Video</h3>
+                            <ul>
+                                <li><a href="#"><i class="fas fa-video"></i> Video Production</a></li>
+                                <li><a href="#"><i class="fas fa-film"></i> Post Production & Editing</a></li>
+                                <li><a href="#"><i class="fas fa-tv"></i> Commercials</a></li>
+                                <li><a href="#"><i class="fas fa-star"></i> Hero Videos</a></li>
+                                <li><a href="#"><i class="fas fa-film"></i> Animated Explainer Videos</a></li>
+                                <li><a href="#"><i class="fas fa-cube"></i> Product Renders</a></li>
+                                <li><a href="#"><i class="fas fa-running"></i> Animation & Motion Graphics</a></li>
+                                <li><a href="#"><i class="fas fa-cube"></i> 3D & AR Design</a></li>
+                                <li><a href="#"><i class="fas fa-music"></i> Sound & Music Design</a></li>
+                                <li><a href="#"><i class="fas fa-user-tie"></i> Professional Headshots</a></li>
+                                <li><a href="#"><i class="fas fa-camera"></i> Product Photography</a></li>
+                                <li><a href="#"><i class="fas fa-calendar-alt"></i> Event Photography</a></li>
+                                <li><a href="#"><i class="fas fa-images"></i> Brand & Lifestyle Photography</a></li>
+                                <li><a href="#"><i class="fas fa-broadcast-tower"></i> Live Streaming & Broadcasting</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="industries-dropdown">
+                    <button class="industries-btn" id="industriesBtn">
+                        <i class="fas fa-industry"></i> Industries <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="mega-menu" id="industriesMegaMenu">
+                        <div class="mega-menu-category">
+                            <h3><i class="fas fa-hotel"></i> Hostelería y Viajes</h3>
+                            <ul>
+                                <li><a href="#"><i class="fas fa-utensils"></i> Restaurantes & Cafeterías</a></li>
+                                <li><a href="#"><i class="fas fa-bed"></i> Hoteles & Resorts</a></li>
+                                <li><a href="#"><i class="fas fa-plane"></i> Agencias de Viajes</a></li>
+                                <li><a href="#"><i class="fas fa-ship"></i> Cruceros & Turismo</a></li>
+                                <li><a href="#"><i class="fas fa-hiking"></i> Ecoturismo & Aventura</a></li>
+                                <li><a href="#"><i class="fas fa-concierge-bell"></i> Eventos & Catering</a></li>
+                            </ul>
+                        </div>
+                        <div class="mega-menu-category">
+                            <h3><i class="fas fa-briefcase"></i> Servicios Profesionales</h3>
+                            <ul>
+                                <li><a href="#"><i class="fas fa-chart-line"></i> Consultoría de Negocios</a></li>
+                                <li><a href="#"><i class="fas fa-users"></i> Coaching & Mentoring</a></li>
+                                <li><a href="#"><i class="fas fa-handshake"></i> Servicios B2B</a></li>
+                                <li><a href="#"><i class="fas fa-search-dollar"></i> Asesoría Financiera</a></li>
+                                <li><a href="#"><i class="fas fa-project-diagram"></i> Gestión de Proyectos</a></li>
+                            </ul>
+                        </div>
+                        <div class="mega-menu-category">
+                            <h3><i class="fas fa-gavel"></i> Consultoría y Derecho</h3>
+                            <ul>
+                                <li><a href="#"><i class="fas fa-balance-scale"></i> Firmas Legales</a></li>
+                                <li><a href="#"><i class="fas fa-user-tie"></i> Consultoría Jurídica</a></li>
+                                <li><a href="#"><i class="fas fa-file-contract"></i> Servicios Corporativos</a></li>
+                                <li><a href="#"><i class="fas fa-landmark"></i> Asesoría Regulatoria</a></li>
+                            </ul>
+                        </div>
+                        <div class="mega-menu-category">
+                            <h3><i class="fas fa-graduation-cap"></i> Educación e Investigación</h3>
+                            <ul>
+                                <li><a href="#"><i class="fas fa-school"></i> Universidades & Colegios</a></li>
+                                <li><a href="#"><i class="fas fa-book-open"></i> E-Learning & EdTech</a></li>
+                                <li><a href="#"><i class="fas fa-flask"></i> Centros de Investigación</a></li>
+                                <li><a href="#"><i class="fas fa-chalkboard-teacher"></i> Formación Corporativa</a></li>
+                                <li><a href="#"><i class="fas fa-language"></i> Idiomas & Educación</a></li>
+                            </ul>
+                        </div>
+                        <div class="mega-menu-category">
+                            <h3><i class="fas fa-university"></i> Finanzas y Banca</h3>
+                            <ul>
+                                <li><a href="#"><i class="fas fa-piggy-bank"></i> Bancos & Fintech</a></li>
+                                <li><a href="#"><i class="fas fa-chart-pie"></i> Inversiones & Wealth Management</a></li>
+                                <li><a href="#"><i class="fas fa-hand-holding-usd"></i> Préstamos & Créditos</a></li>
+                                <li><a href="#"><i class="fas fa-shield-alt"></i> Seguros & Pensiones</a></li>
+                                <li><a href="#"><i class="fas fa-credit-card"></i> Pagos Digitales</a></li>
+                            </ul>
+                        </div>
+                        <div class="mega-menu-category">
+                            <h3><i class="fas fa-hands-helping"></i> Organizaciones Sin Ánimo de Lucro</h3>
+                            <ul>
+                                <li><a href="#"><i class="fas fa-heart"></i> ONGs & Fundaciones</a></li>
+                                <li><a href="#"><i class="fas fa-leaf"></i> Medio Ambiente</a></li>
+                                <li><a href="#"><i class="fas fa-hand-holding-heart"></i> Asistencia Social</a></li>
+                                <li><a href="#"><i class="fas fa-globe-americas"></i> Cooperación Internacional</a></li>
+                            </ul>
+                        </div>
+                        <div class="mega-menu-category">
+                            <h3><i class="fas fa-bolt"></i> Energía y Medio Ambiente</h3>
+                            <ul>
+                                <li><a href="#"><i class="fas fa-solar-panel"></i> Energías Renovables</a></li>
+                                <li><a href="#"><i class="fas fa-industry"></i> Gestión Ambiental</a></li>
+                                <li><a href="#"><i class="fas fa-recycle"></i> Sostenibilidad</a></li>
+                                <li><a href="#"><i class="fas fa-water"></i> Gestión de Aguas</a></li>
+                            </ul>
+                        </div>
+                        <div class="mega-menu-category">
+                            <h3><i class="fas fa-laptop-code"></i> Tecnología y Software (SaaS)</h3>
+                            <ul>
+                                <li><a href="#"><i class="fas fa-cloud"></i> Startups SaaS</a></li>
+                                <li><a href="#"><i class="fas fa-mobile-alt"></i> Desarrollo de Apps</a></li>
+                                <li><a href="#"><i class="fas fa-server"></i> Infraestructura IT</a></li>
+                                <li><a href="#"><i class="fas fa-robot"></i> Inteligencia Artificial</a></li>
+                            </ul>
+                        </div>
+                        <div class="mega-menu-category">
+                            <h3><i class="fas fa-utensils"></i> Alimentación y Bebidas</h3>
+                            <ul>
+                                <li><a href="#"><i class="fas fa-seedling"></i> Producción Agrícola</a></li>
+                                <li><a href="#"><i class="fas fa-wine-bottle"></i> Bebidas & Licores</a></li>
+                                <li><a href="#"><i class="fas fa-truck"></i> Distribución Alimentaria</a></li>
+                                <li><a href="#"><i class="fas fa-cookie-bite"></i> Productos Gourmet</a></li>
+                            </ul>
+                        </div>
+                        <div class="mega-menu-category">
+                            <h3><i class="fas fa-shopping-cart"></i> Comercio Electrónico y Retail</h3>
+                            <ul>
+                                <li><a href="#"><i class="fas fa-store"></i> Tiendas Online</a></li>
+                                <li><a href="#"><i class="fas fa-tshirt"></i> Moda & Accesorios</a></li>
+                                <li><a href="#"><i class="fas fa-gem"></i> Joyería & Lujo</a></li>
+                                <li><a href="#"><i class="fas fa-home"></i> Hogar & Decoración</a></li>
+                            </ul>
+                        </div>
+                        <div class="mega-menu-category">
+                            <h3><i class="fas fa-heartbeat"></i> Salud y Farmacia</h3>
+                            <ul>
+                                <li><a href="#"><i class="fas fa-hospital"></i> Hospitales & Clínicas</a></li>
+                                <li><a href="#"><i class="fas fa-pills"></i> Farmacias & Farmacéuticas</a></li>
+                                <li><a href="#"><i class="fas fa-dumbbell"></i> Wellness & Fitness</a></li>
+                                <li><a href="#"><i class="fas fa-stethoscope"></i> Telemedicina</a></li>
+                            </ul>
+                        </div>
+                        <div class="mega-menu-category">
+                            <h3><i class="fas fa-building"></i> Inmobiliario y Promoción</h3>
+                            <ul>
+                                <li><a href="#"><i class="fas fa-home"></i> Constructoras</a></li>
+                                <li><a href="#"><i class="fas fa-city"></i> Desarrollo Inmobiliario</a></li>
+                                <li><a href="#"><i class="fas fa-key"></i> Gestión de Propiedades</a></li>
+                                <li><a href="#"><i class="fas fa-hard-hat"></i> Arquitectura & Diseño</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="premium.html">Premium</a>
+                <a href="mantto-web.html">Mantto Web</a>
+                <a href="experiencias.html">Agentivas + Conversión Web</a>
+                <a href="product-branding.html">Product Branding</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="mantto-page">
+        <!-- Hero (igual que archivo 6) -->
+        <section class="mantto-hero" id="home">
+            <div class="container">
+                <div class="mantto-hero-content">
+                    <h1>Mantenimiento Web Profesional</h1>
+                    <div class="mantto-hero-subtitle">Tu sitio web necesita atención constante, igual que tu negocio</div>
+                    <p>El 94% de las vulnerabilidades de seguridad en sitios web ocurren por falta de mantenimiento. Tu página web no es un "proyecto terminado", es un activo digital vivo que requiere atención constante para proteger tu inversión y reputación.</p>
+                    <div class="mantto-warning-box">
+                        <h3><i class="fas fa-exclamation-triangle"></i> ¡Alerta Crítica!</h3>
+                        <p>Sin mantenimiento regular, tu sitio web está expuesto a: hackeos, pérdida de datos, penalizaciones de Google, caídas de rendimiento y mala experiencia de usuario que ahuyenta a tus clientes.</p>
+                    </div>
+                    <div class="mantto-cta-buttons">
+                        <a href="https://wa.me/523326225912?text=Hola%20OSDEMS%20Digital,%20quiero%20información%20sobre%20el%20mantenimiento%20web%20profesional" class="mantto-btn mantto-btn-primary" target="_blank"><i class="fab fa-whatsapp"></i> Consultoría Gratuita</a>
+                        <a href="#comparativa" class="mantto-btn mantto-btn-secondary"><i class="fas fa-chart-bar"></i> Ver Comparativa</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ¿Qué es el mantenimiento web? -->
+        <section class="mantto-intro-section" id="que-es">
+            <div class="container">
+                <h2 class="mantto-section-title">¿Qué es el <span>Mantenimiento Web</span>?</h2>
+                <p class="mantto-section-subtitle">Es el conjunto de actividades técnicas y estratégicas para garantizar que tu sitio web funcione óptimamente, sea seguro y esté actualizado.</p>
+                <div class="mantto-card-grid">
+                    <div class="mantto-info-card">
+                        <div class="mantto-card-icon"><i class="fas fa-cogs"></i></div>
+                        <h3>¿Qué CONLLEVA?</h3>
+                        <p>El mantenimiento web profesional incluye múltiples dimensiones técnicas:</p>
+                        <ul class="mantto-card-list">
+                            <li>Actualización de software y plugins</li>
+                            <li>Copias de seguridad regulares</li>
+                            <li>Monitoreo de seguridad 24/7</li>
+                            <li>Optimización de rendimiento</li>
+                            <li>Reparación de enlaces rotos</li>
+                            <li>Compatibilidad con navegadores</li>
+                            <li>Soporte técnico especializado</li>
+                        </ul>
+                    </div>
+                    <div class="mantto-info-card mantto-danger">
+                        <div class="mantto-card-icon"><i class="fas fa-skull-crossbones"></i></div>
+                        <h3>¿Qué PASA si NO se hace?</h3>
+                        <p>Las consecuencias de ignorar el mantenimiento pueden ser catastróficas:</p>
+                        <ul class="mantto-card-list">
+                            <li>Hackeos y robos de datos</li>
+                            <li>Pérdida total del sitio web</li>
+                            <li>Penalizaciones de Google (SEO)</li>
+                            <li>Caídas constantes del sitio</li>
+                            <li>Pérdida de clientes y ventas</li>
+                            <li>Daño a la reputación de marca</li>
+                            <li>Costos de recuperación elevados</li>
+                        </ul>
+                    </div>
+                    <div class="mantto-info-card mantto-success">
+                        <div class="mantto-card-icon"><i class="fas fa-medal"></i></div>
+                        <h3>BENEFICIOS Clave</h3>
+                        <p>El mantenimiento regular transforma tu sitio web en un activo seguro y rentable:</p>
+                        <ul class="mantto-card-list">
+                            <li>Protección contra amenazas</li>
+                            <li>Mejor posicionamiento SEO</li>
+                            <li>Experiencia de usuario superior</li>
+                            <li>Mayor conversión y ventas</li>
+                            <li>Ahorro a largo plazo</li>
+                            <li>Tranquilidad y confianza</li>
+                            <li>Soporte técnico inmediato</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Roadmap -->
+        <section class="mantto-roadmap-section" id="roadmap">
+            <div class="container">
+                <h2 class="mantto-section-title">Roadmap de <span>Mantenimiento</span></h2>
+                <p class="mantto-section-subtitle">Nuestro proceso sistemático garantiza que cada aspecto de tu sitio web reciba la atención que necesita.</p>
+                <div class="mantto-roadmap-container">
+                    <div class="mantto-roadmap">
+                        <div class="mantto-roadmap-line"></div>
+                        <div class="mantto-roadmap-item">
+                            <div class="mantto-roadmap-dot"></div>
+                            <div class="mantto-roadmap-content">
+                                <span class="mantto-roadmap-step">Paso 1</span>
+                                <h3>Análisis y Diagnóstico</h3>
+                                <p>Evaluación completa del estado actual de tu sitio web: seguridad, rendimiento, SEO y funcionalidades. Identificamos vulnerabilidades y áreas de mejora.</p>
+                            </div>
+                        </div>
+                        <div class="mantto-roadmap-item">
+                            <div class="mantto-roadmap-dot"></div>
+                            <div class="mantto-roadmap-content">
+                                <span class="mantto-roadmap-step">Paso 2</span>
+                                <h3>Actualizaciones de Software</h3>
+                                <p>Aplicación de todas las actualizaciones necesarias: CMS, plugins, temas y librerías. Pruebas exhaustivas para garantizar compatibilidad.</p>
+                            </div>
+                        </div>
+                        <div class="mantto-roadmap-item">
+                            <div class="mantto-roadmap-dot"></div>
+                            <div class="mantto-roadmap-content">
+                                <span class="mantto-roadmap-step">Paso 3</span>
+                                <h3>Protección y Seguridad</h3>
+                                <p>Implementación de firewalls, escaneo de malware, protección DDoS, certificados SSL renovados y configuración de seguridad avanzada.</p>
+                            </div>
+                        </div>
+                        <div class="mantto-roadmap-item">
+                            <div class="mantto-roadmap-dot"></div>
+                            <div class="mantto-roadmap-content">
+                                <span class="mantto-roadmap-step">Paso 4</span>
+                                <h3>Optimización de Rendimiento</h3>
+                                <p>Compresión de imágenes, minificación de código, implementación de caché, optimización de base de datos y mejora de velocidad de carga.</p>
+                            </div>
+                        </div>
+                        <div class="mantto-roadmap-item">
+                            <div class="mantto-roadmap-dot"></div>
+                            <div class="mantto-roadmap-content">
+                                <span class="mantto-roadmap-step">Paso 5</span>
+                                <h3>Copias de Seguridad</h3>
+                                <p>Backups automáticos diarios y almacenamiento en servidores seguros externos. Plan de recuperación ante desastres.</p>
+                            </div>
+                        </div>
+                        <div class="mantto-roadmap-item">
+                            <div class="mantto-roadmap-dot"></div>
+                            <div class="mantto-roadmap-content">
+                                <span class="mantto-roadmap-step">Paso 6</span>
+                                <h3>Monitoreo y Reportes</h3>
+                                <p>Vigilancia 24/7 del sitio web, alertas automáticas y reportes mensuales detallados del estado y desempeño de tu sitio.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Comparativa Con vs Sin -->
+        <section class="mantto-comparison-section" id="comparativa">
+            <div class="container">
+                <h2 class="mantto-section-title">Comparativa: <span>Con vs Sin</span> Mantenimiento</h2>
+                <p class="mantto-section-subtitle">La diferencia entre proteger tu inversión digital o arriesgarla innecesariamente.</p>
+                <div class="mantto-comparison-table">
+                    <div class="mantto-comparison-header">
+                        <h3>Sin Mantenimiento</h3>
+                        <h3>Con Mantenimiento OSDEMS</h3>
+                    </div>
+                    <div class="mantto-comparison-body">
+                        <div class="mantto-comparison-column">
+                            <div class="mantto-comparison-item"><i class="fas fa-times-circle"></i><span>Vulnerable a hackeos y malware</span></div>
+                            <div class="mantto-comparison-item"><i class="fas fa-times-circle"></i><span>Actualizaciones desatendidas</span></div>
+                            <div class="mantto-comparison-item"><i class="fas fa-times-circle"></i><span>Sin copias de seguridad</span></div>
+                            <div class="mantto-comparison-item"><i class="fas fa-times-circle"></i><span>Rendimiento deficiente</span></div>
+                            <div class="mantto-comparison-item"><i class="fas fa-times-circle"></i><span>SEO penalizado por Google</span></div>
+                            <div class="mantto-comparison-item"><i class="fas fa-times-circle"></i><span>Soporte técnico inexistente</span></div>
+                            <div class="mantto-comparison-item"><i class="fas fa-times-circle"></i><span>Pérdida de datos irreparable</span></div>
+                        </div>
+                        <div class="mantto-comparison-column">
+                            <div class="mantto-comparison-item"><i class="fas fa-check-circle"></i><span>Protección avanzada 24/7</span></div>
+                            <div class="mantto-comparison-item"><i class="fas fa-check-circle"></i><span>Actualizaciones automáticas</span></div>
+                            <div class="mantto-comparison-item"><i class="fas fa-check-circle"></i><span>Backups diarios automáticos</span></div>
+                            <div class="mantto-comparison-item"><i class="fas fa-check-circle"></i><span>Optimización constante</span></div>
+                            <div class="mantto-comparison-item"><i class="fas fa-check-circle"></i><span>SEO mejorado y monitoreado</span></div>
+                            <div class="mantto-comparison-item"><i class="fas fa-check-circle"></i><span>Soporte prioritario inmediato</span></div>
+                            <div class="mantto-comparison-item"><i class="fas fa-check-circle"></i><span>Recuperación garantizada</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Planes de Mantenimiento -->
+        <section class="mantto-services-section" id="servicios">
+            <div class="container">
+                <h2 class="mantto-section-title">Nuestros <span>Planes de Mantenimiento</span></h2>
+                <p class="mantto-section-subtitle">Soluciones adaptadas a las necesidades específicas de tu negocio y sitio web.</p>
+                <div class="mantto-services-grid">
+                    <div class="mantto-service-card">
+                        <div class="mantto-service-icon"><i class="fas fa-shield-alt"></i></div>
+                        <h3>Plan Básico</h3>
+                        <p>Para sitios web pequeños o blogs personales que necesitan protección esencial.</p>
+                        <ul class="mantto-service-features">
+                            <li>Actualizaciones mensuales</li>
+                            <li>Backups semanales</li>
+                            <li>Monitoreo básico</li>
+                            <li>Soporte por email</li>
+                            <li>Escaneo de seguridad</li>
+                            <li>Reporte mensual</li>
+                        </ul>
+                    </div>
+                    <div class="mantto-service-card">
+                        <div class="mantto-service-icon"><i class="fas fa-briefcase"></i></div>
+                        <h3>Plan Empresarial</h3>
+                        <p>Para negocios que dependen de su presencia web para generar ingresos.</p>
+                        <ul class="mantto-service-features">
+                            <li>Actualizaciones semanales</li>
+                            <li>Backups diarios</li>
+                            <li>Monitoreo 24/7</li>
+                            <li>Soporte prioritario</li>
+                            <li>Optimización SEO</li>
+                            <li>Reportes detallados</li>
+                            <li>Certificado SSL incluido</li>
+                        </ul>
+                    </div>
+                    <div class="mantto-service-card">
+                        <div class="mantto-service-icon"><i class="fas fa-rocket"></i></div>
+                        <h3>Plan E-commerce</h3>
+                        <p>Para tiendas online que manejan transacciones y datos sensibles de clientes.</p>
+                        <ul class="mantto-service-features">
+                            <li>Actualizaciones inmediatas</li>
+                            <li>Backups en tiempo real</li>
+                            <li>Protección PCI DSS</li>
+                            <li>Soporte 24/7 urgente</li>
+                            <li>Optimización conversión</li>
+                            <li>Auditoría mensual completa</li>
+                            <li>Firewall avanzado</li>
+                            <li>Recuperación garantizada</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Final -->
+        <section class="mantto-final-cta" id="contacto-mantto">
+            <div class="container">
+                <h2>¿Listo para Proteger tu Inversión Digital?</h2>
+                <p>No esperes a que ocurra un desastre. El mantenimiento web profesional es la póliza de seguro que tu negocio en línea necesita. Cotiza hoy mismo sin compromiso.</p>
+                <div class="mantto-cta-buttons">
+                    <a href="https://wa.me/523326225912?text=Hola%20OSDEMS%20Digital,%20quiero%20cotizar%20un%20plan%20de%20mantenimiento%20web%20para%20mi%20sitio" class="mantto-btn mantto-btn-primary" target="_blank"><i class="fab fa-whatsapp"></i> Cotizar Plan Ahora</a>
+                    <a href="https://wa.me/523311744584?text=Hola%20OSDEMS%20Digital,%20tengo%20preguntas%20sobre%20el%20mantenimiento%20web" class="mantto-btn mantto-btn-secondary" target="_blank"><i class="fas fa-question-circle"></i> Preguntas Frecuentes</a>
+                </div>
+                <div class="mantto-stat-box">
+                    <h3>¿Sabías que...?</h3>
+                    <div class="mantto-stats">
+                        <div class="mantto-stat"><div class="mantto-stat-value">94%</div><div class="mantto-stat-label">de hackeos web son por falta de mantenimiento</div></div>
+                        <div class="mantto-stat"><div class="mantto-stat-value">53%</div><div class="mantto-stat-label">de usuarios abandonan sitios lentos</div></div>
+                        <div class="mantto-stat"><div class="mantto-stat-value">75%</div><div class="mantto-stat-label">más conversiones con sitios optimizados</div></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer" id="contacto">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>OSDEMS Digital</h3>
+                    <p>
+                        Transformamos la supervivencia digital en crecimiento transformador. Somos tu socio estratégico en la revolución digital para empresas de todos los tamaños y sectores.
+                    </p>
+                    <div class="social-icons">
+                        <a href="https://facebook.com/osdemsdigital" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://instagram.com/osdemsdigital" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://youtube.com/osdemsdigital" target="_blank"><i class="fab fa-youtube"></i></a>
+                        <a href="https://linkedin.com/company/osdemsdigital" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://wa.me/523326225912" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Enlaces Rápidos</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-chevron-right"></i> <a href="index.html#inicio">Home</a></li>
+                        <li><i class="fas fa-chevron-right"></i> <a href="about.html">About Us</a></li>
+                        <li><i class="fas fa-chevron-right"></i> <a href="index.html#servicios">Services</a></li>
+                        <li><i class="fas fa-chevron-right"></i> <a href="index.html#industrias">Industries</a></li>
+                        <li><i class="fas fa-chevron-right"></i> <a href="premium.html">Premium</a></li>
+                        <li><i class="fas fa-chevron-right"></i> <a href="mantto-web.html">Mantto Web</a></li>
+                        <li><i class="fas fa-chevron-right"></i> <a href="experiencias.html">Agentivas + Conversión Web</a></li>
+                        <li><i class="fas fa-chevron-right"></i> <a href="product-branding.html">Product Branding</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contacto</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-globe"></i> <a href="https://osdemsdigital.com" target="_blank">osdemsdigital.com</a></li>
+                        <li><i class="fas fa-envelope"></i> <a href="mailto:hola@osdemsdigital.com">hola@osdemsdigital.com</a></li>
+                        <li><i class="fas fa-phone"></i> <a href="tel:+523326225912">+52 (33) 2622 5912</a></li>
+                        <li><i class="fas fa-phone"></i> <a href="tel:+523311744584">+52 (33) 1174 4584</a></li>
+                        <li><i class="fas fa-map-marker-alt"></i> <a href="https://www.google.com/maps/search/?api=1&query=Blvd.+Puerta+de+Hierro+5153+Fracc.+Plaza+Andares+Zapopan+Jalisco+45116" target="_blank">Blvd. Puerta de Hierro 5153 Fracc. Plaza Andares Zapopan, Jalisco 45116 Piso 2</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Horarios</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-clock"></i> Lunes a Viernes: 9:00 - 19:00</li>
+                        <li><i class="fas fa-clock"></i> Sábados: 10:00 - 14:00</li>
+                        <li><i class="fas fa-headset"></i> Soporte 24/7 para clientes</li>
+                        <li><i class="fas fa-calendar-check"></i> Citas previa cita</li>
+                    </ul>
+                    
+                    <div class="footer-cta">
+                        <h4>¡Transforma tu negocio hoy!</h4>
+                        <a href="https://wa.me/523326225912?text=Hola%20OSDEMS%20Digital,%20quiero%20una%20consultoría%20gratuita" class="btn" target="_blank">
+                            <i class="fab fa-whatsapp"></i> Consultoría Gratuita
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                &copy; 2026 OSDEMS Digital - Todos los derechos reservados. | "Primero se sobrevive, después se aumenta" - Transformación Digital Integral para Empresas
+                <br><br>
+                <small>Sitio web desarrollado con tecnología de punta por OSDEMS Digital - Experiencia optimizada para conversión</small>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Botones flotantes (accesos rápidos) -->
+    <div class="floating-buttons">
+        <a href="https://wa.me/523326225912?text=Hola%20OSDEMS%20Digital" class="floating-btn whatsapp" data-tooltip="WhatsApp: +52 (33) 2622 5912" target="_blank">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+        <a href="tel:+523326225912" class="floating-btn phone" data-tooltip="Teléfono: +52 (33) 2622 5912">
+            <i class="fas fa-phone"></i>
+        </a>
+        <a href="mailto:hola@osdemsdigital.com" class="floating-btn message" data-tooltip="Email: hola@osdemsdigital.com">
+            <i class="fas fa-envelope"></i>
+        </a>
+    </div>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
+

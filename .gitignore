@@ -1,0 +1,23 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# Archives and binaries (opcional: quitar si quieres versionar)
+*.rar
+*.zip
+*.pptx
+*.ppt
+
+# Original HTML (solo referencia; el sitio está en src/ y en raíz)
+# original-html/
+
+# Node (si en el futuro usas herramientas)
+node_modules/
+npm-debug.log*
+
+# Entorno / secrets
+.env
+.env.local

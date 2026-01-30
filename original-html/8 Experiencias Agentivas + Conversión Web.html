@@ -1,0 +1,1162 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexus Digital | Conversión + Experiencias Agentivas</title>
+    <meta name="description" content="Implementación integral de diseño web conversional optimizado para experiencias agentivas de IA. Ejemplo práctico con código completo.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Datos Estructurados para IA Agentiva -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Demo Experiencias Agentivas",
+        "description": "Ejemplo práctico de implementación web optimizada para IA agentiva y conversión",
+        "url": "https://demo-experiencias-agentivas.com",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Any",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "author": {
+            "@type": "Organization",
+            "name": "Nexus Digital"
+        }
+    }
+    </script>
+    
+    <style>
+        :root {
+            --primary: #4361ee;
+            --primary-dark: #3a56d4;
+            --secondary: #7209b7;
+            --accent: #f72585;
+            --dark: #1a1a2e;
+            --light: #f8f9fa;
+            --gray: #6c757d;
+            --success: #4cc9f0;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 20px 50px rgba(0, 0, 0, 0.12);
+            --radius: 12px;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fff;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            z-index: 1000;
+            padding: 1.2rem 0;
+            transition: var(--transition);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .logo i {
+            color: var(--accent);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: var(--transition);
+            padding: 0.5rem 0;
+            position: relative;
+        }
+        
+        nav a:hover {
+            color: var(--primary);
+        }
+        
+        nav a:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: var(--transition);
+        }
+        
+        nav a:hover:after {
+            width: 100%;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 0.9rem 2rem;
+            border-radius: var(--radius);
+            text-decoration: none;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 12rem 0 8rem;
+            background: linear-gradient(135deg, #f0f4ff 0%, #fdf2ff 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--gray);
+            margin-bottom: 2.5rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .hero-visual {
+            display: flex;
+            justify-content: center;
+            margin-top: 4rem;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .visual-card {
+            background: white;
+            padding: 2rem;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            width: 280px;
+            text-align: center;
+            transition: var(--transition);
+        }
+        
+        .visual-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .visual-card i {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        /* Sección IA Agentiva */
+        .agentiva-section {
+            padding: 6rem 0;
+            background-color: var(--light);
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .section-header h2 {
+            font-size: 2.8rem;
+            color: var(--dark);
+        }
+        
+        .section-header p {
+            font-size: 1.1rem;
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .grid-2cols {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        .ia-explanation {
+            background: white;
+            padding: 2.5rem;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+        }
+        
+        .ia-explanation h3 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .feature-list {
+            list-style: none;
+        }
+        
+        .feature-list li {
+            padding: 1rem 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+        
+        .feature-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .feature-list i {
+            color: var(--success);
+            font-size: 1.2rem;
+            margin-top: 3px;
+        }
+        
+        /* Sección Conversión */
+        .conversion-section {
+            padding: 6rem 0;
+        }
+        
+        .checklist {
+            list-style: none;
+            margin-bottom: 3rem;
+        }
+        
+        .checklist li {
+            padding: 1rem 0;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .checklist i {
+            color: var(--accent);
+            background: rgba(247, 37, 133, 0.1);
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        /* Demostración Interactiva */
+        .demo-section {
+            padding: 6rem 0;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: white;
+        }
+        
+        .demo-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        .code-preview {
+            background: #0f3460;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .code-header {
+            background: #0d2b4e;
+            padding: 1rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .code-title {
+            font-weight: 600;
+            color: #fff;
+        }
+        
+        .code-actions {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .code-action {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+        
+        .action-red { background: #ff5f56; }
+        .action-yellow { background: #ffbd2e; }
+        .action-green { background: #27c93f; }
+        
+        .code-content {
+            padding: 1.5rem;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+        
+        .code-line {
+            margin-bottom: 0.5rem;
+            color: #e0e0e0;
+        }
+        
+        .code-tag { color: #ff79c6; }
+        .code-attr { color: #50fa7b; }
+        .code-value { color: #f1fa8c; }
+        .code-comment { color: #6272a4; }
+        
+        /* Formulario Optimizado */
+        .form-section {
+            padding: 6rem 0;
+            background-color: var(--light);
+        }
+        
+        .form-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 3rem;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--dark);
+        }
+        
+        .form-input, .form-textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+        
+        .form-input:focus, .form-textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.2);
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 4rem 0 2rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            color: white;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-links a {
+            color: #b0b7c3;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .footer-links a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #2d3748;
+            color: #b0b7c3;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .grid-2cols, .demo-container {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2.3rem;
+            }
+            
+            .section-header h2 {
+                font-size: 2.2rem;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .visual-card {
+                width: 100%;
+                max-width: 350px;
+            }
+        }
+        
+        /* Animaciones */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .fade-in {
+            animation: fadeInUp 0.8s ease forwards;
+        }
+        
+        .delay-1 { animation-delay: 0.2s; opacity: 0; }
+        .delay-2 { animation-delay: 0.4s; opacity: 0; }
+        .delay-3 { animation-delay: 0.6s; opacity: 0; }
+        
+        /* Indicador de Scroll */
+        .scroll-indicator {
+            position: fixed;
+            top: 50%;
+            right: 30px;
+            transform: translateY(-50%);
+            z-index: 100;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .scroll-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(67, 97, 238, 0.3);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .scroll-dot.active {
+            background: var(--primary);
+            transform: scale(1.3);
+        }
+    </style>
+</head>
+<body>
+    <!-- Indicador de Navegación -->
+    <div class="scroll-indicator">
+        <div class="scroll-dot active" data-section="hero"></div>
+        <div class="scroll-dot" data-section="agentiva"></div>
+        <div class="scroll-dot" data-section="conversion"></div>
+        <div class="scroll-dot" data-section="demo"></div>
+        <div class="scroll-dot" data-section="form"></div>
+    </div>
+    
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="#" class="logo">
+                <i class="fas fa-code"></i>
+                <span>Nexus Digital</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#agentiva">IA Agentiva</a></li>
+                    <li><a href="#conversion">Conversión</a></li>
+                    <li><a href="#demo">Demostración</a></li>
+                    <li><a href="#form" class="cta-button">Probar Demo</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- Sección Hero -->
+    <section class="hero" id="hero">
+        <div class="container hero-content fade-in">
+            <h1>Experiencias Agentivas + Conversión Web</h1>
+            <p>Una implementación completa que fusiona diseño conversional óptimo con preparación para la próxima generación de interacciones digitales impulsadas por IA autónoma.</p>
+            <a href="#form" class="cta-button">Explorar Implementación <i class="fas fa-arrow-right"></i></a>
+            
+            <div class="hero-visual">
+                <div class="visual-card fade-in delay-1">
+                    <i class="fas fa-robot"></i>
+                    <h3>IA Agentiva</h3>
+                    <p>Sistemas autónomos que actúan por objetivos</p>
+                </div>
+                <div class="visual-card fade-in delay-2">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>Alta Conversión</h3>
+                    <p>Diseño centrado en resultados medibles</p>
+                </div>
+                <div class="visual-card fade-in delay-3">
+                    <i class="fas fa-bolt"></i>
+                    <h3>Rendimiento</h3>
+                    <p>Optimización técnica para velocidad y SEO</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Sección IA Agentiva -->
+    <section class="agentiva-section" id="agentiva">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>¿Qué es una Experiencia Agentiva?</h2>
+                <p>La IA Agentiva representa un salto evolutivo: sistemas que no solo responden consultas, sino que ejecutan tareas complejas de forma autónoma para alcanzar objetivos específicos.</p>
+            </div>
+            
+            <div class="grid-2cols">
+                <div class="ia-explanation fade-in">
+                    <h3><i class="fas fa-brain"></i> IA Tradicional vs Agentiva</h3>
+                    <p>Mientras los chatbots convencionales reaccionan a comandos, los <strong>agentes de IA</strong> toman iniciativa, planean secuencias de acción y persiguen resultados específicos con mínima supervisión humana.</p>
+                    <p>Ejemplo: Un agente no solo recomienda un producto, sino que analiza tu historial, compara alternativas, gestiona el pago y programa la entrega.</p>
+                    
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check-circle"></i> <strong>Autonomía</strong>: Ejecuta tareas complejas sin intervención constante</li>
+                        <li><i class="fas fa-check-circle"></i> <strong>Proactividad</strong>: Anticipa necesidades basándose en contexto</li>
+                        <li><i class="fas fa-check-circle"></i> <strong>Persistencia</strong>: Mantiene objetivos a largo plazo entre sesiones</li>
+                        <li><i class="fas fa-check-circle"></i> <strong>Adaptabilidad</strong>: Ajusta estrategias según resultados intermedios</li>
+                    </ul>
+                </div>
+                
+                <div class="ia-explanation fade-in delay-1">
+                    <h3><i class="fas fa-sitemap"></i> Preparando tu Web para Agentes</h3>
+                    <p>Para que los agentes de IA interactúen efectivamente con tu sitio, necesitan encontrar información <strong>estructurada, precisa y accionable</strong>.</p>
+                    
+                    <h4 style="margin-top: 1.5rem;">Estrategias clave de implementación:</h4>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-code"></i> <strong>Datos Estructurados (Schema.org)</strong>: Etiquetado semántico que las IA comprenden</li>
+                        <li><i class="fas fa-project-diagram"></i> <strong>APIs Accesibles</strong>: Endpoints para interacción programática</li>
+                        <li><i class="fas fa-file-alt"></i> <strong>Contenido RAG-Optimizado</strong>: Información en bloques claros para recuperación</li>
+                        <li><i class="fas fa-cogs"></i> <strong>Contexto Operacional</strong>: Instrucciones claras sobre alcance y capacidades</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Sección Conversión -->
+    <section class="conversion-section" id="conversion">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Elementos Clave para Conversión</h2>
+                <p>Combinando principios de UX probados con preparación para agentes de IA, maximizamos resultados tanto para visitantes humanos como digitales.</p>
+            </div>
+            
+            <div class="grid-2cols">
+                <div class="ia-explanation fade-in">
+                    <h3><i class="fas fa-user-check"></i> Para Visitantes Humanos</h3>
+                    
+                    <ul class="checklist">
+                        <li><i class="fas fa-check"></i> <strong>Velocidad de carga &lt;3s</strong>: Factor crítico para retención y SEO</li>
+                        <li><i class="fas fa-check"></i> <strong>Diseño mobile-first</strong>: 60%+ del tráfico viene de dispositivos móviles</li>
+                        <li><i class="fas fa-check"></i> <strong>Jerarquía visual clara</strong>: Guía la atención hacia llamadas a la acción</li>
+                        <li><i class="fas fa-check"></i> <strong>Contenido escaneable</strong>: Párrafos cortos, bullet points, encabezados claros</li>
+                        <li><i class="fas fa-check"></i> <strong>Confianza inmediata</strong>: Testimonios, certificaciones, garantías visibles</li>
+                        <li><i class="fas fa-check"></i> <strong>Formularios optimizados</strong>: Campos mínimos, validación en tiempo real</li>
+                        <li><i class="fas fa-check"></i> <strong>Prueba social estratégica</strong>: Logos de clientes, casos de estudio, reseñas</li>
+                    </ul>
+                </div>
+                
+                <div class="ia-explanation fade-in delay-1">
+                    <h3><i class="fas fa-robot"></i> Para Agentes de IA</h3>
+                    
+                    <ul class="checklist">
+                        <li><i class="fas fa-check"></i> <strong>HTML Semántico</strong>: Etiquetas correctas (&lt;header&gt;, &lt;article&gt;, &lt;section&gt;)</li>
+                        <li><i class="fas fa-check"></i> <strong>JSON-LD implementado</strong>: Datos estructurados para productos, FAQ, organización</li>
+                        <li><i class="fas fa-check"></i> <strong>Metadatos completos</strong>: Title, description, Open Graph optimizados</li>
+                        <li><i class="fas fa-check"></i> <strong>Contenido "listo para RAG"</strong>: Bloques temáticos con información autocontenida</li>
+                        <li><i class="fas fa-check"></i> <strong>APIs documentadas</strong>: Endpoints para consultas programáticas</li>
+                        <li><i class="fas fa-check"></i> <strong>Contexto operacional</strong>: Instrucciones sobre qué puede hacer un agente en el sitio</li>
+                        <li><i class="fas fa-check"></i> <strong>Actualización frecuente</strong>: Contenido fresco con marcas de tiempo claras</li>
+                    </ul>
+                    
+                    <div style="background: #f0f7ff; padding: 1.5rem; border-radius: 8px; margin-top: 1.5rem;">
+                        <h4 style="color: var(--primary); margin-bottom: 0.5rem;"><i class="fas fa-lightbulb"></i> Beneficio Dual</h4>
+                        <p style="font-size: 0.95rem; margin: 0;">Lo que optimiza para agentes de IA (estructura clara, datos precisos) también mejora la experiencia humana y el SEO tradicional.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Demostración Interactiva -->
+    <section class="demo-section" id="demo">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2 style="color: white;">Demostración de Implementación</h2>
+                <p style="color: #b0b7c3;">Código real que muestra cómo integrar datos estructurados y elementos conversionales</p>
+            </div>
+            
+            <div class="demo-container">
+                <div class="code-preview fade-in">
+                    <div class="code-header">
+                        <div class="code-title">index.html - Implementación Agentiva</div>
+                        <div class="code-actions">
+                            <div class="code-action action-red"></div>
+                            <div class="code-action action-yellow"></div>
+                            <div class="code-action action-green"></div>
+                        </div>
+                    </div>
+                    <div class="code-content">
+                        <div class="code-line"><span class="code-tag">&lt;!-- Datos Estructurados para Agentes IA --&gt;</span></div>
+                        <div class="code-line"><span class="code-tag">&lt;script</span> <span class="code-attr">type</span>=<span class="code-value">"application/ld+json"</span><span class="code-tag">&gt;</span></div>
+                        <div class="code-line">{</div>
+                        <div class="code-line">  <span class="code-attr">"@context"</span>: <span class="code-value">"https://schema.org"</span>,</div>
+                        <div class="code-line">  <span class="code-attr">"@type"</span>: <span class="code-value">"Product"</span>,</div>
+                        <div class="code-line">  <span class="code-attr">"name"</span>: <span class="code-value">"Solución Digital Premium"</span>,</div>
+                        <div class="code-line">  <span class="code-attr">"description"</span>: <span class="code-value">"Implementación completa de web conversional..."</span>,</div>
+                        <div class="code-line">  <span class="code-attr">"brand"</span>: {</div>
+                        <div class="code-line">    <span class="code-attr">"@type"</span>: <span class="code-value">"Brand"</span>,</div>
+                        <div class="code-line">    <span class="code-attr">"name"</span>: <span class="code-value">"Nexus Digital"</span></div>
+                        <div class="code-line">  },</div>
+                        <div class="code-line">  <span class="code-attr">"offers"</span>: {</div>
+                        <div class="code-line">    <span class="code-attr">"@type"</span>: <span class="code-value">"Offer"</span>,</div>
+                        <div class="code-line">    <span class="code-attr">"price"</span>: <span class="code-value">"297"</span>,</div>
+                        <div class="code-line">    <span class="code-attr">"priceCurrency"</span>: <span class="code-value">"USD"</span></div>
+                        <div class="code-line">  }</div>
+                        <div class="code-line">}</div>
+                        <div class="code-line"><span class="code-tag">&lt;/script&gt;</span></div>
+                        <div class="code-line">&nbsp;</div>
+                        <div class="code-line"><span class="code-comment">&lt;!-- Sección conversional con semántica clara --&gt;</span></div>
+                        <div class="code-line"><span class="code-tag">&lt;section</span> <span class="code-attr">class</span>=<span class="code-value">"conversion-section"</span> <span class="code-attr">itemscope</span> <span class="code-attr">itemtype</span>=<span class="code-value">"https://schema.org/WebPage"</span><span class="code-tag">&gt;</span></div>
+                        <div class="code-line">  <span class="code-tag">&lt;div</span> <span class="code-attr">class</span>=<span class="code-value">"container"</span><span class="code-tag">&gt;</span></div>
+                        <div class="code-line">    <span class="code-tag">&lt;h1</span> <span class="code-attr">itemprop</span>=<span class="code-value">"headline"</span><span class="code-tag">&gt;</span>Transforma tu presencia digital<span class="code-tag">&lt;/h1&gt;</span></div>
+                        <div class="code-line">    <span class="code-tag">&lt;p</span> <span class="code-attr">itemprop</span>=<span class="code-value">"description"</span><span class="code-tag">&gt;</span>Solución integral...<span class="code-tag">&lt;/p&gt;</span></div>
+                        <div class="code-line">    <span class="code-tag">&lt;a</span> <span class="code-attr">href</span>=<span class="code-value">"#form"</span> <span class="code-attr">class</span>=<span class="code-value">"cta-button"</span> <span class="code-attr">itemprop</span>=<span class="code-value">"significantLink"</span><span class="code-tag">&gt;</span></div>
+                        <div class="code-line">      Solicitar demostración <span class="code-tag">&lt;i</span> <span class="code-attr">class</span>=<span class="code-value">"fas fa-arrow-right"</span><span class="code-tag">&gt;&lt;/i&gt;</span></div>
+                        <div class="code-line">    <span class="code-tag">&lt;/a&gt;</span></div>
+                        <div class="code-line">  <span class="code-tag">&lt;/div&gt;</span></div>
+                        <div class="code-line"><span class="code-tag">&lt;/section&gt;</span></div>
+                    </div>
+                </div>
+                
+                <div class="ia-explanation fade-in delay-1" style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1);">
+                    <h3 style="color: white;"><i class="fas fa-magic"></i> Explicación de la Implementación</h3>
+                    <p style="color: #b0b7c3;">Este código muestra dos elementos fundamentales:</p>
+                    
+                    <ol style="color: #b0b7c3; padding-left: 1.5rem; margin-top: 1rem;">
+                        <li style="margin-bottom: 1rem;"><strong>Datos Estructurados (JSON-LD)</strong>: Proporciona contexto semántico que los agentes de IA pueden entender y utilizar para realizar acciones específicas.</li>
+                        <li style="margin-bottom: 1rem;"><strong>HTML Semántico</strong>: El uso de etiquetas como &lt;section&gt; y atributos como <em>itemprop</em> crea una estructura que tanto navegadores como agentes de IA pueden analizar eficientemente.</li>
+                        <li><strong>Atributos para Agentes</strong>: Elementos como <em>itemtype</em> y <em>itemprop</em> definen claramente el tipo de contenido y sus propiedades.</li>
+                    </ol>
+                    
+                    <div style="background: rgba(67, 97, 238, 0.2); padding: 1.5rem; border-radius: 8px; margin-top: 1.5rem; border-left: 4px solid var(--primary);">
+                        <h4 style="color: white; margin-bottom: 0.5rem;"><i class="fas fa-rocket"></i> Impacto en la Experiencia Agentiva</h4>
+                        <p style="color: #b0b7c3; margin: 0; font-size: 0.95rem;">Un agente de IA puede extraer el precio, descripción y disponibilidad directamente del código estructurado, luego tomar decisiones autónomas como comparar con alternativas o iniciar un proceso de compra.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Formulario Optimizado -->
+    <section class="form-section" id="form">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Prueba la Experiencia Agentiva</h2>
+                <p>Este formulario está optimizado tanto para usuarios humanos como para procesamiento por agentes de IA, con validación en tiempo real y estructura semántica.</p>
+            </div>
+            
+            <div class="form-container fade-in">
+                <form id="demoForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name" class="form-label">Nombre completo *</label>
+                            <input type="text" id="name" class="form-input" required placeholder="Ej: Ana Rodríguez">
+                            <div class="form-feedback" id="name-feedback"></div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email" class="form-label">Email profesional *</label>
+                            <input type="email" id="email" class="form-input" required placeholder="ejemplo@empresa.com">
+                            <div class="form-feedback" id="email-feedback"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="company" class="form-label">Empresa / Proyecto</label>
+                            <input type="text" id="company" class="form-input" placeholder="Nombre de tu organización">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="role" class="form-label">Rol / Posición</label>
+                            <select id="role" class="form-input">
+                                <option value="">Selecciona tu rol</option>
+                                <option value="marketing">Marketing/Digital</option>
+                                <option value="developer">Desarrollo/Tecnología</option>
+                                <option value="designer">Diseño/UX</option>
+                                <option value="entrepreneur">Emprendedor/Founder</option>
+                                <option value="other">Otro</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="interest" class="form-label">¿Qué te interesa más? *</label>
+                        <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1rem; margin-top: 0.5rem;">
+                            <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
+                                <input type="checkbox" name="interest" value="agentiva"> IA Agentiva
+                            </label>
+                            <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
+                                <input type="checkbox" name="interest" value="conversion"> Optimización Conversión
+                            </label>
+                            <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
+                                <input type="checkbox" name="interest" value="webdev"> Desarrollo Web
+                            </label>
+                            <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
+                                <input type="checkbox" name="interest" value="strategy"> Estrategia Digital
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message" class="form-label">Mensaje / Pregunta específica *</label>
+                        <textarea id="message" class="form-textarea" rows="4" required placeholder="Describe tu proyecto o pregunta sobre implementación agentiva..."></textarea>
+                        <div class="form-feedback" id="message-feedback"></div>
+                    </div>
+                    
+                    <div class="form-group" style="display: flex; align-items: center; gap: 10px; margin-top: 1.5rem;">
+                        <input type="checkbox" id="consent" required>
+                        <label for="consent" style="margin: 0; font-size: 0.9rem;">Acepto recibir información sobre experiencias agentivas y optimización web. Este formulario está optimizado para procesamiento por agentes de IA.</label>
+                    </div>
+                    
+                    <button type="submit" class="cta-button" style="width: 100%; margin-top: 2rem; padding: 1.2rem;">
+                        <i class="fas fa-paper-plane"></i> Enviar solicitud agentiva
+                    </button>
+                    
+                    <p style="text-align: center; margin-top: 1.5rem; font-size: 0.85rem; color: var(--gray);">
+                        <i class="fas fa-info-circle"></i> Este formulario incluye estructura semántica para agentes de IA y validación optimizada para usuarios.
+                    </p>
+                </form>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Nexus Digital</h3>
+                    <p style="color: #b0b7c3; margin-bottom: 1.5rem;">Especialistas en implementación de experiencias digitales avanzadas combinando conversión y preparación para IA agentiva.</p>
+                    <div style="display: flex; gap: 1rem;">
+                        <a href="#" style="color: white; font-size: 1.2rem;"><i class="fab fa-twitter"></i></a>
+                        <a href="#" style="color: white; font-size: 1.2rem;"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" style="color: white; font-size: 1.2rem;"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Recursos Agentivos</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Documentación técnica IA Agentiva</a></li>
+                        <li><a href="#">Guía de datos estructurados</a></li>
+                        <li><a href="#">Patrones de conversión probados</a></li>
+                        <li><a href="#">Herramientas de validación</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Implementación</h3>
+                    <ul class="footer-links">
+                        <li><a href="#agentiva">Fundamentos Agentivos</a></li>
+                        <li><a href="#conversion">Elementos de Conversión</a></li>
+                        <li><a href="#demo">Código de Ejemplo</a></li>
+                        <li><a href="#form">Formulario Optimizado</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2026 Nexus Digital. Implementación de ejemplo para experiencias agentivas y conversión web. Código integrado en un solo archivo HTML/CSS/JS.</p>
+                <p style="margin-top: 0.5rem; font-size: 0.8rem;">Este sitio está optimizado tanto para usuarios humanos como para procesamiento por agentes de IA.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Navegación por puntos de scroll
+        document.querySelectorAll('.scroll-dot').forEach(dot => {
+            dot.addEventListener('click', function() {
+                const sectionId = this.getAttribute('data-section');
+                const targetSection = document.getElementById(sectionId);
+                
+                if (targetSection) {
+                    window.scrollTo({
+                        top: targetSection.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Actualizar puntos de scroll activos
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section[id]');
+            const scrollPosition = window.scrollY + 100;
+            
+            document.querySelectorAll('.scroll-dot').forEach(dot => {
+                dot.classList.remove('active');
+            });
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.offsetHeight;
+                const sectionId = section.getAttribute('id');
+                
+                if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                    const correspondingDot = document.querySelector(`.scroll-dot[data-section="${sectionId}"]`);
+                    if (correspondingDot) {
+                        correspondingDot.classList.add('active');
+                    }
+                }
+            });
+        });
+        
+        // Validación de formulario en tiempo real
+        const form = document.getElementById('demoForm');
+        const nameInput = document.getElementById('name');
+        const emailInput = document.getElementById('email');
+        const messageInput = document.getElementById('message');
+        
+        nameInput.addEventListener('input', function() {
+            const feedback = document.getElementById('name-feedback');
+            if (this.value.length < 2) {
+                this.style.borderColor = '#ff4757';
+                feedback.textContent = 'El nombre debe tener al menos 2 caracteres';
+                feedback.style.color = '#ff4757';
+            } else {
+                this.style.borderColor = '#2ed573';
+                feedback.textContent = '✓ Válido';
+                feedback.style.color = '#2ed573';
+            }
+        });
+        
+        emailInput.addEventListener('input', function() {
+            const feedback = document.getElementById('email-feedback');
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            
+            if (!emailRegex.test(this.value)) {
+                this.style.borderColor = '#ff4757';
+                feedback.textContent = 'Por favor, introduce un email válido';
+                feedback.style.color = '#ff4757';
+            } else {
+                this.style.borderColor = '#2ed573';
+                feedback.textContent = '✓ Formato válido';
+                feedback.style.color = '#2ed573';
+            }
+        });
+        
+        messageInput.addEventListener('input', function() {
+            const feedback = document.getElementById('message-feedback');
+            if (this.value.length < 10) {
+                this.style.borderColor = '#ffa502';
+                feedback.textContent = 'El mensaje es demasiado corto';
+                feedback.style.color = '#ffa502';
+            } else if (this.value.length > 500) {
+                this.style.borderColor = '#ff4757';
+                feedback.textContent = 'El mensaje es demasiado largo';
+                feedback.style.color = '#ff4757';
+            } else {
+                this.style.borderColor = '#2ed573';
+                feedback.textContent = `✓ ${500 - this.value.length} caracteres restantes`;
+                feedback.style.color = '#2ed573';
+            }
+        });
+        
+        // Envío del formulario
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Validación final
+            let isValid = true;
+            
+            if (nameInput.value.length < 2) {
+                nameInput.style.borderColor = '#ff4757';
+                isValid = false;
+            }
+            
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(emailInput.value)) {
+                emailInput.style.borderColor = '#ff4757';
+                isValid = false;
+            }
+            
+            if (messageInput.value.length < 10) {
+                messageInput.style.borderColor = '#ff4757';
+                isValid = false;
+            }
+            
+            const consent = document.getElementById('consent');
+            if (!consent.checked) {
+                consent.style.outline = '2px solid #ff4757';
+                isValid = false;
+            }
+            
+            if (isValid) {
+                // Simular envío a servidor
+                const submitBtn = form.querySelector('button[type="submit"]');
+                const originalText = submitBtn.innerHTML;
+                
+                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Procesando...';
+                submitBtn.disabled = true;
+                
+                // Simulación de envío
+                setTimeout(() => {
+                    submitBtn.innerHTML = '<i class="fas fa-check"></i> ¡Solicitud enviada!';
+                    submitBtn.style.backgroundColor = '#2ed573';
+                    
+                    // Mostrar mensaje de éxito
+                    const successMessage = document.createElement('div');
+                    successMessage.innerHTML = `
+                        <div style="background: rgba(46, 213, 115, 0.1); border: 1px solid #2ed573; border-radius: 8px; padding: 1.5rem; margin-top: 1.5rem;">
+                            <h4 style="color: #2ed573; margin-bottom: 0.5rem;"><i class="fas fa-robot"></i> Solicitud procesada para agente IA</h4>
+                            <p style="margin: 0; color: #333;">Tu formulario ha sido enviado y está estructurado para procesamiento por sistemas de IA agentiva. Te contactaremos pronto.</p>
+                        </div>
+                    `;
+                    
+                    form.appendChild(successMessage);
+                    
+                    // Reiniciar después de 5 segundos
+                    setTimeout(() => {
+                        submitBtn.innerHTML = originalText;
+                        submitBtn.disabled = false;
+                        submitBtn.style.backgroundColor = '';
+                        successMessage.remove();
+                        form.reset();
+                        
+                        // Resetear estilos de validación
+                        document.querySelectorAll('.form-input, .form-textarea').forEach(input => {
+                            input.style.borderColor = '#ddd';
+                        });
+                        
+                        document.querySelectorAll('.form-feedback').forEach(fb => {
+                            fb.textContent = '';
+                        });
+                    }, 5000);
+                }, 2000);
+            } else {
+                // Efecto de "shake" en el formulario
+                form.style.animation = 'shake 0.5s';
+                setTimeout(() => {
+                    form.style.animation = '';
+                }, 500);
+                
+                // Scroll al primer error
+                const firstError = form.querySelector('[style*="border-color: #ff4757"]');
+                if (firstError) {
+                    firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    firstError.focus();
+                }
+            }
+        });
+        
+        // Animación para elementos al hacer scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+        // Aplicar animaciones a elementos con clase fade-in
+        document.querySelectorAll('.fade-in').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+        
+        // Efecto de shake para CSS
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes shake {
+                0%, 100% { transform: translateX(0); }
+                10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+                20%, 40%, 60%, 80% { transform: translateX(5px); }
+            }
+        `;
+        document.head.appendChild(style);
+        
+        // Inicializar tooltips (simulados)
+        document.querySelectorAll('[data-tooltip]').forEach(el => {
+            el.addEventListener('mouseenter', function() {
+                const tooltipText = this.getAttribute('data-tooltip');
+                const tooltip = document.createElement('div');
+                tooltip.className = 'tooltip';
+                tooltip.textContent = tooltipText;
+                tooltip.style.position = 'absolute';
+                tooltip.style.background = 'var(--dark)';
+                tooltip.style.color = 'white';
+                tooltip.style.padding = '8px 12px';
+                tooltip.style.borderRadius = '4px';
+                tooltip.style.fontSize = '0.8rem';
+                tooltip.style.zIndex = '10000';
+                tooltip.style.whiteSpace = 'nowrap';
+                
+                document.body.appendChild(tooltip);
+                
+                const rect = this.getBoundingClientRect();
+                tooltip.style.top = (rect.top - tooltip.offsetHeight - 10) + 'px';
+                tooltip.style.left = (rect.left + rect.width/2 - tooltip.offsetWidth/2) + 'px';
+                
+                this._tooltip = tooltip;
+            });
+            
+            el.addEventListener('mouseleave', function() {
+                if (this._tooltip) {
+                    this._tooltip.remove();
+                }
+            });
+        });
+        
+        console.log('Página de experiencias agentivas cargada. Estructura optimizada para IA y conversión.');
+    </script>
+</body>
+</html>

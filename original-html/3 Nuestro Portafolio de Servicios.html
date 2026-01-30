@@ -1,0 +1,1602 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OSDEMS Digital - Transformación Digital Integral</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* RESET Y VARIABLES GLOBALES */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+        }
+
+        :root {
+            --primary-color: #6C63FF;
+            --secondary-color: #FF6584;
+            --accent-color: #36D1DC;
+            --dark-color: #1A1A2E;
+            --dark-light: #2D2D44;
+            --light-color: #F8F9FA;
+            --gray-color: #6C757D;
+            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--dark-color);
+            color: var(--light-color);
+            overflow-x: hidden;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        /* EFECTOS DE FONDO GLOBALES */
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            top: 0;
+            left: 0;
+        }
+
+        .dynamic-gradient {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(-45deg, 
+                rgba(108, 99, 255, 0.1) 0%, 
+                rgba(26, 26, 46, 0.9) 25%, 
+                rgba(54, 209, 220, 0.1) 50%, 
+                rgba(255, 101, 132, 0.1) 75%, 
+                rgba(108, 99, 255, 0.1) 100%);
+            background-size: 400% 400%;
+            z-index: -1;
+            animation: gradientShift 20s ease infinite;
+            opacity: 0.7;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* CURSOR PERSONALIZADO */
+        .cursor {
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--primary-color);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            transform: translate(-50%, -50%);
+            transition: transform 0.2s ease, width 0.3s ease, height 0.3s ease, background 0.3s ease;
+            mix-blend-mode: difference;
+        }
+
+        .cursor.hover {
+            width: 50px;
+            height: 50px;
+            background-color: rgba(108, 99, 255, 0.2);
+            border-color: var(--accent-color);
+        }
+
+        /* HEADER CON MEGA MENÚ */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            background-color: rgba(26, 26, 46, 0.95);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(108, 99, 255, 0.2);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--light-color);
+            text-decoration: none;
+            transition: var(--transition);
+            z-index: 1002;
+        }
+
+        .logo:hover {
+            color: var(--primary-color);
+            transform: translateY(-2px);
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        /* NAVEGACIÓN PRINCIPAL */
+        .nav-container {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--light-color);
+            text-decoration: none;
+            font-weight: 500;
+            position: relative;
+            padding: 0.5rem 0;
+            transition: var(--transition);
+            white-space: nowrap;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* BOTÓN DE SERVICIOS CON DROPDOWN */
+        .services-dropdown {
+            position: relative;
+        }
+
+        .services-btn {
+            background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: var(--transition);
+            box-shadow: 0 5px 15px rgba(108, 99, 255, 0.3);
+        }
+
+        .services-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(108, 99, 255, 0.4);
+            background: linear-gradient(45deg, var(--secondary-color), var(--primary-color));
+        }
+
+        .services-btn i {
+            transition: transform 0.3s ease;
+        }
+
+        .services-btn.active i {
+            transform: rotate(180deg);
+        }
+
+        /* MEGA MENÚ DE SERVICIOS */
+        .mega-menu {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%) translateY(10px);
+            width: 90vw;
+            max-width: 1200px;
+            background: rgba(26, 26, 46, 0.98);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 2.5rem;
+            border: 1px solid rgba(108, 99, 255, 0.2);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            z-index: 1001;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            overflow-y: auto;
+            max-height: 70vh;
+        }
+
+        .mega-menu.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .mega-menu-category {
+            margin-bottom: 1.5rem;
+        }
+
+        .mega-menu-category h3 {
+            font-size: 1.2rem;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid rgba(108, 99, 255, 0.3);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .mega-menu-category ul {
+            list-style: none;
+        }
+
+        .mega-menu-category li {
+            margin-bottom: 0.75rem;
+            transition: var(--transition);
+        }
+
+        .mega-menu-category a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.5rem;
+            border-radius: 8px;
+            transition: var(--transition);
+        }
+
+        .mega-menu-category a:hover {
+            color: var(--primary-color);
+            background-color: rgba(108, 99, 255, 0.1);
+            transform: translateX(5px);
+        }
+
+        /* BOTÓN MÓVIL */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--light-color);
+            font-size: 1.5rem;
+            cursor: pointer;
+            z-index: 1002;
+        }
+
+        /* OVERLAY PARA CERRAR MENÚ */
+        .menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(5px);
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+        }
+
+        .menu-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* SECCIÓN HERO */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 0 5%;
+            position: relative;
+            margin-top: 80px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeUp 1s ease forwards 0.5s;
+        }
+
+        @keyframes fadeUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+            background: linear-gradient(to right, var(--primary-color), var(--accent-color));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: rgba(255, 255, 255, 0.8);
+            max-width: 600px;
+            line-height: 1.6;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: 0 10px 20px rgba(108, 99, 255, 0.3);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background: linear-gradient(45deg, var(--secondary-color), var(--primary-color));
+            transition: width 0.5s ease;
+            z-index: -1;
+        }
+
+        .cta-button:hover::before {
+            width: 100%;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(108, 99, 255, 0.5);
+        }
+
+        /* SECCIÓN DE PORTAFOLIO */
+        .portfolio {
+            padding: 5rem 5%;
+            position: relative;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+            font-size: 2.5rem;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeUp 1s ease forwards 0.7s;
+        }
+
+        .section-title span {
+            color: var(--accent-color);
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .portfolio-card {
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 2.5rem;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: var(--transition);
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeUp 1s ease forwards;
+            animation-delay: calc(var(--delay) * 0.1s);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .portfolio-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, var(--primary-color), var(--accent-color));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.5s ease;
+        }
+
+        .portfolio-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .portfolio-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            border-color: rgba(108, 99, 255, 0.3);
+        }
+
+        .card-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            transition: var(--transition);
+        }
+
+        .portfolio-card:hover .card-icon {
+            transform: rotate(10deg) scale(1.1);
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--light-color);
+        }
+
+        .card-description {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .benefits-list {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+
+        .benefits-list li {
+            padding: 0.5rem 0;
+            color: rgba(255, 255, 255, 0.8);
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .benefits-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        .impact-tag {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background-color: rgba(54, 209, 220, 0.2);
+            border-left: 4px solid var(--accent-color);
+            border-radius: 4px;
+            color: var(--accent-color);
+            font-weight: 600;
+            margin-top: 1rem;
+        }
+
+        /* SECCIÓN CARRUSEL 3D DE INDUSTRIAS */
+        .industries-section {
+            padding: 5rem 5%;
+            text-align: center;
+            position: relative;
+            background: linear-gradient(135deg, #0a0a1a 0%, #1a1a2e 100%);
+            overflow: hidden;
+        }
+
+        .carousel-3d-container {
+            position: relative;
+            width: 100%;
+            height: 600px;
+            perspective: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* GLOBO TERRAQUEO CENTRAL */
+        .earth-sphere {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: url('https://images.unsplash.com/photo-1614730321146-b6fa6a46bcb4?w=400&h=400&fit=crop') center/cover;
+            box-shadow: 
+                0 0 60px rgba(54, 209, 220, 0.6),
+                inset 0 0 40px rgba(0, 0, 0, 0.8),
+                inset 0 0 20px rgba(54, 209, 220, 0.3);
+            z-index: 5;
+            animation: earthRotate 40s linear infinite;
+        }
+
+        @keyframes earthRotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        /* ANILLO ORBITAL */
+        .orbit-ring {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            border: 1px solid rgba(54, 209, 220, 0.1);
+            animation: orbitRotate 60s linear infinite;
+        }
+
+        @keyframes orbitRotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        /* ELEMENTOS DEL CARRUSEL */
+        .industry-item {
+            position: absolute;
+            width: 180px;
+            height: 220px;
+            transform-style: preserve-3d;
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            opacity: 0;
+            animation: fadeIn 0.8s forwards;
+            animation-delay: calc(var(--item-index) * 0.1s);
+        }
+
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+
+        .industry-card {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 
+                0 15px 35px rgba(0, 0, 0, 0.5),
+                0 5px 15px rgba(108, 99, 255, 0.3);
+            transform: translateZ(0);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .industry-image {
+            width: 100%;
+            height: 60%;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            filter: brightness(0.9) contrast(1.1);
+            transition: all 0.4s ease;
+        }
+
+        .industry-info {
+            padding: 15px;
+            height: 40%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background: linear-gradient(to bottom, 
+                rgba(26, 26, 46, 0.8) 0%, 
+                rgba(26, 26, 46, 0.95) 100%);
+        }
+
+        .industry-name {
+            color: white;
+            font-size: 14px;
+            font-weight: 600;
+            margin: 0;
+            line-height: 1.3;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        /* ESTADOS DEL CARRUSEL */
+        .industry-item.active {
+            z-index: 20;
+            opacity: 1;
+            transform: scale(1.1) translateZ(50px);
+        }
+
+        .industry-item.active .industry-card {
+            box-shadow: 
+                0 25px 50px rgba(108, 99, 255, 0.5),
+                0 0 80px rgba(54, 209, 220, 0.6);
+            border-color: rgba(108, 99, 255, 0.5);
+        }
+
+        .industry-card:hover {
+            transform: translateY(-10px) translateZ(20px);
+            box-shadow: 
+                0 30px 60px rgba(108, 99, 255, 0.7),
+                0 0 100px rgba(54, 209, 220, 0.8);
+        }
+
+        /* CONTROLES DEL CARRUSEL */
+        .carousel-controls {
+            position: absolute;
+            bottom: 40px;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            z-index: 30;
+        }
+
+        .control-btn {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #6C63FF, #36D1DC);
+            border: none;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 10px 20px rgba(108, 99, 255, 0.4);
+        }
+
+        .control-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 15px 30px rgba(108, 99, 255, 0.6);
+            background: linear-gradient(135deg, #FF6584, #6C63FF);
+        }
+
+        /* CONTADOR DE INDUSTRIAS */
+        .industry-counter {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            z-index: 30;
+            background: rgba(26, 26, 46, 0.8);
+            padding: 10px 20px;
+            border-radius: 30px;
+            color: #36D1DC;
+            font-size: 14px;
+            font-weight: 600;
+            border: 1px solid rgba(54, 209, 220, 0.3);
+        }
+
+        /* PARTÍCULAS ORBITALES */
+        .orbit-particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background: #36D1DC;
+            opacity: 0.4;
+            animation: particleFloat 20s linear infinite;
+            animation-delay: calc(var(--particle-index) * -1s);
+        }
+
+        @keyframes particleFloat {
+            0% {
+                transform: rotate(0deg) translateX(250px) rotate(0deg);
+                opacity: 0.4;
+            }
+            50% { opacity: 0.8; }
+            100% {
+                transform: rotate(360deg) translateX(250px) rotate(-360deg);
+                opacity: 0.4;
+            }
+        }
+
+        /* SECCIÓN DE CONTACTO */
+        .contact {
+            padding: 5rem 5%;
+            text-align: center;
+            position: relative;
+        }
+
+        .contact-content {
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeUp 1s ease forwards 1.2s;
+        }
+
+        .contact h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact p {
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .contact-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: var(--transition);
+        }
+
+        .contact-item:hover {
+            transform: translateY(-10px);
+        }
+
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        /* FOOTER */
+        footer {
+            padding: 3rem 5%;
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.3);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 5rem;
+        }
+
+        .footer-logo {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            display: inline-block;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-color);
+        }
+
+        .copyright {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.9rem;
+        }
+
+        /* EFECTOS DE ENTRADA PARA LAS SECCIONES */
+        .section-hidden {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .section-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* RESPONSIVE DESIGN */
+        @media (max-width: 1200px) {
+            .mega-menu {
+                width: 95vw;
+                grid-template-columns: repeat(3, 1fr);
+            }
+            .carousel-3d-container { height: 500px; }
+            .orbit-ring { width: 400px; height: 400px; }
+            .earth-sphere { width: 150px; height: 150px; }
+            .industry-item { width: 150px; height: 190px; }
+        }
+
+        @media (max-width: 992px) {
+            .hero h1 { font-size: 2.8rem; }
+            .portfolio-grid { grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); }
+            .mega-menu {
+                grid-template-columns: repeat(2, 1fr);
+                left: 0;
+                transform: translateX(0) translateY(10px);
+                width: 100vw;
+                border-radius: 0 0 20px 20px;
+            }
+            .mega-menu.active { transform: translateX(0) translateY(0); }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                height: 100vh;
+                background-color: rgba(26, 26, 46, 0.98);
+                flex-direction: column;
+                padding: 6rem 2rem 2rem;
+                transition: var(--transition);
+                backdrop-filter: blur(20px);
+                z-index: 1000;
+                overflow-y: auto;
+            }
+            .nav-links.active { right: 0; }
+            .services-btn { width: 100%; justify-content: center; }
+            .mega-menu {
+                position: relative;
+                width: 100%;
+                max-height: 50vh;
+                grid-template-columns: 1fr;
+                padding: 1.5rem;
+                margin-top: 1rem;
+                border-radius: 15px;
+            }
+            .mobile-menu-btn { display: block; }
+            .services-dropdown { width: 100%; }
+            .hero h1 { font-size: 2.3rem; }
+            .hero p { font-size: 1.1rem; }
+            .section-title { font-size: 2rem; }
+            .contact-info { flex-direction: column; gap: 2rem; }
+            .carousel-3d-container { height: 400px; perspective: 800px; }
+            .orbit-ring { width: 300px; height: 300px; }
+            .earth-sphere { width: 100px; height: 100px; }
+            .industry-item { width: 120px; height: 160px; }
+            .industry-name { font-size: 12px; }
+            .carousel-controls { bottom: 20px; }
+            .control-btn { width: 50px; height: 50px; font-size: 18px; }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 { font-size: 2rem; }
+            .portfolio-card { padding: 2rem; }
+            .portfolio-grid { grid-template-columns: 1fr; }
+            .mega-menu { grid-template-columns: 1fr; padding: 1rem; }
+            .carousel-3d-container { height: 350px; }
+            .orbit-ring { width: 250px; height: 250px; }
+            .industry-item { width: 100px; height: 140px; }
+            .industry-info { padding: 10px; }
+        }
+    </style>
+</head>
+<body>
+    <!-- CURSOR PERSONALIZADO -->
+    <div class="cursor"></div>
+    
+    <!-- OVERLAY PARA CERRAR MENÚS -->
+    <div class="menu-overlay" id="menuOverlay"></div>
+    
+    <!-- FONDO DE PARTÍCULAS -->
+    <div id="particles-js"></div>
+    
+    <!-- GRADIENTE DINÁMICO -->
+    <div class="dynamic-gradient"></div>
+    
+    <!-- ==================== HEADER CON MEGA MENÚ ==================== -->
+    <header>
+        <a href="#" class="logo">
+            <i class="fas fa-rocket"></i> OSDEMS<span>Digital</span>
+        </a>
+        
+        <div class="nav-container">
+            <nav class="nav-links" id="navLinks">
+                <a href="#home">Inicio</a>
+                
+                <!-- MENÚ DESPLEGABLE DE SERVICIOS -->
+                <div class="services-dropdown">
+                    <button class="services-btn" id="servicesBtn">
+                        <i class="fas fa-cogs"></i> Servicios <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <!-- MEGA MENÚ -->
+                    <div class="mega-menu" id="megaMenu">
+                        <!-- CATEGORÍA 1: WEB DESIGN -->
+                        <div class="mega-menu-category">
+                            <h3><i class="fas fa-paint-brush"></i> Web Design</h3>
+                            <ul>
+                                <li><a href="#"><i class="fas fa-arrow-right"></i> Website Design & Development</a></li>
+                                <li><a href="#"><i class="fab fa-wordpress"></i> WordPress Development</a></li>
+                                <li><a href="#"><i class="fas fa-shopping-cart"></i> E-commerce Development</a></li>
+                                <li><a href="#"><i class="fas fa-palette"></i> UI/UX Design</a></li>
+                                <li><a href="#"><i class="fas fa-search"></i> Website Discovery</a></li>
+                                <li><a href="#"><i class="fas fa-sitemap"></i> Sitemaps & Wireframes</a></li>
+                                <li><a href="#"><i class="fas fa-pen"></i> Website Content Writing</a></li>
+                                <li><a href="#"><i class="fas fa-server"></i> Website Maintenance & Hosting</a></li>
+                                <li><a href="#"><i class="fas fa-landmark"></i> Landing Page Design</a></li>
+                                <li><a href="#"><i class="fas fa-store"></i> Shopify Development</a></li>
+                                <li><a href="#"><i class="fas fa-cog"></i> Custom CMS Development</a></li>
+                                <li><a href="#"><i class="fas fa-code"></i> Headless CMS Development</a></li>
+                                <li><a href="#"><i class="fas fa-clipboard-check"></i> Design Audits</a></li>
+                            </ul>
+                        </div>
+                        
+                        <!-- CATEGORÍA 2: DIGITAL MARKETING -->
+                        <div class="mega-menu-category">
+                            <h3><i class="fas fa-bullhorn"></i> Digital Marketing</h3>
+                            <ul>
+                                <li><a href="#"><i class="fas fa-chart-line"></i> Marketing Strategy</a></li>
+                                <li><a href="#"><i class="fas fa-search-plus"></i> Search Engine Optimization (SEO)</a></li>
+                                <li><a href="#"><i class="fas fa-ad"></i> Paid Ad Campaigns (PPC)</a></li>
+                                <li><a href="#"><i class="fas fa-users"></i> Social Media Management</a></li>
+                                <li><a href="#"><i class="fas fa-envelope"></i> Email Marketing</a></li>
+                                <li><a href="#"><i class="fas fa-robot"></i> Sales Support & Automation (CRM)</a></li>
+                                <li><a href="#"><i class="fas fa-file-alt"></i> Content Strategy & Execution</a></li>
+                                <li><a href="#"><i class="fas fa-brain"></i> Generative Engine Optimization (GEO)</a></li>
+                            </ul>
+                        </div>
+                        
+                        <!-- CATEGORÍA 3: APP DEVELOPMENT -->
+                        <div class="mega-menu-category">
+                            <h3><i class="fas fa-mobile-alt"></i> App Development</h3>
+                            <ul>
+                                <li><a href="#"><i class="fas fa-globe"></i> Web App Development</a></li>
+                                <li><a href="#"><i class="fas fa-mobile"></i> Mobile App Development</a></li>
+                                <li><a href="#"><i class="fas fa-tachometer-alt"></i> Portal & Dashboard Development</a></li>
+                                <li><a href="#"><i class="fas fa-graduation-cap"></i> LMS Development</a></li>
+                                <li><a href="#"><i class="fas fa-handshake"></i> CRM Integration</a></li>
+                                <li><a href="#"><i class="fab fa-react"></i> React Development</a></li>
+                                <li><a href="#"><i class="fab fa-node-js"></i> Node.js Development</a></li>
+                                <li><a href="#"><i class="fab fa-laravel"></i> Laravel Development</a></li>
+                                <li><a href="#"><i class="fas fa-code"></i> No Code Development</a></li>
+                                <li><a href="#"><i class="fas fa-robot"></i> Advanced AI Development</a></li>
+                                <li><a href="#"><i class="fas fa-link"></i> Blockchain Development</a></li>
+                            </ul>
+                        </div>
+                        
+                        <!-- CATEGORÍA 4: ENTERPRISE SOLUTIONS -->
+                        <div class="mega-menu-category">
+                            <h3><i class="fas fa-building"></i> Enterprise Solutions</h3>
+                            <ul>
+                                <li><a href="#"><i class="fas fa-cogs"></i> Application Maintenance</a></li>
+                                <li><a href="#"><i class="fas fa-cloud"></i> Cloud Hosting Services</a></li>
+                            </ul>
+                        </div>
+                        
+                        <!-- CATEGORÍA 5: DESIGN & BRANDING -->
+                        <div class="mega-menu-category">
+                            <h3><i class="fas fa-pen-fancy"></i> Design & Branding</h3>
+                            <ul>
+                                <li><a href="#"><i class="fas fa-trademark"></i> Brand Development</a></li>
+                                <li><a href="#"><i class="fas fa-icons"></i> Logo Design</a></li>
+                                <li><a href="#"><i class="fas fa-book"></i> Brand Guidelines</a></li>
+                                <li><a href="#"><i class="fas fa-comment-alt"></i> Brand Identity Messaging</a></li>
+                                <li><a href="#"><i class="fas fa-sync-alt"></i> Rebranding Services</a></li>
+                                <li><a href="#"><i class="fas fa-ad"></i> Ad Creative Design</a></li>
+                                <li><a href="#"><i class="fas fa-share-alt"></i> Social Media Design</a></li>
+                                <li><a href="#"><i class="fas fa-presentation"></i> Presentation Design</a></li>
+                                <li><a href="#"><i class="fas fa-mail-bulk"></i> Email Design</a></li>
+                                <li><a href="#"><i class="fas fa-draw-polygon"></i> Illustrations & Iconography</a></li>
+                                <li><a href="#"><i class="fas fa-chart-bar"></i> Corporate Reports</a></li>
+                                <li><a href="#"><i class="fas fa-file-contract"></i> Product Sheets & One Pagers</a></li>
+                                <li><a href="#"><i class="fas fa-box-open"></i> Print & Packaging Design</a></li>
+                            </ul>
+                        </div>
+                        
+                        <!-- CATEGORÍA 6: PHOTO & VIDEO -->
+                        <div class="mega-menu-category">
+                            <h3><i class="fas fa-video"></i> Photo & Video</h3>
+                            <ul>
+                                <li><a href="#"><i class="fas fa-video"></i> Video Production</a></li>
+                                <li><a href="#"><i class="fas fa-film"></i> Post Production & Editing</a></li>
+                                <li><a href="#"><i class="fas fa-tv"></i> Commercials</a></li>
+                                <li><a href="#"><i class="fas fa-star"></i> Hero Videos</a></li>
+                                <li><a href="#"><i class="fas fa-film"></i> Animated Explainer Videos</a></li>
+                                <li><a href="#"><i class="fas fa-cube"></i> Product Renders</a></li>
+                                <li><a href="#"><i class="fas fa-running"></i> Animation & Motion Graphics</a></li>
+                                <li><a href="#"><i class="fas fa-cube"></i> 3D & AR Design</a></li>
+                                <li><a href="#"><i class="fas fa-music"></i> Sound & Music Design</a></li>
+                                <li><a href="#"><i class="fas fa-user-tie"></i> Professional Headshots</a></li>
+                                <li><a href="#"><i class="fas fa-camera"></i> Product Photography</a></li>
+                                <li><a href="#"><i class="fas fa-calendar-alt"></i> Event Photography</a></li>
+                                <li><a href="#"><i class="fas fa-images"></i> Brand & Lifestyle Photography</a></li>
+                                <li><a href="#"><i class="fas fa-broadcast-tower"></i> Live Streaming & Broadcasting</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <a href="#portfolio">Portafolio</a>
+                <a href="#industries">Industrias</a>
+                <a href="#contact">Contacto</a>
+                <a href="#contact" class="cta-button" style="padding: 0.7rem 1.5rem; margin-top: 0.5rem;">Cotizar Proyecto</a>
+            </nav>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- ==================== SECCIÓN HERO ==================== -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Transformación Digital Integral</h1>
+            <p>Estrategias que convergen, resultados que multiplican. En OSDEMS Digital, arquitectamos ecosistemas digitales sinérgicos diseñados para acelerar el crecimiento de su negocio en el competitivo panorama del 2026.</p>
+            <a href="#portfolio" class="cta-button">Explorar Portafolio</a>
+        </div>
+    </section>
+
+    <!-- ==================== SECCIÓN PORTAFOLIO ==================== -->
+    <section class="portfolio" id="portfolio">
+        <h2 class="section-title">Nuestro <span>Portafolio</span> de Servicios</h2>
+        
+        <div class="portfolio-grid">
+            <!-- SERVICIO 1 -->
+            <div class="portfolio-card" style="--delay: 1;">
+                <div class="card-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <h3 class="card-title">Estrategia & Consultoría de Marca Digital</h3>
+                <p class="card-description">Diagnóstico profundo y planificación estratégica para construir o redireccionar la presencia digital de su marca con KPIs claros y una hoja de ruta personalizada.</p>
+                <ul class="benefits-list">
+                    <li>Claridad y dirección estratégica</li>
+                    <li>Optimización de presupuesto</li>
+                    <li>Diferenciación sólida en el mercado</li>
+                </ul>
+                <div class="impact-tag">Impacto: +40% eficiencia en inversión digital</div>
+            </div>
+            
+            <!-- SERVICIO 2 -->
+            <div class="portfolio-card" style="--delay: 2;">
+                <div class="card-icon">
+                    <i class="fas fa-laptop-code"></i>
+                </div>
+                <h3 class="card-title">Desarrollo Web & Experiencia de Usuario</h3>
+                <p class="card-description">Creación de sitios web y aplicaciones rápidas, seguras, intuitivas y optimizadas para conversión, con diseño centrado en el usuario y arquitectura técnica superior.</p>
+                <ul class="benefits-list">
+                    <li>Conversión optimizada</li>
+                    <li>Rendimiento técnico impecable</li>
+                    <li>Autonomía y escalabilidad</li>
+                </ul>
+                <div class="impact-tag">Impacto: +35% en tasa de conversión</div>
+            </div>
+            
+            <!-- SERVICIO 3 -->
+            <div class="portfolio-card" style="--delay: 3;">
+                <div class="card-icon">
+                    <i class="fas fa-pen-nib"></i>
+                </div>
+                <h3 class="card-title">Marketing de Contenidos & Storytelling</h3>
+                <p class="card-description">Creamos y distribuimos contenido valioso, relevante y consistente para atraer, educar y convertir a su audiencia ideal, posicionando su marca como líder de pensamiento.</p>
+                <ul class="benefits-list">
+                    <li>Autoridad y confianza en el sector</li>
+                    <li>Atracción orgánica de calidad</li>
+                    <li>Nutrición del embudo de ventas</li>
+                </ul>
+                <div class="impact-tag">Impacto: +300% tráfico orgánico cualificado</div>
+            </div>
+            
+            <!-- SERVICIO 4 -->
+            <div class="portfolio-card" style="--delay: 4;">
+                <div class="card-icon">
+                    <i class="fas fa-bullhorn"></i>
+                </div>
+                <h3 class="card-title">Publicidad Digital & Performance Marketing</h3>
+                <p class="card-description">Gestión estratégica y optimización continua de campañas de pago por clic con enfoque obsesivo en el ROI, desde Google Ads hasta redes sociales avanzadas.</p>
+                <ul class="benefits-list">
+                    <li>Resultados inmediatos y escalables</li>
+                    <li>Segmentación hiper-precisa</li>
+                    <li>Optimización en tiempo real</li>
+                </ul>
+                <div class="impact-tag">Impacto: ROAS promedio de 4:1 o superior</div>
+            </div>
+            
+            <!-- SERVICIO 5 -->
+            <div class="portfolio-card" style="--delay: 5;">
+                <div class="card-icon">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <h3 class="card-title">Automatización de Marketing & CRM</h3>
+                <p class="card-description">Implementamos sistemas para automatizar flujos de comunicación, nutrir leads de manera personalizada y gestionar relaciones con clientes, convirtiendo contactos en oportunidades.</p>
+                <ul class="benefits-list">
+                    <li>Eficiencia operativa radical</li>
+                    <li>Personalización a escala</li>
+                    <li>Visión 360° del cliente</li>
+                </ul>
+                <div class="impact-tag">Impacto: +25% velocidad del ciclo de ventas</div>
+            </div>
+            
+            <!-- SERVICIO 6 -->
+            <div class="portfolio-card" style="--delay: 6;">
+                <div class="card-icon">
+                    <i class="fas fa-rocket"></i>
+                </div>
+                <h3 class="card-title">Gestión de Crecimiento Digital (Growth Hacking)</h3>
+                <p class="card-description">Nuestro servicio bandera que combina todos los servicios en un programa gestionado integralmente. Un equipo dedicado actúa como su departamento de crecimiento digital externo.</p>
+                <ul class="benefits-list">
+                    <li>Simplicidad y predictibilidad</li>
+                    <li>Sinergia máxima entre canales</li>
+                    <li>Enfoque total en resultados</li>
+                </ul>
+                <div class="impact-tag">Impacto: Crecimiento sostenido mes tras mes</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== SECCIÓN CARRUSEL 3D DE INDUSTRIAS ==================== -->
+    <section class="industries-section" id="industries">
+        <h2 class="section-title">Industrias que <span>Impulsamos</span></h2>
+        
+        <!-- CONTADOR DE INDUSTRIAS -->
+        <div class="industry-counter" id="industryCounter">Industria 1 de 12</div>
+        
+        <!-- CONTENEDOR DEL CARRUSEL 3D -->
+        <div class="carousel-3d-container">
+            <!-- GLOBO TERRAQUEO CENTRAL -->
+            <div class="earth-sphere"></div>
+            
+            <!-- ANILLO ORBITAL -->
+            <div class="orbit-ring"></div>
+            
+            <!-- PARTÍCULAS ORBITALES -->
+            <div class="orbit-particles" id="orbitParticles"></div>
+            
+            <!-- ELEMENTOS DE INDUSTRIAS -->
+            <div class="industries-wrapper" id="industriesWrapper"></div>
+        </div>
+        
+        <!-- CONTROLES DEL CARRUSEL -->
+        <div class="carousel-controls">
+            <button class="control-btn" id="prevBtn">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="control-btn" id="nextBtn">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+    </section>
+
+    <!-- ==================== SECCIÓN CONTACTO ==================== -->
+    <section class="contact" id="contact">
+        <div class="contact-content">
+            <h2>¿Listo para convertir su presencia digital en su principal ventaja competitiva?</h2>
+            <p>En OSDEMS Digital, cada estrategia es única, como su negocio. Agendemos una consulta de diagnóstico para identificar qué combinación de servicios impulsará sus resultados en 2026.</p>
+            <a href="mailto:hola@osdemsdigital.com" class="cta-button">Contactar Ahora</a>
+            
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <span>hola@osdemsdigital.com</span>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <span>www.osdemsdigital.com</span>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <span>Transformación Digital con Resultados</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer>
+        <div class="footer-logo">OSDEMS<span style="color: var(--accent-color);">Digital</span></div>
+        <div class="footer-links">
+            <a href="#home">Inicio</a>
+            <a href="#services" id="servicesFooterLink">Servicios</a>
+            <a href="#portfolio">Portafolio</a>
+            <a href="#industries">Industrias</a>
+            <a href="#contact">Contacto</a>
+            <a href="#">Política de Privacidad</a>
+        </div>
+        <p class="copyright">© 2026 OSDEMS Digital. Todos los derechos reservados. | Transformación Digital con Resultados que se Ven, se Miden y se Sienten.</p>
+    </footer>
+
+    <!-- ==================== SCRIPTS ==================== -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        // ==================== CURSOR PERSONALIZADO ====================
+        const cursor = document.querySelector('.cursor');
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+        });
+
+        const hoverElements = document.querySelectorAll('a, button, .portfolio-card, .services-btn, .mega-menu-category a, .industry-card');
+        hoverElements.forEach(element => {
+            element.addEventListener('mouseenter', () => cursor.classList.add('hover'));
+            element.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
+        });
+
+        // ==================== PARTÍCULAS DE FONDO ====================
+        document.addEventListener('DOMContentLoaded', function() {
+            particlesJS('particles-js', {
+                particles: {
+                    number: { value: 80, density: { enable: true, value_area: 800 } },
+                    color: { value: "#6C63FF" },
+                    shape: { type: "circle", stroke: { width: 0, color: "#000000" } },
+                    opacity: { value: 0.5, random: true, anim: { enable: true, speed: 1, opacity_min: 0.1, sync: false } },
+                    size: { value: 3, random: true, anim: { enable: true, speed: 2, size_min: 0.1, sync: false } },
+                    line_linked: { enable: true, distance: 150, color: "#6C63FF", opacity: 0.2, width: 1 },
+                    move: { enable: true, speed: 1, direction: "none", random: true, straight: false, out_mode: "out", bounce: false }
+                },
+                interactivity: {
+                    detect_on: "canvas",
+                    events: {
+                        onhover: { enable: true, mode: "grab" },
+                        onclick: { enable: true, mode: "push" },
+                        resize: true
+                    },
+                    modes: {
+                        grab: { distance: 140, line_linked: { opacity: 0.5 } },
+                        push: { particles_nb: 4 }
+                    }
+                },
+                retina_detect: true
+            });
+        });
+
+        // ==================== MEGA MENÚ ====================
+        const servicesBtn = document.getElementById('servicesBtn');
+        const megaMenu = document.getElementById('megaMenu');
+        const menuOverlay = document.getElementById('menuOverlay');
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+        const servicesFooterLink = document.getElementById('servicesFooterLink');
+
+        // Abrir/cerrar mega menú
+        servicesBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            servicesBtn.classList.toggle('active');
+            megaMenu.classList.toggle('active');
+            menuOverlay.classList.toggle('active');
+        });
+
+        // Abrir mega menú desde footer
+        servicesFooterLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            servicesBtn.classList.add('active');
+            megaMenu.classList.add('active');
+            menuOverlay.classList.add('active');
+            
+            if (navLinks.classList.contains('active')) {
+                navLinks.classList.remove('active');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            }
+            
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Cerrar mega menú
+        menuOverlay.addEventListener('click', () => {
+            servicesBtn.classList.remove('active');
+            megaMenu.classList.remove('active');
+            menuOverlay.classList.remove('active');
+            
+            if (navLinks.classList.contains('active')) {
+                navLinks.classList.remove('active');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            }
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!megaMenu.contains(e.target) && !servicesBtn.contains(e.target)) {
+                servicesBtn.classList.remove('active');
+                megaMenu.classList.remove('active');
+                menuOverlay.classList.remove('active');
+            }
+        });
+
+        // Menú móvil
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            mobileMenuBtn.innerHTML = navLinks.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+            
+            if (megaMenu.classList.contains('active')) {
+                servicesBtn.classList.remove('active');
+                megaMenu.classList.remove('active');
+                menuOverlay.classList.remove('active');
+            }
+        });
+
+        // Cerrar menús al hacer clic en enlaces
+        document.querySelectorAll('.nav-links a, .mega-menu-category a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                
+                if (megaMenu.classList.contains('active')) {
+                    servicesBtn.classList.remove('active');
+                    megaMenu.classList.remove('active');
+                    menuOverlay.classList.remove('active');
+                }
+            });
+        });
+
+        // ==================== CARRUSEL 3D DE INDUSTRIAS ====================
+        const industries = [
+            { id: 1, name: "Hostelería y Viajes", imageUrl: "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=400&h=300&fit=crop" },
+            { id: 2, name: "Servicios Profesionales", imageUrl: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=300&fit=crop" },
+            { id: 3, name: "Consultoría y Derecho", imageUrl: "https://images.unsplash.com/photo-1589391886085-8b6b0ac72a1a?w=400&h=300&fit=crop" },
+            { id: 4, name: "Educación e Investigación", imageUrl: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=400&h=300&fit=crop" },
+            { id: 5, name: "Finanzas y Banca", imageUrl: "https://images.unsplash.com/photo-1616401784845-180882ba9ba8?w=400&h=300&fit=crop" },
+            { id: 6, name: "Organizaciones Sin Ánimo de Lucro", imageUrl: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=400&h=300&fit=crop" },
+            { id: 7, name: "Energía y Medio Ambiente", imageUrl: "https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=400&h=300&fit=crop" },
+            { id: 8, name: "Tecnología y Software (SaaS)", imageUrl: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=400&h=300&fit=crop" },
+            { id: 9, name: "Alimentación y Bebidas", imageUrl: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=300&fit=crop" },
+            { id: 10, name: "Comercio Electrónico y Retail", imageUrl: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400&h=300&fit=crop" },
+            { id: 11, name: "Salud y Farmacia", imageUrl: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=400&h=300&fit=crop" },
+            { id: 12, name: "Inmobiliario y Promoción", imageUrl: "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=400&h=300&fit=crop" }
+        ];
+
+        let currentIndex = 0;
+        const carouselItems = [];
+        const totalIndustries = industries.length;
+        const radius = 250;
+        let autoRotate = true;
+        let rotationSpeed = 0.5;
+        let currentAngle = 0;
+        let animationId = null;
+
+        // Inicializar carrusel
+        function initCarousel() {
+            const wrapper = document.getElementById('industriesWrapper');
+            
+            industries.forEach((industry, index) => {
+                const angle = (index * (360 / totalIndustries)) * (Math.PI / 180);
+                const x = Math.cos(angle) * radius;
+                const z = Math.sin(angle) * radius;
+                
+                const item = document.createElement('div');
+                item.className = 'industry-item';
+                item.style.setProperty('--item-index', index);
+                item.style.transform = `translate3d(${x}px, 0, ${z}px) rotateY(${angle * (180 / Math.PI)}deg)`;
+                item.dataset.index = index;
+                
+                item.innerHTML = `
+                    <div class="industry-card">
+                        <div class="industry-image" style="background-image: url('${industry.imageUrl}')"></div>
+                        <div class="industry-info">
+                            <h3 class="industry-name">${industry.name}</h3>
+                        </div>
+                    </div>
+                `;
+                
+                item.addEventListener('click', () => goToIndustry(index));
+                wrapper.appendChild(item);
+                carouselItems.push(item);
+            });
+            
+            updateActiveItem();
+        }
+
+        // Crear partículas orbitales
+        function createOrbitParticles() {
+            const container = document.getElementById('orbitParticles');
+            for (let i = 0; i < 50; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'orbit-particle';
+                particle.style.setProperty('--particle-index', i);
+                container.appendChild(particle);
+            }
+        }
+
+        // Rotación automática
+        function startAutoRotation() {
+            function rotate() {
+                currentAngle += rotationSpeed * (autoRotate ? 1 : 0.2);
+                updatePositions();
+                animationId = requestAnimationFrame(rotate);
+            }
+            rotate();
+        }
+
+        // Actualizar posiciones
+        function updatePositions() {
+            carouselItems.forEach((item, index) => {
+                const angle = ((index * (360 / totalIndustries)) + currentAngle) * (Math.PI / 180);
+                const x = Math.cos(angle) * radius;
+                const z = Math.sin(angle) * radius;
+                const scale = index === currentIndex ? 1.1 : 0.9;
+                const opacity = Math.abs(z) < 100 ? 1 : 0.6;
+                
+                item.style.transform = `
+                    translate3d(${x}px, 0, ${z}px) 
+                    rotateY(${(angle * (180 / Math.PI)) + 90}deg)
+                    scale(${scale})
+                `;
+                item.style.opacity = opacity;
+                item.style.zIndex = index === currentIndex ? 20 : 10 - Math.abs(z / 100);
+            });
+        }
+
+        // Ir a una industria específica
+        function goToIndustry(index) {
+            currentIndex = index;
+            const targetAngle = -(index * (360 / totalIndustries));
+            currentAngle = targetAngle;
+            
+            updateActiveItem();
+            updateCounter();
+            updatePositions();
+            
+            autoRotate = false;
+            setTimeout(() => { autoRotate = true; }, 2000);
+        }
+
+        // Actualizar elemento activo
+        function updateActiveItem() {
+            carouselItems.forEach((item, index) => {
+                if (index === currentIndex) {
+                    item.classList.add('active');
+                } else {
+                    item.classList.remove('active');
+                }
+            });
+        }
+
+        // Actualizar contador
+        function updateCounter() {
+            const counter = document.getElementById('industryCounter');
+            counter.textContent = `Industria ${currentIndex + 1} de ${totalIndustries}`;
+            counter.style.transform = 'scale(1.1)';
+            setTimeout(() => { counter.style.transform = 'scale(1)'; }, 300);
+        }
+
+        // Configurar controles del carrusel
+        function setupCarouselControls() {
+            document.getElementById('prevBtn').addEventListener('click', () => {
+                currentIndex = (currentIndex - 1 + totalIndustries) % totalIndustries;
+                goToIndustry(currentIndex);
+            });
+            
+            document.getElementById('nextBtn').addEventListener('click', () => {
+                currentIndex = (currentIndex + 1) % totalIndustries;
+                goToIndustry(currentIndex);
+            });
+            
+            // Navegación con teclado
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowLeft') {
+                    currentIndex = (currentIndex - 1 + totalIndustries) % totalIndustries;
+                    goToIndustry(currentIndex);
+                } else if (e.key === 'ArrowRight') {
+                    currentIndex = (currentIndex + 1) % totalIndustries;
+                    goToIndustry(currentIndex);
+                }
+            });
+            
+            // Pausar rotación al hacer hover
+            const container = document.querySelector('.carousel-3d-container');
+            container.addEventListener('mouseenter', () => { rotationSpeed = 0.2; });
+            container.addEventListener('mouseleave', () => { rotationSpeed = 0.5; });
+            
+            // Navegación táctil
+            let touchStartX = 0;
+            let touchEndX = 0;
+            
+            container.addEventListener('touchstart', (e) => {
+                touchStartX = e.changedTouches[0].screenX;
+            });
+            
+            container.addEventListener('touchend', (e) => {
+                touchEndX = e.changedTouches[0].screenX;
+                const diff = touchStartX - touchEndX;
+                
+                if (Math.abs(diff) > 50) {
+                    if (diff > 0) {
+                        currentIndex = (currentIndex + 1) % totalIndustries;
+                    } else {
+                        currentIndex = (currentIndex - 1 + totalIndustries) % totalIndustries;
+                    }
+                    goToIndustry(currentIndex);
+                }
+            });
+        }
+
+        // ==================== ANIMACIONES DE SCROLL ====================
+        const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('section-visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section').forEach(section => {
+            section.classList.add('section-hidden');
+            observer.observe(section);
+        });
+
+        // ==================== EFECTO DE ESCRITURA ====================
+        const heroTitle = document.querySelector('.hero h1');
+        const originalText = heroTitle.textContent;
+        heroTitle.textContent = '';
+        let i = 0;
+        
+        function typeWriter() {
+            if (i < originalText.length) {
+                heroTitle.textContent += originalText.charAt(i);
+                i++;
+                setTimeout(typeWriter, 50);
+            }
+        }
+        
+        // ==================== INICIALIZACIÓN GENERAL ====================
+        document.addEventListener('DOMContentLoaded', () => {
+            // Inicializar componentes
+            initCarousel();
+            createOrbitParticles();
+            startAutoRotation();
+            setupCarouselControls();
+            updateCounter();
+            
+            // Iniciar efectos
+            setTimeout(typeWriter, 1000);
+            
+            // Cerrar menús con Escape
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    servicesBtn.classList.remove('active');
+                    megaMenu.classList.remove('active');
+                    menuOverlay.classList.remove('active');
+                    navLinks.classList.remove('active');
+                    mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                }
+            });
+            
+            // Limpiar animaciones
+            window.addEventListener('beforeunload', () => {
+                if (animationId) cancelAnimationFrame(animationId);
+            });
+        });
+    </script>
+</body>
+</html>

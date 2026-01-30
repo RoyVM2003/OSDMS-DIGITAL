@@ -1,0 +1,1476 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OSDEMS Digital - Chatbot Agentivo de Servicios Digitales</title>
+    <meta name="description" content="Chatbot agentivo especializado en servicios digitales: desarrollo web, marketing digital, diseño y más. Resuelve dudas en tiempo real.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #6C63FF;
+            --primary-dark: #554fd8;
+            --primary-light: #8a85ff;
+            --secondary: #FF6584;
+            --secondary-dark: #e04a6d;
+            --accent: #36D1DC;
+            --accent-dark: #1fb9c4;
+            --dark-bg: #0f172a;
+            --darker-bg: #0a0f1f;
+            --card-bg: rgba(255, 255, 255, 0.05);
+            --text-primary: #f8fafc;
+            --text-secondary: #cbd5e1;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --border-radius: 16px;
+            --shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --gradient-primary: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            --gradient-secondary: linear-gradient(135deg, var(--secondary) 0%, #FF9A9E 100%);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--darker-bg);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(108, 99, 255, 0.1) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(255, 101, 132, 0.1) 0%, transparent 20%);
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        /* Header */
+        .header {
+            padding: 1.8rem 0;
+            position: sticky;
+            top: 0;
+            background: rgba(10, 15, 31, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+        
+        .logo-img {
+            width: 40px;
+            height: 40px;
+            background: var(--gradient-primary);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+        
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+        
+        .nav-links a:hover {
+            color: var(--text-primary);
+        }
+        
+        .nav-links a.active {
+            color: var(--primary);
+        }
+        
+        .nav-links a.active:after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--primary);
+            border-radius: 2px;
+        }
+        
+        .cta-button {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 0.9rem 2.2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(108, 99, 255, 0.4);
+        }
+        
+        .cta-button.secondary {
+            background: var(--gradient-secondary);
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 6rem 0 5rem;
+            text-align: center;
+            position: relative;
+        }
+        
+        .hero-badge {
+            display: inline-block;
+            background: rgba(108, 99, 255, 0.15);
+            color: var(--primary-light);
+            padding: 0.5rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(108, 99, 255, 0.3);
+        }
+        
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+        }
+        
+        .gradient-text {
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.3rem;
+            color: var(--text-secondary);
+            max-width: 800px;
+            margin: 0 auto 2.5rem;
+        }
+        
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-top: 0.5rem;
+        }
+        
+        /* Services Overview */
+        .services-overview {
+            padding: 5rem 0;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto 3rem;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+        
+        .service-category {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: var(--transition);
+        }
+        
+        .service-category:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+            box-shadow: var(--shadow);
+        }
+        
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+        
+        .icon-web {
+            background: rgba(108, 99, 255, 0.15);
+            color: var(--primary);
+        }
+        
+        .icon-marketing {
+            background: rgba(255, 101, 132, 0.15);
+            color: var(--secondary);
+        }
+        
+        .icon-app {
+            background: rgba(54, 209, 220, 0.15);
+            color: var(--accent);
+        }
+        
+        .icon-branding {
+            background: rgba(245, 158, 11, 0.15);
+            color: var(--warning);
+        }
+        
+        .icon-media {
+            background: rgba(16, 185, 129, 0.15);
+            color: var(--success);
+        }
+        
+        .service-category h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .service-list {
+            list-style: none;
+        }
+        
+        .service-list li {
+            padding: 0.5rem 0;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .service-list li:before {
+            content: '•';
+            color: var(--primary);
+            font-size: 1.5rem;
+        }
+        
+        /* Chatbot Section */
+        .chatbot-section {
+            padding: 5rem 0;
+            background: rgba(15, 23, 42, 0.5);
+            border-radius: var(--border-radius);
+            margin: 2rem 0;
+        }
+        
+        .chatbot-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+        
+        .chat-interface {
+            background: var(--dark-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            height: 600px;
+            display: flex;
+            flex-direction: column;
+            box-shadow: var(--shadow);
+        }
+        
+        .chat-header {
+            background: rgba(108, 99, 255, 0.1);
+            padding: 1.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .chat-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--gradient-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+        
+        .chat-messages {
+            flex: 1;
+            padding: 1.5rem;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+        
+        .message {
+            max-width: 85%;
+            padding: 1rem 1.2rem;
+            border-radius: 18px;
+            line-height: 1.5;
+            animation: fadeIn 0.3s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .message-bot {
+            background: rgba(108, 99, 255, 0.15);
+            border-bottom-left-radius: 5px;
+            align-self: flex-start;
+            border: 1px solid rgba(108, 99, 255, 0.3);
+        }
+        
+        .message-user {
+            background: rgba(255, 255, 255, 0.1);
+            border-bottom-right-radius: 5px;
+            align-self: flex-end;
+        }
+        
+        .message-system {
+            background: rgba(54, 209, 220, 0.15);
+            border: 1px solid rgba(54, 209, 220, 0.3);
+            align-self: center;
+            text-align: center;
+            font-size: 0.9rem;
+            max-width: 90%;
+        }
+        
+        .chat-input-area {
+            padding: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            gap: 12px;
+        }
+        
+        .chat-input {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50px;
+            padding: 1rem 1.8rem;
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+        
+        .chat-input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.2);
+        }
+        
+        .send-button {
+            background: var(--gradient-primary);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 55px;
+            height: 55px;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+        
+        .send-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(108, 99, 255, 0.4);
+        }
+        
+        .suggestions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            padding: 0 1.5rem 1.5rem;
+        }
+        
+        .suggestion-chip {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-secondary);
+            padding: 0.6rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .suggestion-chip:hover {
+            background: rgba(108, 99, 255, 0.2);
+            color: var(--text-primary);
+            border-color: var(--primary);
+        }
+        
+        .chat-info {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 2.5rem;
+            height: 600px;
+            overflow-y: auto;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .info-tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 1rem;
+        }
+        
+        .tab-button {
+            background: transparent;
+            border: none;
+            color: var(--text-secondary);
+            padding: 0.8rem 1.8rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 500;
+        }
+        
+        .tab-button.active {
+            background: rgba(108, 99, 255, 0.2);
+            color: var(--primary);
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        /* Contact Info */
+        .contact-info {
+            background: rgba(108, 99, 255, 0.05);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            margin-top: 3rem;
+            border: 1px solid rgba(108, 99, 255, 0.2);
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            background: rgba(108, 99, 255, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 1.3rem;
+        }
+        
+        /* Footer */
+        .footer {
+            background: rgba(0, 0, 0, 0.4);
+            padding: 4rem 0 2rem;
+            margin-top: 6rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary);
+            padding-left: 5px;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .chatbot-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-title {
+                font-size: 2.8rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero-title {
+                font-size: 2.3rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .hero-stats {
+                gap: 2rem;
+            }
+            
+            .stat-number {
+                font-size: 2rem;
+            }
+        }
+        
+        /* Animations */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="#" class="logo">
+                    <div class="logo-img">O</div>
+                    <div class="logo-text">OSDEMS Digital</div>
+                </a>
+                <ul class="nav-links">
+                    <li><a href="#servicios" class="active">Servicios</a></li>
+                    <li><a href="#chatbot">Chatbot</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+                <a href="#chatbot" class="cta-button">
+                    <i class="fas fa-robot"></i> Probar Chatbot
+                </a>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-badge">
+                <i class="fas fa-star"></i> Asistente Agentivo Especializado
+            </div>
+            <h1 class="hero-title">
+                Resuelve todas tus dudas sobre <span class="gradient-text">Servicios Digitales</span>
+            </h1>
+            <p class="hero-subtitle">
+                Nuestro chatbot agentivo con IA avanzada responde en tiempo real a todas tus preguntas sobre desarrollo web, marketing digital, diseño, apps y más. Clarifica tus dudas y toma decisiones informadas.
+            </p>
+            
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label">Servicios Digitales</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-label">Disponibilidad</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">2.1s</div>
+                    <div class="stat-label">Respuesta Promedio</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">98%</div>
+                    <div class="stat-label">Precisión</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Services Overview -->
+    <section id="servicios" class="services-overview">
+        <div class="container">
+            <h2 class="section-title">Nuestros Servicios Digitales</h2>
+            <p class="section-subtitle">Consulta sobre cualquiera de nuestros 50+ servicios digitales especializados</p>
+            
+            <div class="services-grid">
+                <div class="service-category">
+                    <div class="service-icon icon-web">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>Desarrollo Web</h3>
+                    <ul class="service-list">
+                        <li>Web Design & Development</li>
+                        <li>WordPress Development</li>
+                        <li>E-commerce Development</li>
+                        <li>UI/UX Design</li>
+                        <li>Custom CMS Development</li>
+                        <li>Shopify Development</li>
+                    </ul>
+                </div>
+                
+                <div class="service-category">
+                    <div class="service-icon icon-marketing">
+                        <i class="fas fa-bullhorn"></i>
+                    </div>
+                    <h3>Marketing Digital</h3>
+                    <ul class="service-list">
+                        <li>SEO (Search Engine Optimization)</li>
+                        <li>Paid Ad Campaigns (PPC)</li>
+                        <li>Social Media Management</li>
+                        <li>Email Marketing</li>
+                        <li>Content Strategy</li>
+                        <li>Generative Engine Optimization</li>
+                    </ul>
+                </div>
+                
+                <div class="service-category">
+                    <div class="service-icon icon-app">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>App Development</h3>
+                    <ul class="service-list">
+                        <li>Web App Development</li>
+                        <li>Mobile App Development</li>
+                        <li>React Development</li>
+                        <li>Node.js Development</li>
+                        <li>Laravel Development</li>
+                        <li>Advanced AI Development</li>
+                    </ul>
+                </div>
+                
+                <div class="service-category">
+                    <div class="service-icon icon-branding">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3>Diseño & Branding</h3>
+                    <ul class="service-list">
+                        <li>Brand Development</li>
+                        <li>Logo Design</li>
+                        <li>Brand Guidelines</li>
+                        <li>Ad Creative Design</li>
+                        <li>Social Media Design</li>
+                        <li>Presentation Design</li>
+                    </ul>
+                </div>
+                
+                <div class="service-category">
+                    <div class="service-icon icon-media">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <h3>Foto & Video</h3>
+                    <ul class="service-list">
+                        <li>Video Production</li>
+                        <li>Animated Explainer Videos</li>
+                        <li>3D & AR Design</li>
+                        <li>Product Photography</li>
+                        <li>Brand Photography</li>
+                        <li>Live Streaming</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 3rem;">
+                <a href="#chatbot" class="cta-button secondary pulse">
+                    <i class="fas fa-question-circle"></i> ¿Tienes dudas sobre algún servicio? Pregúntale a nuestro chatbot
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Chatbot Section -->
+    <section id="chatbot" class="chatbot-section">
+        <div class="container">
+            <h2 class="section-title">Chatbot Agentivo de Servicios Digitales</h2>
+            <p class="section-subtitle">Pregunta sobre presupuestos, tiempos de entrega, tecnologías, estrategias y más</p>
+            
+            <div class="chatbot-container">
+                <div class="chat-interface">
+                    <div class="chat-header">
+                        <div class="chat-avatar">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <div>
+                            <h3 style="font-size: 1.2rem;">Asistente OSDEMS Digital</h3>
+                            <p style="font-size: 0.85rem; color: var(--text-secondary);">Especializado en 50+ servicios digitales • En línea</p>
+                        </div>
+                    </div>
+                    
+                    <div class="chat-messages" id="chatMessages">
+                        <div class="message message-bot">
+                            ¡Hola! Soy el asistente agentivo de <strong>OSDEMS Digital</strong>. Estoy especializado en nuestros 50+ servicios digitales. Puedo responder tus dudas sobre:
+                            <br><br>
+                            • <strong>Desarrollo Web</strong> (WordPress, E-commerce, UI/UX)
+                            <br>
+                            • <strong>Marketing Digital</strong> (SEO, PPC, Redes Sociales)
+                            <br>
+                            • <strong>App Development</strong> (Mobile, Web, AI, Blockchain)
+                            <br>
+                            • <strong>Diseño & Branding</strong>
+                            <br>
+                            • <strong>Foto & Video</strong>
+                            <br><br>
+                            ¿En qué servicio te puedo ayudar hoy?
+                        </div>
+                        <div class="message message-system">
+                            <i class="fas fa-lightbulb"></i> <strong>Sugerencias rápidas:</strong> Haz clic en cualquier chip de abajo para preguntar
+                        </div>
+                    </div>
+                    
+                    <div class="suggestions">
+                        <div class="suggestion-chip" data-question="¿Qué incluye un servicio de SEO?">SEO</div>
+                        <div class="suggestion-chip" data-question="¿Cuánto cuesta una página web?">Presupuesto Web</div>
+                        <div class="suggestion-chip" data-question="¿Qué es mejor, WordPress o desarrollo personalizado?">WordPress vs Custom</div>
+                        <div class="suggestion-chip" data-question="¿Cuánto tiempo toma desarrollar una app móvil?">Tiempos App Móvil</div>
+                        <div class="suggestion-chip" data-question="¿Ofrecen mantenimiento de sitios web?">Mantenimiento Web</div>
+                        <div class="suggestion-chip" data-question="¿Qué redes sociales manejan?">Redes Sociales</div>
+                    </div>
+                    
+                    <div class="chat-input-area">
+                        <input type="text" class="chat-input" id="chatInput" placeholder="Escribe tu pregunta sobre nuestros servicios...">
+                        <button class="send-button" id="sendButton">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="chat-info">
+                    <div class="info-tabs">
+                        <button class="tab-button active" data-tab="services">Servicios</button>
+                        <button class="tab-button" data-tab="benefits">Beneficios</button>
+                        <button class="tab-button" data-tab="tech">Tecnología</button>
+                    </div>
+                    
+                    <div class="tab-content active" id="servicesTab">
+                        <h4 style="margin-bottom: 1.5rem; color: var(--primary);">Servicios Detallados</h4>
+                        
+                        <div style="margin-bottom: 2rem;">
+                            <h5 style="color: var(--accent); margin-bottom: 0.8rem;"><i class="fas fa-code"></i> Desarrollo Web</h5>
+                            <p style="color: var(--text-secondary); font-size: 0.95rem;">
+                                Desde landing pages hasta e-commerce complejos. Usamos WordPress, Shopify, Laravel y tecnologías modernas.
+                            </p>
+                        </div>
+                        
+                        <div style="margin-bottom: 2rem;">
+                            <h5 style="color: var(--secondary); margin-bottom: 0.8rem;"><i class="fas fa-chart-line"></i> Marketing Digital</h5>
+                            <p style="color: var(--text-secondary); font-size: 0.95rem;">
+                                Estrategias completas de SEO, campañas PPC, gestión de redes sociales y automatización de marketing.
+                            </p>
+                        </div>
+                        
+                        <div style="margin-bottom: 2rem;">
+                            <h5 style="color: var(--accent-dark); margin-bottom: 0.8rem;"><i class="fas fa-mobile-alt"></i> App Development</h5>
+                            <p style="color: var(--text-secondary); font-size: 0.95rem;">
+                                Aplicaciones nativas y cross-platform con React Native, Flutter, y desarrollo web progresivo (PWA).
+                            </p>
+                        </div>
+                        
+                        <div style="background: rgba(108, 99, 255, 0.1); padding: 1.2rem; border-radius: 10px; border-left: 4px solid var(--primary);">
+                            <h5 style="margin-bottom: 0.5rem; color: var(--primary);"><i class="fas fa-robot"></i> ¿Qué puede hacer este chatbot?</h5>
+                            <p style="font-size: 0.9rem; color: var(--text-secondary); margin: 0;">
+                                Responder dudas técnicas, explicar servicios, dar estimaciones de tiempo y costo, recomendar soluciones según tu necesidad, y conectar con nuestros especialistas.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="tab-content" id="benefitsTab">
+                        <h4 style="margin-bottom: 1.5rem; color: var(--primary);">Beneficios para Clientes</h4>
+                        
+                        <div style="display: grid; gap: 1.5rem;">
+                            <div style="display: flex; gap: 15px; align-items: flex-start;">
+                                <div style="background: rgba(16, 185, 129, 0.15); width: 40px; height: 40px; border-radius: 10px; display: flex; align-items: center; justify-content: center; color: var(--success); flex-shrink: 0;">
+                                    <i class="fas fa-bolt"></i>
+                                </div>
+                                <div>
+                                    <h5 style="margin-bottom: 0.3rem;">Respuestas Inmediatas</h5>
+                                    <p style="color: var(--text-secondary); font-size: 0.9rem;">Resuelve dudas 24/7 sin esperar a horarios comerciales.</p>
+                                </div>
+                            </div>
+                            
+                            <div style="display: flex; gap: 15px; align-items: flex-start;">
+                                <div style="background: rgba(108, 99, 255, 0.15); width: 40px; height: 40px; border-radius: 10px; display: flex; align-items: center; justify-content: center; color: var(--primary); flex-shrink: 0;">
+                                    <i class="fas fa-graduation-cap"></i>
+                                </div>
+                                <div>
+                                    <h5 style="margin-bottom: 0.3rem;">Conocimiento Especializado</h5>
+                                    <p style="color: var(--text-secondary); font-size: 0.9rem;">Información precisa sobre 50+ servicios digitales.</p>
+                                </div>
+                            </div>
+                            
+                            <div style="display: flex; gap: 15px; align-items: flex-start;">
+                                <div style="background: rgba(255, 101, 132, 0.15); width: 40px; height: 40px; border-radius: 10px; display: flex; align-items: center; justify-content: center; color: var(--secondary); flex-shrink: 0;">
+                                    <i class="fas fa-user-check"></i>
+                                </div>
+                                <div>
+                                    <h5 style="margin-bottom: 0.3rem;">Recomendaciones Personalizadas</h5>
+                                    <p style="color: var(--text-secondary); font-size: 0.9rem;">Sugiere soluciones basadas en tu proyecto específico.</p>
+                                </div>
+                            </div>
+                            
+                            <div style="display: flex; gap: 15px; align-items: flex-start;">
+                                <div style="background: rgba(54, 209, 220, 0.15); width: 40px; height: 40px; border-radius: 10px; display: flex; align-items: center; justify-content: center; color: var(--accent); flex-shrink: 0;">
+                                    <i class="fas fa-handshake"></i>
+                                </div>
+                                <div>
+                                    <h5 style="margin-bottom: 0.3rem;">Pre-calificación de Proyectos</h5>
+                                    <p style="color: var(--text-secondary); font-size: 0.9rem;">Te ayuda a definir tu proyecto antes de hablar con ventas.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tab-content" id="techTab">
+                        <h4 style="margin-bottom: 1.5rem; color: var(--primary);">Tecnología del Chatbot</h4>
+                        
+                        <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">
+                            Este chatbot usa <strong>IA agentiva con RAG (Retrieval-Augmented Generation)</strong> para acceder a nuestra base de conocimiento actualizada sobre todos los servicios.
+                        </p>
+                        
+                        <div style="background: rgba(0, 0, 0, 0.3); padding: 1.2rem; border-radius: 10px; margin-bottom: 1.5rem;">
+                            <h5 style="color: var(--accent); margin-bottom: 0.8rem;">Base de Conocimiento</h5>
+                            <ul style="color: var(--text-secondary); font-size: 0.9rem; padding-left: 1.2rem;">
+                                <li>Documentación técnica de 50+ servicios</li>
+                                <li>Casos de estudio y mejores prácticas</li>
+                                <li>Información de precios y tiempos estimados</li>
+                                <li>Guías de tecnologías y frameworks</li>
+                            </ul>
+                        </div>
+                        
+                        <div style="background: rgba(108, 99, 255, 0.1); padding: 1.2rem; border-radius: 10px; border-left: 4px solid var(--primary);">
+                            <h5 style="margin-bottom: 0.5rem; color: var(--primary);"><i class="fas fa-sync-alt"></i> Actualización en Tiempo Real</h5>
+                            <p style="font-size: 0.9rem; color: var(--text-secondary); margin: 0;">
+                                La información se actualiza constantemente con nuevos servicios, tecnologías y casos de éxito.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Information -->
+    <section id="contacto" class="container">
+        <div class="contact-info">
+            <h2 class="section-title" style="text-align: left; margin-bottom: 0.5rem;">Contacta a OSDEMS Digital</h2>
+            <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">¿Necesitas hablar con un especialista humano? Aquí nuestra información de contacto</p>
+            
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <div>
+                        <h4 style="margin-bottom: 0.3rem;">Sitio Web</h4>
+                        <p style="color: var(--text-secondary);">osdemsdigital.com</p>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div>
+                        <h4 style="margin-bottom: 0.3rem;">Email</h4>
+                        <p style="color: var(--text-secondary);">info@osdemsdigital.com</p>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <div>
+                        <h4 style="margin-bottom: 0.3rem;">Teléfono</h4>
+                        <p style="color: var(--text-secondary);">+1 (555) 123-4567</p>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div>
+                        <h4 style="margin-bottom: 0.3rem;">Dirección</h4>
+                        <p style="color: var(--text-secondary);">Av. Digital 123, Ciudad Tecnológica</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 2.5rem;">
+                <p style="color: var(--text-secondary); font-size: 0.95rem;">
+                    <i class="fas fa-info-circle"></i> <strong>Nota:</strong> El chatbot puede responder la mayoría de tus preguntas, pero siempre puedes contactarnos directamente para consultas específicas o cotizaciones detalladas.
+                </p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <div class="logo" style="margin-bottom: 1.5rem;">
+                        <div class="logo-img">O</div>
+                        <div class="logo-text">OSDEMS Digital</div>
+                    </div>
+                    <p style="color: var(--text-secondary); max-width: 300px;">
+                        Especialistas en servicios digitales completos. Desarrollo web, marketing digital, apps, diseño y más.
+                    </p>
+                    <div style="display: flex; gap: 1rem; margin-top: 1.5rem;">
+                        <a href="#" style="color: var(--text-secondary); font-size: 1.2rem;"><i class="fab fa-facebook"></i></a>
+                        <a href="#" style="color: var(--text-secondary); font-size: 1.2rem;"><i class="fab fa-instagram"></i></a>
+                        <a href="#" style="color: var(--text-secondary); font-size: 1.2rem;"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" style="color: var(--text-secondary); font-size: 1.2rem;"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3>Servicios Principales</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Desarrollo Web</a></li>
+                        <li><a href="#">Marketing Digital</a></li>
+                        <li><a href="#">App Development</a></li>
+                        <li><a href="#">Diseño & Branding</a></li>
+                        <li><a href="#">Foto & Video</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3>Recursos</h3>
+                    <ul class="footer-links">
+                        <li><a href="#chatbot">Chatbot de Servicios</a></li>
+                        <li><a href="#">Portafolio</a></li>
+                        <li><a href="#">Casos de Estudio</a></li>
+                        <li><a href="#">Blog Digital</a></li>
+                        <li><a href="#">Preguntas Frecuentes</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3>Empresa</h3>
+                    <ul class="footer-links">
+                        <li><a href="#contacto">Contacto</a></li>
+                        <li><a href="#">Sobre Nosotros</a></li>
+                        <li><a href="#">Equipo</a></li>
+                        <li><a href="#">Trabaja con Nosotros</a></li>
+                        <li><a href="#">Términos y Condiciones</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>© 2024 OSDEMS Digital. Todos los derechos reservados. osdemsdigital.com</p>
+                <p style="margin-top: 0.5rem; font-size: 0.8rem;">
+                    Este chatbot agentivo usa IA para responder dudas sobre servicios digitales. Las respuestas son informativas y no sustituyen consultas personalizadas con nuestros especialistas.
+                </p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Base de Conocimiento Especializada en Servicios Digitales de OSDEMS
+        const servicesKnowledgeBase = {
+            // Desarrollo Web
+            "desarrollo web": {
+                description: "Creación de sitios web modernos, responsivos y optimizados para conversiones.",
+                details: "Incluye: Diseño UI/UX personalizado, desarrollo frontend y backend, optimización SEO, integración de CMS (WordPress, Shopify), y garantía de funcionalidad cross-browser.",
+                pricing: "Desde $1,500 para landing pages, $3,000+ para sitios corporativos, $5,000+ para e-commerce.",
+                timeframe: "2-4 semanas para sitios básicos, 4-8 semanas para proyectos complejos.",
+                technologies: "HTML5, CSS3, JavaScript, React, Vue.js, WordPress, Shopify, Laravel, Node.js"
+            },
+            
+            "wordpress development": {
+                description: "Desarrollo personalizado con WordPress, el CMS más popular del mundo.",
+                details: "Theme development personalizado, plugins a medida, optimización de rendimiento, seguridad avanzada, y training para administradores.",
+                pricing: "Desde $2,000 para sitios WordPress personalizados.",
+                timeframe: "3-5 semanas dependiendo de complejidad.",
+                benefits: "Fácil de actualizar, amplia comunidad, miles de plugins disponibles."
+            },
+            
+            "e-commerce development": {
+                description: "Tiendas online completas con carrito de compras, pasarelas de pago y gestión de inventario.",
+                details: "Desarrollo en Shopify, WooCommerce o soluciones personalizadas. Integración con PayPal, Stripe, MercadoPago. Sistema de gestión de órdenes y clientes.",
+                pricing: "Desde $3,500 para tiendas básicas, $7,000+ para marketplaces complejos.",
+                timeframe: "4-8 semanas.",
+                features: "Carrito persistente, checkout optimizado, gestión de inventario, reportes de ventas."
+            },
+            
+            "ui/ux design": {
+                description: "Diseño de interfaces centrado en el usuario y experiencia óptima.",
+                details: "Research de usuarios, wireframes, prototipos interactivos, design systems, y testing de usabilidad.",
+                pricing: "Desde $1,500 para proyectos de diseño.",
+                timeframe: "2-4 semanas.",
+                deliverables: "Wireframes, mockups, prototipos interactivos, guías de estilo."
+            },
+            
+            // Marketing Digital
+            "seo": {
+                description: "Optimización para motores de búsqueda para aumentar visibilidad orgánica.",
+                details: "Keyword research, optimización on-page, building de enlaces, SEO técnico, contenido optimizado, y reportes mensuales.",
+                pricing: "Desde $800/mes para SEO local, $1,500+/mes para SEO nacional.",
+                timeframe: "Resultados visibles en 3-6 meses.",
+                strategy: "SEO técnico, de contenido y off-page combinados."
+            },
+            
+            "ppc": {
+                description: "Campañas de publicidad pagada en Google, Facebook, Instagram y LinkedIn.",
+                details: "Setup completo de campañas, keyword research, creación de ads, landing pages optimizadas, y gestión continua con optimización.",
+                pricing: "Fee de gestión: 15-20% del presupuesto de ads + presupuesto de publicidad.",
+                timeframe: "Resultados desde la primera semana.",
+                platforms: "Google Ads, Facebook Ads, Instagram Ads, LinkedIn Ads, TikTok Ads."
+            },
+            
+            "social media management": {
+                description: "Gestión completa de redes sociales con contenido estratégico.",
+                details: "Estrategia de contenido, calendarización, creación de posts, community management, y reportes de analytics.",
+                pricing: "Desde $600/mes para 2 redes sociales.",
+                timeframe: "Contrato mínimo de 3 meses.",
+                networks: "Instagram, Facebook, LinkedIn, Twitter, TikTok, Pinterest."
+            },
+            
+            // App Development
+            "app móvil": {
+                description: "Desarrollo de aplicaciones nativas y cross-platform.",
+                details: "iOS (Swift), Android (Kotlin), o cross-platform con React Native/Flutter. Incluye diseño, desarrollo, testing y publicación en stores.",
+                pricing: "Desde $10,000 para apps básicas, $25,000+ para apps complejas.",
+                timeframe: "3-6 meses dependiendo de funcionalidades.",
+                approach: "Desarrollo nativo para máximo rendimiento o cross-platform para ahorro de costos."
+            },
+            
+            "web app development": {
+                description: "Aplicaciones web progresivas (PWA) y aplicaciones de una sola página (SPA).",
+                details: "Desarrollo con React, Angular o Vue.js. Funcionan como apps nativas pero en el navegador.",
+                pricing: "Desde $8,000 para web apps básicas.",
+                timeframe: "2-4 meses.",
+                benefits: "No requiere instalación, actualizaciones automáticas, multiplataforma."
+            },
+            
+            // Diseño & Branding
+            "branding": {
+                description: "Desarrollo de identidad visual completa para marcas.",
+                details: "Logo design, paleta de colores, tipografía, guías de estilo, y aplicación en diferentes medios.",
+                pricing: "Desde $2,500 para paquetes de branding básico.",
+                timeframe: "3-5 semanas.",
+                deliverables: "Logo en múltiples formatos, guía de marca, assets para redes sociales."
+            },
+            
+            // Foto & Video
+            "video production": {
+                description: "Producción de videos profesionales para marketing y comunicación.",
+                details: "Videos corporativos, testimonios, explicativos animados, y videos para redes sociales.",
+                pricing: "Desde $1,500 para videos cortos, $5,000+ para producciones complejas.",
+                timeframe: "2-6 semanas.",
+                types: "Live action, animation, motion graphics, 3D animation."
+            },
+            
+            // Preguntas Generales
+            "presupuesto": {
+                response: "Los precios varían según el proyecto. Para desarrollo web: desde $1,500. Para apps: desde $10,000. Marketing digital: desde $600/mes. ¿Tienes un proyecto específico en mente para darte una estimación más precisa?"
+            },
+            
+            "tiempo entrega": {
+                response: "Desarrollo web: 2-8 semanas. Apps: 3-6 meses. Diseño: 2-4 semanas. Marketing: resultados orgánicos en 3-6 meses, paid ads desde la primera semana. ¿Qué tipo de proyecto estás considerando?"
+            },
+            
+            "tecnologías": {
+                response: "Usamos las tecnologías más modernas: React, Vue.js, Node.js, Laravel, WordPress, Shopify, Flutter, React Native, y herramientas de IA como TensorFlow y OpenAI API para proyectos avanzados."
+            },
+            
+            "garantía": {
+                response: "Ofrecemos 30 días de garantía en desarrollo y soporte post-lanzamiento. Para marketing, revisiones mensuales y ajustes de estrategia según resultados."
+            },
+            
+            "proceso": {
+                response: "1. Consulta inicial 2. Propuesta y presupuesto 3. Firma de contrato 4. Fase de diseño/planning 5. Desarrollo/implementación 6. Testing 7. Lanzamiento 8. Soporte post-lanzamiento"
+            }
+        };
+        
+        // Categorías de servicios para búsqueda
+        const serviceCategories = {
+            "desarrollo": ["web design", "wordpress", "e-commerce", "ui/ux", "cms", "shopify"],
+            "marketing": ["seo", "ppc", "social media", "email marketing", "content", "geo"],
+            "apps": ["web app", "mobile app", "react", "node", "laravel", "ai", "blockchain"],
+            "diseño": ["branding", "logo", "design", "creative", "illustration"],
+            "video": ["video production", "animation", "photography", "3d", "streaming"]
+        };
+        
+        // Configuración del Chatbot
+        const chatMessages = document.getElementById('chatMessages');
+        const chatInput = document.getElementById('chatInput');
+        const sendButton = document.getElementById('sendButton');
+        const tabButtons = document.querySelectorAll('.tab-button');
+        const tabContents = document.querySelectorAll('.tab-content');
+        const suggestionChips = document.querySelectorAll('.suggestion-chip');
+        
+        // Función para buscar en la base de conocimiento
+        function buscarRespuesta(pregunta) {
+            const preguntaLower = pregunta.toLowerCase();
+            let mejorMatch = null;
+            let mejorPuntaje = 0;
+            
+            // Buscar coincidencia exacta o parcial
+            for (const [keyword, data] of Object.entries(servicesKnowledgeBase)) {
+                if (preguntaLower.includes(keyword)) {
+                    // Coincidencia directa
+                    return formatearRespuesta(keyword, data);
+                }
+                
+                // Buscar por palabras clave
+                const palabras = preguntaLower.split(' ');
+                let puntaje = 0;
+                
+                for (const palabra of palabras) {
+                    if (keyword.includes(palabra) && palabra.length > 3) {
+                        puntaje += 2;
+                    }
+                    
+                    // Buscar en descripción
+                    if (data.description && data.description.toLowerCase().includes(palabra)) {
+                        puntaje += 1;
+                    }
+                }
+                
+                if (puntaje > mejorPuntaje) {
+                    mejorPuntaje = puntaje;
+                    mejorMatch = keyword;
+                }
+            }
+            
+            // Buscar por categorías
+            for (const [categoria, servicios] of Object.entries(serviceCategories)) {
+                for (const servicio of servicios) {
+                    if (preguntaLower.includes(servicio)) {
+                        // Encontrar el servicio correspondiente
+                        for (const [keyword, data] of Object.entries(servicesKnowledgeBase)) {
+                            if (keyword.includes(servicio) || servicio.includes(keyword)) {
+                                return formatearRespuesta(keyword, data);
+                            }
+                        }
+                    }
+                }
+            }
+            
+            // Si hay un match con buen puntaje
+            if (mejorPuntaje >= 2 && mejorMatch) {
+                return formatearRespuesta(mejorMatch, servicesKnowledgeBase[mejorMatch]);
+            }
+            
+            // Respuesta por defecto
+            return `Entiendo que tienes dudas sobre "${pregunta}". Como asistente especializado en servicios digitales de OSDEMS, puedo ayudarte con información sobre:
+            <br><br>
+            • <strong>Desarrollo Web</strong> (presupuestos, tecnologías, tiempos)
+            <br>
+            • <strong>Marketing Digital</strong> (SEO, redes sociales, publicidad)
+            <br>
+            • <strong>App Development</strong> (móvil, web, tecnologías)
+            <br>
+            • <strong>Diseño & Branding</strong>
+            <br>
+            • <strong>Foto & Video</strong>
+            <br><br>
+            ¿Podrías especificar qué servicio te interesa o hacer una pregunta más concreta?`;
+        }
+        
+        // Formatear respuesta
+        function formatearRespuesta(servicio, data) {
+            let respuesta = `<strong>${servicio.toUpperCase()}</strong><br><br>`;
+            respuesta += `<strong>Descripción:</strong> ${data.description || data.response}<br><br>`;
+            
+            if (data.details) {
+                respuesta += `<strong>Detalles:</strong> ${data.details}<br><br>`;
+            }
+            
+            if (data.pricing) {
+                respuesta += `<strong>Inversión estimada:</strong> ${data.pricing}<br><br>`;
+            }
+            
+            if (data.timeframe) {
+                respuesta += `<strong>Tiempo estimado:</strong> ${data.timeframe}<br><br>`;
+            }
+            
+            if (data.technologies || data.features) {
+                respuesta += `<strong>Tecnologías/Características:</strong> ${data.technologies || data.features}<br><br>`;
+            }
+            
+            if (data.benefits) {
+                respuesta += `<strong>Beneficios:</strong> ${data.benefits}<br><br>`;
+            }
+            
+            respuesta += `<em style="font-size:0.9em;color:var(--primary-light);">¿Te gustaría saber más sobre algún aspecto específico de ${servicio} o preguntar sobre otro servicio?</em>`;
+            
+            return respuesta;
+        }
+        
+        // Procesar pregunta del usuario
+        function procesarPregunta(pregunta) {
+            // Mostrar mensaje de "escribiendo"
+            const typingMsg = document.createElement('div');
+            typingMsg.className = 'message message-system';
+            typingMsg.innerHTML = `<i class="fas fa-cog fa-spin"></i> El asistente está buscando información especializada sobre "${pregunta}"...`;
+            chatMessages.appendChild(typingMsg);
+            
+            // Simular procesamiento
+            setTimeout(() => {
+                typingMsg.remove();
+                
+                const respuesta = buscarRespuesta(pregunta);
+                
+                const botMsg = document.createElement('div');
+                botMsg.className = 'message message-bot';
+                botMsg.innerHTML = respuesta;
+                
+                chatMessages.appendChild(botMsg);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+                
+                // Añadir sugerencias de follow-up
+                setTimeout(() => {
+                    const suggestions = document.createElement('div');
+                    suggestions.className = 'message message-system';
+                    suggestions.innerHTML = `<i class="fas fa-lightbulb"></i> <strong>También podrías preguntar:</strong> ¿Cuál es el proceso de trabajo? ¿Ofrecen mantenimiento? ¿Tienen casos de estudio similares?`;
+                    chatMessages.appendChild(suggestions);
+                    chatMessages.scrollTop = chatMessages.scrollHeight;
+                }, 500);
+            }, 1500 + Math.random() * 1000); // Variar tiempo de respuesta
+        }
+        
+        // Manejar envío de mensajes
+        function enviarMensaje() {
+            const texto = chatInput.value.trim();
+            if (!texto) return;
+            
+            // Mostrar mensaje del usuario
+            const userMsg = document.createElement('div');
+            userMsg.className = 'message message-user';
+            userMsg.textContent = texto;
+            chatMessages.appendChild(userMsg);
+            
+            // Limpiar input
+            chatInput.value = '';
+            
+            // Desplazar al final
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+            
+            // Procesar pregunta
+            procesarPregunta(texto);
+        }
+        
+        // Event Listeners
+        sendButton.addEventListener('click', enviarMensaje);
+        
+        chatInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                enviarMensaje();
+            }
+        });
+        
+        // Chips de sugerencia
+        suggestionChips.forEach(chip => {
+            chip.addEventListener('click', function() {
+                const pregunta = this.getAttribute('data-question');
+                chatInput.value = pregunta;
+                enviarMensaje();
+            });
+        });
+        
+        // Manejar pestañas de información
+        tabButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const tabId = this.getAttribute('data-tab');
+                
+                // Actualizar botones activos
+                tabButtons.forEach(btn => btn.classList.remove('active'));
+                this.classList.add('active');
+                
+                // Mostrar contenido activo
+                tabContents.forEach(content => {
+                    content.classList.remove('active');
+                    if (content.id === tabId + 'Tab') {
+                        content.classList.add('active');
+                    }
+                });
+            });
+        });
+        
+        // Ejemplos de preguntas para el placeholder
+        const ejemplosPreguntas = [
+            "¿Cuánto cuesta una página web?",
+            "¿Qué incluye un servicio de SEO completo?",
+            "¿Desarrollan apps móviles?",
+            "¿Cuánto tiempo toma crear un e-commerce?",
+            "¿Ofrecen gestión de redes sociales?",
+            "¿Qué es mejor, WordPress o desarrollo personalizado?",
+            "¿Tienen servicios de branding corporativo?",
+            "¿Hacen videos animados para productos?"
+        ];
+        
+        // Rotar ejemplos en el placeholder
+        let ejemploIndex = 0;
+        function actualizarPlaceholder() {
+            chatInput.placeholder = `Ejemplo: "${ejemplosPreguntas[ejemploIndex]}"`;
+            ejemploIndex = (ejemploIndex + 1) % ejemplosPreguntas.length;
+        }
+        
+        // Cambiar placeholder cada 5 segundos
+        setInterval(actualizarPlaceholder, 5000);
+        actualizarPlaceholder();
+        
+        // Inicializar animaciones
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animar elementos al cargar
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            // Aplicar a tarjetas de servicios
+            document.querySelectorAll('.service-category').forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(el);
+            });
+        });
+        
+        // Ejemplo de pregunta inicial después de 3 segundos
+        setTimeout(() => {
+            if (chatMessages.children.length <= 2) { // Solo mensajes iniciales
+                const exampleMsg = document.createElement('div');
+                exampleMsg.className = 'message message-system';
+                exampleMsg.innerHTML = `<i class="fas fa-comment-alt"></i> <strong>Prueba el chatbot:</strong> Pregunta "¿Cuánto cuesta desarrollar una app móvil?" o haz clic en cualquiera de los chips de arriba.`;
+                chatMessages.appendChild(exampleMsg);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }
+        }, 3000);
+        
+        console.log('Chatbot Agentivo de OSDEMS Digital cargado exitosamente');
+        console.log('Base de conocimiento:', Object.keys(servicesKnowledgeBase).length, 'servicios digitales disponibles');
+    </script>
+</body>
+</html>

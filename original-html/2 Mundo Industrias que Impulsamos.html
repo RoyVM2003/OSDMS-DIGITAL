@@ -1,0 +1,1085 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OSDEMS Digital - Carrusel de Industrias Mejorado</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* ESTILOS PARA EL CARRUSEL MEJORADO */
+        .industries-section {
+            padding: 6rem 5%;
+            text-align: center;
+            position: relative;
+            background: linear-gradient(135deg, #0a0a1a 0%, #1a1a2e 100%);
+            overflow: hidden;
+            min-height: 800px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+            font-size: 2.8rem;
+            color: #fff;
+            z-index: 10;
+            position: relative;
+        }
+
+        .section-title span {
+            color: #36D1DC;
+            text-shadow: 0 0 15px rgba(54, 209, 220, 0.5);
+        }
+
+        /* CONTENEDOR PRINCIPAL MEJORADO */
+        .carousel-container {
+            position: relative;
+            width: 100%;
+            height: 600px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            perspective: 1500px;
+        }
+
+        /* TIERRA CENTRAL MÁS GRANDE */
+        .earth-center {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: url('https://images.unsplash.com/photo-1614730321146-b6fa6a46bcb4?w=600&h=600&fit=crop') center/cover;
+            box-shadow: 
+                0 0 80px rgba(54, 209, 220, 0.7),
+                inset 0 0 60px rgba(0, 0, 0, 0.9),
+                inset 0 0 30px rgba(54, 209, 220, 0.4);
+            z-index: 5;
+            animation: earthSpin 40s linear infinite;
+            filter: brightness(1.1) contrast(1.2);
+        }
+
+        @keyframes earthSpin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        /* ANILLO ORBITAL MÁS GRANDE */
+        .orbit-path {
+            position: absolute;
+            width: 850px;
+            height: 850px;
+            border-radius: 50%;
+            border: 1px solid rgba(54, 209, 220, 0.15);
+            animation: orbitRotate 80s linear infinite;
+        }
+
+        @keyframes orbitRotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        /* TARJETAS DE INDUSTRIA MÁS GRANDES Y MEJORADAS */
+        .industry-card-wrapper {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform-origin: 0 0;
+            width: 300px;
+            height: 380px;
+            margin-left: -150px;
+            margin-top: -190px;
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            opacity: 0;
+            animation: cardAppear 0.8s forwards;
+            animation-delay: calc(var(--card-index) * 0.1s);
+        }
+
+        @keyframes cardAppear {
+            to {
+                opacity: 1;
+            }
+        }
+
+        .industry-card-large {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            border-radius: 25px;
+            overflow: hidden;
+            background: linear-gradient(135deg, 
+                rgba(26, 26, 46, 0.95) 0%, 
+                rgba(40, 40, 60, 0.95) 100%);
+            backdrop-filter: blur(20px);
+            border: 2px solid rgba(108, 99, 255, 0.3);
+            box-shadow: 
+                0 20px 50px rgba(0, 0, 0, 0.6),
+                0 10px 30px rgba(108, 99, 255, 0.4),
+                0 0 40px rgba(54, 209, 220, 0.3);
+            transform-style: preserve-3d;
+            transform: translateZ(0);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+        }
+
+        /* IMAGEN MUCHO MÁS GRANDE Y VISIBLE */
+        .industry-image-large {
+            width: 100%;
+            height: 65%;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            transition: all 0.5s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .industry-image-large::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, 
+                rgba(0, 0, 0, 0.1) 0%, 
+                rgba(0, 0, 0, 0.4) 100%);
+            z-index: 1;
+        }
+
+        .industry-image-large img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+
+        /* CONTENIDO DE LA TARJETA */
+        .industry-content {
+            padding: 25px;
+            height: 35%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(to bottom, 
+                rgba(26, 26, 46, 0.9) 0%, 
+                rgba(20, 20, 35, 0.95) 100%);
+            position: relative;
+            z-index: 2;
+        }
+
+        .industry-name-large {
+            color: white;
+            font-size: 18px;
+            font-weight: 700;
+            margin: 0 0 10px 0;
+            line-height: 1.4;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+            letter-spacing: 0.5px;
+        }
+
+        .industry-description {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 13px;
+            line-height: 1.5;
+            max-width: 90%;
+        }
+
+        /* ESTADOS DE LA TARJETA */
+        .industry-card-wrapper.active {
+            z-index: 100;
+            opacity: 1;
+            transform: scale(1.15) translateZ(100px);
+        }
+
+        .industry-card-wrapper.active .industry-card-large {
+            border-color: rgba(108, 99, 255, 0.6);
+            box-shadow: 
+                0 35px 70px rgba(108, 99, 255, 0.5),
+                0 0 100px rgba(54, 209, 220, 0.7),
+                inset 0 0 30px rgba(108, 99, 255, 0.2);
+        }
+
+        .industry-card-wrapper.active .industry-image-large {
+            filter: brightness(1.3) saturate(1.2);
+            transform: scale(1.05);
+        }
+
+        .industry-card-large:hover {
+            transform: translateY(-15px) translateZ(50px);
+            box-shadow: 
+                0 40px 80px rgba(108, 99, 255, 0.7),
+                0 0 120px rgba(54, 209, 220, 0.8);
+            border-color: rgba(108, 99, 255, 0.8);
+        }
+
+        .industry-card-large:hover .industry-image-large {
+            transform: scale(1.1);
+        }
+
+        /* EFECTO DE BORDE LUMINOSO */
+        .industry-card-large::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, 
+                #6C63FF, #36D1DC, #FF6584, #6C63FF);
+            border-radius: 27px;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .industry-card-wrapper.active .industry-card-large::before,
+        .industry-card-large:hover::before {
+            opacity: 1;
+            animation: borderGlow 3s linear infinite;
+        }
+
+        @keyframes borderGlow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* CONTROLES MEJORADOS */
+        .carousel-controls-large {
+            position: absolute;
+            bottom: 60px;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            z-index: 200;
+        }
+
+        .control-btn-large {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #6C63FF, #36D1DC);
+            border: 3px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 15px 30px rgba(108, 99, 255, 0.5);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .control-btn-large::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #FF6584, #6C63FF);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: 1;
+        }
+
+        .control-btn-large:hover::before {
+            opacity: 1;
+        }
+
+        .control-btn-large i {
+            position: relative;
+            z-index: 2;
+        }
+
+        .control-btn-large:hover {
+            transform: scale(1.15) rotate(5deg);
+            box-shadow: 0 20px 40px rgba(108, 99, 255, 0.7);
+        }
+
+        /* INDICADORES DE POSICIÓN */
+        .position-indicators {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 40px;
+            position: relative;
+            z-index: 200;
+        }
+
+        .position-dot {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .position-dot.active {
+            background: #36D1DC;
+            transform: scale(1.4);
+            box-shadow: 0 0 20px #36D1DC;
+        }
+
+        .position-dot.active::after {
+            content: '';
+            position: absolute;
+            top: -4px;
+            left: -4px;
+            right: -4px;
+            bottom: -4px;
+            border-radius: 50%;
+            border: 1px solid #36D1DC;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 1; }
+            100% { transform: scale(1.5); opacity: 0; }
+        }
+
+        /* CONTADOR MEJORADO */
+        .industry-counter-large {
+            position: absolute;
+            top: 40px;
+            right: 40px;
+            z-index: 200;
+            background: linear-gradient(135deg, 
+                rgba(108, 99, 255, 0.2), 
+                rgba(54, 209, 220, 0.2));
+            padding: 15px 25px;
+            border-radius: 40px;
+            color: #36D1DC;
+            font-size: 16px;
+            font-weight: 700;
+            border: 1px solid rgba(54, 209, 220, 0.4);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* EFECTOS DE PARTÍCULAS MEJORADOS */
+        .orbit-particles-large {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .orbit-particle-large {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #6C63FF, #36D1DC);
+            opacity: 0.6;
+            animation: particleOrbit 25s linear infinite;
+            animation-delay: calc(var(--particle-index) * -0.5s);
+        }
+
+        @keyframes particleOrbit {
+            0% {
+                transform: rotate(0deg) translateX(425px) rotate(0deg);
+                opacity: 0.3;
+            }
+            50% {
+                opacity: 0.8;
+            }
+            100% {
+                transform: rotate(360deg) translateX(425px) rotate(-360deg);
+                opacity: 0.3;
+            }
+        }
+
+        /* EFECTO DE RAYOS DE LUZ */
+        .light-rays {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            opacity: 0.3;
+        }
+
+        .light-ray {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 1px;
+            height: 900px;
+            background: linear-gradient(to bottom, 
+                transparent 0%, 
+                rgba(54, 209, 220, 0.6) 15%, 
+                rgba(108, 99, 255, 0.4) 50%, 
+                transparent 100%);
+            transform-origin: 0 0;
+            animation: rayRotate 30s linear infinite;
+            animation-delay: calc(var(--ray-index) * -1s);
+        }
+
+        @keyframes rayRotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        /* RESPONSIVE DESIGN MEJORADO */
+        @media (max-width: 1200px) {
+            .carousel-container {
+                height: 550px;
+            }
+            
+            .earth-center {
+                width: 250px;
+                height: 250px;
+            }
+            
+            .orbit-path {
+                width: 700px;
+                height: 700px;
+            }
+            
+            .industry-card-wrapper {
+                width: 260px;
+                height: 330px;
+                margin-left: -130px;
+                margin-top: -165px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .industries-section {
+                padding: 5rem 5%;
+                min-height: 700px;
+            }
+            
+            .section-title {
+                font-size: 2.4rem;
+                margin-bottom: 3rem;
+            }
+            
+            .carousel-container {
+                height: 500px;
+                perspective: 1200px;
+            }
+            
+            .earth-center {
+                width: 200px;
+                height: 200px;
+            }
+            
+            .orbit-path {
+                width: 600px;
+                height: 600px;
+            }
+            
+            .industry-card-wrapper {
+                width: 220px;
+                height: 280px;
+                margin-left: -110px;
+                margin-top: -140px;
+            }
+            
+            .industry-name-large {
+                font-size: 16px;
+            }
+            
+            .industry-description {
+                font-size: 12px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .industries-section {
+                padding: 4rem 5%;
+                min-height: 600px;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+                margin-bottom: 2.5rem;
+            }
+            
+            .carousel-container {
+                height: 450px;
+            }
+            
+            .earth-center {
+                width: 160px;
+                height: 160px;
+            }
+            
+            .orbit-path {
+                width: 500px;
+                height: 500px;
+            }
+            
+            .industry-card-wrapper {
+                width: 180px;
+                height: 230px;
+                margin-left: -90px;
+                margin-top: -115px;
+            }
+            
+            .industry-content {
+                padding: 15px;
+            }
+            
+            .industry-name-large {
+                font-size: 14px;
+            }
+            
+            .control-btn-large {
+                width: 60px;
+                height: 60px;
+                font-size: 20px;
+            }
+            
+            .industry-counter-large {
+                top: 20px;
+                right: 20px;
+                padding: 10px 20px;
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .industries-section {
+                padding: 3rem 5%;
+                min-height: 500px;
+            }
+            
+            .carousel-container {
+                height: 400px;
+            }
+            
+            .earth-center {
+                width: 130px;
+                height: 130px;
+            }
+            
+            .orbit-path {
+                width: 400px;
+                height: 400px;
+            }
+            
+            .industry-card-wrapper {
+                width: 150px;
+                height: 190px;
+                margin-left: -75px;
+                margin-top: -95px;
+            }
+            
+            .industry-content {
+                padding: 10px;
+            }
+            
+            .industry-name-large {
+                font-size: 12px;
+                margin-bottom: 5px;
+            }
+            
+            .industry-description {
+                display: none;
+            }
+            
+            .carousel-controls-large {
+                bottom: 40px;
+                gap: 20px;
+            }
+        }
+
+        /* EFECTO DE AURA PARA LA TIERRA */
+        .earth-aura {
+            position: absolute;
+            width: 350px;
+            height: 350px;
+            border-radius: 50%;
+            background: radial-gradient(circle at center, 
+                rgba(54, 209, 220, 0.1) 0%, 
+                rgba(54, 209, 220, 0.05) 40%, 
+                transparent 70%);
+            animation: auraPulse 4s ease-in-out infinite;
+            z-index: 4;
+        }
+
+        @keyframes auraPulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
+
+        /* EFECTO DE ESTRELLAS */
+        .star-field {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 3s infinite alternate;
+            animation-delay: calc(var(--star-index) * -0.1s);
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <!-- SECCIÓN DEL CARRUSEL MEJORADO -->
+    <section class="industries-section" id="industries">
+        <h2 class="section-title">Industrias que <span>Impulsamos</span></h2>
+        
+        <!-- CONTADOR MEJORADO -->
+        <div class="industry-counter-large" id="industryCounter">
+            <i class="fas fa-globe-americas"></i>
+            <span id="counterText">Industria 1 de 12</span>
+        </div>
+        
+        <!-- CONTENEDOR PRINCIPAL -->
+        <div class="carousel-container">
+            <!-- AURA DE LA TIERRA -->
+            <div class="earth-aura"></div>
+            
+            <!-- TIERRA CENTRAL -->
+            <div class="earth-center"></div>
+            
+            <!-- ANILLO ORBITAL -->
+            <div class="orbit-path"></div>
+            
+            <!-- CAMPO DE ESTRELLAS -->
+            <div class="star-field" id="starField"></div>
+            
+            <!-- RAYOS DE LUZ -->
+            <div class="light-rays" id="lightRays"></div>
+            
+            <!-- PARTÍCULAS ORBITALES -->
+            <div class="orbit-particles-large" id="orbitParticles"></div>
+            
+            <!-- CONTENEDOR DE TARJETAS -->
+            <div class="industries-container" id="industriesContainer"></div>
+        </div>
+        
+        <!-- CONTROLES MEJORADOS -->
+        <div class="carousel-controls-large">
+            <button class="control-btn-large" id="prevBtn">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="control-btn-large" id="nextBtn">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+        
+        <!-- INDICADORES DE POSICIÓN -->
+        <div class="position-indicators" id="positionIndicators"></div>
+    </section>
+
+    <script>
+        // DATOS DE INDUSTRIAS CON IMÁGENES MÁS GRANDES
+        const industries = [
+            {
+                id: 1,
+                name: "Hostelería y Viajes",
+                imageUrl: "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600&h=400&fit=crop",
+                description: "Hoteles, restaurantes, agencias de viajes y turismo"
+            },
+            {
+                id: 2,
+                name: "Servicios Profesionales",
+                imageUrl: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=400&fit=crop",
+                description: "Consultorías, asesorías y servicios especializados"
+            },
+            {
+                id: 3,
+                name: "Consultoría y Derecho",
+                imageUrl: "https://images.unsplash.com/photo-1589391886085-8b6b0ac72a1a?w=600&h=400&fit=crop",
+                description: "Bufetes, consultorías legales y asesoría jurídica"
+            },
+            {
+                id: 4,
+                name: "Educación e Investigación",
+                imageUrl: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=600&h=400&fit=crop",
+                description: "Universidades, institutos y centros de investigación"
+            },
+            {
+                id: 5,
+                name: "Finanzas y Banca",
+                imageUrl: "https://images.unsplash.com/photo-1616401784845-180882ba9ba8?w=600&h=400&fit=crop",
+                description: "Bancos, fintech, seguros y servicios financieros"
+            },
+            {
+                id: 6,
+                name: "Organizaciones Sin Ánimo de Lucro",
+                imageUrl: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=600&h=400&fit=crop",
+                description: "ONGs, fundaciones y asociaciones sociales"
+            },
+            {
+                id: 7,
+                name: "Energía y Medio Ambiente",
+                imageUrl: "https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=600&h=400&fit=crop",
+                description: "Renovables, sostenibilidad y gestión ambiental"
+            },
+            {
+                id: 8,
+                name: "Tecnología y Software (SaaS)",
+                imageUrl: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&h=400&fit=crop",
+                description: "Startups tech, desarrollo SaaS y soluciones digitales"
+            },
+            {
+                id: 9,
+                name: "Alimentación y Bebidas",
+                imageUrl: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&h=400&fit=crop",
+                description: "Restaurantes, fabricantes y distribuidores F&B"
+            },
+            {
+                id: 10,
+                name: "Comercio Electrónico y Retail",
+                imageUrl: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop",
+                description: "E-commerce, retail y marcas de consumo"
+            },
+            {
+                id: 11,
+                name: "Salud y Farmacia",
+                imageUrl: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=600&h=400&fit=crop",
+                description: "Hospitales, clínicas, farmacias y salud digital"
+            },
+            {
+                id: 12,
+                name: "Inmobiliario y Promoción",
+                imageUrl: "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=600&h=400&fit=crop",
+                description: "Constructoras, inmobiliarias y desarrolladoras"
+            }
+        ];
+
+        // VARIABLES GLOBALES
+        let currentIndex = 0;
+        let totalItems = industries.length;
+        let cardElements = [];
+        let isAnimating = false;
+        let autoRotateInterval = null;
+        let autoRotateEnabled = true;
+        let orbitRadius = 425; // Radio para las tarjetas
+
+        // INICIALIZACIÓN
+        document.addEventListener('DOMContentLoaded', () => {
+            initCarousel();
+            createParticles();
+            createStars();
+            createLightRays();
+            createPositionIndicators();
+            setupEventListeners();
+            startAutoRotation();
+            updateCounter();
+        });
+
+        // INICIALIZAR CARRUSEL
+        function initCarousel() {
+            const container = document.getElementById('industriesContainer');
+            
+            industries.forEach((industry, index) => {
+                // Calcular posición en el círculo
+                const angle = (index * (360 / totalItems)) * (Math.PI / 180);
+                const x = Math.cos(angle) * orbitRadius;
+                const y = Math.sin(angle) * orbitRadius;
+                
+                // Crear elemento de tarjeta
+                const cardWrapper = document.createElement('div');
+                cardWrapper.className = 'industry-card-wrapper';
+                cardWrapper.style.setProperty('--card-index', index);
+                cardWrapper.dataset.index = index;
+                
+                // Aplicar transformación para posición orbital
+                cardWrapper.style.transform = `
+                    translate(${x}px, ${y}px)
+                    rotate(${angle * (180 / Math.PI)}deg)
+                `;
+                
+                // Contenido de la tarjeta
+                cardWrapper.innerHTML = `
+                    <div class="industry-card-large">
+                        <div class="industry-image-large" style="background-image: url('${industry.imageUrl}')">
+                            <div class="image-overlay"></div>
+                        </div>
+                        <div class="industry-content">
+                            <h3 class="industry-name-large">${industry.name}</h3>
+                            <p class="industry-description">${industry.description}</p>
+                        </div>
+                    </div>
+                `;
+                
+                // Evento de clic
+                cardWrapper.addEventListener('click', () => {
+                    if (!isAnimating) {
+                        goToIndustry(index);
+                    }
+                });
+                
+                container.appendChild(cardWrapper);
+                cardElements.push(cardWrapper);
+            });
+            
+            // Activar primera tarjeta
+            updateActiveCard();
+        }
+
+        // CREAR PARTÍCULAS ORBITALES
+        function createParticles() {
+            const container = document.getElementById('orbitParticles');
+            for (let i = 0; i < 80; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'orbit-particle-large';
+                particle.style.setProperty('--particle-index', i);
+                container.appendChild(particle);
+            }
+        }
+
+        // CREAR ESTRELLAS DE FONDO
+        function createStars() {
+            const container = document.getElementById('starField');
+            for (let i = 0; i < 150; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.setProperty('--star-index', i);
+                star.style.left = `${Math.random() * 100}%`;
+                star.style.top = `${Math.random() * 100}%`;
+                container.appendChild(star);
+            }
+        }
+
+        // CREAR RAYOS DE LUZ
+        function createLightRays() {
+            const container = document.getElementById('lightRays');
+            for (let i = 0; i < 8; i++) {
+                const ray = document.createElement('div');
+                ray.className = 'light-ray';
+                ray.style.setProperty('--ray-index', i);
+                ray.style.transform = `rotate(${i * 45}deg)`;
+                container.appendChild(ray);
+            }
+        }
+
+        // CREAR INDICADORES DE POSICIÓN
+        function createPositionIndicators() {
+            const container = document.getElementById('positionIndicators');
+            
+            for (let i = 0; i < totalItems; i++) {
+                const dot = document.createElement('div');
+                dot.className = 'position-dot';
+                if (i === currentIndex) dot.classList.add('active');
+                dot.dataset.index = i;
+                dot.addEventListener('click', () => {
+                    if (!isAnimating) {
+                        goToIndustry(i);
+                    }
+                });
+                container.appendChild(dot);
+            }
+        }
+
+        // IR A UNA INDUSTRIA ESPECÍFICA
+        function goToIndustry(index) {
+            if (isAnimating || index === currentIndex) return;
+            
+            isAnimating = true;
+            currentIndex = index;
+            
+            // Calcular el ángulo de rotación necesario
+            const targetAngle = -(index * (360 / totalItems));
+            
+            // Animar todas las tarjetas
+            cardElements.forEach((card, cardIndex) => {
+                const newAngle = (cardIndex * (360 / totalItems) + targetAngle) * (Math.PI / 180);
+                const x = Math.cos(newAngle) * orbitRadius;
+                const y = Math.sin(newAngle) * orbitRadius;
+                
+                card.style.transition = 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)';
+                card.style.transform = `
+                    translate(${x}px, ${y}px)
+                    rotate(${newAngle * (180 / Math.PI)}deg)
+                `;
+                
+                // Ajustar opacidad basado en la posición
+                const distanceFromFront = Math.abs(cardIndex - index);
+                const opacity = distanceFromFront <= 2 ? 1 : 0.6;
+                card.style.opacity = opacity;
+            });
+            
+            // Actualizar elementos de UI
+            updateActiveCard();
+            updateCounter();
+            updatePositionIndicators();
+            
+            // Resetear animación
+            setTimeout(() => {
+                isAnimating = false;
+            }, 800);
+            
+            // Pausar rotación automática temporalmente
+            pauseAutoRotation(3000);
+        }
+
+        // ACTUALIZAR TARJETA ACTIVA
+        function updateActiveCard() {
+            cardElements.forEach((card, index) => {
+                const distance = Math.abs(index - currentIndex);
+                const isActive = index === currentIndex;
+                
+                if (isActive) {
+                    card.classList.add('active');
+                    card.style.zIndex = '100';
+                } else {
+                    card.classList.remove('active');
+                    card.style.zIndex = '10';
+                }
+                
+                // Ajustar escala según distancia
+                const scale = isActive ? 1.15 : 
+                             distance === 1 ? 1.05 : 
+                             distance === 2 ? 1.0 : 0.9;
+                card.style.scale = scale;
+            });
+        }
+
+        // ACTUALIZAR CONTADOR
+        function updateCounter() {
+            const counter = document.getElementById('counterText');
+            counter.textContent = `Industria ${currentIndex + 1} de ${totalItems}`;
+            
+            // Efecto de animación
+            const counterElement = document.querySelector('.industry-counter-large');
+            counterElement.style.transform = 'scale(1.1)';
+            setTimeout(() => {
+                counterElement.style.transform = 'scale(1)';
+            }, 300);
+        }
+
+        // ACTUALIZAR INDICADORES DE POSICIÓN
+        function updatePositionIndicators() {
+            const dots = document.querySelectorAll('.position-dot');
+            dots.forEach((dot, index) => {
+                if (index === currentIndex) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
+        }
+
+        // ROTACIÓN AUTOMÁTICA
+        function startAutoRotation() {
+            if (autoRotateInterval) clearInterval(autoRotateInterval);
+            
+            autoRotateInterval = setInterval(() => {
+                if (autoRotateEnabled && !isAnimating) {
+                    const nextIndex = (currentIndex + 1) % totalItems;
+                    goToIndustry(nextIndex);
+                }
+            }, 4000); // Cambiar cada 4 segundos
+        }
+
+        function pauseAutoRotation(duration = 3000) {
+            autoRotateEnabled = false;
+            if (autoRotateInterval) clearInterval(autoRotateInterval);
+            
+            setTimeout(() => {
+                autoRotateEnabled = true;
+                startAutoRotation();
+            }, duration);
+        }
+
+        // CONFIGURAR EVENT LISTENERS
+        function setupEventListeners() {
+            // Botones de navegación
+            document.getElementById('prevBtn').addEventListener('click', () => {
+                if (!isAnimating) {
+                    const prevIndex = (currentIndex - 1 + totalItems) % totalItems;
+                    goToIndustry(prevIndex);
+                }
+            });
+            
+            document.getElementById('nextBtn').addEventListener('click', () => {
+                if (!isAnimating) {
+                    const nextIndex = (currentIndex + 1) % totalItems;
+                    goToIndustry(nextIndex);
+                }
+            });
+            
+            // Navegación por teclado
+            document.addEventListener('keydown', (e) => {
+                if (isAnimating) return;
+                
+                if (e.key === 'ArrowLeft') {
+                    const prevIndex = (currentIndex - 1 + totalItems) % totalItems;
+                    goToIndustry(prevIndex);
+                } else if (e.key === 'ArrowRight') {
+                    const nextIndex = (currentIndex + 1) % totalItems;
+                    goToIndustry(nextIndex);
+                }
+            });
+            
+            // Pausar rotación al hacer hover
+            const container = document.querySelector('.carousel-container');
+            container.addEventListener('mouseenter', () => {
+                autoRotateEnabled = false;
+            });
+            
+            container.addEventListener('mouseleave', () => {
+                autoRotateEnabled = true;
+            });
+            
+            // Navegación táctil
+            let touchStartX = 0;
+            let touchEndX = 0;
+            
+            container.addEventListener('touchstart', (e) => {
+                touchStartX = e.changedTouches[0].screenX;
+            });
+            
+            container.addEventListener('touchend', (e) => {
+                if (isAnimating) return;
+                
+                touchEndX = e.changedTouches[0].screenX;
+                const diff = touchStartX - touchEndX;
+                const swipeThreshold = 50;
+                
+                if (Math.abs(diff) > swipeThreshold) {
+                    if (diff > 0) {
+                        // Swipe izquierda - siguiente
+                        const nextIndex = (currentIndex + 1) % totalItems;
+                        goToIndustry(nextIndex);
+                    } else {
+                        // Swipe derecha - anterior
+                        const prevIndex = (currentIndex - 1 + totalItems) % totalItems;
+                        goToIndustry(prevIndex);
+                    }
+                }
+            });
+        }
+
+        // LIMPIAR AL SALIR
+        window.addEventListener('beforeunload', () => {
+            if (autoRotateInterval) {
+                clearInterval(autoRotateInterval);
+            }
+        });
+    </script>
+</body>
+</html>

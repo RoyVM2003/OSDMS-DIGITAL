@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OSDEMS Digital | Experiencias Agentivas + Conversión Web</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="../assets/css/styles.css" />
+    <link rel="prefetch" href="services.html" />
+</head>
+<body>
+    <div class="menu-overlay" id="menuOverlay"></div>
+
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="index.html#inicio" class="logo">
+                <i class="fas fa-rocket"></i>
+                OSDEMS<span>Digital</span>
+            </a>
+            <nav class="main-nav">
+                <a href="index.html#inicio">Home</a>
+                <a href="about.html">About Us</a>
+
+                <div class="services-dropdown">
+                    <a href="services.html" class="services-btn" id="servicesBtn">
+                        <i class="fas fa-cogs"></i> Services <i class="fas fa-chevron-down"></i>
+                    </a>
+                    <div class="mega-menu" id="servicesMegaMenu">
+                        <div class="mega-menu-category">
+                            <h3><i class="fas fa-paint-brush"></i> Web Design</h3>
+                            <ul>
+                                <li><a href="#"><i class="fas fa-arrow-right"></i> Website Design & Development</a></li>
+                                <li><a href="#"><i class="fab fa-wordpress"></i> WordPress Development</a></li>
+                                <li><a href="#"><i class="fas fa-shopping-cart"></i> E-commerce Development</a></li>
+                                <li><a href="#"><i class="fas fa-palette"></i> UI/UX Design</a></li>
+                                <li><a href="#"><i class="fas fa-search"></i> Website Discovery</a></li>
+                                <li><a href="#"><i class="fas fa-sitemap"></i> Sitemaps & Wireframes</a></li>
+                                <li><a href="#"><i class="fas fa-pen"></i> Website Content Writing</a></li>
+                                <li><a href="#"><i class="fas fa-server"></i> Website Maintenance & Hosting</a></li>
+                                <li><a href="#"><i class="fas fa-landmark"></i> Landing Page Design</a></li>
+                                <li><a href="#"><i class="fas fa-store"></i> Shopify Development</a></li>
+                                <li><a href="#"><i class="fas fa-cog"></i> Custom CMS Development</a></li>
+                                <li><a href="#"><i class="fas fa-code"></i> Headless CMS Development</a></li>
+                                <li><a href="#"><i class="fas fa-clipboard-check"></i> Design Audits</a></li>
+                            </ul>
+                        </div>
+                        <div class="mega-menu-category">
+                            <h3><i class="fas fa-bullhorn"></i> Digital Marketing</h3>
+                            <ul>
+                                <li><a href="#"><i class="fas fa-chart-line"></i> Marketing Strategy</a></li>
+                                <li><a href="#"><i class="fas fa-search-plus"></i> Search Engine Optimization (SEO)</a></li>
+                                <li><a href="#"><i class="fas fa-ad"></i> Paid Ad Campaigns (PPC)</a></li>
+                                <li><a href="#"><i class="fas fa-users"></i> Social Media Management</a></li>
+                                <li><a href="#"><i class="fas fa-envelope"></i> Email Marketing</a></li>
+                                <li><a href="#"><i class="fas fa-robot"></i> Sales Support & Automation (CRM)</a></li>
+                                <li><a href="#"><i class="fas fa-file-alt"></i> Content Strategy & Execution</a></li>
+                                <li><a href="#"><i class="fas fa-brain"></i> Generative Engine Optimization (GEO)</a></li>
+                            </ul>
+                        </div>
+                        <div class="mega-menu-category">
+                            <h3><i class="fas fa-mobile-alt"></i> App Development</h3>
+                            <ul>
+                                <li><a href="#"><i class="fas fa-globe"></i> Web App Development</a></li>
+                                <li><a href="#"><i class="fas fa-mobile"></i> Mobile App Development</a></li>
+                                <li><a href="#"><i class="fas fa-tachometer-alt"></i> Portal & Dashboard Development</a></li>
+                                <li><a href="#"><i class="fas fa-graduation-cap"></i> LMS Development</a></li>
+                                <li><a href="#"><i class="fas fa-handshake"></i> CRM Integration</a></li>
+                                <li><a href="#"><i class="fab fa-react"></i> React Development</a></li>
+                                <li><a href="#"><i class="fab fa-node-js"></i> Node.js Development</a></li>
+                                <li><a href="#"><i class="fab fa-laravel"></i> Laravel Development</a></li>
+                                <li><a href="#"><i class="fas fa-code"></i> No Code Development</a></li>
+                                <li><a href="#"><i class="fas fa-robot"></i> Advanced AI Development</a></li>
+                                <li><a href="#"><i class="fas fa-link"></i> Blockchain Development</a></li>
+                            </ul>
+                        </div>
+                        <div class="mega-menu-category">
+                            <h3><i class="fas fa-building"></i> Enterprise Solutions</h3>
+                            <ul>
+                                <li><a href="#"><i class="fas fa-cogs"></i> Application Maintenance</a></li>
+                                <li><a href="#"><i class="fas fa-cloud"></i> Cloud Hosting Services</a></li>
+                            </ul>
+                        </div>
+                        <div class="mega-menu-category">
+                            <h3><i class="fas fa-pen-fancy"></i> Design & Branding</h3>
+                            <ul>
+                                <li><a href="#"><i class="fas fa-trademark"></i> Brand Development</a></li>
+                                <li><a href="#"><i class="fas fa-icons"></i> Logo Design</a></li>
+                                <li><a href="#"><i class="fas fa-book"></i> Brand Guidelines</a></li>
+                                <li><a href="#"><i class="fas fa-comment-alt"></i> Brand Identity Messaging</a></li>
+                                <li><a href="#"><i class="fas fa-sync-alt"></i> Rebranding Services</a></li>
+                                <li><a href="#"><i class="fas fa-ad"></i> Ad Creative Design</a></li>
+                                <li><a href="#"><i class="fas fa-share-alt"></i> Social Media Design</a></li>
+                                <li><a href="#"><i class="fas fa-presentation"></i> Presentation Design</a></li>
+                                <li><a href="#"><i class="fas fa-mail-bulk"></i> Email Design</a></li>
+                                <li><a href="#"><i class="fas fa-draw-polygon"></i> Illustrations & Iconography</a></li>
+                                <li><a href="#"><i class="fas fa-chart-bar"></i> Corporate Reports</a></li>
+                                <li><a href="#"><i class="fas fa-file-contract"></i> Product Sheets & One Pagers</a></li>
+                                <li><a href="#"><i class="fas fa-box-open"></i> Print & Packaging Design</a></li>
+                            </ul>
+                        </div>
+                        <div class="mega-menu-category">
+                            <h3><i class="fas fa-video"></i> Photo & Video</h3>
+                            <ul>
+                                <li><a href="#"><i class="fas fa-video"></i> Video Production</a></li>
+                                <li><a href="#"><i class="fas fa-film"></i> Post Production & Editing</a></li>
+                                <li><a href="#"><i class="fas fa-tv"></i> Commercials</a></li>
+                                <li><a href="#"><i class="fas fa-star"></i> Hero Videos</a></li>
+                                <li><a href="#"><i class="fas fa-film"></i> Animated Explainer Videos</a></li>
+                                <li><a href="#"><i class="fas fa-cube"></i> Product Renders</a></li>
+                                <li><a href="#"><i class="fas fa-running"></i> Animation & Motion Graphics</a></li>
+                                <li><a href="#"><i class="fas fa-cube"></i> 3D & AR Design</a></li>
+                                <li><a href="#"><i class="fas fa-music"></i> Sound & Music Design</a></li>
+                                <li><a href="#"><i class="fas fa-user-tie"></i> Professional Headshots</a></li>
+                                <li><a href="#"><i class="fas fa-camera"></i> Product Photography</a></li>
+                                <li><a href="#"><i class="fas fa-calendar-alt"></i> Event Photography</a></li>
+                                <li><a href="#"><i class="fas fa-images"></i> Brand & Lifestyle Photography</a></li>
+                                <li><a href="#"><i class="fas fa-broadcast-tower"></i> Live Streaming & Broadcasting</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="industries-dropdown">
+                    <button class="industries-btn" id="industriesBtn">
+                        <i class="fas fa-industry"></i> Industries <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="mega-menu" id="industriesMegaMenu">
+                        <div class="mega-menu-category">
+                            <h3><i class="fas fa-hotel"></i> Hostelería y Viajes</h3>
+                            <ul>
+                                <li><a href="#"><i class="fas fa-utensils"></i> Restaurantes & Cafeterías</a></li>
+                                <li><a href="#"><i class="fas fa-bed"></i> Hoteles & Resorts</a></li>
+                                <li><a href="#"><i class="fas fa-plane"></i> Agencias de Viajes</a></li>
+                                <li><a href="#"><i class="fas fa-ship"></i> Cruceros & Turismo</a></li>
+                                <li><a href="#"><i class="fas fa-hiking"></i> Ecoturismo & Aventura</a></li>
+                                <li><a href="#"><i class="fas fa-concierge-bell"></i> Eventos & Catering</a></li>
+                            </ul>
+                        </div>
+                        <div class="mega-menu-category">
+                            <h3><i class="fas fa-briefcase"></i> Servicios Profesionales</h3>
+                            <ul>
+                                <li><a href="#"><i class="fas fa-chart-line"></i> Consultoría de Negocios</a></li>
+                                <li><a href="#"><i class="fas fa-users"></i> Coaching & Mentoring</a></li>
+                                <li><a href="#"><i class="fas fa-handshake"></i> Servicios B2B</a></li>
+                                <li><a href="#"><i class="fas fa-search-dollar"></i> Asesoría Financiera</a></li>
+                                <li><a href="#"><i class="fas fa-project-diagram"></i> Gestión de Proyectos</a></li>
+                            </ul>
+                        </div>
+                        <div class="mega-menu-category">
+                            <h3><i class="fas fa-gavel"></i> Consultoría y Derecho</h3>
+                            <ul>
+                                <li><a href="#"><i class="fas fa-balance-scale"></i> Firmas Legales</a></li>
+                                <li><a href="#"><i class="fas fa-user-tie"></i> Consultoría Jurídica</a></li>
+                                <li><a href="#"><i class="fas fa-file-contract"></i> Servicios Corporativos</a></li>
+                                <li><a href="#"><i class="fas fa-landmark"></i> Asesoría Regulatoria</a></li>
+                            </ul>
+                        </div>
+                        <div class="mega-menu-category">
+                            <h3><i class="fas fa-graduation-cap"></i> Educación e Investigación</h3>
+                            <ul>
+                                <li><a href="#"><i class="fas fa-school"></i> Universidades & Colegios</a></li>
+                                <li><a href="#"><i class="fas fa-book-open"></i> E-Learning & EdTech</a></li>
+                                <li><a href="#"><i class="fas fa-flask"></i> Centros de Investigación</a></li>
+                                <li><a href="#"><i class="fas fa-chalkboard-teacher"></i> Formación Corporativa</a></li>
+                                <li><a href="#"><i class="fas fa-language"></i> Idiomas & Educación</a></li>
+                            </ul>
+                        </div>
+                        <div class="mega-menu-category">
+                            <h3><i class="fas fa-university"></i> Finanzas y Banca</h3>
+                            <ul>
+                                <li><a href="#"><i class="fas fa-piggy-bank"></i> Bancos & Fintech</a></li>
+                                <li><a href="#"><i class="fas fa-chart-pie"></i> Inversiones & Wealth Management</a></li>
+                                <li><a href="#"><i class="fas fa-hand-holding-usd"></i> Préstamos & Créditos</a></li>
+                                <li><a href="#"><i class="fas fa-shield-alt"></i> Seguros & Pensiones</a></li>
+                                <li><a href="#"><i class="fas fa-credit-card"></i> Pagos Digitales</a></li>
+                            </ul>
+                        </div>
+                        <div class="mega-menu-category">
+                            <h3><i class="fas fa-hands-helping"></i> Organizaciones Sin Ánimo de Lucro</h3>
+                            <ul>
+                                <li><a href="#"><i class="fas fa-heart"></i> ONGs & Fundaciones</a></li>
+                                <li><a href="#"><i class="fas fa-leaf"></i> Medio Ambiente</a></li>
+                                <li><a href="#"><i class="fas fa-hand-holding-heart"></i> Asistencia Social</a></li>
+                                <li><a href="#"><i class="fas fa-globe-americas"></i> Cooperación Internacional</a></li>
+                            </ul>
+                        </div>
+                        <div class="mega-menu-category">
+                            <h3><i class="fas fa-bolt"></i> Energía y Medio Ambiente</h3>
+                            <ul>
+                                <li><a href="#"><i class="fas fa-solar-panel"></i> Energías Renovables</a></li>
+                                <li><a href="#"><i class="fas fa-industry"></i> Gestión Ambiental</a></li>
+                                <li><a href="#"><i class="fas fa-recycle"></i> Sostenibilidad</a></li>
+                                <li><a href="#"><i class="fas fa-water"></i> Gestión de Aguas</a></li>
+                            </ul>
+                        </div>
+                        <div class="mega-menu-category">
+                            <h3><i class="fas fa-laptop-code"></i> Tecnología y Software (SaaS)</h3>
+                            <ul>
+                                <li><a href="#"><i class="fas fa-cloud"></i> Startups SaaS</a></li>
+                                <li><a href="#"><i class="fas fa-mobile-alt"></i> Desarrollo de Apps</a></li>
+                                <li><a href="#"><i class="fas fa-server"></i> Infraestructura IT</a></li>
+                                <li><a href="#"><i class="fas fa-robot"></i> Inteligencia Artificial</a></li>
+                            </ul>
+                        </div>
+                        <div class="mega-menu-category">
+                            <h3><i class="fas fa-utensils"></i> Alimentación y Bebidas</h3>
+                            <ul>
+                                <li><a href="#"><i class="fas fa-seedling"></i> Producción Agrícola</a></li>
+                                <li><a href="#"><i class="fas fa-wine-bottle"></i> Bebidas & Licores</a></li>
+                                <li><a href="#"><i class="fas fa-truck"></i> Distribución Alimentaria</a></li>
+                                <li><a href="#"><i class="fas fa-cookie-bite"></i> Productos Gourmet</a></li>
+                            </ul>
+                        </div>
+                        <div class="mega-menu-category">
+                            <h3><i class="fas fa-shopping-cart"></i> Comercio Electrónico y Retail</h3>
+                            <ul>
+                                <li><a href="#"><i class="fas fa-store"></i> Tiendas Online</a></li>
+                                <li><a href="#"><i class="fas fa-tshirt"></i> Moda & Accesorios</a></li>
+                                <li><a href="#"><i class="fas fa-gem"></i> Joyería & Lujo</a></li>
+                                <li><a href="#"><i class="fas fa-home"></i> Hogar & Decoración</a></li>
+                            </ul>
+                        </div>
+                        <div class="mega-menu-category">
+                            <h3><i class="fas fa-heartbeat"></i> Salud y Farmacia</h3>
+                            <ul>
+                                <li><a href="#"><i class="fas fa-hospital"></i> Hospitales & Clínicas</a></li>
+                                <li><a href="#"><i class="fas fa-pills"></i> Farmacias & Farmacéuticas</a></li>
+                                <li><a href="#"><i class="fas fa-dumbbell"></i> Wellness & Fitness</a></li>
+                                <li><a href="#"><i class="fas fa-stethoscope"></i> Telemedicina</a></li>
+                            </ul>
+                        </div>
+                        <div class="mega-menu-category">
+                            <h3><i class="fas fa-building"></i> Inmobiliario y Promoción</h3>
+                            <ul>
+                                <li><a href="#"><i class="fas fa-home"></i> Constructoras</a></li>
+                                <li><a href="#"><i class="fas fa-city"></i> Desarrollo Inmobiliario</a></li>
+                                <li><a href="#"><i class="fas fa-key"></i> Gestión de Propiedades</a></li>
+                                <li><a href="#"><i class="fas fa-hard-hat"></i> Arquitectura & Diseño</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="premium.html">Premium</a>
+                <a href="mantto-web.html">Mantto Web</a>
+                <a href="experiencias.html">Agentivas + Conversión Web</a>
+                <a href="product-branding.html">Product Branding</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="experiencias-page">
+        <!-- Hero: Experiencias Agentivas + Conversión Web (archivo 8) -->
+        <section class="exp-hero" id="hero">
+            <div class="container exp-hero-content">
+                <h1>Experiencias Agentivas + Conversión Web</h1>
+                <p>Una implementación completa que fusiona diseño conversional óptimo con preparación para la próxima generación de interacciones digitales impulsadas por IA autónoma.</p>
+                <a href="#form" class="exp-cta-btn">Explorar Implementación <i class="fas fa-arrow-right"></i></a>
+                <div class="exp-hero-visual">
+                    <div class="exp-visual-card">
+                        <i class="fas fa-robot"></i>
+                        <h3>IA Agentiva</h3>
+                        <p>Sistemas autónomos que actúan por objetivos</p>
+                    </div>
+                    <div class="exp-visual-card">
+                        <i class="fas fa-chart-line"></i>
+                        <h3>Alta Conversión</h3>
+                        <p>Diseño centrado en resultados medibles</p>
+                    </div>
+                    <div class="exp-visual-card">
+                        <i class="fas fa-bolt"></i>
+                        <h3>Rendimiento</h3>
+                        <p>Optimización técnica para velocidad y SEO</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección IA Agentiva (archivo 8) -->
+        <section class="exp-agentiva" id="agentiva">
+            <div class="container">
+                <div class="exp-section-header">
+                    <h2>¿Qué es una Experiencia Agentiva?</h2>
+                    <p>La IA Agentiva representa un salto evolutivo: sistemas que no solo responden consultas, sino que ejecutan tareas complejas de forma autónoma para alcanzar objetivos específicos.</p>
+                </div>
+                <div class="exp-grid-2cols exp-grid-justify">
+                    <div class="exp-ia-box">
+                        <h3><i class="fas fa-brain"></i> IA Tradicional vs Agentiva</h3>
+                        <p class="exp-text-justify">Mientras los chatbots convencionales reaccionan a comandos, los <strong>agentes de IA</strong> toman iniciativa, planean secuencias de acción y persiguen resultados específicos con mínima supervisión humana.</p>
+                        <p class="exp-text-justify">Ejemplo: Un agente no solo recomienda un producto, sino que analiza tu historial, compara alternativas, gestiona el pago y programa la entrega.</p>
+                        <ul class="exp-feature-list exp-text-justify">
+                            <li><i class="fas fa-check-circle"></i> <strong>Autonomía</strong>: Ejecuta tareas complejas sin intervención constante</li>
+                            <li><i class="fas fa-check-circle"></i> <strong>Proactividad</strong>: Anticipa necesidades basándose en contexto</li>
+                            <li><i class="fas fa-check-circle"></i> <strong>Persistencia</strong>: Mantiene objetivos a largo plazo entre sesiones</li>
+                            <li><i class="fas fa-check-circle"></i> <strong>Adaptabilidad</strong>: Ajusta estrategias según resultados intermedios</li>
+                        </ul>
+                    </div>
+                    <div class="exp-ia-box">
+                        <h3><i class="fas fa-sitemap"></i> Preparando tu Web para Agentes</h3>
+                        <p class="exp-text-justify">Para que los agentes de IA interactúen efectivamente con tu sitio, necesitan encontrar información <strong>estructurada, precisa y accionable</strong>.</p>
+                        <h4>Estrategias clave de implementación:</h4>
+                        <ul class="exp-feature-list exp-text-justify">
+                            <li><i class="fas fa-code"></i> <strong>Datos Estructurados (Schema.org)</strong>: Etiquetado semántico que las IA comprenden</li>
+                            <li><i class="fas fa-project-diagram"></i> <strong>APIs Accesibles</strong>: Endpoints para interacción programática</li>
+                            <li><i class="fas fa-file-alt"></i> <strong>Contenido RAG-Optimizado</strong>: Información en bloques claros para recuperación</li>
+                            <li><i class="fas fa-cogs"></i> <strong>Contexto Operacional</strong>: Instrucciones claras sobre alcance y capacidades</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección Conversión (archivo 8) -->
+        <section class="exp-conversion" id="conversion">
+            <div class="container">
+                <div class="exp-section-header">
+                    <h2>Elementos Clave para Conversión</h2>
+                    <p>Combinando principios de UX probados con preparación para agentes de IA, maximizamos resultados tanto para visitantes humanos como digitales.</p>
+                </div>
+                <div class="exp-grid-2cols exp-conversion-cols">
+                    <div class="exp-conversion-box">
+                        <h3><i class="fas fa-user-check"></i> Para Visitantes Humanos</h3>
+                        <ul class="exp-checklist-readable">
+                            <li><i class="fas fa-check"></i> <strong>Velocidad de carga &lt;3s</strong><span>Factor crítico para retención y SEO</span></li>
+                            <li><i class="fas fa-check"></i> <strong>Diseño mobile-first</strong><span>60%+ del tráfico viene de dispositivos móviles</span></li>
+                            <li><i class="fas fa-check"></i> <strong>Jerarquía visual clara</strong><span>Guía la atención hacia llamadas a la acción</span></li>
+                            <li><i class="fas fa-check"></i> <strong>Contenido escaneable</strong><span>Párrafos cortos, bullet points, encabezados claros</span></li>
+                            <li><i class="fas fa-check"></i> <strong>Confianza inmediata</strong><span>Testimonios, certificaciones, garantías visibles</span></li>
+                            <li><i class="fas fa-check"></i> <strong>Formularios optimizados</strong><span>Campos mínimos, validación en tiempo real</span></li>
+                            <li><i class="fas fa-check"></i> <strong>Prueba social estratégica</strong><span>Logos de clientes, casos de estudio, reseñas</span></li>
+                        </ul>
+                    </div>
+                    <div class="exp-conversion-box">
+                        <h3><i class="fas fa-robot"></i> Para Agentes de IA</h3>
+                        <ul class="exp-checklist-readable">
+                            <li><i class="fas fa-check"></i> <strong>HTML Semántico</strong><span>Etiquetas correctas (&lt;header&gt;, &lt;article&gt;, &lt;section&gt;)</span></li>
+                            <li><i class="fas fa-check"></i> <strong>JSON-LD implementado</strong><span>Datos estructurados para productos, FAQ, organización</span></li>
+                            <li><i class="fas fa-check"></i> <strong>Metadatos completos</strong><span>Title, description, Open Graph optimizados</span></li>
+                            <li><i class="fas fa-check"></i> <strong>Contenido "listo para RAG"</strong><span>Bloques temáticos con información autocontenida</span></li>
+                            <li><i class="fas fa-check"></i> <strong>APIs documentadas</strong><span>Endpoints para consultas programáticas</span></li>
+                            <li><i class="fas fa-check"></i> <strong>Contexto operacional</strong><span>Instrucciones sobre qué puede hacer un agente en el sitio</span></li>
+                            <li><i class="fas fa-check"></i> <strong>Actualización frecuente</strong><span>Contenido fresco con marcas de tiempo claras</span></li>
+                        </ul>
+                        <div class="exp-benefit-dual">
+                            <h4><i class="fas fa-lightbulb"></i> Beneficio Dual</h4>
+                            <p>Lo que optimiza para agentes de IA (estructura clara, datos precisos) también mejora la experiencia humana y el SEO tradicional.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Demostración de Implementación (archivo 8) -->
+        <section class="exp-demo-implementacion" id="demostracion">
+            <div class="container">
+                <div class="exp-section-header exp-demo-impl-header">
+                    <h2>Demostración de Implementación</h2>
+                    <p>Código real que muestra cómo integrar datos estructurados y elementos conversionales para experiencias agentivas.</p>
+                </div>
+                <div class="exp-demo-impl-grid">
+                    <div class="exp-code-preview">
+                        <div class="exp-code-preview-header">
+                            <span class="exp-code-preview-title"><i class="fas fa-code"></i> index.html – Implementación Agentiva</span>
+                            <div class="exp-code-dots">
+                                <span class="exp-dot exp-dot-red"></span>
+                                <span class="exp-dot exp-dot-yellow"></span>
+                                <span class="exp-dot exp-dot-green"></span>
+                            </div>
+                        </div>
+                        <div class="exp-code-preview-content">
+                            <div class="exp-code-line"><span class="exp-code-tag">&lt;!-- Datos Estructurados para Agentes IA --&gt;</span></div>
+                            <div class="exp-code-line"><span class="exp-code-tag">&lt;script</span> <span class="exp-code-attr">type</span>=<span class="exp-code-value">"application/ld+json"</span><span class="exp-code-tag">&gt;</span></div>
+                            <div class="exp-code-line">{</div>
+                            <div class="exp-code-line">  <span class="exp-code-attr">"@context"</span>: <span class="exp-code-value">"https://schema.org"</span>,</div>
+                            <div class="exp-code-line">  <span class="exp-code-attr">"@type"</span>: <span class="exp-code-value">"Product"</span>,</div>
+                            <div class="exp-code-line">  <span class="exp-code-attr">"name"</span>: <span class="exp-code-value">"Solución Digital Premium"</span>,</div>
+                            <div class="exp-code-line">  <span class="exp-code-attr">"description"</span>: <span class="exp-code-value">"Implementación completa de web conversional..."</span>,</div>
+                            <div class="exp-code-line">  <span class="exp-code-attr">"brand"</span>: {</div>
+                            <div class="exp-code-line">    <span class="exp-code-attr">"@type"</span>: <span class="exp-code-value">"Brand"</span>,</div>
+                            <div class="exp-code-line">    <span class="exp-code-attr">"name"</span>: <span class="exp-code-value">"OSDEMS Digital"</span></div>
+                            <div class="exp-code-line">  },</div>
+                            <div class="exp-code-line">  <span class="exp-code-attr">"offers"</span>: {</div>
+                            <div class="exp-code-line">    <span class="exp-code-attr">"@type"</span>: <span class="exp-code-value">"Offer"</span>,</div>
+                            <div class="exp-code-line">    <span class="exp-code-attr">"price"</span>: <span class="exp-code-value">"297"</span>,</div>
+                            <div class="exp-code-line">    <span class="exp-code-attr">"priceCurrency"</span>: <span class="exp-code-value">"USD"</span></div>
+                            <div class="exp-code-line">  }</div>
+                            <div class="exp-code-line">}</div>
+                            <div class="exp-code-line"><span class="exp-code-tag">&lt;/script&gt;</span></div>
+                            <div class="exp-code-line">&nbsp;</div>
+                            <div class="exp-code-line"><span class="exp-code-comment">&lt;!-- Sección conversional con semántica clara --&gt;</span></div>
+                            <div class="exp-code-line"><span class="exp-code-tag">&lt;section</span> <span class="exp-code-attr">class</span>=<span class="exp-code-value">"conversion-section"</span> <span class="exp-code-attr">itemscope</span> <span class="exp-code-attr">itemtype</span>=<span class="exp-code-value">"https://schema.org/WebPage"</span><span class="exp-code-tag">&gt;</span></div>
+                            <div class="exp-code-line">  <span class="exp-code-tag">&lt;div</span> <span class="exp-code-attr">class</span>=<span class="exp-code-value">"container"</span><span class="exp-code-tag">&gt;</span></div>
+                            <div class="exp-code-line">    <span class="exp-code-tag">&lt;h1</span> <span class="exp-code-attr">itemprop</span>=<span class="exp-code-value">"headline"</span><span class="exp-code-tag">&gt;</span>Transforma tu presencia digital<span class="exp-code-tag">&lt;/h1&gt;</span></div>
+                            <div class="exp-code-line">    <span class="exp-code-tag">&lt;p</span> <span class="exp-code-attr">itemprop</span>=<span class="exp-code-value">"description"</span><span class="exp-code-tag">&gt;</span>Solución integral...<span class="exp-code-tag">&lt;/p&gt;</span></div>
+                            <div class="exp-code-line">    <span class="exp-code-tag">&lt;a</span> <span class="exp-code-attr">href</span>=<span class="exp-code-value">"#form"</span> <span class="exp-code-attr">class</span>=<span class="exp-code-value">"cta-button"</span> <span class="exp-code-attr">itemprop</span>=<span class="exp-code-value">"significantLink"</span><span class="exp-code-tag">&gt;</span></div>
+                            <div class="exp-code-line">      Solicitar demostración <span class="exp-code-tag">&lt;i</span> <span class="exp-code-attr">class</span>=<span class="exp-code-value">"fas fa-arrow-right"</span><span class="exp-code-tag">&gt;&lt;/i&gt;</span></div>
+                            <div class="exp-code-line">    <span class="exp-code-tag">&lt;/a&gt;</span></div>
+                            <div class="exp-code-line">  <span class="exp-code-tag">&lt;/div&gt;</span></div>
+                            <div class="exp-code-line"><span class="exp-code-tag">&lt;/section&gt;</span></div>
+                        </div>
+                    </div>
+                    <div class="exp-demo-impl-explicacion">
+                        <h3><i class="fas fa-magic"></i> Explicación de la Implementación</h3>
+                        <p>Este código muestra dos elementos fundamentales:</p>
+                        <ol class="exp-demo-impl-list">
+                            <li><strong>Datos Estructurados (JSON-LD)</strong>: Proporciona contexto semántico que los agentes de IA pueden entender y utilizar para realizar acciones específicas.</li>
+                            <li><strong>HTML Semántico</strong>: El uso de etiquetas como <code>&lt;section&gt;</code> y atributos como <em>itemprop</em> crea una estructura que tanto navegadores como agentes de IA pueden analizar eficientemente.</li>
+                            <li><strong>Atributos para Agentes</strong>: Elementos como <em>itemtype</em> y <em>itemprop</em> definen claramente el tipo de contenido y sus propiedades.</li>
+                        </ol>
+                        <div class="exp-demo-impl-impacto">
+                            <h4><i class="fas fa-rocket"></i> Impacto en la Experiencia Agentiva</h4>
+                            <p>Un agente de IA puede extraer el precio, descripción y disponibilidad directamente del código estructurado, luego tomar decisiones autónomas como comparar con alternativas o iniciar un proceso de compra.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Arquitectura Chatbot RAG (archivo 9) -->
+        <section class="exp-arch" id="arquitectura">
+            <div class="container">
+                <h2 class="exp-arch-title">Arquitectura del Chatbot Agentivo con RAG</h2>
+                <p class="exp-arch-subtitle">LangChain para orquestación, RAG para conocimiento específico y OpenAI para inteligencia conversacional</p>
+                <div class="exp-arch-grid">
+                    <div class="exp-arch-card">
+                        <div class="exp-arch-icon"><i class="fas fa-brain"></i></div>
+                        <h3>LangChain Orchestrator</h3>
+                        <p>Coordina el flujo entre el LLM, las herramientas RAG y las acciones externas. Decide cuándo buscar información y cómo formular respuestas.</p>
+                    </div>
+                    <div class="exp-arch-card">
+                        <div class="exp-arch-icon"><i class="fas fa-database"></i></div>
+                        <h3>RAG (Retrieval-Augmented Generation)</h3>
+                        <p>Recupera información relevante de tu base de conocimiento y la inyecta en el contexto del LLM para respuestas precisas y actualizadas.</p>
+                    </div>
+                    <div class="exp-arch-card">
+                        <div class="exp-arch-icon"><i class="fas fa-comments"></i></div>
+                        <h3>OpenAI GPT-4 + Funciones</h3>
+                        <p>Procesa conversaciones naturales, entiende intenciones y genera respuestas coherentes utilizando el contexto proporcionado.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Demo: Chatbot Agentivo de Servicios Digitales (archivo 10) -->
+        <section class="exp-demo" id="demo">
+            <div class="container">
+                <h2 class="exp-demo-title">Chatbot Agentivo de Servicios Digitales</h2>
+                <p class="exp-demo-subtitle">Pregunta sobre presupuestos, tiempos de entrega, tecnologías, estrategias y más</p>
+                <div class="exp-chatbot-section">
+                    <div class="exp-chatbot-container">
+                        <div class="exp-chat-interface">
+                            <div class="exp-chat-header">
+                                <div class="exp-chat-avatar"><i class="fas fa-robot"></i></div>
+                                <div>
+                                    <h3>Asistente OSDEMS Digital</h3>
+                                    <p>Especializado en 50+ servicios digitales • En línea</p>
+                                </div>
+                            </div>
+                            <div class="exp-chat-messages" id="chatMessages">
+                                <div class="exp-message exp-message-bot">
+                                    ¡Hola! Soy el asistente agentivo de <strong>OSDEMS Digital</strong>. Estoy especializado en nuestros 50+ servicios digitales. Puedo responder tus dudas sobre:
+                                    <br><br>• <strong>Desarrollo Web</strong> (WordPress, E-commerce, UI/UX)<br>• <strong>Marketing Digital</strong> (SEO, PPC, Redes Sociales)<br>• <strong>App Development</strong> (Mobile, Web, AI, Blockchain)<br>• <strong>Diseño &amp; Branding</strong><br>• <strong>Foto &amp; Video</strong><br><br>¿En qué servicio te puedo ayudar hoy?
+                                </div>
+                                <div class="exp-message exp-message-system">
+                                    <i class="fas fa-lightbulb"></i> <strong>Sugerencias rápidas:</strong> Haz clic en cualquier chip de abajo para preguntar
+                                </div>
+                            </div>
+                            <div class="exp-suggestions">
+                                <div class="exp-suggestion-chip" data-question="¿Qué incluye un servicio de SEO?">SEO</div>
+                                <div class="exp-suggestion-chip" data-question="¿Cuánto cuesta una página web?">Presupuesto Web</div>
+                                <div class="exp-suggestion-chip" data-question="¿Qué es mejor, WordPress o desarrollo personalizado?">WordPress vs Custom</div>
+                                <div class="exp-suggestion-chip" data-question="¿Cuánto tiempo toma desarrollar una app móvil?">Tiempos App Móvil</div>
+                                <div class="exp-suggestion-chip" data-question="¿Ofrecen mantenimiento de sitios web?">Mantenimiento Web</div>
+                                <div class="exp-suggestion-chip" data-question="¿Qué redes sociales manejan?">Redes Sociales</div>
+                            </div>
+                            <div class="exp-chat-input-area">
+                                <input type="text" class="exp-chat-input" id="chatInput" placeholder="Escribe tu pregunta sobre nuestros servicios...">
+                                <button type="button" class="exp-send-btn" id="sendButton"><i class="fas fa-paper-plane"></i></button>
+                            </div>
+                        </div>
+                        <div class="exp-chat-info">
+                            <div class="exp-info-tabs">
+                                <button type="button" class="exp-tab-btn active" data-tab="services">Servicios</button>
+                                <button type="button" class="exp-tab-btn" data-tab="benefits">Beneficios</button>
+                                <button type="button" class="exp-tab-btn" data-tab="tech">Tecnología</button>
+                            </div>
+                            <div class="exp-tab-content active" id="servicesTab">
+                                <h4>Servicios Detallados</h4>
+                                <div class="exp-tab-block">
+                                    <h5><i class="fas fa-code"></i> Desarrollo Web</h5>
+                                    <p>Desde landing pages hasta e-commerce complejos. Usamos WordPress, Shopify, Laravel y tecnologías modernas.</p>
+                                </div>
+                                <div class="exp-tab-block">
+                                    <h5><i class="fas fa-chart-line"></i> Marketing Digital</h5>
+                                    <p>Estrategias completas de SEO, campañas PPC, gestión de redes sociales y automatización de marketing.</p>
+                                </div>
+                                <div class="exp-tab-block">
+                                    <h5><i class="fas fa-mobile-alt"></i> App Development</h5>
+                                    <p>Aplicaciones nativas y cross-platform con React Native, Flutter, y desarrollo web progresivo (PWA).</p>
+                                </div>
+                                <div class="exp-rag-info">
+                                    <h5><i class="fas fa-robot"></i> ¿Qué puede hacer este chatbot?</h5>
+                                    <p>Responder dudas técnicas, explicar servicios, dar estimaciones de tiempo y costo, recomendar soluciones según tu necesidad, y conectar con nuestros especialistas.</p>
+                                </div>
+                            </div>
+                            <div class="exp-tab-content" id="benefitsTab">
+                                <h4>Beneficios para Clientes</h4>
+                                <div class="exp-benefit-item"><div class="exp-benefit-icon"><i class="fas fa-bolt"></i></div><div><h5>Respuestas Inmediatas</h5><p>Resuelve dudas 24/7 sin esperar a horarios comerciales.</p></div></div>
+                                <div class="exp-benefit-item"><div class="exp-benefit-icon"><i class="fas fa-graduation-cap"></i></div><div><h5>Conocimiento Especializado</h5><p>Información precisa sobre 50+ servicios digitales.</p></div></div>
+                                <div class="exp-benefit-item"><div class="exp-benefit-icon exp-benefit-icon-pink"><i class="fas fa-user-check"></i></div><div><h5>Recomendaciones Personalizadas</h5><p>Sugiere soluciones basadas en tu proyecto específico.</p></div></div>
+                                <div class="exp-benefit-item"><div class="exp-benefit-icon exp-benefit-icon-cyan"><i class="fas fa-handshake"></i></div><div><h5>Pre-calificación de Proyectos</h5><p>Te ayuda a definir tu proyecto antes de hablar con ventas.</p></div></div>
+                            </div>
+                            <div class="exp-tab-content" id="techTab">
+                                <h4>Tecnología del Chatbot</h4>
+                                <p>Este chatbot usa <strong>IA agentiva con RAG (Retrieval-Augmented Generation)</strong> para acceder a nuestra base de conocimiento actualizada sobre todos los servicios.</p>
+                                <div class="exp-rag-info">
+                                    <h5>Base de Conocimiento</h5>
+                                    <ul>
+                                        <li>Documentación técnica de 50+ servicios</li>
+                                        <li>Casos de estudio y mejores prácticas</li>
+                                        <li>Información de precios y tiempos estimados</li>
+                                        <li>Guías de tecnologías y frameworks</li>
+                                    </ul>
+                                </div>
+                                <div class="exp-rag-info">
+                                    <h5><i class="fas fa-sync-alt"></i> Actualización en Tiempo Real</h5>
+                                    <p>La información se actualiza constantemente con nuevos servicios, tecnologías y casos de éxito.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="exp-chat-note"><i class="fas fa-info-circle"></i> El chatbot puede responder la mayoría de tus preguntas sobre servicios. Siempre puedes contactarnos directamente para consultas específicas o cotizaciones detalladas.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Implementación Paso a Paso (archivo 9) – estilo guía 2x3 -->
+        <section class="exp-steps" id="implementacion">
+            <div class="container">
+                <h2 class="exp-steps-title">Implementación Paso a Paso</h2>
+                <p class="exp-steps-subtitle">Guía completa para desplegar tu propio chatbot agentivo con LangChain y RAG</p>
+                <div class="exp-steps-grid exp-steps-grid-2x3">
+                    <div class="exp-step-card-box">
+                        <span class="exp-step-badge">1</span>
+                        <h3>Preparar Entorno</h3>
+                        <p>Instalar dependencias y configurar claves API de OpenAI.</p>
+                        <pre class="exp-step-code">pip install langchain openai
+export OPENAI_API_KEY="tu-key"</pre>
+                    </div>
+                    <div class="exp-step-card-box">
+                        <span class="exp-step-badge">2</span>
+                        <h3>Cargar Documentos</h3>
+                        <p>Importar FAQ, manuales, políticas a la base vectorial.</p>
+                        <pre class="exp-step-code">from langchain.document_loaders import TextLoader
+loader = TextLoader("faq.txt")
+documents = loader.load()</pre>
+                    </div>
+                    <div class="exp-step-card-box">
+                        <span class="exp-step-badge">3</span>
+                        <h3>Crear Vectorstore</h3>
+                        <p>Generar embeddings y almacenar en Chroma/FAISS.</p>
+                        <pre class="exp-step-code">vectorstore = Chroma.from_documents(
+  documents, OpenAIEmbeddings()
+)</pre>
+                    </div>
+                    <div class="exp-step-card-box">
+                        <span class="exp-step-badge">4</span>
+                        <h3>Construir Agente</h3>
+                        <p>Configurar herramientas RAG y crear el agente LangChain.</p>
+                        <pre class="exp-step-code">agent = create_react_agent(
+  llm, tools=[retriever_tool]
+)</pre>
+                    </div>
+                    <div class="exp-step-card-box">
+                        <span class="exp-step-badge">5</span>
+                        <h3>Integrar Web</h3>
+                        <p>Conectar backend con interfaz web usando FastAPI o similar.</p>
+                        <pre class="exp-step-code">from fastapi import FastAPI
+app = FastAPI()
+@app.post("/chat")</pre>
+                    </div>
+                    <div class="exp-step-card-box">
+                        <span class="exp-step-badge">6</span>
+                        <h3>Desplegar</h3>
+                        <p>Publicar en AWS, GCP, Azure o Vercel para producción.</p>
+                        <pre class="exp-step-code">docker build -t chatbot .
+docker run -p 8000:8000 chatbot</pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Beneficios (archivo 9) – 6 tarjetas estilo imagen -->
+        <section class="exp-benefits" id="beneficios">
+            <div class="container">
+                <h2 class="exp-benefits-title">Impacto en Negocio y Métricas Clave</h2>
+                <p class="exp-benefits-subtitle">Cómo un chatbot agentivo transforma la experiencia del cliente y genera resultados tangibles</p>
+                <div class="exp-benefits-grid exp-benefits-grid-6">
+                    <div class="exp-benefit-card-v2 exp-benefit-green">
+                        <h3><i class="fas fa-chart-line"></i> Aumento de Conversiones</h3>
+                        <p>Asistentes proactivos que guían a los clientes en el funnel de ventas, recomendando productos y resolviendo objeciones en tiempo real.</p>
+                        <div class="exp-benefit-metric"><span class="exp-metric-label">Impacto promedio:</span><span class="exp-metric-value">+35-50%</span></div>
+                    </div>
+                    <div class="exp-benefit-card-v2 exp-benefit-blue">
+                        <h3><i class="fas fa-headset"></i> Reducción de Costos Soporte</h3>
+                        <p>Resuelve automáticamente el 70%+ de consultas comunes, liberando a agentes humanos para casos complejos.</p>
+                        <div class="exp-benefit-metric"><span class="exp-metric-label">Ahorro estimado:</span><span class="exp-metric-value">40-60%</span></div>
+                    </div>
+                    <div class="exp-benefit-card-v2 exp-benefit-orange">
+                        <h3><i class="fas fa-clock"></i> Disponibilidad 24/7</h3>
+                        <p>Atiende clientes en cualquier momento, reduciendo tiempos de respuesta de horas/días a segundos.</p>
+                        <div class="exp-benefit-metric"><span class="exp-metric-label">Respuesta promedio:</span><span class="exp-metric-value">2.3 <small>segundos</small></span></div>
+                    </div>
+                    <div class="exp-benefit-card-v2 exp-benefit-purple">
+                        <h3><i class="fas fa-users"></i> Experiencia Personalizada</h3>
+                        <p>Adapta respuestas basadas en historial, preferencias y comportamiento del usuario.</p>
+                        <div class="exp-benefit-metric"><span class="exp-metric-label">Satisfacción cliente:</span><span class="exp-metric-value">+4.5/5.0</span></div>
+                    </div>
+                    <div class="exp-benefit-card-v2 exp-benefit-red">
+                        <h3><i class="fas fa-traffic-light"></i> Generación de Tráfico</h3>
+                        <p>Chatbots optimizados para SEO atraen tráfico orgánico y capturan leads cualificados.</p>
+                        <div class="exp-benefit-metric"><span class="exp-metric-label">Tráfico adicional:</span><span class="exp-metric-value">+25-40%</span></div>
+                    </div>
+                    <div class="exp-benefit-card-v2 exp-benefit-green2">
+                        <h3><i class="fas fa-database"></i> Insights de Clientes</h3>
+                        <p>Analiza conversaciones para identificar tendencias, necesidades y oportunidades de mejora.</p>
+                        <div class="exp-benefit-metric"><span class="exp-metric-label">Data points/mes:</span><span class="exp-metric-value">10,000+</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Formulario (archivo 8) -->
+        <section class="exp-form-section" id="form">
+            <div class="container">
+                <div class="exp-section-header">
+                    <h2>Prueba la Experiencia Agentiva</h2>
+                    <p>Formulario optimizado para usuarios humanos y para procesamiento por agentes de IA, con validación en tiempo real.</p>
+                </div>
+                <div class="exp-form-container">
+                    <form id="demoForm">
+                        <div class="exp-form-row">
+                            <div class="exp-form-group">
+                                <label for="name" class="exp-form-label">Nombre completo *</label>
+                                <input type="text" id="name" class="exp-form-input" required placeholder="Ej: Ana Rodríguez">
+                                <div class="exp-form-feedback" id="name-feedback"></div>
+                            </div>
+                            <div class="exp-form-group">
+                                <label for="email" class="exp-form-label">Email profesional *</label>
+                                <input type="email" id="email" class="exp-form-input" required placeholder="ejemplo@empresa.com">
+                                <div class="exp-form-feedback" id="email-feedback"></div>
+                            </div>
+                        </div>
+                        <div class="exp-form-row">
+                            <div class="exp-form-group">
+                                <label for="company" class="exp-form-label">Empresa / Proyecto</label>
+                                <input type="text" id="company" class="exp-form-input" placeholder="Nombre de tu organización">
+                            </div>
+                            <div class="exp-form-group">
+                                <label for="role" class="exp-form-label">Rol / Posición</label>
+                                <select id="role" class="exp-form-input">
+                                    <option value="">Selecciona tu rol</option>
+                                    <option value="marketing">Marketing/Digital</option>
+                                    <option value="developer">Desarrollo/Tecnología</option>
+                                    <option value="designer">Diseño/UX</option>
+                                    <option value="entrepreneur">Emprendedor/Founder</option>
+                                    <option value="other">Otro</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="exp-form-group">
+                            <label for="interest" class="exp-form-label">¿Qué te interesa más? *</label>
+                            <div class="exp-form-checkgrid">
+                                <label><input type="checkbox" name="interest" value="agentiva"> IA Agentiva</label>
+                                <label><input type="checkbox" name="interest" value="conversion"> Optimización Conversión</label>
+                                <label><input type="checkbox" name="interest" value="webdev"> Desarrollo Web</label>
+                                <label><input type="checkbox" name="interest" value="strategy"> Estrategia Digital</label>
+                            </div>
+                        </div>
+                        <div class="exp-form-group">
+                            <label for="message" class="exp-form-label">Mensaje / Pregunta específica *</label>
+                            <textarea id="message" class="exp-form-textarea" rows="4" required placeholder="Describe tu proyecto o pregunta sobre implementación agentiva..."></textarea>
+                            <div class="exp-form-feedback" id="message-feedback"></div>
+                        </div>
+                        <div class="exp-form-group exp-consent">
+                            <input type="checkbox" id="consent" required>
+                            <label for="consent">Acepto recibir información sobre experiencias agentivas y optimización web.</label>
+                        </div>
+                        <button type="submit" class="exp-cta-btn exp-cta-full"><i class="fas fa-paper-plane"></i> Enviar solicitud agentiva</button>
+                        <p class="exp-form-note"><i class="fas fa-info-circle"></i> Este formulario incluye estructura semántica para agentes de IA y validación optimizada para usuarios.</p>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer" id="contacto">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>OSDEMS Digital</h3>
+                    <p>
+                        Transformamos la supervivencia digital en crecimiento transformador. Somos tu socio estratégico en la revolución digital para empresas de todos los tamaños y sectores.
+                    </p>
+                    <div class="social-icons">
+                        <a href="https://facebook.com/osdemsdigital" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://instagram.com/osdemsdigital" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://youtube.com/osdemsdigital" target="_blank"><i class="fab fa-youtube"></i></a>
+                        <a href="https://linkedin.com/company/osdemsdigital" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://wa.me/523326225912" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Enlaces Rápidos</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-chevron-right"></i> <a href="index.html#inicio">Home</a></li>
+                        <li><i class="fas fa-chevron-right"></i> <a href="about.html">About Us</a></li>
+                        <li><i class="fas fa-chevron-right"></i> <a href="index.html#servicios">Services</a></li>
+                        <li><i class="fas fa-chevron-right"></i> <a href="index.html#industrias">Industries</a></li>
+                        <li><i class="fas fa-chevron-right"></i> <a href="premium.html">Premium</a></li>
+                        <li><i class="fas fa-chevron-right"></i> <a href="mantto-web.html">Mantto Web</a></li>
+                        <li><i class="fas fa-chevron-right"></i> <a href="experiencias.html">Agentivas + Conversión Web</a></li>
+                        <li><i class="fas fa-chevron-right"></i> <a href="product-branding.html">Product Branding</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contacto</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-globe"></i> <a href="https://osdemsdigital.com" target="_blank">osdemsdigital.com</a></li>
+                        <li><i class="fas fa-envelope"></i> <a href="mailto:hola@osdemsdigital.com">hola@osdemsdigital.com</a></li>
+                        <li><i class="fas fa-phone"></i> <a href="tel:+523326225912">+52 (33) 2622 5912</a></li>
+                        <li><i class="fas fa-phone"></i> <a href="tel:+523311744584">+52 (33) 1174 4584</a></li>
+                        <li><i class="fas fa-map-marker-alt"></i> <a href="https://www.google.com/maps/search/?api=1&query=Blvd.+Puerta+de+Hierro+5153+Fracc.+Plaza+Andares+Zapopan+Jalisco+45116" target="_blank">Blvd. Puerta de Hierro 5153 Fracc. Plaza Andares Zapopan, Jalisco 45116 Piso 2</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Horarios</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-clock"></i> Lunes a Viernes: 9:00 - 19:00</li>
+                        <li><i class="fas fa-clock"></i> Sábados: 10:00 - 14:00</li>
+                        <li><i class="fas fa-headset"></i> Soporte 24/7 para clientes</li>
+                        <li><i class="fas fa-calendar-check"></i> Citas previa cita</li>
+                    </ul>
+                    
+                    <div class="footer-cta">
+                        <h4>¡Transforma tu negocio hoy!</h4>
+                        <a href="https://wa.me/523326225912?text=Hola%20OSDEMS%20Digital,%20quiero%20una%20consultoría%20gratuita" class="btn" target="_blank">
+                            <i class="fab fa-whatsapp"></i> Consultoría Gratuita
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                &copy; 2026 OSDEMS Digital - Todos los derechos reservados. | "Primero se sobrevive, después se aumenta" - Transformación Digital Integral para Empresas
+                <br><br>
+                <small>Sitio web desarrollado con tecnología de punta por OSDEMS Digital - Experiencia optimizada para conversión</small>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Botones flotantes (accesos rápidos) -->
+    <div class="floating-buttons">
+        <a href="https://wa.me/523326225912?text=Hola%20OSDEMS%20Digital" class="floating-btn whatsapp" data-tooltip="WhatsApp: +52 (33) 2622 5912" target="_blank">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+        <a href="tel:+523326225912" class="floating-btn phone" data-tooltip="Teléfono: +52 (33) 2622 5912">
+            <i class="fas fa-phone"></i>
+        </a>
+        <a href="mailto:hola@osdemsdigital.com" class="floating-btn message" data-tooltip="Email: hola@osdemsdigital.com">
+            <i class="fas fa-envelope"></i>
+        </a>
+    </div>
+
+    <script src="../assets/js/main.js"></script>
+    <script>
+        // Chatbot Agentivo de Servicios Digitales (archivo 10)
+        (function() {
+            const servicesKnowledgeBase = {
+                "desarrollo web": { description: "Creación de sitios web modernos, responsivos y optimizados para conversiones.", details: "Incluye: Diseño UI/UX personalizado, desarrollo frontend y backend, optimización SEO, integración de CMS (WordPress, Shopify).", pricing: "Desde $1,500 para landing pages, $3,000+ para sitios corporativos, $5,000+ para e-commerce.", timeframe: "2-4 semanas para sitios básicos, 4-8 semanas para proyectos complejos.", technologies: "HTML5, CSS3, JavaScript, React, Vue.js, WordPress, Shopify, Laravel, Node.js" },
+                "wordpress development": { description: "Desarrollo personalizado con WordPress.", details: "Theme development personalizado, plugins a medida, optimización de rendimiento, seguridad avanzada.", pricing: "Desde $2,000 para sitios WordPress personalizados.", timeframe: "3-5 semanas.", benefits: "Fácil de actualizar, amplia comunidad, miles de plugins disponibles." },
+                "e-commerce development": { description: "Tiendas online completas con carrito de compras, pasarelas de pago y gestión de inventario.", details: "Shopify, WooCommerce o soluciones personalizadas. Integración PayPal, Stripe, MercadoPago.", pricing: "Desde $3,500 para tiendas básicas, $7,000+ para marketplaces.", timeframe: "4-8 semanas.", features: "Carrito persistente, checkout optimizado, gestión de inventario." },
+                "ui/ux design": { description: "Diseño de interfaces centrado en el usuario y experiencia óptima.", details: "Research de usuarios, wireframes, prototipos interactivos, design systems.", pricing: "Desde $1,500 para proyectos de diseño.", timeframe: "2-4 semanas." },
+                "seo": { description: "Optimización para motores de búsqueda para aumentar visibilidad orgánica.", details: "Keyword research, optimización on-page, building de enlaces, SEO técnico, contenido optimizado.", pricing: "Desde $800/mes para SEO local, $1,500+/mes para SEO nacional.", timeframe: "Resultados visibles en 3-6 meses." },
+                "ppc": { description: "Campañas de publicidad pagada en Google, Facebook, Instagram y LinkedIn.", details: "Setup completo de campañas, keyword research, creación de ads, landing pages optimizadas.", pricing: "Fee de gestión: 15-20% del presupuesto de ads + presupuesto de publicidad.", timeframe: "Resultados desde la primera semana.", platforms: "Google Ads, Facebook Ads, Instagram Ads, LinkedIn Ads." },
+                "social media management": { description: "Gestión completa de redes sociales con contenido estratégico.", details: "Estrategia de contenido, calendarización, creación de posts, community management.", pricing: "Desde $600/mes para 2 redes sociales.", timeframe: "Contrato mínimo de 3 meses.", networks: "Instagram, Facebook, LinkedIn, Twitter, TikTok, Pinterest." },
+                "app móvil": { description: "Desarrollo de aplicaciones nativas y cross-platform.", details: "iOS (Swift), Android (Kotlin), o cross-platform con React Native/Flutter.", pricing: "Desde $10,000 para apps básicas, $25,000+ para apps complejas.", timeframe: "3-6 meses." },
+                "web app development": { description: "Aplicaciones web progresivas (PWA) y aplicaciones de una sola página (SPA).", details: "Desarrollo con React, Angular o Vue.js.", pricing: "Desde $8,000 para web apps básicas.", timeframe: "2-4 meses.", benefits: "No requiere instalación, actualizaciones automáticas, multiplataforma." },
+                "branding": { description: "Desarrollo de identidad visual completa para marcas.", details: "Logo design, paleta de colores, tipografía, guías de estilo.", pricing: "Desde $2,500 para paquetes de branding básico.", timeframe: "3-5 semanas." },
+                "video production": { description: "Producción de videos profesionales para marketing y comunicación.", details: "Videos corporativos, testimonios, explicativos animados, videos para redes sociales.", pricing: "Desde $1,500 para videos cortos, $5,000+ para producciones complejas.", timeframe: "2-6 semanas.", types: "Live action, animation, motion graphics, 3D animation." },
+                "presupuesto": { response: "Los precios varían según el proyecto. Desarrollo web: desde $1,500. Apps: desde $10,000. Marketing digital: desde $600/mes. ¿Tienes un proyecto específico en mente?" },
+                "tiempo entrega": { response: "Desarrollo web: 2-8 semanas. Apps: 3-6 meses. Diseño: 2-4 semanas. Marketing: resultados orgánicos en 3-6 meses, paid ads desde la primera semana." },
+                "tecnologías": { response: "Usamos React, Vue.js, Node.js, Laravel, WordPress, Shopify, Flutter, React Native, y herramientas de IA como TensorFlow y OpenAI API para proyectos avanzados." },
+                "garantía": { response: "Ofrecemos 30 días de garantía en desarrollo y soporte post-lanzamiento. Para marketing, revisiones mensuales y ajustes de estrategia según resultados." },
+                "proceso": { response: "1. Consulta inicial 2. Propuesta y presupuesto 3. Firma de contrato 4. Fase de diseño/planning 5. Desarrollo/implementación 6. Testing 7. Lanzamiento 8. Soporte post-lanzamiento" }
+            };
+            const serviceCategories = { "desarrollo": ["web design", "wordpress", "e-commerce", "ui/ux", "cms", "shopify"], "marketing": ["seo", "ppc", "social media", "email marketing", "content", "geo"], "apps": ["web app", "mobile app", "react", "node", "laravel", "ai", "blockchain"], "diseño": ["branding", "logo", "design", "creative"], "video": ["video production", "animation", "photography", "3d", "streaming"] };
+            const chatMessages = document.getElementById('chatMessages');
+            const chatInput = document.getElementById('chatInput');
+            const sendButton = document.getElementById('sendButton');
+            if (!chatMessages || !chatInput || !sendButton) return;
+            function formatearRespuesta(servicio, data) {
+                var r = '<strong>' + servicio.toUpperCase() + '</strong><br><br>';
+                r += '<strong>Descripción:</strong> ' + (data.description || data.response) + '<br><br>';
+                if (data.details) r += '<strong>Detalles:</strong> ' + data.details + '<br><br>';
+                if (data.pricing) r += '<strong>Inversión estimada:</strong> ' + data.pricing + '<br><br>';
+                if (data.timeframe) r += '<strong>Tiempo estimado:</strong> ' + data.timeframe + '<br><br>';
+                if (data.technologies || data.features) r += '<strong>Tecnologías/Características:</strong> ' + (data.technologies || data.features) + '<br><br>';
+                if (data.benefits) r += '<strong>Beneficios:</strong> ' + data.benefits + '<br><br>';
+                r += '<em style="font-size:0.9em;opacity:0.9;">¿Te gustaría saber más sobre algún aspecto específico o preguntar sobre otro servicio?</em>';
+                return r;
+            }
+            function buscarRespuesta(pregunta) {
+                var q = pregunta.toLowerCase(), mejorMatch = null, mejorPuntaje = 0;
+                for (var keyword in servicesKnowledgeBase) {
+                    if (q.indexOf(keyword) !== -1) return formatearRespuesta(keyword, servicesKnowledgeBase[keyword]);
+                    var data = servicesKnowledgeBase[keyword], palabras = q.split(' '), puntaje = 0;
+                    for (var i = 0; i < palabras.length; i++) {
+                        if (palabras[i].length > 3 && keyword.indexOf(palabras[i]) !== -1) puntaje += 2;
+                        if (data.description && data.description.toLowerCase().indexOf(palabras[i]) !== -1) puntaje += 1;
+                    }
+                    if (puntaje > mejorPuntaje) { mejorPuntaje = puntaje; mejorMatch = keyword; }
+                }
+                for (var cat in serviceCategories) for (var j = 0; j < serviceCategories[cat].length; j++) if (q.indexOf(serviceCategories[cat][j]) !== -1) { for (var k in servicesKnowledgeBase) if (k.indexOf(serviceCategories[cat][j]) !== -1 || serviceCategories[cat][j].indexOf(k) !== -1) return formatearRespuesta(k, servicesKnowledgeBase[k]); }
+                if (mejorPuntaje >= 2 && mejorMatch) return formatearRespuesta(mejorMatch, servicesKnowledgeBase[mejorMatch]);
+                return 'Entiendo que tienes dudas sobre "' + pregunta + '". Como asistente de OSDEMS Digital, puedo ayudarte con <strong>Desarrollo Web</strong>, <strong>Marketing Digital</strong>, <strong>App Development</strong>, <strong>Diseño &amp; Branding</strong>, <strong>Foto &amp; Video</strong>. ¿Podrías especificar qué servicio te interesa?';
+            }
+            function procesarPregunta(pregunta) {
+                var typing = document.createElement('div');
+                typing.className = 'exp-message exp-message-system';
+                typing.innerHTML = '<i class="fas fa-cog fa-spin"></i> El asistente está buscando información sobre "' + pregunta + '"...';
+                chatMessages.appendChild(typing);
+                setTimeout(function() {
+                    typing.remove();
+                    var botMsg = document.createElement('div');
+                    botMsg.className = 'exp-message exp-message-bot';
+                    botMsg.innerHTML = buscarRespuesta(pregunta);
+                    chatMessages.appendChild(botMsg);
+                    chatMessages.scrollTop = chatMessages.scrollHeight;
+                    setTimeout(function() {
+                        var sug = document.createElement('div');
+                        sug.className = 'exp-message exp-message-system';
+                        sug.innerHTML = '<i class="fas fa-lightbulb"></i> <strong>También podrías preguntar:</strong> ¿Cuál es el proceso de trabajo? ¿Ofrecen mantenimiento? ¿Tienen casos de estudio?';
+                        chatMessages.appendChild(sug);
+                        chatMessages.scrollTop = chatMessages.scrollHeight;
+                    }, 500);
+                }, 1500 + Math.random() * 800);
+            }
+            function enviarMensaje() {
+                var texto = chatInput.value.trim();
+                if (!texto) return;
+                var userMsg = document.createElement('div');
+                userMsg.className = 'exp-message exp-message-user';
+                userMsg.textContent = texto;
+                chatMessages.appendChild(userMsg);
+                chatInput.value = '';
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+                procesarPregunta(texto);
+            }
+            sendButton.addEventListener('click', enviarMensaje);
+            chatInput.addEventListener('keypress', function(e) { if (e.key === 'Enter') enviarMensaje(); });
+            document.querySelectorAll('.exp-suggestion-chip').forEach(function(chip) {
+                chip.addEventListener('click', function() { chatInput.value = this.getAttribute('data-question'); enviarMensaje(); });
+            });
+            document.querySelectorAll('.exp-tab-btn').forEach(function(btn) {
+                btn.addEventListener('click', function() {
+                    var tabId = this.getAttribute('data-tab');
+                    document.querySelectorAll('.exp-tab-btn').forEach(function(b) { b.classList.remove('active'); });
+                    document.querySelectorAll('.exp-tab-content').forEach(function(c) { c.classList.remove('active'); });
+                    this.classList.add('active');
+                    var content = document.getElementById(tabId + 'Tab');
+                    if (content) content.classList.add('active');
+                });
+            });
+            var ejemplos = ["¿Cuánto cuesta una página web?", "¿Qué incluye un servicio de SEO completo?", "¿Desarrollan apps móviles?", "¿Cuánto tiempo toma crear un e-commerce?"], idx = 0;
+            setInterval(function() { chatInput.placeholder = 'Ejemplo: "' + ejemplos[idx] + '"'; idx = (idx + 1) % ejemplos.length; }, 5000);
+            setTimeout(function() {
+                if (chatMessages.children.length <= 2) {
+                    var ex = document.createElement('div');
+                    ex.className = 'exp-message exp-message-system';
+                    ex.innerHTML = '<i class="fas fa-comment-alt"></i> <strong>Prueba el chatbot:</strong> Pregunta "¿Cuánto cuesta desarrollar una app móvil?" o haz clic en cualquier chip.';
+                    chatMessages.appendChild(ex);
+                    chatMessages.scrollTop = chatMessages.scrollHeight;
+                }
+            }, 3000);
+        })();
+        // Validación formulario
+        (function() {
+            var form = document.getElementById('demoForm');
+            if (!form) return;
+            var nameInput = document.getElementById('name'), emailInput = document.getElementById('email'), messageInput = document.getElementById('message');
+            function setFeedback(id, msg, ok) {
+                var el = document.getElementById(id + '-feedback');
+                if (el) { el.textContent = msg; el.style.color = ok ? 'var(--accent-color)' : '#ff4757'; }
+            }
+            nameInput && nameInput.addEventListener('input', function() {
+                setFeedback('name', this.value.length < 2 ? 'Mínimo 2 caracteres' : '✓ Válido', this.value.length >= 2);
+            });
+            emailInput && emailInput.addEventListener('input', function() {
+                var ok = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(this.value);
+                setFeedback('email', ok ? '✓ Formato válido' : 'Email válido requerido', ok);
+            });
+            messageInput && messageInput.addEventListener('input', function() {
+                var ok = this.value.length >= 10 && this.value.length <= 500;
+                setFeedback('message', this.value.length < 10 ? 'Mínimo 10 caracteres' : this.value.length > 500 ? 'Máximo 500' : '✓', ok);
+            });
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Gracias por tu interés. Te contactaremos pronto. (Demo: formulario no envía a servidor.)');
+            });
+        })();
+    </script>
+</body>
+</html>
+

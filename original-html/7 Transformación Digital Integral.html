@@ -1,0 +1,2333 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OSDEMS Digital - Transformación Digital Integral para Empresas</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* Reset y estilos base mejorados */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        :root {
+            --primary-color: #0d1b3e;
+            --secondary-color: #00d4ff;
+            --accent-color: #ff4d6d;
+            --warning-color: #ffa500;
+            --success-color: #00ff9d;
+            --light-color: #f8f9fa;
+            --dark-color: #0a0a1a;
+            --cyber-blue: #00eeff;
+            --matrix-green: #00ff9d;
+            --neon-purple: #b967ff;
+            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+            --glow-intensity: 0.8;
+        }
+        
+        body {
+            color: var(--light-color);
+            background-color: var(--dark-color);
+            overflow-x: hidden;
+            line-height: 1.6;
+            cursor: none;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+        
+        /* Cursor personalizado futurista */
+        #custom-cursor {
+            position: fixed;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: rgba(0, 212, 255, 0.3);
+            border: 2px solid rgba(0, 212, 255, 0.5);
+            pointer-events: none;
+            z-index: 9999;
+            transform: translate(-50%, -50%);
+            transition: width 0.2s, height 0.2s, background-color 0.2s, border 0.2s;
+            box-shadow: 0 0 15px rgba(0, 212, 255, 0.5);
+            mix-blend-mode: difference;
+        }
+        
+        .cursor-trail {
+            position: fixed;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--secondary-color);
+            pointer-events: none;
+            z-index: 9998;
+            opacity: 0;
+            box-shadow: 0 0 10px var(--secondary-color);
+        }
+        
+        /* Canvas para efectos de fondo mejorado */
+        #cyber-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            background: radial-gradient(circle at 20% 30%, #0a0a2a 0%, #0a0a1a 40%, #000000 100%);
+        }
+        
+        /* Header y Navegación mejorada */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 0;
+            z-index: 1000;
+            transition: var(--transition);
+            background-color: rgba(13, 27, 62, 0.95);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(0, 212, 255, 0.3);
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        header.scrolled {
+            padding: 15px 0;
+            box-shadow: 0 10px 40px rgba(0, 212, 255, 0.1);
+            background-color: rgba(13, 27, 62, 0.98);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--light-color);
+            display: flex;
+            align-items: center;
+            font-family: 'Orbitron', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+        
+        .logo span {
+            color: var(--secondary-color);
+            text-shadow: 0 0 15px rgba(0, 212, 255, 0.7);
+            animation: logoGlow 3s ease-in-out infinite alternate;
+        }
+        
+        .logo i {
+            margin-right: 15px;
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            animation: pulse 2s infinite, rotate 20s linear infinite;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 35px;
+            position: relative;
+        }
+        
+        .nav-links a {
+            color: var(--light-color);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            position: relative;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            letter-spacing: 0.5px;
+        }
+        
+        .nav-links a i {
+            margin-left: 8px;
+            font-size: 0.9rem;
+        }
+        
+        .nav-links a:hover {
+            color: var(--secondary-color);
+            text-shadow: 0 0 15px rgba(0, 212, 255, 0.7);
+        }
+        
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--secondary-color), var(--matrix-green));
+            transition: var(--transition);
+            border-radius: 3px;
+        }
+        
+        .nav-links a:hover:after {
+            width: 100%;
+        }
+        
+        /* Menú desplegable mejorado */
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: -250px;
+            width: 1100px;
+            background-color: rgba(13, 27, 62, 0.98);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 25px 70px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px) scale(0.95);
+            transition: var(--transition);
+            z-index: 1001;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 35px;
+            max-height: 75vh;
+            overflow-y: auto;
+        }
+        
+        .dropdown-menu::-webkit-scrollbar {
+            width: 10px;
+        }
+        
+        .dropdown-menu::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+        }
+        
+        .dropdown-menu::-webkit-scrollbar-thumb {
+            background: linear-gradient(var(--secondary-color), var(--matrix-green));
+            border-radius: 10px;
+        }
+        
+        .nav-links li:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0) scale(1);
+        }
+        
+        .services-category {
+            margin-bottom: 30px;
+        }
+        
+        .services-category h4 {
+            color: var(--secondary-color);
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid rgba(0, 212, 255, 0.4);
+            font-family: 'Orbitron', sans-serif;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+        
+        .services-category ul {
+            list-style: none;
+        }
+        
+        .services-category li {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 12px;
+            font-size: 1rem;
+            padding-left: 20px;
+            position: relative;
+            transition: var(--transition);
+        }
+        
+        .services-category li:before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--secondary-color);
+            font-size: 1.1rem;
+        }
+        
+        .services-category li:hover {
+            color: var(--secondary-color);
+            transform: translateX(10px);
+            text-shadow: 0 0 8px rgba(0, 212, 255, 0.5);
+        }
+        
+        /* Menú de Industrias - 4 columnas */
+        .industries-menu {
+            width: 1300px;
+            left: -400px;
+            grid-template-columns: repeat(4, 1fr);
+            max-height: 80vh;
+        }
+        
+        /* Hero section completamente rediseñada */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding-top: 120px;
+            color: var(--light-color);
+            overflow: hidden;
+        }
+        
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 60px;
+            align-items: center;
+            width: 100%;
+        }
+        
+        .hero-content {
+            z-index: 10;
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        .hero-visual {
+            position: relative;
+            height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .cyber-cube {
+            position: relative;
+            width: 400px;
+            height: 400px;
+            transform-style: preserve-3d;
+            animation: rotateCube 20s infinite linear;
+        }
+        
+        .cube-face {
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: rgba(0, 212, 255, 0.05);
+            border: 2px solid rgba(0, 212, 255, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--secondary-color);
+            backdrop-filter: blur(10px);
+            box-shadow: inset 0 0 50px rgba(0, 212, 255, 0.1),
+                        0 0 50px rgba(0, 212, 255, 0.2);
+        }
+        
+        .cube-face.front { transform: translateZ(200px); }
+        .cube-face.back { transform: rotateY(180deg) translateZ(200px); }
+        .cube-face.right { transform: rotateY(90deg) translateZ(200px); }
+        .cube-face.left { transform: rotateY(-90deg) translateZ(200px); }
+        .cube-face.top { transform: rotateX(90deg) translateZ(200px); }
+        .cube-face.bottom { transform: rotateX(-90deg) translateZ(200px); }
+        
+        .hero h1 {
+            font-size: 4.2rem;
+            margin-bottom: 25px;
+            line-height: 1.1;
+            font-weight: 800;
+            font-family: 'Orbitron', sans-serif;
+            background: linear-gradient(90deg, #ffffff, var(--secondary-color), var(--matrix-green), var(--neon-purple));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            background-size: 300% 100%;
+            animation: gradientShift 4s ease infinite, textGlow 3s ease-in-out infinite alternate;
+            position: relative;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .hero-tagline {
+            font-size: 2.2rem;
+            margin-bottom: 35px;
+            color: var(--light-color);
+            font-weight: 600;
+            text-shadow: 0 0 20px rgba(0, 212, 255, 0.6);
+            animation: fadeInUp 1s ease-out 0.3s both;
+            position: relative;
+        }
+        
+        .hero-tagline span {
+            color: var(--secondary-color);
+            position: relative;
+        }
+        
+        .hero-tagline span::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--secondary-color), transparent);
+            animation: underlineMove 4s infinite;
+        }
+        
+        .hero-description {
+            font-size: 1.4rem;
+            margin-bottom: 45px;
+            max-width: 800px;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease-out 0.6s both;
+            line-height: 1.8;
+        }
+        
+        .hero-stats {
+            display: flex;
+            gap: 40px;
+            margin-bottom: 50px;
+            animation: fadeInUp 1s ease-out 0.9s both;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-value {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--secondary-color);
+            font-family: 'Orbitron', sans-serif;
+            margin-bottom: 5px;
+            text-shadow: 0 0 20px rgba(0, 212, 255, 0.7);
+        }
+        
+        .stat-label {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .warning-box {
+            background-color: rgba(255, 165, 0, 0.1);
+            border-left: 5px solid var(--warning-color);
+            padding: 25px;
+            border-radius: 12px;
+            margin-bottom: 50px;
+            animation: fadeInUp 1s ease-out 1.2s both;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 165, 0, 0.2);
+        }
+        
+        .warning-box h3 {
+            color: var(--warning-color);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            font-size: 1.5rem;
+        }
+        
+        .warning-box h3 i {
+            margin-right: 15px;
+            font-size: 1.8rem;
+            animation: pulse 2s infinite;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 25px;
+            margin-top: 60px;
+            animation: fadeInUp 1s ease-out 1.5s both;
+        }
+        
+        .btn {
+            padding: 22px 45px;
+            border-radius: 60px;
+            font-weight: 700;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            cursor: pointer;
+            border: none;
+            font-size: 1.3rem;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(90deg, var(--secondary-color), var(--success-color));
+            color: var(--primary-color);
+            box-shadow: 0 8px 30px rgba(0, 212, 255, 0.5);
+            font-weight: 800;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-8px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(0, 212, 255, 0.7);
+        }
+        
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: 0.6s;
+            z-index: -1;
+        }
+        
+        .btn-primary:hover::before {
+            left: 100%;
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--light-color);
+            border: 3px solid var(--secondary-color);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-secondary:hover {
+            background-color: rgba(0, 212, 255, 0.15);
+            transform: translateY(-8px);
+            box-shadow: 0 10px 25px rgba(0, 212, 255, 0.4);
+        }
+        
+        .btn-secondary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.2), transparent);
+            transition: 0.6s;
+            z-index: -1;
+        }
+        
+        .btn-secondary:hover::before {
+            left: 100%;
+        }
+        
+        .btn i {
+            margin-right: 15px;
+            font-size: 1.5rem;
+        }
+        
+        /* Sección de Industrias Integrada */
+        .industries-showcase {
+            padding: 120px 0;
+            background: radial-gradient(circle at center, rgba(13, 27, 62, 0.7) 0%, rgba(10, 10, 26, 0.9) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .industries-showcase::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%2300d4ff' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+            opacity: 0.3;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 3.2rem;
+            margin-bottom: 70px;
+            color: var(--light-color);
+            animation: fadeIn 1s ease-out;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            position: relative;
+        }
+        
+        .section-title span {
+            color: var(--secondary-color);
+            position: relative;
+        }
+        
+        .section-title span::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--secondary-color), transparent);
+            border-radius: 2px;
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.5rem;
+            margin-bottom: 70px;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.8;
+        }
+        
+        .industries-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 35px;
+            margin-top: 60px;
+        }
+        
+        .industry-card {
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            transition: var(--transition);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+            cursor: pointer;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .industry-card:hover {
+            transform: translateY(-15px) scale(1.03);
+            border-color: var(--secondary-color);
+            box-shadow: 0 20px 50px rgba(0, 212, 255, 0.3);
+        }
+        
+        .industry-icon {
+            font-size: 4rem;
+            margin-bottom: 30px;
+            color: var(--secondary-color);
+            animation: float 4s ease-in-out infinite;
+        }
+        
+        .industry-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--light-color);
+            font-weight: 700;
+            line-height: 1.3;
+        }
+        
+        .industry-card p {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 25px;
+            font-size: 1.1rem;
+        }
+        
+        .industry-features {
+            list-style: none;
+            text-align: left;
+            width: 100%;
+            margin-top: 20px;
+        }
+        
+        .industry-features li {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 12px;
+            padding-left: 30px;
+            position: relative;
+            font-size: 1rem;
+        }
+        
+        .industry-features li:before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--secondary-color);
+            font-size: 1.2rem;
+        }
+        
+        /* Sistema de pestañas integrado */
+        .tabs-system {
+            padding: 120px 0;
+            background-color: rgba(255, 255, 255, 0.02);
+        }
+        
+        .tabs-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .tabs-header {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 60px;
+            flex-wrap: wrap;
+        }
+        
+        .tab-button {
+            padding: 20px 40px;
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            color: var(--light-color);
+            font-weight: 600;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 200px;
+        }
+        
+        .tab-button i {
+            margin-right: 15px;
+            font-size: 1.5rem;
+        }
+        
+        .tab-button:hover {
+            background-color: rgba(0, 212, 255, 0.1);
+            border-color: var(--secondary-color);
+            transform: translateY(-5px);
+        }
+        
+        .tab-button.active {
+            background-color: rgba(0, 212, 255, 0.2);
+            border-color: var(--secondary-color);
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.3);
+            color: var(--secondary-color);
+        }
+        
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.8s ease-out;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        /* Timeline integrada para progreso */
+        .timeline-section {
+            padding: 120px 0;
+            background-color: rgba(255, 255, 255, 0.03);
+        }
+        
+        .timeline {
+            position: relative;
+            max-width: 1000px;
+            margin: 80px auto 0;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background: linear-gradient(180deg, var(--primary-color), var(--secondary-color), var(--success-color), var(--neon-purple));
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+            border-radius: 3px;
+        }
+        
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+            margin-bottom: 80px;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+        
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+        
+        .timeline-content {
+            padding: 30px;
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: var(--transition);
+            backdrop-filter: blur(10px);
+        }
+        
+        .timeline-content:hover {
+            border-color: var(--secondary-color);
+            box-shadow: 0 15px 40px rgba(0, 212, 255, 0.2);
+            transform: translateY(-10px);
+        }
+        
+        .timeline-item:nth-child(odd) .timeline-content {
+            border-right: 4px solid var(--secondary-color);
+        }
+        
+        .timeline-item:nth-child(even) .timeline-content {
+            border-left: 4px solid var(--success-color);
+        }
+        
+        .timeline-step {
+            display: inline-block;
+            background: linear-gradient(90deg, var(--secondary-color), var(--success-color));
+            color: var(--primary-color);
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            font-size: 1rem;
+            font-family: 'Orbitron', sans-serif;
+        }
+        
+        .timeline-content h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: var(--light-color);
+        }
+        
+        .timeline-content p {
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.7;
+        }
+        
+        /* Panel flotante de contacto */
+        .contact-panel {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            align-items: flex-end;
+        }
+        
+        .contact-button {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--secondary-color), var(--success-color));
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.5);
+            transition: var(--transition);
+            cursor: pointer;
+            position: relative;
+        }
+        
+        .contact-button:hover {
+            transform: scale(1.1) rotate(10deg);
+            box-shadow: 0 15px 40px rgba(0, 212, 255, 0.7);
+        }
+        
+        .contact-button.whatsapp {
+            background: linear-gradient(135deg, #25D366, #128C7E);
+        }
+        
+        .contact-button.phone {
+            background: linear-gradient(135deg, var(--secondary-color), var(--neon-purple));
+        }
+        
+        .contact-button.chat {
+            background: linear-gradient(135deg, var(--warning-color), var(--accent-color));
+        }
+        
+        .contact-tooltip {
+            position: absolute;
+            right: 85px;
+            background-color: rgba(13, 27, 62, 0.95);
+            color: var(--light-color);
+            padding: 12px 25px;
+            border-radius: 10px;
+            font-weight: 600;
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .contact-button:hover .contact-tooltip {
+            opacity: 1;
+            visibility: visible;
+            right: 95px;
+        }
+        
+        /* Footer mejorado */
+        footer {
+            background-color: rgba(13, 27, 62, 0.95);
+            padding: 80px 0 40px;
+            color: var(--light-color);
+            border-top: 1px solid rgba(0, 212, 255, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
+            margin-bottom: 60px;
+        }
+        
+        .footer-column h3 {
+            font-size: 2rem;
+            margin-bottom: 35px;
+            color: var(--secondary-color);
+            font-weight: 800;
+            font-family: 'Orbitron', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .footer-links i {
+            margin-right: 15px;
+            color: var(--secondary-color);
+            width: 25px;
+            font-size: 1.2rem;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: 1.1rem;
+        }
+        
+        .footer-links a:hover {
+            color: var(--secondary-color);
+            padding-left: 10px;
+            text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: var(--light-color);
+            font-size: 1.5rem;
+            transition: var(--transition);
+        }
+        
+        .social-icons a:hover {
+            background: linear-gradient(135deg, var(--secondary-color), var(--success-color));
+            transform: translateY(-10px) rotate(10deg);
+            color: var(--primary-color);
+            box-shadow: 0 10px 25px rgba(0, 212, 255, 0.5);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        /* Animaciones mejoradas */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(80px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes gradientShift {
+            0%, 100% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+        }
+        
+        @keyframes textGlow {
+            0% {
+                text-shadow: 0 0 15px rgba(0, 212, 255, 0.5), 0 0 30px rgba(0, 212, 255, 0.3);
+            }
+            100% {
+                text-shadow: 0 0 25px rgba(0, 212, 255, 0.8), 0 0 45px rgba(0, 212, 255, 0.5), 0 0 60px rgba(0, 212, 255, 0.3);
+            }
+        }
+        
+        @keyframes logoGlow {
+            0%, 100% {
+                text-shadow: 0 0 10px rgba(0, 212, 255, 0.7);
+            }
+            50% {
+                text-shadow: 0 0 20px rgba(0, 212, 255, 1), 0 0 40px rgba(0, 212, 255, 0.5);
+            }
+        }
+        
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 0.8;
+                transform: scale(1.1);
+            }
+        }
+        
+        @keyframes rotate {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+        
+        @keyframes rotateCube {
+            0% {
+                transform: rotateX(0) rotateY(0) rotateZ(0);
+            }
+            100% {
+                transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+            }
+        }
+        
+        @keyframes underlineMove {
+            0%, 100% {
+                width: 0;
+                left: 0;
+            }
+            50% {
+                width: 100%;
+                left: 0;
+            }
+            100% {
+                width: 0;
+                left: 100%;
+            }
+        }
+        
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+        
+        /* Efectos de partículas para el fondo */
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        .digital-node {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: var(--cyber-blue);
+            border-radius: 50%;
+            box-shadow: 0 0 20px var(--cyber-blue);
+            z-index: -1;
+        }
+        
+        /* Responsive mejorado */
+        @media (max-width: 1400px) {
+            .dropdown-menu {
+                width: 1000px;
+                left: -200px;
+            }
+            
+            .industries-menu {
+                width: 1100px;
+                left: -300px;
+            }
+            
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .hero-visual {
+                height: 400px;
+            }
+            
+            .cyber-cube {
+                width: 300px;
+                height: 300px;
+            }
+            
+            .cube-face {
+                width: 300px;
+                height: 300px;
+            }
+            
+            .cube-face.front { transform: translateZ(150px); }
+            .cube-face.back { transform: rotateY(180deg) translateZ(150px); }
+            .cube-face.right { transform: rotateY(90deg) translateZ(150px); }
+            .cube-face.left { transform: rotateY(-90deg) translateZ(150px); }
+            .cube-face.top { transform: rotateX(90deg) translateZ(150px); }
+            .cube-face.bottom { transform: rotateX(-90deg) translateZ(150px); }
+        }
+        
+        @media (max-width: 1200px) {
+            .dropdown-menu {
+                width: 800px;
+                left: -150px;
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .industries-menu {
+                width: 800px;
+                left: -200px;
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+            
+            .hero-tagline {
+                font-size: 2rem;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .nav-links {
+                position: fixed;
+                top: 90px;
+                left: 0;
+                width: 100%;
+                background-color: rgba(13, 27, 62, 0.98);
+                backdrop-filter: blur(15px);
+                flex-direction: column;
+                align-items: center;
+                padding: 40px 0;
+                transform: translateY(-100%);
+                opacity: 0;
+                visibility: hidden;
+                transition: var(--transition);
+                border-bottom: 1px solid rgba(0, 212, 255, 0.3);
+                max-height: calc(100vh - 90px);
+                overflow-y: auto;
+            }
+            
+            .nav-links.active {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+            
+            .nav-links li {
+                margin: 20px 0;
+            }
+            
+            .dropdown-menu {
+                position: static;
+                width: 300px;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                display: none;
+                margin-top: 20px;
+                max-height: 300px;
+                overflow-y: auto;
+            }
+            
+            .industries-menu {
+                position: static;
+                width: 300px;
+                grid-template-columns: 1fr;
+                max-height: 400px;
+                display: none;
+            }
+            
+            .nav-links li:hover .dropdown-menu,
+            .nav-links li:hover .industries-menu {
+                display: block;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+                background: none;
+                border: none;
+                color: var(--light-color);
+                font-size: 2rem;
+                cursor: pointer;
+                z-index: 1002;
+            }
+            
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .hero-tagline {
+                font-size: 1.8rem;
+            }
+            
+            .hero-description {
+                font-size: 1.2rem;
+            }
+            
+            .section-title {
+                font-size: 2.5rem;
+            }
+            
+            .btn {
+                padding: 18px 35px;
+                font-size: 1.1rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+            }
+            
+            .hero-stats {
+                flex-direction: column;
+                gap: 25px;
+            }
+            
+            .dropdown-menu {
+                width: 250px;
+                grid-template-columns: 1fr;
+            }
+            
+            .industries-menu {
+                width: 250px;
+            }
+            
+            .contact-panel {
+                bottom: 20px;
+                right: 20px;
+            }
+            
+            .contact-button {
+                width: 60px;
+                height: 60px;
+                font-size: 1.5rem;
+            }
+        }
+        
+        /* Efecto de modo inmersivo */
+        .immersive-mode {
+            cursor: none !important;
+        }
+        
+        .immersive-mode * {
+            cursor: none !important;
+        }
+    </style>
+</head>
+<body>
+    <!-- Cursor personalizado -->
+    <div id="custom-cursor"></div>
+    
+    <!-- Canvas para efectos de fondo cyberpunk -->
+    <canvas id="cyber-background"></canvas>
+    
+    <!-- Panel de contacto flotante -->
+    <div class="contact-panel">
+        <div class="contact-button whatsapp" title="WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+            <div class="contact-tooltip">WhatsApp +52 33 2622 5912</div>
+        </div>
+        <div class="contact-button phone" title="Llamar">
+            <i class="fas fa-phone"></i>
+            <div class="contact-tooltip">Llamar +52 33 1174 4584</div>
+        </div>
+        <div class="contact-button chat" title="Chat en vivo">
+            <i class="fas fa-comments"></i>
+            <div class="contact-tooltip">Chat en vivo</div>
+        </div>
+    </div>
+    
+    <!-- Header y Navegación -->
+    <header id="main-header">
+        <div class="container header-container">
+            <div class="logo">
+                <i class="fas fa-globe-americas"></i>
+                OSDEMS <span>Digital</span>
+            </div>
+            
+            <button class="mobile-menu-btn" id="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#home">Inicio</a></li>
+                <li>
+                    <a href="#servicios">Servicios <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-menu">
+                        <div class="services-category">
+                            <h4>Web Design</h4>
+                            <ul>
+                                <li>Website Design & Development</li>
+                                <li>WordPress Development</li>
+                                <li>E-commerce Development</li>
+                                <li>UI/UX Design</li>
+                                <li>Website Discovery</li>
+                                <li>Sitemaps & Wireframes</li>
+                                <li>Website Content Writing</li>
+                                <li>Website Maintenance & Hosting</li>
+                                <li>Landing Page Design</li>
+                                <li>Shopify Development</li>
+                                <li>Custom CMS Development</li>
+                                <li>Headless CMS Development</li>
+                                <li>Design Audits</li>
+                            </ul>
+                        </div>
+                        <div class="services-category">
+                            <h4>Digital Marketing</h4>
+                            <ul>
+                                <li>Marketing Strategy</li>
+                                <li>Search Engine Optimization (SEO)</li>
+                                <li>Paid Ad Campaigns (PPC)</li>
+                                <li>Social Media Management</li>
+                                <li>Email Marketing</li>
+                                <li>Sales Support & Automation (CRM)</li>
+                                <li>Content Strategy & Execution</li>
+                                <li>Generative Engine Optimization (GEO)</li>
+                            </ul>
+                        </div>
+                        <div class="services-category">
+                            <h4>App Development</h4>
+                            <ul>
+                                <li>Web App Development</li>
+                                <li>Mobile App Development</li>
+                                <li>Portal & Dashboard Development</li>
+                                <li>LMS Development</li>
+                                <li>CRM Integration</li>
+                                <li>React Development</li>
+                                <li>Node.js Development</li>
+                                <li>Laravel Development</li>
+                                <li>No Code Development</li>
+                                <li>Advanced AI Development</li>
+                                <li>Blockchain Development</li>
+                            </ul>
+                        </div>
+                        <div class="services-category">
+                            <h4>Enterprise Solutions</h4>
+                            <ul>
+                                <li>Application Maintenance</li>
+                                <li>Cloud Hosting Services</li>
+                            </ul>
+                        </div>
+                        <div class="services-category">
+                            <h4>Design & Branding</h4>
+                            <ul>
+                                <li>Brand Development</li>
+                                <li>Logo Design</li>
+                                <li>Brand Guidelines</li>
+                                <li>Brand Identity Messaging</li>
+                                <li>Rebranding Services</li>
+                                <li>Ad Creative Design</li>
+                                <li>Social Media Design</li>
+                                <li>Presentation Design</li>
+                                <li>Email Design</li>
+                                <li>Illustrations & Iconography</li>
+                                <li>Corporate Reports</li>
+                                <li>Product Sheets & One Pagers</li>
+                                <li>Print & Packaging Design</li>
+                            </ul>
+                        </div>
+                        <div class="services-category">
+                            <h4>Photo & Video</h4>
+                            <ul>
+                                <li>Video Production</li>
+                                <li>Post Production & Editing</li>
+                                <li>Commercials</li>
+                                <li>Hero Videos</li>
+                                <li>Animated Explainer Videos</li>
+                                <li>Product Renders</li>
+                                <li>Animation & Motion Graphics</li>
+                                <li>3D & AR Design</li>
+                                <li>Sound & Music Design</li>
+                                <li>Professional Headshots</li>
+                                <li>Product Photography</li>
+                                <li>Event Photography</li>
+                                <li>Brand & Lifestyle Photography</li>
+                                <li>Live Streaming & Broadcasting</li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <a href="#industrias">Industrias <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-menu industries-menu">
+                        <div class="services-category">
+                            <h4>Hostelería y Viajes</h4>
+                            <ul>
+                                <li>Restaurantes & Cafeterías</li>
+                                <li>Hoteles & Resorts</li>
+                                <li>Agencias de Viajes</li>
+                                <li>Cruceros & Turismo</li>
+                                <li>Ecoturismo & Aventura</li>
+                                <li>Eventos & Catering</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="services-category">
+                            <h4>Servicios Profesionales</h4>
+                            <ul>
+                                <li>Consultoría de Negocios</li>
+                                <li>Coaching & Mentoring</li>
+                                <li>Servicios B2B</li>
+                                <li>Asesoría Financiera</li>
+                                <li>Gestión de Proyectos</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="services-category">
+                            <h4>Consultoría y Derecho</h4>
+                            <ul>
+                                <li>Firmas Legales</li>
+                                <li>Consultoría Jurídica</li>
+                                <li>Servicios Corporativos</li>
+                                <li>Asesoría Regulatoria</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="services-category">
+                            <h4>Educación e Investigación</h4>
+                            <ul>
+                                <li>Universidades & Colegios</li>
+                                <li>E-Learning & EdTech</li>
+                                <li>Centros de Investigación</li>
+                                <li>Formación Corporativa</li>
+                                <li>Idiomas & Educación</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="services-category">
+                            <h4>Finanzas y Banca</h4>
+                            <ul>
+                                <li>Bancos & Fintech</li>
+                                <li>Inversiones & Wealth Management</li>
+                                <li>Préstamos & Créditos</li>
+                                <li>Seguros & Pensiones</li>
+                                <li>Pagos Digitales</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="services-category">
+                            <h4>Organizaciones Sin Ánimo de Lucro</h4>
+                            <ul>
+                                <li>ONGs & Fundaciones</li>
+                                <li>Medio Ambiente</li>
+                                <li>Asistencia Social</li>
+                                <li>Cooperación Internacional</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="services-category">
+                            <h4>Energía y Medio Ambiente</h4>
+                            <ul>
+                                <li>Energías Renovables</li>
+                                <li>Gestión Ambiental</li>
+                                <li>Sostenibilidad</li>
+                                <li>Gestión de Aguas</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="services-category">
+                            <h4>Tecnología y Software (SaaS)</h4>
+                            <ul>
+                                <li>Startups SaaS</li>
+                                <li>Desarrollo de Apps</li>
+                                <li>Infraestructura IT</li>
+                                <li>Inteligencia Artificial</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="services-category">
+                            <h4>Alimentación y Bebidas</h4>
+                            <ul>
+                                <li>Producción Agrícola</li>
+                                <li>Bebidas & Licores</li>
+                                <li>Distribución Alimentaria</li>
+                                <li>Productos Gourmet</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="services-category">
+                            <h4>Comercio Electrónico y Retail</h4>
+                            <ul>
+                                <li>Tiendas Online</li>
+                                <li>Moda & Accesorios</li>
+                                <li>Joyería & Lujo</li>
+                                <li>Hogar & Decoración</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="services-category">
+                            <h4>Salud y Farmacia</h4>
+                            <ul>
+                                <li>Hospitales & Clínicas</li>
+                                <li>Farmacias & Farmacéuticas</li>
+                                <li>Wellness & Fitness</li>
+                                <li>Telemedicina</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="services-category">
+                            <h4>Inmobiliario y Promoción</h4>
+                            <ul>
+                                <li>Constructoras</li>
+                                <li>Desarrollo Inmobiliario</li>
+                                <li>Gestión de Propiedades</li>
+                                <li>Arquitectura & Diseño</li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                <li><a href="#progreso">Progreso</a></li>
+                <li><a href="#soluciones">Soluciones</a></li>
+                <li><a href="#demo">Demo</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </div>
+    </header>
+    
+    <!-- Sección Hero con cubo 3D interactivo -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <h1>Transformación Digital Integral</h1>
+                    <div class="hero-tagline">De la <span>Supervivencia</span> al <span>Liderazgo Digital</span></div>
+                    <p class="hero-description">Somos el aliado estratégico que convierte tu presencia digital en una ventaja competitiva. Desde la Generación X hasta startups tecnológicas, transformamos negocios con soluciones digitales a medida.</p>
+                    
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <div class="stat-value">+250</div>
+                            <div class="stat-label">Clientes Transformados</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">98%</div>
+                            <div class="stat-label">Satisfacción Cliente</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">3.2x</div>
+                            <div class="stat-label">Crecimiento Promedio</div>
+                        </div>
+                    </div>
+                    
+                    <div class="warning-box">
+                        <h3><i class="fas fa-exclamation-triangle"></i> ¡Alerta de Brecha Digital!</h3>
+                        <p>El 68% de las empresas tradicionales están perdiendo mercado por falta de transformación digital. No permitas que la Generación X quede atrás en la revolución tecnológica.</p>
+                    </div>
+                    
+                    <div class="cta-buttons">
+                        <a href="https://wa.me/523326225912?text=Hola%20OSDEMS%20Digital,%20quiero%20un%20diagnóstico%20gratis%20de%20transformación%20digital" class="btn btn-primary" target="_blank">
+                            <i class="fas fa-stethoscope"></i> Diagnóstico Gratis
+                        </a>
+                        <a href="#demo" class="btn btn-secondary">
+                            <i class="fas fa-play-circle"></i> Tour Virtual
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="hero-visual">
+                    <div class="cyber-cube">
+                        <div class="cube-face front"><i class="fas fa-globe"></i></div>
+                        <div class="cube-face back"><i class="fas fa-chart-line"></i></div>
+                        <div class="cube-face right"><i class="fas fa-cogs"></i></div>
+                        <div class="cube-face left"><i class="fas fa-shield-alt"></i></div>
+                        <div class="cube-face top"><i class="fas fa-rocket"></i></div>
+                        <div class="cube-face bottom"><i class="fas fa-users"></i></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Sección de Industrias Integrada -->
+    <section class="industries-showcase" id="industrias">
+        <div class="container">
+            <h2 class="section-title">Transformación Digital para <span>Tu Industria</span></h2>
+            <p class="section-subtitle">Soluciones especializadas adaptadas a las necesidades únicas de cada sector. Hemos transformado más de 250 empresas en 12 industrias diferentes.</p>
+            
+            <div class="industries-grid">
+                <div class="industry-card">
+                    <div class="industry-icon">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <h3>Hostelería y Viajes</h3>
+                    <p>Transformamos la experiencia del cliente en restaurantes, hoteles y agencias de viajes.</p>
+                    <ul class="industry-features">
+                        <li>Reservas online inteligentes</li>
+                        <li>Gestión de reputación digital</li>
+                        <li>Marketing experiencial</li>
+                        <li>Fidelización digital</li>
+                    </ul>
+                </div>
+                
+                <div class="industry-card">
+                    <div class="industry-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <h3>Servicios Profesionales</h3>
+                    <p>Potenciamos firmas de consultoría, coaching y servicios B2B con tecnología.</p>
+                    <ul class="industry-features">
+                        <li>Portales de cliente</li>
+                        <li>Automatización de procesos</li>
+                        <li>CRM especializado</li>
+                        <li>Análisis predictivo</li>
+                    </ul>
+                </div>
+                
+                <div class="industry-card">
+                    <div class="industry-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Educación e Investigación</h3>
+                    <p>Revolucionamos universidades, e-learning y centros de investigación.</p>
+                    <ul class="industry-features">
+                        <li>Plataformas LMS avanzadas</li>
+                        <li>Realidad virtual educativa</li>
+                        <li>Gestión académica inteligente</li>
+                        <li>Investigación colaborativa</li>
+                    </ul>
+                </div>
+                
+                <div class="industry-card">
+                    <div class="industry-icon">
+                        <i class="fas fa-university"></i>
+                    </div>
+                    <h3>Finanzas y Banca</h3>
+                    <p>Digitalización segura para bancos, fintech y servicios financieros.</p>
+                    <ul class="industry-features">
+                        <li>Banca digital personalizada</li>
+                        <li>Seguridad blockchain</li>
+                        <li>Robo-advisors</li>
+                        <li>Pagamentos digitales</li>
+                    </ul>
+                </div>
+                
+                <div class="industry-card">
+                    <div class="industry-icon">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <h3>Salud y Farmacia</h3>
+                    <p>Innovación digital para hospitales, clínicas y farmacéuticas.</p>
+                    <ul class="industry-features">
+                        <li>Telemedicina avanzada</li>
+                        <li>Historial médico digital</li>
+                        <li>IoT médico</li>
+                        <li>Gestión de farmacia</li>
+                    </ul>
+                </div>
+                
+                <div class="industry-card">
+                    <div class="industry-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3>Inmobiliario</h3>
+                    <p>Transformación digital para constructoras y gestión de propiedades.</p>
+                    <ul class="industry-features">
+                        <li>Tours virtuales 360°</li>
+                        <li>CRM inmobiliario</li>
+                        <li>Gestión de propiedades</li>
+                        <li>Marketplace especializado</li>
+                    </ul>
+                </div>
+                
+                <div class="industry-card">
+                    <div class="industry-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h3>Energía y Medio Ambiente</h4>
+                    <p>Soluciones sostenibles para energías renovables y gestión ambiental.</p>
+                    <ul class="industry-features">
+                        <li>Monitorización IoT</li>
+                        <li>Gestión de recursos</li>
+                        <li>Reportes de sostenibilidad</li>
+                        <li>Optimización energética</li>
+                    </ul>
+                </div>
+                
+                <div class="industry-card">
+                    <div class="industry-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>Tecnología y SaaS</h3>
+                    <p>Desarrollo especializado para startups y empresas tecnológicas.</p>
+                    <ul class="industry-features">
+                        <li>Arquitecturas escalables</li>
+                        <li>DevOps y CI/CD</li>
+                        <li>AI y machine learning</li>
+                        <li>Analítica avanzada</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Sistema de pestañas integrado -->
+    <section class="tabs-system" id="soluciones">
+        <div class="container">
+            <h2 class="section-title">Soluciones <span>Integrales</span></h2>
+            <p class="section-subtitle">Paquetes completos que combinan estrategia, diseño, tecnología y marketing para resultados garantizados.</p>
+            
+            <div class="tabs-container">
+                <div class="tabs-header">
+                    <div class="tab-button active" data-tab="tab1">
+                        <i class="fas fa-survival"></i> Supervivencia Digital
+                    </div>
+                    <div class="tab-button" data-tab="tab2">
+                        <i class="fas fa-chart-line"></i> Crecimiento Acelerado
+                    </div>
+                    <div class="tab-button" data-tab="tab3">
+                        <i class="fas fa-crown"></i> Liderazgo Digital
+                    </div>
+                    <div class="tab-button" data-tab="tab4">
+                        <i class="fas fa-shield-alt"></i> Mantenimiento Web
+                    </div>
+                </div>
+                
+                <div class="tab-content active" id="tab1">
+                    <div class="industry-card" style="max-width: 100%; margin: 0 auto;">
+                        <h3 style="text-align: center; font-size: 2.5rem; margin-bottom: 30px;">Paquete de Supervivencia Digital</h3>
+                        <p style="text-align: center; font-size: 1.3rem; margin-bottom: 40px;">Para empresas que necesitan establecerse en el mundo digital y atraer sus primeros clientes online.</p>
+                        
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px;">
+                            <div style="background: rgba(0,0,0,0.2); padding: 30px; border-radius: 15px; border-left: 4px solid var(--secondary-color);">
+                                <h4 style="color: var(--secondary-color); margin-bottom: 20px;"><i class="fas fa-globe"></i> Presencia Digital Básica</h4>
+                                <ul class="industry-features">
+                                    <li>Landing page optimizada para móviles</li>
+                                    <li>Diseño web responsive</li>
+                                    <li>Integración con redes sociales</li>
+                                    <li>Formulario de contacto profesional</li>
+                                    <li>Google My Business optimizado</li>
+                                </ul>
+                            </div>
+                            
+                            <div style="background: rgba(0,0,0,0.2); padding: 30px; border-radius: 15px; border-left: 4px solid var(--success-color);">
+                                <h4 style="color: var(--success-color); margin-bottom: 20px;"><i class="fas fa-bullhorn"></i> Marketing Inicial</h4>
+                                <ul class="industry-features">
+                                    <li>Estrategia de contenidos básica</li>
+                                    <li>Configuración de redes sociales</li>
+                                    <li>Campañas Facebook/Instagram</li>
+                                    <li>Email marketing básico</li>
+                                    <li>SEO local esencial</li>
+                                </ul>
+                            </div>
+                            
+                            <div style="background: rgba(0,0,0,0.2); padding: 30px; border-radius: 15px; border-left: 4px solid var(--warning-color);">
+                                <h4 style="color: var(--warning-color); margin-bottom: 20px;"><i class="fas fa-chart-bar"></i> Análisis y Reportes</h4>
+                                <ul class="industry-features">
+                                    <li>Configuración Google Analytics</li>
+                                    <li>Reporte mensual de desempeño</li>
+                                    <li>Análisis de competencia</li>
+                                    <li>Recomendaciones mensuales</li>
+                                    <li>Soporte técnico básico</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div style="text-align: center; margin-top: 50px;">
+                            <a href="https://wa.me/523326225912?text=Hola%20OSDEMS%20Digital,%20quiero%20información%20sobre%20el%20Paquete%20de%20Supervivencia%20Digital" class="btn btn-primary" target="_blank" style="font-size: 1.5rem; padding: 25px 50px;">
+                                <i class="fas fa-rocket"></i> Solicitar Paquete
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tab-content" id="tab2">
+                    <!-- Contenido similar para Crecimiento Acelerado -->
+                    <div class="industry-card" style="max-width: 100%; margin: 0 auto;">
+                        <h3 style="text-align: center; font-size: 2.5rem; margin-bottom: 30px;">Paquete de Crecimiento Acelerado</h3>
+                        <p style="text-align: center; font-size: 1.3rem; margin-bottom: 40px;">Para empresas con presencia digital que buscan escalar y optimizar su inversión en marketing.</p>
+                        <!-- Contenido detallado del paquete -->
+                    </div>
+                </div>
+                
+                <div class="tab-content" id="tab3">
+                    <!-- Contenido similar para Liderazgo Digital -->
+                    <div class="industry-card" style="max-width: 100%; margin: 0 auto;">
+                        <h3 style="text-align: center; font-size: 2.5rem; margin-bottom: 30px;">Paquete de Liderazgo Digital</h3>
+                        <p style="text-align: center; font-size: 1.3rem; margin-bottom: 40px;">Para empresas que buscan dominar su mercado con innovación tecnológica y estrategias avanzadas.</p>
+                        <!-- Contenido detallado del paquete -->
+                    </div>
+                </div>
+                
+                <div class="tab-content" id="tab4">
+                    <!-- Contenido similar para Mantenimiento Web -->
+                    <div class="industry-card" style="max-width: 100%; margin: 0 auto;">
+                        <h3 style="text-align: center; font-size: 2.5rem; margin-bottom: 30px;">Mantenimiento Web Profesional</h3>
+                        <p style="text-align: center; font-size: 1.3rem; margin-bottom: 40px;">Protege tu inversión digital con nuestro servicio integral de mantenimiento web.</p>
+                        <!-- Contenido detallado del paquete -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Timeline de Progreso -->
+    <section class="timeline-section" id="progreso">
+        <div class="container">
+            <h2 class="section-title">Tu Camino hacia el <span>Éxito Digital</span></h2>
+            <p class="section-subtitle">Un proceso probado que ha transformado cientos de empresas en líderes digitales.</p>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-step">Paso 1</span>
+                        <h3>Diagnóstico Integral</h3>
+                        <p>Analizamos tu situación actual, competencia y oportunidades. Identificamos brechas digitales y definimos objetivos claros y medibles.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-step">Paso 2</span>
+                        <h3>Estrategia Personalizada</h3>
+                        <p>Desarrollamos un plan de acción detallado con roadmap, KPIs y cronograma. Priorizamos iniciativas según impacto y recursos.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-step">Paso 3</span>
+                        <h3>Implementación Tecnológica</h3>
+                        <p>Desplegamos soluciones digitales a medida: website, e-commerce, CRM, automatizaciones. Garantizamos calidad y escalabilidad.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-step">Paso 4</span>
+                        <h3>Marketing de Resultados</h3>
+                        <p>Ejecutamos campañas digitales optimizadas para conversión. Monitorizamos ROI y ajustamos en tiempo real para maximizar resultados.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-step">Paso 5</span>
+                        <h3>Optimización Continua</h3>
+                        <p>Analizamos datos, realizamos mejoras y escalamos estrategias. Mantenimiento proactivo para crecimiento sostenido.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer mejorado -->
+    <footer id="contacto">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>OSDEMS Digital</h3>
+                    <p style="color: rgba(255, 255, 255, 0.8); margin-bottom: 30px; font-size: 1.2rem; line-height: 1.8;">
+                        Transformamos la supervivencia digital en crecimiento transformador. Somos tu socio estratégico en la revolución digital para empresas de todos los tamaños y sectores.
+                    </p>
+                    <div class="social-icons">
+                        <a href="https://facebook.com/osdemsdigital" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://instagram.com/osdemsdigital" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://youtube.com/osdemsdigital" target="_blank"><i class="fab fa-youtube"></i></a>
+                        <a href="https://linkedin.com/company/osdemsdigital" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://wa.me/523326225912" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Enlaces Rápidos</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-chevron-right"></i> <a href="#home">Inicio</a></li>
+                        <li><i class="fas fa-chevron-right"></i> <a href="#servicios">Servicios</a></li>
+                        <li><i class="fas fa-chevron-right"></i> <a href="#industrias">Industrias</a></li>
+                        <li><i class="fas fa-chevron-right"></i> <a href="#progreso">Progreso</a></li>
+                        <li><i class="fas fa-chevron-right"></i> <a href="#soluciones">Soluciones</a></li>
+                        <li><i class="fas fa-chevron-right"></i> <a href="#demo">Demo</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contacto</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-globe"></i> <a href="https://osdemsdigital.com" target="_blank">osdemsdigital.com</a></li>
+                        <li><i class="fas fa-envelope"></i> <a href="mailto:hola@osdemsdigital.com">hola@osdemsdigital.com</a></li>
+                        <li><i class="fas fa-phone"></i> <a href="tel:+523326225912">+52 (33) 2622 5912</a></li>
+                        <li><i class="fas fa-phone"></i> <a href="tel:+523311744584">+52 (33) 1174 4584</a></li>
+                        <li><i class="fas fa-map-marker-alt"></i> Blvd. Puerta de Hierro 5153 Fracc. Plaza Andares Zapopan, Jalisco 45116 Piso 2</li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Horarios</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-clock"></i> Lunes a Viernes: 9:00 - 19:00</li>
+                        <li><i class="fas fa-clock"></i> Sábados: 10:00 - 14:00</li>
+                        <li><i class="fas fa-headset"></i> Soporte 24/7 para clientes</li>
+                        <li><i class="fas fa-calendar-check"></i> Citas previa cita</li>
+                    </ul>
+                    
+                    <div style="margin-top: 30px; padding: 20px; background: rgba(0,0,0,0.2); border-radius: 10px;">
+                        <h4 style="color: var(--secondary-color); margin-bottom: 10px;">¡Transforma tu negocio hoy!</h4>
+                        <a href="https://wa.me/523326225912?text=Hola%20OSDEMS%20Digital,%20quiero%20una%20consultoría%20gratuita" class="btn btn-primary" target="_blank" style="width: 100%; padding: 15px; font-size: 1.1rem;">
+                            <i class="fab fa-whatsapp"></i> Consultoría Gratuita
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                &copy; 2023 OSDEMS Digital - Todos los derechos reservados. | "Primero se sobrevive, después se aumenta" - Transformación Digital Integral para Empresas
+                <br><br>
+                <small style="opacity: 0.6;">Sitio web desarrollado con tecnología de punta por OSDEMS Digital - Experiencia Cyberpunk optimizada para conversión</small>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Sistema de cursor personalizado futurista
+        const cursor = document.getElementById('custom-cursor');
+        let mouseX = 0, mouseY = 0;
+        let cursorX = 0, cursorY = 0;
+        const speed = 0.15; // Velocidad de seguimiento (más bajo = más suave)
+        
+        document.addEventListener('mousemove', function(e) {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            
+            // Crear estela de cursor
+            if (Math.random() > 0.7) {
+                createCursorTrail(e.clientX, e.clientY);
+            }
+        });
+        
+        function createCursorTrail(x, y) {
+            const trail = document.createElement('div');
+            trail.className = 'cursor-trail';
+            trail.style.left = x + 'px';
+            trail.style.top = y + 'px';
+            document.body.appendChild(trail);
+            
+            // Animación de desvanecimiento
+            let opacity = 0.8;
+            const fade = setInterval(() => {
+                opacity -= 0.05;
+                trail.style.opacity = opacity;
+                trail.style.transform = `scale(${opacity})`;
+                
+                if (opacity <= 0) {
+                    clearInterval(fade);
+                    trail.remove();
+                }
+            }, 30);
+        }
+        
+        function animateCursor() {
+            const dx = mouseX - cursorX;
+            const dy = mouseY - cursorY;
+            
+            cursorX += dx * speed;
+            cursorY += dy * speed;
+            
+            cursor.style.left = cursorX + 'px';
+            cursor.style.top = cursorY + 'px';
+            
+            // Cambiar tamaño al pasar sobre elementos interactivos
+            const interactiveElements = document.querySelectorAll('a, button, .industry-card, .tab-button, .contact-button');
+            let isOverInteractive = false;
+            
+            interactiveElements.forEach(el => {
+                const rect = el.getBoundingClientRect();
+                if (mouseX >= rect.left && mouseX <= rect.right && 
+                    mouseY >= rect.top && mouseY <= rect.bottom) {
+                    isOverInteractive = true;
+                }
+            });
+            
+            if (isOverInteractive) {
+                cursor.style.width = '40px';
+                cursor.style.height = '40px';
+                cursor.style.backgroundColor = 'rgba(0, 212, 255, 0.2)';
+                cursor.style.border = '2px solid rgba(0, 255, 200, 0.6)';
+                cursor.style.boxShadow = '0 0 25px rgba(0, 212, 255, 0.7)';
+            } else {
+                cursor.style.width = '20px';
+                cursor.style.height = '20px';
+                cursor.style.backgroundColor = 'rgba(0, 212, 255, 0.3)';
+                cursor.style.border = '2px solid rgba(0, 212, 255, 0.5)';
+                cursor.style.boxShadow = '0 0 15px rgba(0, 212, 255, 0.5)';
+            }
+            
+            requestAnimationFrame(animateCursor);
+        }
+        
+        animateCursor();
+        
+        // Sistema de fondo cyberpunk interactivo
+        const canvas = document.getElementById('cyber-background');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+        let nodes = [];
+        let connections = [];
+        let animationId;
+        
+        function initCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            
+            // Crear partículas
+            particles = [];
+            const particleCount = Math.min(200, Math.floor((canvas.width * canvas.height) / 8000));
+            
+            for (let i = 0; i < particleCount; i++) {
+                particles.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    size: Math.random() * 3 + 1,
+                    speedX: (Math.random() - 0.5) * 0.5,
+                    speedY: (Math.random() - 0.5) * 0.5,
+                    color: `rgba(${Math.floor(Math.random() * 100 + 100)}, ${Math.floor(Math.random() * 200 + 55)}, 255, ${Math.random() * 0.4 + 0.1})`
+                });
+            }
+            
+            // Crear nodos de conexión
+            nodes = [];
+            const nodeCount = 30;
+            
+            for (let i = 0; i < nodeCount; i++) {
+                nodes.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    size: Math.random() * 4 + 2,
+                    connections: []
+                });
+            }
+            
+            // Crear conexiones entre nodos cercanos
+            connections = [];
+            for (let i = 0; i < nodes.length; i++) {
+                for (let j = i + 1; j < nodes.length; j++) {
+                    const dx = nodes[i].x - nodes[j].x;
+                    const dy = nodes[i].y - nodes[j].y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+                    
+                    if (distance < 200) {
+                        connections.push({
+                            node1: nodes[i],
+                            node2: nodes[j],
+                            opacity: 0.05 + (1 - distance/200) * 0.2
+                        });
+                    }
+                }
+            }
+        }
+        
+        function drawBackground() {
+            // Fondo con gradiente dinámico
+            const gradient = ctx.createRadialGradient(
+                canvas.width * 0.8, canvas.height * 0.5, 0,
+                canvas.width * 0.8, canvas.height * 0.5, Math.max(canvas.width, canvas.height) * 0.8
+            );
+            gradient.addColorStop(0, 'rgba(10, 10, 40, 0.1)');
+            gradient.addColorStop(1, 'rgba(5, 5, 20, 0.9)');
+            
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            
+            // Dibujar conexiones
+            connections.forEach(conn => {
+                const dx = conn.node1.x - conn.node2.x;
+                const dy = conn.node1.y - conn.node2.y;
+                const distance = Math.sqrt(dx * dx + dy * dy);
+                
+                if (distance < 200) {
+                    ctx.beginPath();
+                    ctx.strokeStyle = `rgba(0, 200, 255, ${conn.opacity})`;
+                    ctx.lineWidth = 0.8;
+                    ctx.moveTo(conn.node1.x, conn.node1.y);
+                    ctx.lineTo(conn.node2.x, conn.node2.y);
+                    ctx.stroke();
+                }
+            });
+            
+            // Dibujar y mover partículas
+            particles.forEach(particle => {
+                ctx.beginPath();
+                ctx.fillStyle = particle.color;
+                ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
+                ctx.fill();
+                
+                // Mover partículas
+                particle.x += particle.speedX;
+                particle.y += particle.speedY;
+                
+                // Rebotar en bordes
+                if (particle.x < 0 || particle.x > canvas.width) particle.speedX *= -1;
+                if (particle.y < 0 || particle.y > canvas.height) particle.speedY *= -1;
+                
+                // Interacción con el cursor
+                const dx = mouseX - particle.x;
+                const dy = mouseY - particle.y;
+                const distance = Math.sqrt(dx * dx + dy * dy);
+                
+                if (distance < 100) {
+                    const angle = Math.atan2(dy, dx);
+                    const force = (100 - distance) / 100;
+                    
+                    particle.x -= Math.cos(angle) * force * 2;
+                    particle.y -= Math.sin(angle) * force * 2;
+                }
+            });
+            
+            // Dibujar nodos
+            nodes.forEach(node => {
+                ctx.beginPath();
+                ctx.fillStyle = `rgba(0, 220, 255, 0.8)`;
+                ctx.arc(node.x, node.y, node.size, 0, Math.PI * 2);
+                ctx.fill();
+                
+                // Efecto de brillo
+                const glow = ctx.createRadialGradient(
+                    node.x, node.y, 0,
+                    node.x, node.y, node.size * 4
+                );
+                glow.addColorStop(0, `rgba(0, 220, 255, 0.6)`);
+                glow.addColorStop(1, 'rgba(0, 220, 255, 0)');
+                
+                ctx.beginPath();
+                ctx.fillStyle = glow;
+                ctx.arc(node.x, node.y, node.size * 4, 0, Math.PI * 2);
+                ctx.fill();
+                
+                // Movimiento sutil de nodos
+                node.x += Math.sin(Date.now() * 0.001 + node.y) * 0.1;
+                node.y += Math.cos(Date.now() * 0.001 + node.x) * 0.1;
+            });
+            
+            animationId = requestAnimationFrame(drawBackground);
+        }
+        
+        initCanvas();
+        drawBackground();
+        
+        window.addEventListener('resize', function() {
+            cancelAnimationFrame(animationId);
+            initCanvas();
+            drawBackground();
+        });
+        
+        // Sistema de navegación mejorado
+        const header = document.getElementById('main-header');
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const navLinks = document.getElementById('nav-links');
+        
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+            
+            // Animación de elementos al hacer scroll
+            animateOnScroll();
+        });
+        
+        // Menú móvil
+        mobileMenuBtn.addEventListener('click', function() {
+            navLinks.classList.toggle('active');
+            mobileMenuBtn.innerHTML = navLinks.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Cerrar menú al hacer clic en enlace (móvil)
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', function() {
+                if (window.innerWidth <= 992) {
+                    navLinks.classList.remove('active');
+                    mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                }
+            });
+        });
+        
+        // Sistema de pestañas
+        document.querySelectorAll('.tab-button').forEach(button => {
+            button.addEventListener('click', function() {
+                const tabId = this.getAttribute('data-tab');
+                
+                // Remover activo de todos los botones y contenidos
+                document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
+                document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+                
+                // Activar botón y contenido seleccionado
+                this.classList.add('active');
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+        
+        // Smooth scrolling mejorado
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                if (this.getAttribute('target') === '_blank') return;
+                
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Animación de elementos al hacer scroll
+        function animateOnScroll() {
+            const elements = document.querySelectorAll('.industry-card, .timeline-content, .section-title');
+            
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                    element.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+                }
+            });
+        }
+        
+        // Inicializar animaciones
+        window.addEventListener('load', function() {
+            animateOnScroll();
+            
+            // Efecto de escritura para el título
+            const heroTitle = document.querySelector('.hero h1');
+            const originalText = heroTitle.textContent;
+            heroTitle.textContent = '';
+            
+            let i = 0;
+            function typeWriter() {
+                if (i < originalText.length) {
+                    heroTitle.textContent += originalText.charAt(i);
+                    i++;
+                    setTimeout(typeWriter, 50);
+                }
+            }
+            
+            // Iniciar efecto después de 0.5 segundos
+            setTimeout(typeWriter, 500);
+        });
+        
+        // Panel de contacto interactivo
+        document.querySelectorAll('.contact-button').forEach(button => {
+            button.addEventListener('click', function() {
+                const type = this.classList.contains('whatsapp') ? 'whatsapp' : 
+                            this.classList.contains('phone') ? 'phone' : 'chat';
+                
+                if (type === 'whatsapp') {
+                    window.open('https://wa.me/523326225912?text=Hola%20OSDEMS%20Digital,%20quiero%20información%20sobre%20sus%20servicios', '_blank');
+                } else if (type === 'phone') {
+                    window.open('tel:+523326225912', '_blank');
+                } else {
+                    // Simular chat (podría integrarse con un servicio de chat)
+                    alert('Próximamente: Chat en vivo disponible 24/7');
+                }
+            });
+        });
+        
+        // Efecto de modo inmersivo
+        document.addEventListener('keydown', function(e) {
+            // Activar modo inmersivo con tecla I
+            if (e.key === 'i' || e.key === 'I') {
+                document.body.classList.toggle('immersive-mode');
+            }
+        });
+        
+        // Efecto de sonido (opcional) - descomentar si quieres agregar sonidos
+        /*
+        function playHoverSound() {
+            const audio = new Audio('data:audio/wav;base64,UklGRigAAABXQVZFZm10IBIAAAABAAEARKwAAIhYAQACABAAZGF0YQQ=');
+            audio.volume = 0.1;
+            audio.play();
+        }
+        
+        document.querySelectorAll('.industry-card, .btn').forEach(el => {
+            el.addEventListener('mouseenter', playHoverSound);
+        });
+        */
+    </script>
+</body>
+</html>
