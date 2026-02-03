@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>OSDEMS Digital | Product Branding & Storytelling</title>
+    <title>OSDEMS Digital | Options - Portal de Pagos y Catálogo</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <link rel="stylesheet" href="assets/css/styles.css" />
     <link rel="prefetch" href="services.html" />
@@ -249,15 +249,42 @@
         </div>
     </header>
 
-    <main>
-        <section class="section hero">
+    <main class="premium-pro-page product-branding-options-page">
+        <!-- Hero: igual que el sitio (CLIENTES grande + subtítulo) -->
+        <section class="product-branding-hero product-branding-hero--portal">
             <div class="container">
-                <h1>Product Branding & Storytelling</h1>
-                <p>
-                    Construimos la identidad digital de tus productos: narrativa, mensajes clave, 
-                    landing pages, visuales y activos que conectan con tu audiencia y posicionan 
-                    tus soluciones como la mejor opción en su categoría.
-                </p>
+                <p class="product-branding-eyebrow">PORTAL DE PAGOS DE</p>
+                <h1 class="product-branding-title product-branding-title--big">CLIENTES</h1>
+                <p class="product-branding-subtitle">Simplifica tus pagos en un solo lugar.</p>
+            </div>
+        </section>
+
+        <!-- Tarjetas grandes con gradiente (replicando el sitio) -->
+        <section class="product-branding-cards">
+            <div class="container container--cards">
+                <!-- Card 1: CATALOGO (texto izq, imagen der) -->
+                <article class="pb-card pb-card--catalogo">
+                    <div class="pb-card-content">
+                        <h2 class="pb-card-title">CATALOGO</h2>
+                        <p class="pb-card-desc">Descubre nuestra colección, un mundo de productos y servicios a tu disposición.</p>
+                        <a href="premium.html#contactanos" class="pb-card-btn">VISUALIZAR</a>
+                    </div>
+                    <div class="pb-card-img pb-card-img--laptop" aria-hidden="true">
+                        <img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=600&q=80" alt="" loading="lazy" />
+                    </div>
+                </article>
+
+                <!-- Card 2: PORTAL PAGO (imagen izq, texto der) -->
+                <article class="pb-card pb-card--pago">
+                    <div class="pb-card-img pb-card-img--phone" aria-hidden="true">
+                        <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=400&q=80" alt="" loading="lazy" />
+                    </div>
+                    <div class="pb-card-content">
+                        <h2 class="pb-card-title">PORTAL PAGO DE CLIENTES</h2>
+                        <p class="pb-card-desc">Realiza tus transacciones de manera ágil y segura. Tu comodidad es nuestra prioridad.</p>
+                        <a href="https://buy.stripe.com/00g3fJ1eLgLT4BWeUW" target="_blank" rel="noopener" class="pb-card-btn">PAGO</a>
+                    </div>
+                </article>
             </div>
         </section>
     </main>
@@ -346,4 +373,5 @@
     <script src="assets/js/main.js"></script>
 </body>
 </html>
+
 

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8" />
@@ -250,6 +250,265 @@
     </header>
 
     <main>
+        <!-- Hero igual que Home (arriba en Services) -->
+        <section id="inicio" class="hero-section">
+            <div class="hero-bg-pattern" aria-hidden="true"></div>
+            <div class="container hero-section-inner">
+                <h1 class="hero-title">Transformamos Ideas en <span class="highlight">Resultados Digitales</span></h1>
+                <div class="hero-grid">
+                    <div class="hero-content-left">
+                        <p class="hero-subtitle">En OSDEMS Digital, arquitectamos ecosistemas digitales sinérgicos que aceleran el crecimiento de tu negocio. Combinamos estrategia, tecnología y creatividad para impulsar tu transformación digital en el competitivo panorama del 2026.</p>
+                        <div class="hero-stats">
+                            <div class="stat-item">
+                                <span class="stat-number">+61</span>
+                                <span class="stat-label">Servicios Especializados</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">+12</span>
+                                <span class="stat-label">Industrias</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">+300%</span>
+                                <span class="stat-label">ROI Promedio</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hero-visual">
+                        <div class="cyber-cube" aria-hidden="true">
+                            <div class="cube-face front"><i class="fas fa-globe"></i></div>
+                            <div class="cube-face back"><i class="fas fa-chart-line"></i></div>
+                            <div class="cube-face right"><i class="fas fa-cogs"></i></div>
+                            <div class="cube-face left"><i class="fas fa-shield-alt"></i></div>
+                            <div class="cube-face top"><i class="fas fa-rocket"></i></div>
+                            <div class="cube-face bottom"><i class="fas fa-users"></i></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- INDUSTRIAS QUE IMPULSAMOS (carrusel igual que Home, mismos IDs para main.js) -->
+        <section class="industries-section" id="industrias-services">
+            <h2 class="section-title">Industrias que <span>Impulsamos</span></h2>
+            <div class="industry-counter-large" id="industryCounter">
+                <i class="fas fa-globe-americas"></i>
+                <span id="counterText">Industria 1 de 12</span>
+            </div>
+            <div class="carousel-container">
+                <div class="earth-aura"></div>
+                <div class="earth-center"></div>
+                <div class="orbit-path"></div>
+                <div class="star-field" id="starField"></div>
+                <div class="light-rays" id="lightRays"></div>
+                <div class="orbit-particles-large" id="orbitParticles"></div>
+                <div class="industries-container" id="industriesContainer"></div>
+            </div>
+            <div class="carousel-controls-large">
+                <button type="button" class="control-btn-large" id="prevBtn" aria-label="Anterior"><i class="fas fa-chevron-left"></i></button>
+                <button type="button" class="control-btn-large" id="nextBtn" aria-label="Siguiente"><i class="fas fa-chevron-right"></i></button>
+            </div>
+            <div class="position-indicators" id="positionIndicators"></div>
+        </section>
+
+        <!-- SOLUCIONES INTEGRALES (igual que Home) -->
+        <section class="tabs-system" id="soluciones" style="--soluciones-cyan: #00d4ff; --soluciones-success: #22c55e; --soluciones-warning: #eab308; --soluciones-light: #f8f9fa;">
+            <div class="container">
+                <h2 class="section-title">Soluciones <span>Integrales</span></h2>
+                <p class="section-subtitle">Paquetes completos que combinan estrategia, diseño, tecnología y marketing para resultados garantizados.</p>
+                
+                <div class="tabs-container">
+                    <div class="tabs-header">
+                        <div class="tab-button active" data-tab="tab1-svc">
+                            <i class="fas fa-shield-alt"></i> Supervivencia Digital
+                        </div>
+                        <div class="tab-button" data-tab="tab2-svc">
+                            <i class="fas fa-chart-line"></i> Crecimiento Acelerado
+                        </div>
+                        <div class="tab-button" data-tab="tab3-svc">
+                            <i class="fas fa-crown"></i> Liderazgo Digital
+                        </div>
+                        <div class="tab-button" data-tab="tab4-svc">
+                            <i class="fas fa-shield-alt"></i> Mantenimiento Web
+                        </div>
+                    </div>
+                    
+                    <div class="tab-content active" id="tab1-svc">
+                        <div class="industry-card soluciones-industry-card">
+                            <h3 style="text-align: center; font-size: 2.5rem; margin-bottom: 30px;">Paquete de Supervivencia Digital</h3>
+                            <p style="text-align: center; font-size: 1.3rem; margin-bottom: 40px;">Para empresas que necesitan establecerse en el mundo digital y atraer sus primeros clientes online.</p>
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px;">
+                                <div style="background: rgba(0,0,0,0.2); padding: 30px; border-radius: 15px; border-left: 4px solid var(--soluciones-cyan);">
+                                    <h4 style="color: var(--soluciones-cyan); margin-bottom: 20px;"><i class="fas fa-globe"></i> Presencia Digital Básica</h4>
+                                    <ul class="industry-features">
+                                        <li>Landing page optimizada para móviles</li>
+                                        <li>Diseño web responsive</li>
+                                        <li>Integración con redes sociales</li>
+                                        <li>Formulario de contacto profesional</li>
+                                        <li>Google My Business optimizado</li>
+                                    </ul>
+                                </div>
+                                <div style="background: rgba(0,0,0,0.2); padding: 30px; border-radius: 15px; border-left: 4px solid var(--soluciones-success);">
+                                    <h4 style="color: var(--soluciones-success); margin-bottom: 20px;"><i class="fas fa-bullhorn"></i> Marketing Inicial</h4>
+                                    <ul class="industry-features">
+                                        <li>Estrategia de contenidos básica</li>
+                                        <li>Configuración de redes sociales</li>
+                                        <li>Campañas Facebook/Instagram</li>
+                                        <li>Email marketing básico</li>
+                                        <li>SEO local esencial</li>
+                                    </ul>
+                                </div>
+                                <div style="background: rgba(0,0,0,0.2); padding: 30px; border-radius: 15px; border-left: 4px solid var(--soluciones-warning);">
+                                    <h4 style="color: var(--soluciones-warning); margin-bottom: 20px;"><i class="fas fa-chart-bar"></i> Análisis y Reportes</h4>
+                                    <ul class="industry-features">
+                                        <li>Configuración Google Analytics</li>
+                                        <li>Reporte mensual de desempeño</li>
+                                        <li>Análisis de competencia</li>
+                                        <li>Recomendaciones mensuales</li>
+                                        <li>Soporte técnico básico</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div style="text-align: center; margin-top: 50px;">
+                                <a href="https://wa.me/523326225912?text=Hola%20OSDEMS%20Digital,%20quiero%20información%20sobre%20el%20Paquete%20de%20Supervivencia%20Digital" class="btn btn-primary btn-soluciones-cta" target="_blank" rel="noopener" style="font-size: 1.5rem; padding: 25px 50px;"><i class="fas fa-rocket"></i> Solicitar Paquete</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-content" id="tab2-svc">
+                        <div class="industry-card soluciones-industry-card">
+                            <h3 style="text-align: center; font-size: 2.5rem; margin-bottom: 30px;">Paquete de Crecimiento Acelerado</h3>
+                            <p style="text-align: center; font-size: 1.3rem; margin-bottom: 40px;">Para empresas con presencia digital que buscan escalar y optimizar su inversión en marketing.</p>
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px;">
+                                <div style="background: rgba(0,0,0,0.2); padding: 30px; border-radius: 15px; border-left: 4px solid var(--soluciones-cyan);">
+                                    <h4 style="color: var(--soluciones-cyan); margin-bottom: 20px;"><i class="fas fa-chart-line"></i> Marketing Avanzado</h4>
+                                    <ul class="industry-features">
+                                        <li>Estrategia SEO integral</li>
+                                        <li>Campañas PPC optimizadas</li>
+                                        <li>Marketing de contenidos profesional</li>
+                                        <li>Automatización de email marketing</li>
+                                        <li>Social Media Management avanzado</li>
+                                        <li>Generación de leads cualificados</li>
+                                    </ul>
+                                </div>
+                                <div style="background: rgba(0,0,0,0.2); padding: 30px; border-radius: 15px; border-left: 4px solid var(--soluciones-success);">
+                                    <h4 style="color: var(--soluciones-success); margin-bottom: 20px;"><i class="fas fa-shopping-cart"></i> E-commerce Avanzado</h4>
+                                    <ul class="industry-features">
+                                        <li>Tienda online completa</li>
+                                        <li>Pasarelas de pago múltiples</li>
+                                        <li>Sistema de inventario automatizado</li>
+                                        <li>Logística y envíos integrados</li>
+                                        <li>Programa de fidelización</li>
+                                        <li>Carrito abandonado recovery</li>
+                                    </ul>
+                                </div>
+                                <div style="background: rgba(0,0,0,0.2); padding: 30px; border-radius: 15px; border-left: 4px solid var(--soluciones-warning);">
+                                    <h4 style="color: var(--soluciones-warning); margin-bottom: 20px;"><i class="fas fa-tools"></i> Optimización Técnica</h4>
+                                    <ul class="industry-features">
+                                        <li>Auditoría técnica completa</li>
+                                        <li>Optimización de velocidad</li>
+                                        <li>Migración a hosting premium</li>
+                                        <li>Seguridad avanzada</li>
+                                        <li>Backup automático diario</li>
+                                        <li>Soporte técnico prioritario</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div style="text-align: center; margin-top: 50px;">
+                                <a href="https://wa.me/523326225912?text=Hola%20OSDEMS%20Digital,%20quiero%20información%20sobre%20el%20Paquete%20de%20Crecimiento%20Acelerado" class="btn btn-primary btn-soluciones-cta" target="_blank" rel="noopener" style="font-size: 1.5rem; padding: 25px 50px;"><i class="fas fa-rocket"></i> Solicitar Paquete</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-content" id="tab3-svc">
+                        <div class="industry-card soluciones-industry-card">
+                            <h3 style="text-align: center; font-size: 2.5rem; margin-bottom: 30px;">Paquete de Liderazgo Digital</h3>
+                            <p style="text-align: center; font-size: 1.3rem; margin-bottom: 40px;">Para empresas que buscan dominar su mercado con innovación tecnológica y estrategias avanzadas.</p>
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px;">
+                                <div style="background: rgba(0,0,0,0.2); padding: 30px; border-radius: 15px; border-left: 4px solid var(--soluciones-cyan);">
+                                    <h4 style="color: var(--soluciones-cyan); margin-bottom: 20px;"><i class="fas fa-cloud"></i> Cloud &amp; DevOps</h4>
+                                    <ul class="industry-features">
+                                        <li>Migración a cloud empresarial</li>
+                                        <li>Infraestructura escalable</li>
+                                        <li>CI/CD pipelines</li>
+                                        <li>Monitoreo 24/7</li>
+                                        <li>Auto-scaling automático</li>
+                                        <li>Contenedores Docker/Kubernetes</li>
+                                    </ul>
+                                </div>
+                                <div style="background: rgba(0,0,0,0.2); padding: 30px; border-radius: 15px; border-left: 4px solid var(--soluciones-success);">
+                                    <h4 style="color: var(--soluciones-success); margin-bottom: 20px;"><i class="fas fa-users-cog"></i> CRM Empresarial</h4>
+                                    <ul class="industry-features">
+                                        <li>CRM personalizado</li>
+                                        <li>Automatización de ventas</li>
+                                        <li>Integración con ERP</li>
+                                        <li>Business Intelligence</li>
+                                        <li>Dashboards ejecutivos</li>
+                                        <li>Workflow automation</li>
+                                    </ul>
+                                </div>
+                                <div style="background: rgba(0,0,0,0.2); padding: 30px; border-radius: 15px; border-left: 4px solid var(--soluciones-warning);">
+                                    <h4 style="color: var(--soluciones-warning); margin-bottom: 20px;"><i class="fas fa-vr-cardboard"></i> Realidad Aumentada/Virtual</h4>
+                                    <ul class="industry-features">
+                                        <li>Experiencias AR para productos</li>
+                                        <li>VR para capacitación</li>
+                                        <li>Showrooms virtuales</li>
+                                        <li>Simulaciones interactivas</li>
+                                        <li>Filtros personalizados</li>
+                                        <li>Experiencias inmersivas</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div style="text-align: center; margin-top: 50px;">
+                                <a href="https://wa.me/523326225912?text=Hola%20OSDEMS%20Digital,%20quiero%20información%20sobre%20el%20Paquete%20de%20Liderazgo%20Digital" class="btn btn-primary btn-soluciones-cta" target="_blank" rel="noopener" style="font-size: 1.5rem; padding: 25px 50px;"><i class="fas fa-rocket"></i> Solicitar Paquete</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-content" id="tab4-svc">
+                        <div class="industry-card soluciones-industry-card">
+                            <h3 style="text-align: center; font-size: 2.5rem; margin-bottom: 30px;">Mantenimiento Web Profesional</h3>
+                            <p style="text-align: center; font-size: 1.3rem; margin-bottom: 40px;">Protege tu inversión digital con nuestro servicio integral de mantenimiento web.</p>
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px;">
+                                <div style="background: rgba(0,0,0,0.2); padding: 30px; border-radius: 15px; border-left: 4px solid var(--soluciones-cyan);">
+                                    <h4 style="color: var(--soluciones-cyan); margin-bottom: 20px;"><i class="fas fa-shield-alt"></i> Seguridad y Protección</h4>
+                                    <ul class="industry-features">
+                                        <li>Firewall y protección malware</li>
+                                        <li>Escaneo diario de seguridad</li>
+                                        <li>Certificado SSL renovación</li>
+                                        <li>Backup automático diario</li>
+                                        <li>Monitoreo de intrusiones</li>
+                                        <li>Respuesta a incidentes</li>
+                                    </ul>
+                                </div>
+                                <div style="background: rgba(0,0,0,0.2); padding: 30px; border-radius: 15px; border-left: 4px solid var(--soluciones-success);">
+                                    <h4 style="color: var(--soluciones-success); margin-bottom: 20px;"><i class="fas fa-tachometer-alt"></i> Optimización y Velocidad</h4>
+                                    <ul class="industry-features">
+                                        <li>Optimización continua de velocidad</li>
+                                        <li>Actualización de plugins/themes</li>
+                                        <li>Limpieza de base de datos</li>
+                                        <li>Optimización de imágenes</li>
+                                        <li>Cache management</li>
+                                        <li>CDN configuration</li>
+                                    </ul>
+                                </div>
+                                <div style="background: rgba(0,0,0,0.2); padding: 30px; border-radius: 15px; border-left: 4px solid var(--soluciones-warning);">
+                                    <h4 style="color: var(--soluciones-warning); margin-bottom: 20px;"><i class="fas fa-headset"></i> Soporte Técnico</h4>
+                                    <ul class="industry-features">
+                                        <li>Soporte prioritario 24/7</li>
+                                        <li>Respuesta en menos de 2 horas</li>
+                                        <li>Actualizaciones de contenido</li>
+                                        <li>Corrección de errores</li>
+                                        <li>Capacitación del equipo</li>
+                                        <li>Reportes mensuales detallados</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div style="text-align: center; margin-top: 50px;">
+                                <a href="https://wa.me/523326225912?text=Hola%20OSDEMS%20Digital,%20quiero%20información%20sobre%20Mantenimiento%20Web" class="btn btn-primary btn-soluciones-cta" target="_blank" rel="noopener" style="font-size: 1.5rem; padding: 25px 50px;"><i class="fas fa-rocket"></i> Solicitar Paquete</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <section class="portfolio-section" id="portfolio">
             <h2 class="section-title">Nuestro <span>Portafolio</span> de Servicios</h2>
             <p class="portfolio-subtitle">Ofrecemos un portafolio completo de servicios digitales diseñados para maximizar tu impacto en línea</p>
@@ -420,3 +679,4 @@
     <script src="assets/js/main.js"></script>
 </body>
 </html>
+
