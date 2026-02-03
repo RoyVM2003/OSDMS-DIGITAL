@@ -415,6 +415,62 @@ document.addEventListener("DOMContentLoaded", () => {
         window.addEventListener('resize', () => {
             if (industriesContainer.children.length) updateCarouselPositions();
         });
+
+        // ========== CARRUSEL MÓVIL (misma sección, vista sencilla solo móvil) ==========
+        const mobileCarousel = document.getElementById('industriesMobileCarousel');
+        const mobileTrack = document.getElementById('industriesMobileTrack');
+        const counterTextMobile = document.getElementById('counterTextMobile');
+        const prevBtnMobile = document.getElementById('prevBtnMobile');
+        const nextBtnMobile = document.getElementById('nextBtnMobile');
+        const positionIndicatorsMobile = document.getElementById('positionIndicatorsMobile');
+        if (mobileCarousel && mobileTrack) {
+            let mobileIndex = 0;
+            const placeholderImage = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='400' viewBox='0 0 600 400'%3E%3Crect fill='%231a1a2e' width='600' height='400'/%3E%3Ctext fill='%236c63ff' x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='24'%3E%3F%3C/text%3E%3C/svg%3E";
+            industries.forEach((industry) => {
+                const card = document.createElement('div');
+                card.className = 'industries-mobile-card';
+                card.innerHTML = `
+                    <div class="industries-mobile-card-inner">
+                        <div class="industries-mobile-card-img" style="background-image:url('${industry.imageUrl}')"></div>
+                        <div class="industries-mobile-card-body">
+                            <h3>${industry.name}</h3>
+                            <p>${industry.description}</p>
+                        </div>
+                    </div>
+                `;
+                const imgDiv = card.querySelector('.industries-mobile-card-img');
+                const imgTest = new Image();
+                imgTest.onerror = () => { if (imgDiv) imgDiv.style.backgroundImage = `url('${placeholderImage}')`; };
+                imgTest.src = industry.imageUrl;
+                mobileTrack.appendChild(card);
+            });
+            for (let i = 0; i < industriesTotalItems; i++) {
+                const dot = document.createElement('button');
+                dot.type = 'button';
+                dot.className = 'industries-mobile-dot';
+                if (i === 0) dot.classList.add('active');
+                dot.setAttribute('aria-label', 'Ir a industria ' + (i + 1));
+                dot.dataset.index = i;
+                dot.addEventListener('click', () => goToMobileIndustry(i));
+                positionIndicatorsMobile.appendChild(dot);
+            }
+            function goToMobileIndustry(index) {
+                mobileIndex = (index + industriesTotalItems) % industriesTotalItems;
+                mobileTrack.style.transform = `translateX(-${mobileIndex * 100}%)`;
+                positionIndicatorsMobile.querySelectorAll('.industries-mobile-dot').forEach((d, i) => {
+                    d.classList.toggle('active', i === mobileIndex);
+                });
+                if (counterTextMobile) counterTextMobile.textContent = `Industria ${mobileIndex + 1} de ${industriesTotalItems}`;
+            }
+            if (prevBtnMobile) prevBtnMobile.addEventListener('click', () => goToMobileIndustry(mobileIndex - 1));
+            if (nextBtnMobile) nextBtnMobile.addEventListener('click', () => goToMobileIndustry(mobileIndex + 1));
+            if (counterTextMobile) counterTextMobile.textContent = `Industria 1 de ${industriesTotalItems}`;
+            const isMobileView = () => window.innerWidth <= 768;
+            window.addEventListener('resize', () => {
+                mobileCarousel.setAttribute('aria-hidden', isMobileView() ? 'false' : 'true');
+            });
+            mobileCarousel.setAttribute('aria-hidden', isMobileView() ? 'false' : 'true');
+        }
     }
 
     // ==================== SOLUCIONES INTEGRALES - TABS ====================

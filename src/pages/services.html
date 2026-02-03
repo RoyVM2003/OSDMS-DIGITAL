@@ -299,20 +299,40 @@
                 <i class="fas fa-globe-americas"></i>
                 <span id="counterText">Industria 1 de 12</span>
             </div>
-            <div class="carousel-container">
-                <div class="earth-aura"></div>
-                <div class="earth-center"></div>
-                <div class="orbit-path"></div>
-                <div class="star-field" id="starField"></div>
-                <div class="light-rays" id="lightRays"></div>
-                <div class="orbit-particles-large" id="orbitParticles"></div>
-                <div class="industries-container" id="industriesContainer"></div>
+
+            <!-- Carrusel desktop (órbita): oculto en móvil -->
+            <div class="industries-desktop-wrap">
+                <div class="carousel-container">
+                    <div class="earth-aura"></div>
+                    <div class="earth-center"></div>
+                    <div class="orbit-path"></div>
+                    <div class="star-field" id="starField"></div>
+                    <div class="light-rays" id="lightRays"></div>
+                    <div class="orbit-particles-large" id="orbitParticles"></div>
+                    <div class="industries-container" id="industriesContainer"></div>
+                </div>
+                <div class="carousel-controls-large">
+                    <button type="button" class="control-btn-large" id="prevBtn" aria-label="Anterior"><i class="fas fa-chevron-left"></i></button>
+                    <button type="button" class="control-btn-large" id="nextBtn" aria-label="Siguiente"><i class="fas fa-chevron-right"></i></button>
+                </div>
+                <div class="position-indicators" id="positionIndicators"></div>
             </div>
-            <div class="carousel-controls-large">
-                <button type="button" class="control-btn-large" id="prevBtn" aria-label="Anterior"><i class="fas fa-chevron-left"></i></button>
-                <button type="button" class="control-btn-large" id="nextBtn" aria-label="Siguiente"><i class="fas fa-chevron-right"></i></button>
+
+            <!-- Carrusel móvil: solo visible en vista móvil/portrait -->
+            <div class="industries-mobile-carousel" id="industriesMobileCarousel" aria-hidden="true">
+                <div class="industries-mobile-counter" id="industryCounterMobile">
+                    <i class="fas fa-globe-americas"></i>
+                    <span id="counterTextMobile">Industria 1 de 12</span>
+                </div>
+                <div class="industries-mobile-viewport">
+                    <div class="industries-mobile-track" id="industriesMobileTrack"></div>
+                </div>
+                <div class="industries-mobile-controls">
+                    <button type="button" class="industries-mobile-btn" id="prevBtnMobile" aria-label="Anterior"><i class="fas fa-chevron-left"></i></button>
+                    <button type="button" class="industries-mobile-btn" id="nextBtnMobile" aria-label="Siguiente"><i class="fas fa-chevron-right"></i></button>
+                </div>
+                <div class="industries-mobile-dots" id="positionIndicatorsMobile"></div>
             </div>
-            <div class="position-indicators" id="positionIndicators"></div>
         </section>
 
         <!-- SOLUCIONES INTEGRALES (igual que Home) -->
