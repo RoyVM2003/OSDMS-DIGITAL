@@ -1701,33 +1701,35 @@ button.industries-btn {
 }
 
 @media (max-width: 768px) {
-    .industries-section { padding: 4rem 5%; min-height: 680px; }
-    .industries-section .section-title { font-size: 2rem; margin-bottom: 3.5rem; }
-    .carousel-container { height: 480px; }
-    .earth-center { width: 140px; height: 140px; }
-    .orbit-path { width: 420px; height: 420px; }
-    .industry-card-wrapper { width: 160px; height: 200px; margin-left: -80px; margin-top: -100px; }
-    .industry-content { padding: 12px; }
-    .industry-name-large { font-size: 13px; }
-    .control-btn-large { width: 44px; height: 44px; font-size: 16px; }
-    .industry-counter-large { top: 20px; right: 12px; padding: 10px 16px; font-size: 13px; }
-    .position-dot { width: 10px; height: 10px; }
+    .industries-section { padding: 3rem 5% 4rem; min-height: 520px; }
+    .industries-section .section-title { font-size: 1.75rem; margin-bottom: 2.5rem; }
+    .carousel-container { height: 420px; min-height: 420px; max-width: 100%; }
+    .earth-center { width: 120px; height: 120px; }
+    .orbit-path { width: 360px; height: 360px; max-width: 95vw; margin: auto; }
+    .industry-card-wrapper { width: 140px; height: 175px; margin-left: -70px; margin-top: -88px; }
+    .industry-content { padding: 10px; }
+    .industry-name-large { font-size: 12px; }
+    .control-btn-large { width: 42px; height: 42px; font-size: 15px; }
+    .industry-counter-large { top: 12px; right: 10px; padding: 8px 12px; font-size: 12px; }
+    .position-dot { width: 9px; height: 9px; }
+    .earth-aura { width: 200px; height: 200px; margin-left: -100px; margin-top: -100px; }
 }
 
 @media (max-width: 576px) {
-    .industries-section { padding: 3rem 5%; min-height: 560px; }
-    .industries-section .section-title { margin-bottom: 3rem; }
-    .carousel-container { height: 400px; }
-    .earth-center { width: 110px; height: 110px; }
-    .orbit-path { width: 340px; height: 340px; }
-    .industry-card-wrapper { width: 130px; height: 165px; margin-left: -65px; margin-top: -83px; }
-    .industry-content { padding: 8px; }
-    .industry-name-large { font-size: 11px; margin-bottom: 4px; }
+    .industries-section { padding: 2.5rem 4% 3rem; min-height: 460px; }
+    .industries-section .section-title { font-size: 1.5rem; margin-bottom: 2rem; }
+    .carousel-container { height: 360px; min-height: 360px; }
+    .earth-center { width: 95px; height: 95px; }
+    .orbit-path { width: 300px; height: 300px; max-width: 92vw; }
+    .industry-card-wrapper { width: 115px; height: 145px; margin-left: -57px; margin-top: -73px; }
+    .industry-content { padding: 6px; }
+    .industry-name-large { font-size: 10px; margin-bottom: 2px; }
     .industry-description { display: none; }
-    .carousel-controls-large { right: 8px; gap: 12px; }
-    .control-btn-large { width: 40px; height: 40px; font-size: 14px; }
-    .position-indicators { right: 8px; transform: translateY(70px); }
-    .position-dot { width: 8px; height: 8px; }
+    .carousel-controls-large { right: 6px; gap: 10px; }
+    .control-btn-large { width: 36px; height: 36px; font-size: 13px; }
+    .position-indicators { right: 6px; transform: translateY(50px); }
+    .position-dot { width: 7px; height: 7px; }
+    .earth-aura { width: 160px; height: 160px; margin-left: -80px; margin-top: -80px; }
 }
 
 /* ========== SOLUCIONES INTEGRALES (archivo 7 - diseño tal cual) ========== */
@@ -2233,6 +2235,36 @@ button.industries-btn {
     order: 5;
 }
 
+@media (max-width: 768px) {
+    .social-icons {
+        gap: 10px;
+        margin-top: 1.25rem;
+        justify-content: center;
+    }
+    .social-icons::after {
+        display: none;
+    }
+    .social-icons a:nth-child(4) {
+        margin-left: 0;
+    }
+    .social-icons a {
+        width: 44px;
+        height: 44px;
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .social-icons a {
+        width: 40px;
+        height: 40px;
+        font-size: 1.1rem;
+    }
+    .social-icons {
+        gap: 8px;
+    }
+}
+
 .social-icons a {
     display: inline-flex;
     align-items: center;
@@ -2467,18 +2499,42 @@ button.industries-btn {
 
 @media (max-width: 768px) {
     .floating-buttons {
-        right: 10px;
+        right: 12px;
+        top: auto;
+        bottom: 24px;
+        transform: none;
+        flex-direction: column;
+        gap: 12px;
     }
-    
     .floating-btn {
-        width: 50px;
-        height: 50px;
+        width: 48px;
+        height: 48px;
         font-size: 1.2rem;
     }
-    
     .floating-btn::after {
-        font-size: 0.8rem;
-        padding: 8px 12px;
+        font-size: 0.75rem;
+        padding: 6px 10px;
+        right: 60px;
+    }
+    .floating-btn:hover::after,
+    .floating-btn:hover::before {
+        right: 58px;
+    }
+    .floating-btn:hover::before {
+        right: 50px;
+    }
+}
+
+@media (max-width: 480px) {
+    .floating-buttons {
+        right: 10px;
+        bottom: 16px;
+        gap: 10px;
+    }
+    .floating-btn {
+        width: 44px;
+        height: 44px;
+        font-size: 1.1rem;
     }
 }
 
@@ -2518,30 +2574,50 @@ button.industries-btn {
 
 @media (max-width: 768px) {
     .site-header {
-        padding: 1rem 1% 1rem 0.75%;
+        padding: 0.85rem 4% 0.85rem 4%;
     }
     .header-inner {
         flex-direction: column;
-        gap: 0.75rem;
-        align-items: flex-start;
+        gap: 1rem;
+        align-items: stretch;
     }
-
+    .header-inner .logo {
+        margin-left: 0;
+        margin-bottom: 0.25rem;
+    }
     .main-nav {
         flex-wrap: wrap;
-        gap: 0.55rem;
+        gap: 0.5rem 0.75rem;
         width: 100%;
+        justify-content: flex-start;
     }
     .main-nav a {
-        font-size: 0.8rem;
-        padding: 0.35rem 0.5rem;
-        max-width: 4em;
-        min-height: 2.3rem;
+        font-size: 0.78rem;
+        padding: 0.4rem 0.55rem;
+        min-height: 2.4rem;
+        max-width: none;
     }
     .main-nav .services-btn,
     .main-nav .industries-btn {
         padding: 0.4rem 0.65rem !important;
-        font-size: 0.78rem;
-        min-height: 2.3rem;
+        font-size: 0.76rem;
+        min-height: 2.4rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .site-header {
+        padding: 0.75rem 3% 0.75rem 3%;
+    }
+    .header-inner {
+        gap: 0.85rem;
+    }
+    .main-nav {
+        gap: 0.45rem 0.6rem;
+    }
+    .main-nav a {
+        font-size: 0.75rem;
+        padding: 0.35rem 0.5rem;
     }
 }
 
@@ -3208,6 +3284,23 @@ button.industries-btn {
 }
 @media (max-width: 900px) {
     .experiencias-page .exp-chatbot-container { grid-template-columns: 1fr; }
+}
+@media (max-width: 768px) {
+    .experiencias-page .exp-chatbot-section { padding: 1.25rem; }
+    .experiencias-page .exp-chatbot-container { gap: 1.25rem; }
+    .experiencias-page .exp-chat-interface { height: 480px; }
+    .experiencias-page .exp-chat-header { padding: 1rem; gap: 10px; }
+    .experiencias-page .exp-chat-avatar { width: 42px; height: 42px; font-size: 1.25rem; }
+    .experiencias-page .exp-chat-header h3 { font-size: 1rem; }
+    .experiencias-page .exp-chat-input-area { padding: 1rem; gap: 8px; flex-wrap: wrap; }
+    .experiencias-page .exp-chat-input { padding: 0.7rem 1rem; font-size: 0.95rem; }
+    .experiencias-page .exp-suggestions { padding: 0 1rem 1rem; gap: 8px; }
+    .experiencias-page .exp-suggestion-chip { padding: 0.5rem 0.9rem; font-size: 0.8rem; }
+    .experiencias-page .exp-message { max-width: 92%; font-size: 0.9rem; padding: 0.75rem 1rem; }
+}
+@media (max-width: 480px) {
+    .experiencias-page .exp-chat-interface { height: 420px; }
+    .experiencias-page .exp-chat-messages { padding: 0.75rem; }
 }
 .experiencias-page .exp-chat-interface {
     background: rgba(15, 23, 42, 0.95);
