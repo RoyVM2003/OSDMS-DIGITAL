@@ -2812,16 +2812,11 @@ button.industries-btn {
         font-size: 0.95rem;
     }
     .main-nav .mega-menu {
-        position: static;
-        width: 100%;
-        max-width: none;
-        transform: none;
-        margin-top: 0.5rem;
-        margin-bottom: 0.5rem;
-        padding: 0.75rem 1rem;
-        max-height: 28vh;
-        overflow-y: auto;
-        -webkit-overflow-scrolling: touch;
+        display: none !important;
+    }
+    .main-nav .services-dropdown .fa-chevron-down,
+    .main-nav .industries-dropdown .fa-chevron-down {
+        display: none;
     }
     .main-nav .services-dropdown,
     .main-nav .industries-dropdown {

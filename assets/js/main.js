@@ -121,6 +121,12 @@ document.addEventListener("DOMContentLoaded", () => {
     
     // Clic en Industries: ir a la página si es enlace, o abrir menú (para móvil/touch)
     industriesBtn.addEventListener('click', (e) => {
+        if (window.matchMedia('(max-width: 992px)').matches) {
+            e.preventDefault();
+            var isServices = /services\.html$/i.test(window.location.pathname);
+            window.location.href = isServices ? 'services.html#industrias-services' : 'index.html#industrias-home';
+            return;
+        }
         e.preventDefault();
         e.stopPropagation();
         if (window.matchMedia('(hover: none)').matches) {
