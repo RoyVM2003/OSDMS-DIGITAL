@@ -133,7 +133,28 @@ document.addEventListener("DOMContentLoaded", () => {
     // Cerrar mega menús al hacer clic en overlay
     menuOverlay.addEventListener('click', () => {
         closeAllMegaMenus();
+        document.body.classList.remove('nav-open');
     });
+
+    // ==================== MENÚ HAMBURGUESA (móvil) ====================
+    const navToggle = document.getElementById('navToggle');
+    const mainNav = document.getElementById('mainNav');
+    if (navToggle && mainNav) {
+        navToggle.addEventListener('click', () => {
+            document.body.classList.toggle('nav-open');
+            if (document.body.classList.contains('nav-open')) {
+                menuOverlay.classList.add('active');
+            } else {
+                menuOverlay.classList.remove('active');
+            }
+        });
+        mainNav.querySelectorAll('a[href]').forEach(link => {
+            link.addEventListener('click', () => {
+                document.body.classList.remove('nav-open');
+                menuOverlay.classList.remove('active');
+            });
+        });
+    }
     
     // Cerrar mega menús al hacer clic fuera
     document.addEventListener('click', (e) => {
@@ -181,9 +202,16 @@ document.addEventListener("DOMContentLoaded", () => {
         let industriesAnimating = false;
         let industriesAutoRotateInterval = null;
         let industriesAutoRotateEnabled = true;
-        const orbitRadius = 360;
+        function getOrbitRadius() {
+            const w = window.innerWidth;
+            if (w <= 576) return 125;
+            if (w <= 768) return 150;
+            return 360;
+        }
+        let orbitRadius = getOrbitRadius();
 
         function initIndustriesCarousel() {
+            orbitRadius = getOrbitRadius();
             industries.forEach((industry, index) => {
                 const angle = (index * (360 / industriesTotalItems)) * (Math.PI / 180);
                 const x = Math.cos(angle) * orbitRadius;
@@ -271,10 +299,23 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         }
 
+        function updateCarouselPositions() {
+            orbitRadius = getOrbitRadius();
+            const targetAngle = -(industriesCurrentIndex * (360 / industriesTotalItems));
+            industriesCardElements.forEach((card, cardIndex) => {
+                const newAngle = (cardIndex * (360 / industriesTotalItems) + targetAngle) * (Math.PI / 180);
+                const x = Math.cos(newAngle) * orbitRadius;
+                const y = Math.sin(newAngle) * orbitRadius;
+                card.style.transition = 'none';
+                card.style.transform = `translate(${x}px, ${y}px)`;
+            });
+        }
+
         function goToIndustry(index) {
             if (industriesAnimating || index === industriesCurrentIndex) return;
             industriesAnimating = true;
             industriesCurrentIndex = index;
+            orbitRadius = getOrbitRadius();
             const targetAngle = -(index * (360 / industriesTotalItems));
             industriesCardElements.forEach((card, cardIndex) => {
                 const newAngle = (cardIndex * (360 / industriesTotalItems) + targetAngle) * (Math.PI / 180);
@@ -371,6 +412,9 @@ document.addEventListener("DOMContentLoaded", () => {
         createIndustriesPositionIndicators();
         startIndustriesAutoRotation();
         updateIndustriesCounter();
+        window.addEventListener('resize', () => {
+            if (industriesContainer.children.length) updateCarouselPositions();
+        });
     }
 
     // ==================== SOLUCIONES INTEGRALES - TABS ====================

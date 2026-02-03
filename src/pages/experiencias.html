@@ -17,7 +17,12 @@
                 <i class="fas fa-rocket"></i>
                 OSDEMS<span>Digital</span>
             </a>
-            <nav class="main-nav">
+            <button class="nav-toggle" id="navToggle" type="button" aria-label="Abrir menú">
+                <span class="nav-toggle-line"></span>
+                <span class="nav-toggle-line"></span>
+                <span class="nav-toggle-line"></span>
+            </button>
+            <nav class="main-nav" id="mainNav">
                 <a href="index.html#inicio">Home</a>
                 <a href="about.html">About Us</a>
 
@@ -802,6 +807,7 @@ docker run -p 8000:8000 chatbot</pre>
             const chatInput = document.getElementById('chatInput');
             const sendButton = document.getElementById('sendButton');
             if (!chatMessages || !chatInput || !sendButton) return;
+            chatMessages.scrollTop = 0;
             function formatearRespuesta(servicio, data) {
                 var r = '<strong>' + servicio.toUpperCase() + '</strong><br><br>';
                 r += '<strong>Descripción:</strong> ' + (data.description || data.response) + '<br><br>';
@@ -876,7 +882,12 @@ docker run -p 8000:8000 chatbot</pre>
                 });
             });
             var ejemplos = ["¿Cuánto cuesta una página web?", "¿Qué incluye un servicio de SEO completo?", "¿Desarrollan apps móviles?", "¿Cuánto tiempo toma crear un e-commerce?"], idx = 0;
-            setInterval(function() { chatInput.placeholder = 'Ejemplo: "' + ejemplos[idx] + '"'; idx = (idx + 1) % ejemplos.length; }, 5000);
+            function actualizarPlaceholder() {
+                var texto = window.innerWidth <= 768 ? ('Ej: ' + ejemplos[idx]) : ('Ejemplo: "' + ejemplos[idx] + '"');
+                chatInput.placeholder = texto;
+            }
+            setInterval(function() { actualizarPlaceholder(); idx = (idx + 1) % ejemplos.length; }, 5000);
+            actualizarPlaceholder();
             setTimeout(function() {
                 if (chatMessages.children.length <= 2) {
                     var ex = document.createElement('div');
