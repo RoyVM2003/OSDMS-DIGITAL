@@ -188,18 +188,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const industriesContainer = document.getElementById('industriesContainer');
     if (industriesContainer) {
         const industries = [
-            { id: 1, name: "Hostelería y Viajes", imageUrl: "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600&h=400&fit=crop", description: "Hoteles, restaurantes, agencias de viajes y turismo" },
-            { id: 2, name: "Servicios Profesionales", imageUrl: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=400&fit=crop", description: "Consultorías, asesorías y servicios especializados" },
-            { id: 3, name: "Consultoría y Derecho", imageUrl: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=600&h=400&fit=crop", description: "Bufetes, consultorías legales y asesoría jurídica" },
-            { id: 4, name: "Educación e Investigación", imageUrl: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=600&h=400&fit=crop", description: "Universidades, institutos y centros de investigación" },
-            { id: 5, name: "Finanzas y Banca", imageUrl: "https://images.unsplash.com/photo-1616401784845-180882ba9ba8?w=600&h=400&fit=crop", description: "Bancos, fintech, seguros y servicios financieros" },
-            { id: 6, name: "Organizaciones Sin Ánimo de Lucro", imageUrl: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=600&h=400&fit=crop", description: "ONGs, fundaciones y asociaciones sociales" },
-            { id: 7, name: "Energía y Medio Ambiente", imageUrl: "https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=600&h=400&fit=crop", description: "Renovables, sostenibilidad y gestión ambiental" },
-            { id: 8, name: "Tecnología y Software (SaaS)", imageUrl: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&h=400&fit=crop", description: "Startups tech, desarrollo SaaS y soluciones digitales" },
-            { id: 9, name: "Alimentación y Bebidas", imageUrl: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&h=400&fit=crop", description: "Restaurantes, fabricantes y distribuidores F&B" },
-            { id: 10, name: "Comercio Electrónico y Retail", imageUrl: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop", description: "E-commerce, retail y marcas de consumo" },
-            { id: 11, name: "Salud y Farmacia", imageUrl: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=600&h=400&fit=crop", description: "Hospitales, clínicas, farmacias y salud digital" },
-            { id: 12, name: "Inmobiliario y Promoción", imageUrl: "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=600&h=400&fit=crop", description: "Constructoras, inmobiliarias y desarrolladoras" }
+            { id: 1, name: "Servicios Profesionales", imageUrl: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=400&fit=crop", description: "Consultorías, asesorías y servicios especializados" },
+            { id: 2, name: "Consultoría y Negocios", imageUrl: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=600&h=400&fit=crop", description: "Bufetes, consultorías legales y asesoría empresarial" },
+            { id: 3, name: "Salud y Farmacia", imageUrl: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=600&h=400&fit=crop", description: "Hospitales, clínicas, farmacias y salud digital" },
+            { id: 4, name: "Energía e Industrial", imageUrl: "https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=600&h=400&fit=crop", description: "Renovables, industria y gestión ambiental" },
+            { id: 5, name: "Tecnología y Software", imageUrl: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&h=400&fit=crop", description: "Startups tech, desarrollo SaaS y soluciones digitales" },
+            { id: 6, name: "Inmobiliario y Promoción", imageUrl: "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=600&h=400&fit=crop", description: "Constructoras, inmobiliarias y desarrolladoras" }
         ];
         const placeholderImage = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='400' viewBox='0 0 600 400'%3E%3Crect fill='%231a1a2e' width='600' height='400'/%3E%3Ctext fill='%236c63ff' x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='24'%3E%3F%3C/text%3E%3C/svg%3E";
         let industriesCurrentIndex = 0;

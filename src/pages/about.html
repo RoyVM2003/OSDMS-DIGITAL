@@ -259,13 +259,10 @@
         <section class="about-hero container" id="about-hero">
             <h1 class="about-hero-title">Donde la Visión se Convierte en Experiencia Digital</h1>
             <p class="about-hero-desc">En OSDEMS Digital, fusionamos la precisión técnica alemana, la creatividad holandesa y la elegancia narrativa francesa para crear soluciones digitales que no solo se ven bien, sino que generan resultados tangibles. Desde 2022, hemos sido el motor de transformación digital para más de 150 empresas en 12 países.</p>
-            <button type="button" class="cta-button" id="toggleTrayectoriaBtn" aria-expanded="false">
-                <span class="cta-button-text">Descubre Nuestra Trayectoria</span> <i class="fas fa-arrow-down"></i>
-            </button>
         </section>
 
-        <!-- Línea de tiempo (archivo 5 - se muestra/oculta con el botón) -->
-        <section id="story" class="story-section container trayectoria-oculta" aria-hidden="true">
+        <!-- Nuestra Trayectoria (siempre visible) -->
+        <section id="story" class="story-section container">
             <h2 class="story-section-title">Una Trayectoria de Innovación</h2>
             <p class="story-section-subtitle">Nuestra historia es un viaje de constante evolución, impulsado por la curiosidad y el compromiso con la excelencia.</p>
 
@@ -302,15 +299,9 @@
                     <div class="timeline-icon"><i class="fas fa-lightbulb"></i></div>
                 </div>
             </div>
-
-            <div class="story-section-actions">
-                <button type="button" class="cta-button cta-button-secondary" id="ocultarTrayectoriaBtn">
-                    <i class="fas fa-arrow-up"></i> Ocultar Trayectoria
-                </button>
-            </div>
         </section>
 
-        <!-- Cierre (fuera del roadmap, siempre visible) -->
+        <!-- Cierre -->
         <section class="story-closing-section">
             <div class="container">
                 <p class="story-closing-line story-closing-line-1">Tu visión.</p>
@@ -421,38 +412,7 @@
             setTimeout(typeWriter, 1000);
         })();
 
-        // Mostrar/ocultar línea de tiempo (Descubre y Ocultar)
-        (function() {
-            const storySection = document.getElementById('story');
-            const toggleBtn = document.getElementById('toggleTrayectoriaBtn');
-            const ocultarBtn = document.getElementById('ocultarTrayectoriaBtn');
-            if (!storySection || !toggleBtn) return;
-
-            function mostrarTrayectoria() {
-                storySection.classList.remove('trayectoria-oculta');
-                storySection.setAttribute('aria-hidden', 'false');
-                toggleBtn.setAttribute('aria-expanded', 'true');
-                storySection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }
-
-            function ocultarTrayectoria() {
-                storySection.classList.add('trayectoria-oculta');
-                storySection.setAttribute('aria-hidden', 'true');
-                toggleBtn.setAttribute('aria-expanded', 'false');
-            }
-
-            toggleBtn.addEventListener('click', function() {
-                if (storySection.classList.contains('trayectoria-oculta')) {
-                    mostrarTrayectoria();
-                } else {
-                    ocultarTrayectoria();
-                }
-            });
-
-            if (ocultarBtn) {
-                ocultarBtn.addEventListener('click', ocultarTrayectoria);
-            }
-        })();
+        // Trayectoria siempre visible (sin mostrar/ocultar)
     </script>
 </body>
 </html>

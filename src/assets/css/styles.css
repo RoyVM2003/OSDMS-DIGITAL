@@ -805,7 +805,7 @@ button.industries-btn {
 
 /* ========== ABOUT PAGE HERO (archivo 5 - título que se escribe + CTA) ========== */
 .about-hero {
-    padding: 150px 0 200px;
+    padding: 150px 0 80px;
     text-align: center;
     position: relative;
     overflow: hidden;
@@ -873,7 +873,7 @@ button.industries-btn {
 }
 
 .story-section {
-    padding: 2rem 0 80px;
+    padding: 0.5rem 0 80px;
     position: relative;
 }
 
@@ -1325,7 +1325,7 @@ button.industries-btn {
 
 /* ========== INDUSTRIAS QUE IMPULSAMOS (archivo 2) ========== */
 .industries-section {
-    padding: 4rem 5% 6rem;
+    padding: 4rem 5% 8rem;
     text-align: center;
     position: relative;
     background: linear-gradient(135deg, #0a0a1a 0%, #1a1a2e 100%);
@@ -1338,8 +1338,8 @@ button.industries-btn {
 
 .industries-section .section-title {
     text-align: center;
-    margin-top: -1rem;
-    margin-bottom: 5rem;
+    margin-top: 0;
+    margin-bottom: 6rem;
     font-size: clamp(1.8rem, 4vw, 2.8rem);
     color: #fff;
     z-index: 10;
