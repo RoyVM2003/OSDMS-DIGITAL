@@ -487,5 +487,20 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         });
     }
+
+    // ==================== FORMULARIO CONTACTANOS (Home) ====================
+    const contactanosForm = document.getElementById('contactanosForm');
+    if (contactanosForm) {
+        contactanosForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+            var nombre = (document.getElementById('contact-name') && document.getElementById('contact-name').value) || '';
+            var servicio = (document.getElementById('contact-servicio') && document.getElementById('contact-servicio').value) || '';
+            var mensaje = (document.getElementById('contact-mensaje') && document.getElementById('contact-mensaje').value) || '';
+            var texto = 'Hola OSDEMS Digital. Mi nombre es ' + (nombre || 'interesado') + (servicio ? '. Servicio de interés: ' + servicio : '') + (mensaje ? '. ' + mensaje : '');
+            var url = 'https://wa.me/523326225912?text=' + encodeURIComponent(texto);
+            window.open(url, '_blank');
+            contactanosForm.reset();
+        });
+    }
 });
 
