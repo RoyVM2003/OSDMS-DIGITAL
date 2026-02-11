@@ -1,0 +1,766 @@
+/*
+  MANTTO WEB - Estilos para WordPress/Elementor (igual que mantto-web.html original)
+  O bien pega el HTML que incluye este CSS en un widget HTML (todo en uno).
+*/
+
+/* En Elementor: que no se corte el contenido (botones, etc.) en el editor y en la página */
+.elementor-widget-html:has(.mantto-page-wp),
+.elementor-element:has(.mantto-page-wp) {
+    overflow: visible !important;
+    min-height: 0 !important;
+}
+.mantto-page-wp,
+.mantto-hero.mantto-wp {
+    overflow: visible !important;
+}
+
+/* Ocultar título de página "Mantto Web" que muestra el tema entre header y contenido */
+.entry-header,
+.page-header,
+.elementor-page-title,
+body.page h1.entry-title {
+    display: none !important;
+}
+
+/* Quitar franja blanca entre última sección y pie de página */
+.mantto-page-wp,
+.mantto-final-cta.mantto-wp {
+    border-bottom: none !important;
+    margin-bottom: 0 !important;
+}
+footer, .site-footer, #footer, .elementor-location-footer, [data-elementor-type="footer"] {
+    border-top: none !important;
+    padding-top: 0 !important;
+    margin-top: 0 !important;
+}
+
+/* Wrapper: fondo oscuro, sin márgenes blancos a los lados */
+.mantto-page-wp {
+    background: #1a1a2e !important;
+    width: 100vw !important;
+    max-width: 100vw !important;
+    margin-left: calc(-50vw + 50%) !important;
+    margin-right: calc(-50vw + 50%) !important;
+    box-sizing: border-box !important;
+}
+.mantto-page-wp ul,
+.mantto-page-wp ol {
+    list-style: none !important;
+    padding-left: 0 !important;
+    margin: 0 0 1rem 0 !important;
+}
+.mantto-page-wp li {
+    list-style: none !important;
+}
+
+.mantto-wp {
+    --mantto-primary: #6C63FF;
+    --mantto-accent: #36D1DC;
+    --mantto-cyan: #36D1DC;
+    --mantto-success: #00ff9d;
+    --mantto-warning: #ffa500;
+    --light-color: #F8F9FA;
+    --dark-color: #1A1A2E;
+}
+
+/* ========== HERO (igual que original) ========== */
+.mantto-hero.mantto-wp {
+    padding: 120px 5% 80px !important;
+    min-height: 85vh !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: linear-gradient(135deg, #0a0a1a 0%, #1a1a2e 100%) !important;
+    position: relative !important;
+}
+
+.mantto-hero.mantto-wp .container {
+    max-width: 900px !important;
+    margin: 0 auto !important;
+}
+
+.mantto-hero.mantto-wp .mantto-hero-content {
+    text-align: center !important;
+}
+
+.mantto-hero.mantto-wp h1 {
+    font-size: clamp(2.2rem, 4.5vw, 3.4rem) !important;
+    margin-bottom: 1rem !important;
+    line-height: 1.15 !important;
+    font-weight: 800 !important;
+    text-align: center !important;
+    background: linear-gradient(90deg, #fff, var(--mantto-cyan)) !important;
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
+    color: transparent !important;
+}
+
+.mantto-hero.mantto-wp .mantto-hero-subtitle {
+    font-size: clamp(1.25rem, 2.2vw, 1.85rem) !important;
+    margin-bottom: 1.25rem !important;
+    color: var(--light-color) !important;
+    font-weight: 600 !important;
+    text-align: center !important;
+}
+
+.mantto-hero.mantto-wp p {
+    font-size: 1.1rem !important;
+    margin-bottom: 1.5rem !important;
+    color: var(--light-color) !important;
+    line-height: 1.7 !important;
+    text-align: justify !important;
+}
+
+/* Alerta Crítica: amarillo y destello al pasar el mouse */
+.mantto-hero.mantto-wp .mantto-warning-box {
+    background: rgba(255, 165, 0, 0.12) !important;
+    border-left: 4px solid var(--mantto-warning) !important;
+    padding: 1.25rem !important;
+    border-radius: 8px !important;
+    margin-bottom: 2rem !important;
+    transition: box-shadow 0.35s ease, border-color 0.35s ease !important;
+}
+
+.mantto-hero.mantto-wp .mantto-warning-box:hover {
+    box-shadow: 0 0 25px rgba(255, 165, 0, 0.5), 0 0 50px rgba(255, 165, 0, 0.25) !important;
+    border-left-color: #ff8c00 !important;
+    animation: mantto-alerta-destello 0.8s ease-in-out !important;
+}
+
+@keyframes mantto-alerta-destello {
+    0%, 100% { box-shadow: 0 0 25px rgba(255, 165, 0, 0.5), 0 0 50px rgba(255, 165, 0, 0.25); }
+    50% { box-shadow: 0 0 35px rgba(255, 165, 0, 0.7), 0 0 70px rgba(255, 165, 0, 0.4); }
+}
+
+.mantto-hero.mantto-wp .mantto-warning-box h3 {
+    color: var(--mantto-warning) !important;
+    margin-bottom: 0.5rem !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+}
+
+.mantto-hero.mantto-wp .mantto-warning-box p {
+    margin: 0 !important;
+    color: var(--light-color) !important;
+    font-size: 0.95rem !important;
+}
+
+.mantto-hero.mantto-wp .mantto-cta-buttons {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 1rem !important;
+    margin-top: 0.5rem !important;
+    justify-content: center !important;
+}
+
+.mantto-hero.mantto-wp .mantto-btn {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+    padding: 1rem 1.75rem !important;
+    border-radius: 50px !important;
+    font-weight: 600 !important;
+    text-decoration: none !important;
+    transition: transform 0.25s ease, box-shadow 0.25s ease !important;
+    font-size: 1rem !important;
+    border: none !important;
+}
+
+.mantto-hero.mantto-wp .mantto-btn i {
+    font-size: 1.2rem !important;
+}
+
+.mantto-hero.mantto-wp .mantto-btn-primary {
+    background: linear-gradient(90deg, var(--mantto-cyan), var(--mantto-success)) !important;
+    color: var(--dark-color) !important;
+    box-shadow: 0 6px 20px rgba(54, 209, 220, 0.4) !important;
+}
+
+.mantto-hero.mantto-wp .mantto-btn-primary:hover {
+    transform: translateY(-3px) !important;
+    box-shadow: 0 10px 28px rgba(54, 209, 220, 0.5) !important;
+}
+
+.mantto-hero.mantto-wp .mantto-btn-secondary {
+    background: transparent !important;
+    color: var(--light-color) !important;
+    border: 2px solid var(--mantto-cyan) !important;
+}
+
+.mantto-hero.mantto-wp .mantto-btn-secondary:hover {
+    background: rgba(54, 209, 220, 0.12) !important;
+    transform: translateY(-3px) !important;
+}
+
+/* ========== INTRO ¿Qué es? (fondo oscuro igual que referencia, tarjetas y viñetas ▸) ========== */
+.mantto-page-wp .mantto-intro-section.mantto-wp,
+.mantto-intro-section.mantto-wp {
+    padding: 4rem 5% !important;
+    background: #1a1a2e !important;
+}
+
+.mantto-intro-section.mantto-wp .mantto-section-title {
+    text-align: center !important;
+    font-size: clamp(1.8rem, 3.5vw, 2.5rem) !important;
+    color: var(--light-color) !important;
+    margin-bottom: 1rem !important;
+    font-weight: 700 !important;
+}
+
+.mantto-intro-section.mantto-wp .mantto-section-title span {
+    color: var(--mantto-cyan) !important;
+}
+
+.mantto-intro-section.mantto-wp .mantto-section-subtitle {
+    text-align: center !important;
+    font-size: 1.1rem !important;
+    color: var(--light-color) !important;
+    max-width: 700px !important;
+    margin: 0 auto 2.5rem !important;
+}
+
+.mantto-intro-section.mantto-wp .mantto-card-grid {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)) !important;
+    gap: 1.5rem !important;
+}
+
+.mantto-intro-section.mantto-wp .mantto-info-card {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border-radius: 16px !important;
+    padding: 2rem !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+}
+
+.mantto-intro-section.mantto-wp .mantto-info-card:hover {
+    transform: translateY(-6px) !important;
+    border-color: var(--mantto-cyan) !important;
+    box-shadow: 0 12px 28px rgba(54, 209, 220, 0.2) !important;
+}
+
+.mantto-intro-section.mantto-wp .mantto-info-card.mantto-danger {
+    border-color: rgba(255, 77, 109, 0.3) !important;
+}
+
+.mantto-intro-section.mantto-wp .mantto-info-card.mantto-danger:hover {
+    border-color: #ff6577 !important;
+    box-shadow: 0 12px 28px rgba(255, 101, 132, 0.2) !important;
+}
+
+.mantto-intro-section.mantto-wp .mantto-info-card.mantto-success {
+    border-color: rgba(0, 255, 157, 0.25) !important;
+}
+
+.mantto-intro-section.mantto-wp .mantto-info-card.mantto-success:hover {
+    border-color: var(--mantto-success) !important;
+    box-shadow: 0 12px 28px rgba(0, 255, 157, 0.2) !important;
+}
+
+.mantto-intro-section.mantto-wp .mantto-card-icon {
+    font-size: 2.5rem !important;
+    margin-bottom: 1rem !important;
+    color: var(--mantto-cyan) !important;
+}
+
+.mantto-intro-section.mantto-wp .mantto-info-card.mantto-danger .mantto-card-icon {
+    color: #ff6577 !important;
+}
+
+.mantto-intro-section.mantto-wp .mantto-info-card.mantto-success .mantto-card-icon {
+    color: var(--mantto-success) !important;
+}
+
+.mantto-intro-section.mantto-wp .mantto-info-card h3 {
+    color: var(--light-color) !important;
+    font-size: 1.35rem !important;
+    margin-bottom: 0.75rem !important;
+}
+
+.mantto-intro-section.mantto-wp .mantto-info-card p {
+    color: var(--light-color) !important;
+    margin-bottom: 1rem !important;
+    font-size: 0.95rem !important;
+}
+
+.mantto-intro-section.mantto-wp .mantto-card-list {
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.mantto-intro-section.mantto-wp .mantto-card-list li {
+    color: var(--light-color) !important;
+    margin-bottom: 0.5rem !important;
+    padding-left: 1.25rem !important;
+    position: relative !important;
+    font-size: 0.95rem !important;
+}
+
+.mantto-intro-section.mantto-wp .mantto-card-list li::before {
+    content: '\25B8' !important;
+    position: absolute !important;
+    left: 0 !important;
+    color: var(--mantto-cyan) !important;
+}
+
+.mantto-intro-section.mantto-wp .mantto-info-card.mantto-danger .mantto-card-list li::before {
+    color: #ff6577 !important;
+}
+
+.mantto-intro-section.mantto-wp .mantto-info-card.mantto-success .mantto-card-list li::before {
+    color: var(--mantto-success) !important;
+}
+
+/* ========== ROADMAP (fondo oscuro, destello al hover en cada card) ========== */
+.mantto-page-wp .mantto-roadmap-section.mantto-wp,
+.mantto-roadmap-section.mantto-wp {
+    padding: 4rem 5% !important;
+    background: #1a1a2e !important;
+}
+
+.mantto-roadmap-section.mantto-wp .mantto-section-title,
+.mantto-comparison-section.mantto-wp .mantto-section-title {
+    text-align: center !important;
+    font-size: clamp(1.8rem, 3.5vw, 2.5rem) !important;
+    color: var(--light-color) !important;
+    margin-bottom: 1rem !important;
+    font-weight: 700 !important;
+}
+
+.mantto-roadmap-section.mantto-wp .mantto-section-title span,
+.mantto-comparison-section.mantto-wp .mantto-section-title span {
+    color: var(--mantto-cyan) !important;
+}
+
+.mantto-comparison-section.mantto-wp .mantto-section-title {
+    text-transform: uppercase !important;
+}
+
+.mantto-roadmap-section.mantto-wp .mantto-section-subtitle,
+.mantto-comparison-section.mantto-wp .mantto-section-subtitle {
+    text-align: center !important;
+    font-size: 1.1rem !important;
+    color: var(--light-color) !important;
+    max-width: 700px !important;
+    margin: 0 auto 2.5rem !important;
+}
+
+.mantto-roadmap-section.mantto-wp .mantto-roadmap-container {
+    max-width: 900px !important;
+    margin: 0 auto !important;
+    position: relative !important;
+}
+
+.mantto-roadmap-section.mantto-wp .mantto-roadmap {
+    position: relative !important;
+    margin-top: 2rem !important;
+}
+
+.mantto-roadmap-section.mantto-wp .mantto-roadmap-line {
+    position: absolute !important;
+    left: 50% !important;
+    top: 0 !important;
+    bottom: 0 !important;
+    width: 4px !important;
+    background: linear-gradient(180deg, var(--mantto-primary), var(--mantto-cyan), var(--mantto-success)) !important;
+    transform: translateX(-50%) !important;
+    z-index: 1 !important;
+}
+
+.mantto-roadmap-section.mantto-wp .mantto-roadmap-item {
+    position: relative !important;
+    margin-bottom: 3rem !important;
+    display: flex !important;
+    align-items: center !important;
+}
+
+.mantto-roadmap-section.mantto-wp .mantto-roadmap-item:nth-child(odd) {
+    justify-content: flex-start !important;
+    padding-right: calc(50% + 2rem) !important;
+    text-align: right !important;
+}
+
+.mantto-roadmap-section.mantto-wp .mantto-roadmap-item:nth-child(even) {
+    justify-content: flex-end !important;
+    padding-left: calc(50% + 2rem) !important;
+    text-align: left !important;
+}
+
+.mantto-roadmap-section.mantto-wp .mantto-roadmap-dot {
+    position: absolute !important;
+    left: 50% !important;
+    top: 0 !important;
+    width: 20px !important;
+    height: 20px !important;
+    background: var(--mantto-cyan) !important;
+    border-radius: 50% !important;
+    transform: translateX(-50%) !important;
+    z-index: 2 !important;
+    box-shadow: 0 0 18px rgba(54, 209, 220, 0.6) !important;
+}
+
+.mantto-roadmap-section.mantto-wp .mantto-roadmap-content {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border-radius: 14px !important;
+    padding: 1.5rem !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease !important;
+}
+
+.mantto-roadmap-section.mantto-wp .mantto-roadmap-content:hover {
+    border-color: var(--mantto-cyan) !important;
+    box-shadow: 0 8px 24px rgba(54, 209, 220, 0.18) !important;
+}
+
+.mantto-roadmap-section.mantto-wp .mantto-roadmap-item:nth-child(odd) .mantto-roadmap-content {
+    border-right: 4px solid var(--mantto-cyan) !important;
+}
+
+.mantto-roadmap-section.mantto-wp .mantto-roadmap-item:nth-child(even) .mantto-roadmap-content {
+    border-left: 4px solid var(--mantto-cyan) !important;
+}
+
+.mantto-roadmap-section.mantto-wp .mantto-roadmap-step {
+    display: inline-block !important;
+    background: var(--mantto-cyan) !important;
+    color: var(--dark-color) !important;
+    padding: 0.25rem 0.75rem !important;
+    border-radius: 20px !important;
+    font-weight: 700 !important;
+    margin-bottom: 0.75rem !important;
+    font-size: 0.85rem !important;
+}
+
+.mantto-roadmap-section.mantto-wp .mantto-roadmap-content h3 {
+    font-size: 1.25rem !important;
+    margin-bottom: 0.5rem !important;
+    color: var(--light-color) !important;
+}
+
+.mantto-roadmap-section.mantto-wp .mantto-roadmap-content p {
+    color: var(--light-color) !important;
+    margin: 0 !important;
+    font-size: 0.95rem !important;
+    text-align: justify !important;
+}
+
+/* ========== COMPARATIVA CON VS SIN (fondo oscuro) ========== */
+.mantto-page-wp .mantto-comparison-section.mantto-wp,
+.mantto-comparison-section.mantto-wp {
+    padding: 4rem 5% !important;
+    background: #1a1a2e !important;
+}
+.mantto-comparison-section.mantto-wp .mantto-comparison-table {
+    max-width: 900px !important;
+    margin: 0 auto !important;
+    border-radius: 14px !important;
+    overflow: hidden !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+}
+.mantto-comparison-section.mantto-wp .mantto-comparison-header {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    background: linear-gradient(90deg, var(--mantto-primary), var(--mantto-cyan)) !important;
+    padding: 1.25rem !important;
+}
+.mantto-comparison-section.mantto-wp .mantto-comparison-header h3 {
+    font-size: 1.35rem !important;
+    color: #fff !important;
+    text-align: center !important;
+    margin: 0 !important;
+    font-weight: 700 !important;
+}
+.mantto-comparison-section.mantto-wp .mantto-comparison-body {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+}
+.mantto-comparison-section.mantto-wp .mantto-comparison-item {
+    padding: 1rem 1.25rem !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06) !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.75rem !important;
+    min-height: 56px !important;
+    color: var(--light-color) !important;
+}
+.mantto-comparison-section.mantto-wp .mantto-comparison-column .mantto-comparison-item:nth-child(odd) {
+    background: rgba(255, 255, 255, 0.02) !important;
+}
+.mantto-comparison-section.mantto-wp .mantto-comparison-column:first-child .mantto-comparison-item i {
+    color: #ff4d6d !important;
+}
+.mantto-comparison-section.mantto-wp .mantto-comparison-column:last-child .mantto-comparison-item i {
+    color: var(--mantto-success) !important;
+}
+.mantto-comparison-section.mantto-wp .mantto-comparison-item i {
+    font-size: 1.25rem !important;
+    flex-shrink: 0 !important;
+}
+
+@media (max-width: 992px) {
+    .mantto-roadmap-section.mantto-wp .mantto-roadmap-line { left: 1.5rem !important; }
+    .mantto-roadmap-section.mantto-wp .mantto-roadmap-item {
+        padding-left: 4rem !important; padding-right: 0 !important;
+        justify-content: flex-start !important; text-align: left !important;
+    }
+    .mantto-roadmap-section.mantto-wp .mantto-roadmap-dot { left: 1.5rem !important; }
+    .mantto-roadmap-section.mantto-wp .mantto-roadmap-item:nth-child(odd) .mantto-roadmap-content,
+    .mantto-roadmap-section.mantto-wp .mantto-roadmap-item:nth-child(even) .mantto-roadmap-content {
+        border-left: 4px solid var(--mantto-accent) !important; border-right: none !important;
+    }
+}
+
+/* ========== PLANES DE MANTENIMIENTO (3 tarjetas, fondo oscuro, viñetas ✓ verde, sin botón por plan) ========== */
+.mantto-page-wp .mantto-services-section.mantto-wp,
+.mantto-services-section.mantto-wp {
+    padding: 4rem 5% !important;
+    background: #1a1a2e !important;
+}
+
+.mantto-services-section.mantto-wp .mantto-section-title {
+    text-align: center !important;
+    font-size: clamp(1.8rem, 3.5vw, 2.5rem) !important;
+    color: var(--light-color) !important;
+    margin-bottom: 1rem !important;
+    font-weight: 700 !important;
+}
+
+.mantto-services-section.mantto-wp .mantto-section-title span {
+    color: var(--mantto-cyan) !important;
+}
+
+.mantto-services-section.mantto-wp .mantto-section-subtitle {
+    text-align: center !important;
+    font-size: 1.1rem !important;
+    color: var(--light-color) !important;
+    max-width: 700px !important;
+    margin: 0 auto 2.5rem !important;
+}
+
+.mantto-services-section.mantto-wp .mantto-services-grid {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)) !important;
+    gap: 1.5rem !important;
+    margin-top: 2rem !important;
+    max-width: 1000px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+.mantto-services-section.mantto-wp .mantto-service-card {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border-radius: 16px !important;
+    padding: 2rem !important;
+    text-align: center !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+}
+
+.mantto-services-section.mantto-wp .mantto-service-card:hover {
+    transform: translateY(-6px) !important;
+    border-color: var(--mantto-cyan) !important;
+    box-shadow: 0 12px 28px rgba(54, 209, 220, 0.2) !important;
+}
+
+.mantto-services-section.mantto-wp .mantto-service-icon {
+    font-size: 2.5rem !important;
+    margin-bottom: 1rem !important;
+    color: var(--mantto-cyan) !important;
+}
+
+.mantto-services-section.mantto-wp .mantto-service-card h3 {
+    font-size: 1.35rem !important;
+    margin-bottom: 0.75rem !important;
+    color: var(--light-color) !important;
+}
+
+.mantto-services-section.mantto-wp .mantto-service-card > p {
+    color: var(--light-color) !important;
+    margin-bottom: 1.25rem !important;
+    font-size: 0.95rem !important;
+}
+
+.mantto-services-section.mantto-wp .mantto-service-features {
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    text-align: left !important;
+}
+
+.mantto-services-section.mantto-wp .mantto-service-features li {
+    color: var(--light-color) !important;
+    margin-bottom: 0.5rem !important;
+    padding-left: 1.5rem !important;
+    position: relative !important;
+    font-size: 0.95rem !important;
+}
+
+.mantto-services-section.mantto-wp .mantto-service-features li::before {
+    content: '\2713' !important;
+    position: absolute !important;
+    left: 0 !important;
+    color: var(--mantto-success) !important;
+    font-weight: bold !important;
+}
+
+/* ========== CTA FINAL (igual que original: fondo radial, botones cyan/success) ========== */
+.mantto-final-cta.mantto-wp {
+    padding: 4rem 5% !important;
+    text-align: center !important;
+    background: radial-gradient(circle at center, rgba(26, 26, 46, 0.9) 0%, rgba(10, 10, 26, 0.95) 100%) !important;
+}
+
+.mantto-final-cta.mantto-wp h2 {
+    font-size: clamp(1.75rem, 3vw, 2.4rem) !important;
+    color: var(--light-color) !important;
+    margin-bottom: 1rem !important;
+}
+
+.mantto-final-cta.mantto-wp > .container > p {
+    font-size: 1.1rem !important;
+    margin-bottom: 2rem !important;
+    color: #a0a0c0 !important;
+    max-width: 700px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+.mantto-final-cta.mantto-wp .mantto-cta-buttons {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 1rem !important;
+    justify-content: center !important;
+}
+
+.mantto-final-cta.mantto-wp .mantto-btn {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+    padding: 1rem 1.75rem !important;
+    border-radius: 50px !important;
+    font-weight: 600 !important;
+    text-decoration: none !important;
+    transition: transform 0.25s ease, box-shadow 0.25s ease !important;
+}
+
+.mantto-final-cta.mantto-wp .mantto-btn-primary {
+    background: linear-gradient(90deg, var(--mantto-cyan), var(--mantto-success)) !important;
+    color: var(--dark-color) !important;
+    border: none !important;
+    box-shadow: 0 6px 20px rgba(54, 209, 220, 0.4) !important;
+}
+
+.mantto-final-cta.mantto-wp .mantto-btn-primary:hover {
+    transform: translateY(-3px) !important;
+    box-shadow: 0 10px 28px rgba(54, 209, 220, 0.5) !important;
+}
+
+.mantto-final-cta.mantto-wp .mantto-btn-secondary {
+    background: transparent !important;
+    color: var(--light-color) !important;
+    border: 2px solid var(--mantto-cyan) !important;
+}
+
+.mantto-final-cta.mantto-wp .mantto-btn-secondary:hover {
+    background: rgba(54, 209, 220, 0.12) !important;
+    transform: translateY(-3px) !important;
+}
+
+.mantto-final-cta.mantto-wp .mantto-stat-box {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border-radius: 16px !important;
+    padding: 2rem !important;
+    margin-top: 2rem !important;
+    border: 1px solid rgba(54, 209, 220, 0.2) !important;
+    max-width: 700px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+.mantto-final-cta.mantto-wp .mantto-stat-box h3 {
+    color: var(--mantto-cyan) !important;
+    margin-bottom: 1.25rem !important;
+    font-size: 1.25rem !important;
+}
+
+.mantto-final-cta.mantto-wp .mantto-stats {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 2rem !important;
+}
+
+.mantto-final-cta.mantto-wp .mantto-stat {
+    text-align: center !important;
+    flex: 1 !important;
+    min-width: 140px !important;
+}
+
+.mantto-final-cta.mantto-wp .mantto-stat-ring-wrap {
+    position: relative !important;
+    width: 120px !important;
+    height: 70px !important;
+    margin: 0 auto 0.75rem !important;
+}
+
+.mantto-final-cta.mantto-wp .mantto-stat-ring {
+    width: 100% !important;
+    height: 100% !important;
+    display: block !important;
+}
+
+.mantto-final-cta.mantto-wp .mantto-stat-track {
+    stroke: rgba(54, 209, 220, 0.2) !important;
+}
+
+.mantto-final-cta.mantto-wp .mantto-stat-fill {
+    stroke: var(--mantto-cyan) !important;
+    stroke-dasharray: 125.7 !important;
+    stroke-dashoffset: 125.7 !important;
+    transition: stroke-dashoffset 1.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    filter: drop-shadow(0 0 6px rgba(54, 209, 220, 0.6)) !important;
+}
+
+.mantto-final-cta.mantto-wp .mantto-stat-box.is-visible .mantto-stat .mantto-stat-fill {
+    stroke-dashoffset: var(--mantto-fill-offset, 125.7) !important;
+}
+
+.mantto-final-cta.mantto-wp .mantto-stat-value {
+    position: absolute !important;
+    left: 50% !important;
+    bottom: 4px !important;
+    transform: translateX(-50%) !important;
+    font-size: 1.5rem !important;
+    font-weight: 700 !important;
+    color: var(--mantto-cyan) !important;
+    margin: 0 !important;
+    min-width: 3ch !important;
+}
+
+.mantto-final-cta.mantto-wp .mantto-stat-label {
+    color: var(--light-color) !important;
+    font-size: 0.9rem !important;
+    line-height: 1.35 !important;
+}
+
+@media (max-width: 768px) {
+    .mantto-hero.mantto-wp .mantto-cta-buttons,
+    .mantto-final-cta.mantto-wp .mantto-cta-buttons {
+        flex-direction: column !important;
+    }
+    .mantto-hero.mantto-wp .mantto-btn,
+    .mantto-final-cta.mantto-wp .mantto-btn {
+        width: 100% !important;
+        justify-content: center !important;
+    }
+    .mantto-intro-section.mantto-wp .mantto-card-grid,
+    .mantto-services-section.mantto-wp .mantto-services-grid {
+        grid-template-columns: 1fr !important;
+    }
+    .mantto-final-cta.mantto-wp .mantto-stats {
+        flex-direction: column !important;
+        gap: 1.5rem !important;
+    }
+}

@@ -1,0 +1,962 @@
+<!--
+  SERVICES - HTML TODO JUNTO (todo en uno).
+  Contenido de Servicios con el fondo de "7 Transformación Digital Integral": cyberpunk (partículas, nodos, líneas).
+  Pegar este bloque en WordPress; el fondo y la animación funcionan con el script inline (no requiere JS externo).
+  Opcional: cargar SERVICES-CSS-PARA-WORDPRESS.css para refinamientos de estilo.
+-->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;800&amp;display=swap">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<!-- Fondo cyberpunk (página 7): canvas con partículas, nodos y líneas. Script inline; no requiere JS externo. -->
+<div id="services-cyber-bg" aria-hidden="true" class="services-cyber-bg-layer">
+  <canvas id="services-cyber-bg-canvas"></canvas>
+</div>
+<style id="services-global-bg">
+  /* Capa fija: canvas cyberpunk delante del fondo liso del tema (z-index 0); el contenido va encima con z-index 1 */
+  #services-cyber-bg.services-cyber-bg-layer {
+    position: fixed !important; top: 0 !important; left: 0 !important; width: 100% !important; height: 100% !important;
+    z-index: 0 !important; pointer-events: none !important; overflow: hidden !important;
+  }
+  #services-cyber-bg-canvas {
+    position: absolute !important; top: 0 !important; left: 0 !important; width: 100% !important; height: 100% !important;
+    display: block !important;
+    background: radial-gradient(circle at 20% 30%, #0a0a2a 0%, #0a0a1a 40%, #000000 100%) !important;
+  }
+  /* Contenido por encima del canvas */
+  .hero-section.services-wp,
+  .industries-section.services-wp,
+  .tabs-system.services-wp,
+  .portfolio-section.services-wp { position: relative !important; z-index: 1 !important; }
+  .floating-buttons { z-index: 1000 !important; }
+  body.elementor-page .elementor-widget-html,
+  body:has(.hero-section.services-wp) { background: transparent !important; }
+</style>
+
+<style id="services-todo-junto-vars-tabs-portfolio">
+  /* Variables y estilos críticos para que funcione todo junto sin CSS externo */
+  :root {
+    --services-primary: #6C63FF;
+    --services-accent: #36D1DC;
+    --services-text-muted: #a0a0c0;
+    --services-transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+  }
+  .tabs-system.services-wp { padding: 120px 0 !important; }
+  .tabs-system.services-wp .section-title { text-align: center !important; font-size: clamp(1.8rem, 4vw, 3.2rem) !important; margin-bottom: 1rem !important; color: #f8f9fa !important; font-weight: 800 !important; font-family: 'Orbitron', sans-serif !important; }
+  .tabs-system.services-wp .section-title span { color: #00d4ff !important; }
+  .tabs-system.services-wp .section-subtitle { text-align: center !important; font-size: 1.2rem !important; margin-bottom: 2rem !important; color: rgba(255,255,255,0.9) !important; max-width: 900px !important; margin-left: auto !important; margin-right: auto !important; }
+  .tabs-system.services-wp .tabs-container { max-width: 1200px !important; margin: 0 auto !important; }
+  .tabs-system.services-wp .tabs-header { display: flex !important; justify-content: center !important; flex-wrap: wrap !important; gap: 16px !important; margin-bottom: 2rem !important; }
+  .tabs-system.services-wp .tab-button { padding: 14px 24px !important; background: rgba(255,255,255,0.05) !important; border: 2px solid rgba(255,255,255,0.1) !important; border-radius: 15px !important; color: #f8f9fa !important; font-weight: 600 !important; font-size: 1rem !important; cursor: pointer !important; transition: var(--services-transition) !important; display: flex !important; align-items: center !important; }
+  .tabs-system.services-wp .tab-button i { margin-right: 10px !important; }
+  .tabs-system.services-wp .tab-button:hover { background: rgba(0,212,255,0.1) !important; border-color: #00d4ff !important; }
+  .tabs-system.services-wp .tab-button.active { background: rgba(0,212,255,0.2) !important; border-color: #00d4ff !important; color: #00d4ff !important; }
+  .tabs-system.services-wp .tab-content { display: none !important; }
+  .tabs-system.services-wp .tab-content.active { display: block !important; }
+  .tabs-system.services-wp .industry-card.soluciones-industry-card {
+    background: rgba(14,14,35,0.95) !important;
+    border-radius: 20px !important;
+    padding: 2rem !important;
+    border: 1px solid rgba(108,99,255,0.35) !important;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.35) !important;
+  }
+  .tabs-system.services-wp .industry-features { list-style: none !important; padding: 0 !important; margin: 0 !important; }
+  .tabs-system.services-wp .industry-features li { padding-left: 1.5rem !important; position: relative !important; margin-bottom: 8px !important; color: rgba(255,255,255,0.85) !important; }
+  .tabs-system.services-wp .industry-features li::before { content: '\25B8' !important; position: absolute !important; left: 0 !important; color: #00d4ff !important; }
+  .tabs-system.services-wp .btn-soluciones-cta { display: inline-flex !important; align-items: center !important; gap: 0.5rem !important; background: linear-gradient(90deg, #00d4ff, #22c55e) !important; color: #fff !important; font-weight: 700 !important; border: none !important; border-radius: 12px !important; text-decoration: none !important; padding: 16px 32px !important; transition: var(--services-transition) !important; }
+  .portfolio-section.services-wp { padding: 5rem 5% !important; position: relative !important; }
+  .portfolio-section.services-wp .section-title { text-align: center !important; font-size: clamp(1.8rem, 4vw, 2.5rem) !important; margin-bottom: 1rem !important; color: #fff !important; }
+  .portfolio-section.services-wp .section-title span { color: var(--services-accent) !important; }
+  .portfolio-section.services-wp .portfolio-subtitle { text-align: center !important; color: var(--services-text-muted) !important; max-width: 700px !important; margin: 0 auto 2rem !important; font-size: 1.1rem !important; }
+  .portfolio-section.services-wp .portfolio-grid { display: grid !important; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)) !important; gap: 2rem !important; max-width: 1400px !important; margin: 0 auto !important; }
+  .portfolio-section.services-wp .portfolio-card {
+    background: rgba(14,14,35,0.95) !important;
+    border-radius: 20px !important;
+    padding: 2rem !important;
+    border: 1px solid rgba(108,99,255,0.3) !important;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.3) !important;
+    transition: var(--services-transition) !important;
+  }
+  .portfolio-section.services-wp .portfolio-card:hover { transform: translateY(-8px) !important; box-shadow: 0 20px 50px rgba(0,0,0,0.4), 0 0 30px rgba(108,99,255,0.15) !important; border-color: rgba(108,99,255,0.5) !important; }
+  .portfolio-section.services-wp .card-icon { width: 64px !important; height: 64px !important; background: linear-gradient(135deg, var(--services-primary), var(--services-accent)) !important; border-radius: 14px !important; display: flex !important; align-items: center !important; justify-content: center !important; margin-bottom: 1rem !important; font-size: 1.6rem !important; color: #fff !important; }
+  .portfolio-section.services-wp .card-title { font-size: 1.25rem !important; margin-bottom: 0.75rem !important; color: #fff !important; font-weight: 700 !important; }
+  .portfolio-section.services-wp .card-description { color: rgba(255,255,255,0.75) !important; margin-bottom: 1rem !important; line-height: 1.6 !important; font-size: 0.95rem !important; }
+  .portfolio-section.services-wp .benefits-list { list-style: none !important; margin-bottom: 1rem !important; padding: 0 !important; }
+  .portfolio-section.services-wp .benefits-list li { padding: 0.35rem 0 !important; padding-left: 1.5rem !important; position: relative !important; color: rgba(255,255,255,0.85) !important; font-size: 0.95rem !important; }
+  .portfolio-section.services-wp .benefits-list li::before { content: '\2713' !important; position: absolute !important; left: 0 !important; color: var(--services-accent) !important; font-weight: bold !important; }
+  .portfolio-section.services-wp .impact-tag { display: block !important; padding: 0.5rem 0.75rem !important; background: rgba(108,99,255,0.15) !important; border-left: 4px solid var(--services-accent) !important; border-radius: 4px !important; color: var(--services-accent) !important; font-weight: 600 !important; font-size: 0.9rem !important; margin-top: 0.5rem !important; }
+  .portfolio-section.services-wp .services-ecosystem {
+    margin-top: 3rem !important;
+    padding: 2.5rem !important;
+    border-radius: 24px !important;
+    background: rgba(12,12,30,0.96) !important;
+    border: 2px solid rgba(108,99,255,0.4) !important;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.05) !important;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    gap: 2rem !important;
+  }
+  .services-ecosystem-content { flex: 1 1 300px !important; min-width: 0 !important; text-align: left !important; }
+  .services-ecosystem-tag { font-size: 0.85rem !important; font-weight: 600 !important; text-transform: uppercase !important; letter-spacing: 0.1em !important; color: var(--services-accent) !important; margin-bottom: 0.5rem !important; }
+  .services-ecosystem-title { font-size: clamp(1.3rem, 3vw, 2rem) !important; font-weight: 700 !important; color: #fff !important; margin-bottom: 0.75rem !important; }
+  .services-ecosystem-title span { background: linear-gradient(90deg, var(--services-accent), var(--services-primary)) !important; -webkit-background-clip: text !important; background-clip: text !important; color: transparent !important; }
+  .services-ecosystem-desc { max-width: 520px !important; margin-bottom: 1.25rem !important; color: var(--services-text-muted) !important; font-size: 1rem !important; line-height: 1.6 !important; }
+  .services-ecosystem-cta { display: flex !important; flex-wrap: wrap !important; gap: 1rem !important; }
+  .btn-ecosystem { display: inline-flex !important; align-items: center !important; gap: 0.5rem !important; padding: 0.9rem 1.5rem !important; border-radius: 50px !important; font-weight: 600 !important; font-size: 1rem !important; text-decoration: none !important; transition: var(--services-transition) !important; background: linear-gradient(135deg, #25D366, #128C7E) !important; color: #fff !important; border: none !important; }
+  .btn-ecosystem-alt { background: transparent !important; color: var(--services-accent) !important; border: 2px solid var(--services-accent) !important; }
+  .eco-diagram { position: relative !important; flex: 0 0 auto !important; width: 100% !important; max-width: 320px !important; aspect-ratio: 1 !important; margin-left: auto !important; }
+  .eco-node { position: absolute !important; width: 48px !important; height: 48px !important; margin-left: -24px !important; margin-top: -24px !important; border-radius: 14px !important; background: rgba(26,26,46,0.95) !important; border: 1px solid rgba(108,99,255,0.4) !important; display: flex !important; align-items: center !important; justify-content: center !important; font-size: 1.1rem !important; color: var(--services-accent) !important; z-index: 2 !important; }
+  .eco-node-1 { left: 80% !important; top: 50% !important; } .eco-node-2 { left: 65% !important; top: 24% !important; } .eco-node-3 { left: 35% !important; top: 24% !important; }
+  .eco-node-4 { left: 20% !important; top: 50% !important; } .eco-node-5 { left: 35% !important; top: 76% !important; } .eco-node-6 { left: 65% !important; top: 76% !important; }
+  @media (max-width: 768px) { .portfolio-section.services-wp .services-ecosystem { flex-direction: column !important; text-align: center !important; } .services-ecosystem-content { text-align: center !important; } .services-ecosystem-cta { justify-content: center !important; } .eco-diagram { margin: 0 auto !important; } }
+</style>
+
+<style id="services-hero-all-in-one">
+/* ===== Todas las secciones transparentes para que se vea el mismo fondo en toda la página ===== */
+.hero-section.services-wp,
+.industries-section.services-wp,
+.tabs-system.services-wp,
+.portfolio-section.services-wp { background: transparent !important; }
+/* Industrias: efecto desvanecido para diferenciar de la sección de arriba */
+.industries-section.services-wp.industries-orbit-section {
+  background: rgba(5,5,22,0.55) !important;
+  backdrop-filter: blur(14px) !important;
+  -webkit-backdrop-filter: blur(14px) !important;
+}
+.portfolio-section.services-wp .services-ecosystem::before { display: none !important; }
+
+/* Hero: sin fondo propio, solo contenido */
+.hero-section.services-wp {
+  min-height: 85vh !important;
+  display: flex !important;
+  align-items: center !important;
+  padding: 120px 3% 80px !important;
+  position: relative !important;
+  overflow: hidden !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+/* Patrón del hero: oculto (ya está en la capa global); o muy sutil solo como overlay local */
+.hero-section.services-wp .hero-bg-pattern {
+  position: absolute !important;
+  top: 0 !important; left: 0 !important;
+  width: 100% !important; height: 100% !important;
+  pointer-events: none !important;
+  z-index: 0 !important;
+  background: none !important;
+}
+/* Contenedor del contenido */
+.hero-section.services-wp .hero-section-inner,
+.hero-section.services-wp .container.hero-section-inner {
+  width: 100% !important;
+  max-width: 1400px !important;
+  margin: 0 auto !important;
+  position: relative !important;
+  z-index: 1 !important;
+  padding-left: 2% !important;
+  padding-right: 2% !important;
+  box-sizing: border-box !important;
+}
+/* Título: iluminado + gradiente animado */
+.hero-section.services-wp .hero-title {
+  font-family: 'Orbitron', sans-serif !important;
+  font-size: clamp(1.9rem, 4.5vw, 4rem) !important;
+  font-weight: 800 !important;
+  line-height: 1.1 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 2px !important;
+  text-align: left !important;
+  margin-bottom: 1.5rem !important;
+  background: linear-gradient(90deg, #ffffff, #00d4ff, #00ff9d, #b967ff) !important;
+  background-size: 300% 100% !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  color: transparent !important;
+  animation: heroGradientShift 5s ease infinite, heroTextGlow 3s ease-in-out infinite alternate !important;
+}
+.hero-section.services-wp .hero-title br { display: block !important; }
+.hero-section.services-wp .hero-title.hero-title-typewriter { display: block !important; min-height: 1.3em !important; }
+.hero-section.services-wp .hero-title-typewriter #hero-typewriter-text { display: inline-block !important; text-align: left !important; }
+.hero-section.services-wp .hero-title .highlight { color: #00d4ff !important; -webkit-background-clip: unset !important; background-clip: unset !important; text-shadow: 0 0 20px rgba(0,212,255,0.7) !important; }
+.hero-section.services-wp .hero-title-typewriter .hero-typewriter-cursor { display: inline-block !important; animation: heroCursorBlink 0.9s step-end infinite !important; }
+@keyframes heroGradientShift { 0%, 100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
+@keyframes heroTextGlow { 0% { text-shadow: 0 0 15px rgba(0,212,255,0.5), 0 0 30px rgba(0,212,255,0.3); } 100% { text-shadow: 0 0 28px rgba(0,212,255,0.85), 0 0 55px rgba(0,212,255,0.45), 0 0 75px rgba(54,209,220,0.35); } }
+@keyframes heroCursorBlink { 0%, 50% { opacity: 1; } 51%, 100% { opacity: 0; } }
+/* Grid y texto */
+.hero-section.services-wp .hero-grid { display: grid !important; grid-template-columns: 1.2fr 0.9fr !important; gap: 2.5rem !important; align-items: center !important; }
+.hero-section.services-wp .hero-content-left { text-align: left !important; }
+.hero-section.services-wp .hero-subtitle { font-size: clamp(1rem, 1.8vw, 1.35rem) !important; line-height: 1.65 !important; margin-bottom: 1.5rem !important; color: rgba(255,255,255,0.9) !important; }
+.hero-section.services-wp .hero-stats { display: flex !important; gap: 1.25rem !important; flex-wrap: wrap !important; margin-top: 1.5rem !important; }
+.hero-section.services-wp .stat-item { display: flex !important; flex-direction: column !important; align-items: center !important; justify-content: center !important; padding: 1rem 1.5rem !important; background: rgba(255,255,255,0.06) !important; border-radius: 16px !important; min-width: 120px !important; border: 1px solid rgba(255,255,255,0.12) !important; }
+.hero-section.services-wp .stat-number { font-size: clamp(1.6rem, 2.8vw, 2.4rem) !important; font-weight: 800 !important; color: #00d4ff !important; margin-bottom: 0.25rem !important; text-shadow: 0 0 18px rgba(0,212,255,0.75) !important; }
+.hero-section.services-wp .stat-label { font-size: 0.85rem !important; color: rgba(255,255,255,0.75) !important; text-align: center !important; }
+/* Cubo 3D (opcional, básico) */
+.hero-section.services-wp .hero-visual { position: relative !important; height: 320px !important; display: flex !important; align-items: center !important; justify-content: center !important; }
+.hero-section.services-wp .cyber-cube { position: relative !important; width: 220px !important; height: 220px !important; transform-style: preserve-3d !important; animation: heroCubeRotate 20s linear infinite !important; }
+.hero-section.services-wp .cube-face { position: absolute !important; width: 220px !important; height: 220px !important; left: 0 !important; top: 0 !important; display: flex !important; align-items: center !important; justify-content: center !important; font-size: 2.5rem !important; border-radius: 10px !important; background: rgba(0,212,255,0.08) !important; border: 1px solid rgba(0,212,255,0.4) !important; color: #00d4ff !important; }
+.hero-section.services-wp .cube-face.front { transform: translateZ(110px) !important; }
+.hero-section.services-wp .cube-face.back { transform: rotateY(180deg) translateZ(110px) !important; }
+.hero-section.services-wp .cube-face.right { transform: rotateY(90deg) translateZ(110px) !important; }
+.hero-section.services-wp .cube-face.left { transform: rotateY(-90deg) translateZ(110px) !important; }
+.hero-section.services-wp .cube-face.top { transform: rotateX(90deg) translateZ(110px) !important; }
+.hero-section.services-wp .cube-face.bottom { transform: rotateX(-90deg) translateZ(110px) !important; }
+@keyframes heroCubeRotate { 0% { transform: rotateX(0) rotateY(0); } 100% { transform: rotateX(360deg) rotateY(360deg); } }
+@media (max-width: 900px) {
+  .hero-section.services-wp .hero-grid { grid-template-columns: 1fr !important; }
+  .hero-section.services-wp .hero-visual { order: -1 !important; height: 240px !important; }
+  .hero-section.services-wp .hero-title { text-align: center !important; }
+  .hero-section.services-wp .hero-section-inner { padding-left: 4% !important; padding-right: 4% !important; }
+}
+</style>
+
+<!-- Hero -->
+<section id="inicio" class="hero-section services-wp">
+    <div class="hero-bg-pattern" aria-hidden="true"></div>
+    <div class="container hero-section-inner">
+        <h1 class="hero-title hero-title-typewriter"><span id="hero-typewriter-text"></span><span class="hero-typewriter-cursor" aria-hidden="true">|</span></h1>
+        <div class="hero-grid">
+            <div class="hero-content-left">
+                <p class="hero-subtitle">En OSDEMS Digital, arquitectamos ecosistemas digitales sinérgicos que aceleran el crecimiento de tu negocio. Combinamos estrategia, tecnología y creatividad para impulsar tu transformación digital.</p>
+                <div class="hero-stats">
+                    <div class="stat-item"><span class="stat-number">+61</span><span class="stat-label">Servicios Especializados</span></div>
+                    <div class="stat-item"><span class="stat-number">+12</span><span class="stat-label">Industrias</span></div>
+                    <div class="stat-item"><span class="stat-number">+300%</span><span class="stat-label">ROI Promedio</span></div>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="cyber-cube" aria-hidden="true">
+                    <div class="cube-face front"><i class="fas fa-globe"></i></div>
+                    <div class="cube-face back"><i class="fas fa-chart-line"></i></div>
+                    <div class="cube-face right"><i class="fas fa-cogs"></i></div>
+                    <div class="cube-face left"><i class="fas fa-shield-alt"></i></div>
+                    <div class="cube-face top"><i class="fas fa-rocket"></i></div>
+                    <div class="cube-face bottom"><i class="fas fa-users"></i></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Industrias que Impulsamos: órbita circular girando hacia atrás (CSS 3D) -->
+<style id="services-industries-orbit-styles">
+.industries-section.services-wp.industries-orbit-section { position: relative !important; padding: 4rem 5% 6rem !important; background: transparent !important; text-align: center !important; overflow: visible !important; }
+.industries-section.services-wp.industries-orbit-section .section-title { margin: 0 0 2.5rem 0 !important; font-size: clamp(1.8rem, 4vw, 2.8rem) !important; color: #fff !important; }
+.industries-section.services-wp.industries-orbit-section .section-title span { color: #36D1DC !important; }
+.industries-orbit-section .industry-counter-large { position: absolute !important; top: 2.25rem !important; right: 5% !important; left: auto !important; margin: 0 !important; transform: none !important; z-index: 200 !important; background: linear-gradient(135deg, rgba(108,99,255,0.2), rgba(54,209,220,0.2)) !important; padding: 12px 20px !important; border-radius: 40px !important; color: #36D1DC !important; font-size: 1rem !important; font-weight: 700 !important; border: 1px solid rgba(54,209,220,0.4) !important; backdrop-filter: blur(10px) !important; box-shadow: 0 10px 20px rgba(0,0,0,0.3) !important; display: inline-flex !important; align-items: center !important; gap: 10px !important; }
+.industries-orbit-section .industry-counter-large i { color: #36D1DC !important; }
+.industries-orbit-stage { perspective: 1200px !important; width: 100% !important; max-width: 900px !important; margin: 0 auto !important; min-height: 420px !important; display: flex !important; align-items: center !important; justify-content: center !important; }
+.industries-orbit-wrap { position: relative !important; max-width: 900px !important; margin: 0 auto !important; padding-bottom: 4rem !important; }
+.industries-orbit-ring { position: relative !important; width: 200px !important; height: 200px !important; transform-style: preserve-3d !important; transition: transform 0.6s ease !important; }
+.industries-orbit-section .industries-orbit-controls { position: absolute !important; bottom: 2rem !important; left: 50% !important; transform: translateX(-50%) !important; display: flex !important; flex-direction: row !important; align-items: center !important; justify-content: center !important; gap: 1rem !important; flex-wrap: nowrap !important; z-index: 100 !important; }
+.industries-orbit-controls .orbit-btn { width: 48px !important; height: 48px !important; padding: 0 !important; border-radius: 50% !important; border: 2px solid rgba(255,255,255,0.25) !important; background: linear-gradient(135deg, #6C63FF, #36D1DC) !important; color: #fff !important; font-size: 1.1rem !important; cursor: pointer !important; transition: transform 0.25s ease, box-shadow 0.25s ease !important; display: inline-flex !important; align-items: center !important; justify-content: center !important; box-shadow: 0 10px 25px rgba(108,99,255,0.4) !important; }
+.industries-orbit-controls .orbit-btn:hover { transform: scale(1.12) !important; box-shadow: 0 12px 30px rgba(108,99,255,0.6) !important; }
+.industries-orbit-controls .orbit-btn:focus { outline: 2px solid #36D1DC !important; outline-offset: 2px !important; }
+.industries-orbit-dots { display: flex !important; gap: 0.5rem !important; align-items: center !important; justify-content: center !important; }
+.industries-orbit-dots .orbit-dot { width: 12px !important; height: 12px !important; padding: 0 !important; border-radius: 50% !important; background: rgba(255,255,255,0.25) !important; border: 2px solid rgba(108,99,255,0.4) !important; cursor: pointer !important; transition: background 0.25s, transform 0.2s, border-color 0.25s !important; }
+.industries-orbit-dots .orbit-dot:hover { background: rgba(108,99,255,0.5) !important; transform: scale(1.2) !important; border-color: rgba(108,99,255,0.8) !important; }
+.industries-orbit-dots .orbit-dot.active { background: linear-gradient(135deg, #6C63FF, #36D1DC) !important; border-color: #fff !important; box-shadow: 0 0 12px rgba(54,209,220,0.6) !important; }
+.industry-orbit-item { position: absolute !important; left: 50% !important; top: 50% !important; width: 200px !important; margin-left: -100px !important; margin-top: -140px !important; transform-style: preserve-3d !important; transform: rotateY(var(--orbit-angle, 0deg)) translateZ(320px) !important; backface-visibility: hidden !important; }
+.industry-orbit-item-inner { transform-style: preserve-3d !important; width: 100% !important; backface-visibility: hidden !important; -webkit-backface-visibility: hidden !important; transition: transform 0.6s ease !important; }
+.industry-orbit-card { border-radius: 20px !important; overflow: hidden !important; background: linear-gradient(145deg, rgba(26,26,46,0.98) 0%, rgba(40,40,60,0.98) 100%) !important; border: 2px solid rgba(108,99,255,0.35) !important; box-shadow: 0 20px 50px rgba(0,0,0,0.4) !important; transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease !important; backface-visibility: hidden !important; -webkit-backface-visibility: hidden !important; }
+.industry-orbit-item:hover .industry-orbit-card { transform: scale(1.08) !important; box-shadow: 0 28px 60px rgba(0,0,0,0.5), 0 0 50px rgba(108,99,255,0.25) !important; border-color: rgba(108,99,255,0.6) !important; }
+.industry-orbit-card .industry-stack-cover { position: relative !important; width: 100% !important; aspect-ratio: 1 !important; overflow: hidden !important; display: block !important; background: rgba(26,26,46,0.9) !important; backface-visibility: hidden !important; -webkit-backface-visibility: hidden !important; }
+.industry-orbit-card .industry-stack-cover img { width: 100% !important; height: 100% !important; object-fit: cover !important; display: block !important; transition: transform 0.5s ease !important; backface-visibility: hidden !important; -webkit-backface-visibility: hidden !important; }
+.industry-orbit-item:hover .industry-orbit-card .industry-stack-cover img { transform: scale(1.1) !important; }
+.industry-orbit-card .industry-stack-info { padding: 1rem 1rem !important; text-align: center !important; }
+.industry-orbit-card .industry-stack-info h3 { color: #fff !important; font-size: 1rem !important; margin: 0 0 0.35rem 0 !important; font-weight: 700 !important; }
+.industry-orbit-card .industry-stack-info p { color: rgba(255,255,255,0.78) !important; font-size: 0.8rem !important; line-height: 1.4 !important; margin: 0 !important; }
+.industries-orbit-hint { margin-top: 1.25rem !important; font-size: 0.9rem !important; color: rgba(255,255,255,0.5) !important; }
+@media (max-width: 900px) {
+  .industries-orbit-stage { min-height: 380px !important; }
+  .industry-orbit-item { width: 160px !important; margin-left: -80px !important; margin-top: -115px !important; transform: rotateY(var(--orbit-angle, 0deg)) translateZ(260px) !important; }
+  .industry-orbit-card .industry-stack-info h3 { font-size: 0.9rem !important; }
+  .industry-orbit-card .industry-stack-info p { font-size: 0.75rem !important; }
+}
+@media (max-width: 600px) {
+  .industry-orbit-item { width: 130px !important; margin-left: -65px !important; margin-top: -95px !important; transform: rotateY(var(--orbit-angle, 0deg)) translateZ(200px) !important; }
+  .industry-orbit-card .industry-stack-info { padding: 0.6rem !important; }
+  .industry-orbit-card .industry-stack-info h3 { font-size: 0.8rem !important; }
+  .industry-orbit-card .industry-stack-info p { font-size: 0.7rem !important; }
+}
+</style>
+<section class="industries-section services-wp industries-orbit-section" id="industrias-services">
+    <h2 class="section-title">Industrias que <span>Impulsamos</span></h2>
+    <div class="industry-counter-large" id="industrias-orbit-counter" aria-live="polite">
+        <i class="fas fa-globe-americas"></i>
+        <span id="industrias-orbit-current">Industria 1 de 6</span>
+    </div>
+    <div class="industries-orbit-wrap">
+        <div class="industries-orbit-stage">
+            <div class="industries-orbit-ring" id="industrias-orbit-ring" aria-hidden="true" style="transform: rotateY(0deg);">
+            <article class="industry-orbit-item" style="--orbit-angle: 0deg;">
+                <div class="industry-orbit-item-inner">
+                    <div class="industry-orbit-card">
+                        <div class="industry-stack-cover">
+                            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=600&fit=crop" alt="Servicios Profesionales">
+                        </div>
+                        <div class="industry-stack-info">
+                            <h3>Servicios Profesionales</h3>
+                            <p>Consultorías, asesorías y servicios especializados</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+            <article class="industry-orbit-item" style="--orbit-angle: 60deg;">
+                <div class="industry-orbit-item-inner">
+                    <div class="industry-orbit-card">
+                        <div class="industry-stack-cover">
+                            <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=600&h=600&fit=crop" alt="Consultoría y Negocios">
+                        </div>
+                        <div class="industry-stack-info">
+                            <h3>Consultoría y Negocios</h3>
+                            <p>Bufetes, consultorías legales y asesoría empresarial</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+            <article class="industry-orbit-item" style="--orbit-angle: 120deg;">
+                <div class="industry-orbit-item-inner">
+                    <div class="industry-orbit-card">
+                        <div class="industry-stack-cover">
+                            <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=600&h=600&fit=crop" alt="Salud y Farmacia">
+                        </div>
+                        <div class="industry-stack-info">
+                            <h3>Salud y Farmacia</h3>
+                            <p>Hospitales, clínicas, farmacias y salud digital</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+            <article class="industry-orbit-item" style="--orbit-angle: 180deg;">
+                <div class="industry-orbit-item-inner">
+                    <div class="industry-orbit-card">
+                        <div class="industry-stack-cover">
+                            <img src="https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=600&h=600&fit=crop" alt="Energía e Industrial">
+                        </div>
+                        <div class="industry-stack-info">
+                            <h3>Energía e Industrial</h3>
+                            <p>Renovables, industria y gestión ambiental</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+            <article class="industry-orbit-item" style="--orbit-angle: 240deg;">
+                <div class="industry-orbit-item-inner">
+                    <div class="industry-orbit-card">
+                        <div class="industry-stack-cover">
+                            <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&h=600&fit=crop" alt="Tecnología y Software">
+                        </div>
+                        <div class="industry-stack-info">
+                            <h3>Tecnología y Software</h3>
+                            <p>Startups tech, desarrollo SaaS y soluciones digitales</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+            <article class="industry-orbit-item" style="--orbit-angle: 300deg;">
+                <div class="industry-orbit-item-inner">
+                    <div class="industry-orbit-card">
+                        <div class="industry-stack-cover">
+                            <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=600&h=600&fit=crop" alt="Inmobiliario y Promoción">
+                        </div>
+                        <div class="industry-stack-info">
+                            <h3>Inmobiliario y Promoción</h3>
+                            <p>Constructoras, inmobiliarias y desarrolladoras</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </div>
+        </div>
+    </div>
+    <div class="industries-orbit-controls">
+        <button type="button" class="orbit-btn orbit-btn-prev" aria-label="Industria anterior"><i class="fas fa-chevron-left"></i></button>
+        <div class="industries-orbit-dots" id="industrias-orbit-dots" role="tablist" aria-label="Ir a industria">
+            <button type="button" class="orbit-dot active" data-index="0" aria-label="Industria 1" role="tab"></button>
+            <button type="button" class="orbit-dot" data-index="1" aria-label="Industria 2" role="tab"></button>
+            <button type="button" class="orbit-dot" data-index="2" aria-label="Industria 3" role="tab"></button>
+            <button type="button" class="orbit-dot" data-index="3" aria-label="Industria 4" role="tab"></button>
+            <button type="button" class="orbit-dot" data-index="4" aria-label="Industria 5" role="tab"></button>
+            <button type="button" class="orbit-dot" data-index="5" aria-label="Industria 6" role="tab"></button>
+        </div>
+        <button type="button" class="orbit-btn orbit-btn-next" aria-label="Siguiente industria"><i class="fas fa-chevron-right"></i></button>
+    </div>
+</section>
+<script>
+(function(){
+  var total = 6;
+  var ring = document.getElementById('industrias-orbit-ring');
+  var counterEl = document.getElementById('industrias-orbit-current');
+  var dotsContainer = document.getElementById('industrias-orbit-dots');
+  if (!ring || !counterEl) return;
+  var section = ring.closest('section');
+  var btnPrev = section ? section.querySelector('.orbit-btn-prev') : null;
+  var btnNext = section ? section.querySelector('.orbit-btn-next') : null;
+  var dots = dotsContainer ? dotsContainer.querySelectorAll('.orbit-dot') : [];
+  var currentIndex = 0;
+  function goTo(index) {
+    currentIndex = ((index % total) + total) % total;
+    ring.style.transform = 'rotateY(-' + (currentIndex * 60) + 'deg)';
+    counterEl.textContent = 'Industria ' + (currentIndex + 1) + ' de 6';
+    dots.forEach(function(dot, i) {
+      if (dot) {
+        dot.classList.toggle('active', i === currentIndex);
+        dot.setAttribute('aria-selected', i === currentIndex ? 'true' : 'false');
+      }
+    });
+    var items = ring.querySelectorAll('.industry-orbit-item');
+    items.forEach(function(item, i) {
+      var inner = item.querySelector('.industry-orbit-item-inner');
+      if (inner) {
+        var faceAngle = (currentIndex - i) * 60;
+        inner.style.transform = 'rotateY(' + faceAngle + 'deg) translateZ(0)';
+      }
+    });
+  }
+  goTo(0);
+  if (btnPrev) btnPrev.addEventListener('click', function(){ goTo(currentIndex - 1); });
+  if (btnNext) btnNext.addEventListener('click', function(){ goTo(currentIndex + 1); });
+  dots.forEach(function(dot) {
+    var idx = parseInt(dot.getAttribute('data-index'), 10);
+    if (!isNaN(idx)) dot.addEventListener('click', function(){ goTo(idx); });
+  });
+  var autoInterval = null;
+  function startAuto() {
+    if (autoInterval) return;
+    autoInterval = setInterval(function(){ goTo(currentIndex + 1); }, 4500);
+  }
+  function stopAuto() {
+    if (autoInterval) { clearInterval(autoInterval); autoInterval = null; }
+  }
+  var orbitWrap = section ? section.querySelector('.industries-orbit-wrap') : null;
+  if (orbitWrap) {
+    orbitWrap.addEventListener('mouseenter', stopAuto);
+    orbitWrap.addEventListener('mouseleave', startAuto);
+  }
+  startAuto();
+})();
+</script>
+
+<!-- Typewriter del hero (inline para todo junto) -->
+<script>
+(function() {
+    var tw = document.getElementById('hero-typewriter-text');
+    if (!tw) return;
+    var part1 = 'Transformamos Ideas en ';
+    var part2 = 'Resultados';
+    var part3 = ' Digitales';
+    var index = 0;
+    function tick() {
+        if (index < part1.length) {
+            tw.innerHTML = part1.slice(0, index + 1);
+            index++;
+            setTimeout(tick, 85);
+            return;
+        }
+        if (index === part1.length) {
+            tw.innerHTML = part1 + '<span class="highlight">' + part2 + '</span>';
+            index = part1.length + part2.length;
+            setTimeout(tick, 350);
+            return;
+        }
+        if (index - part1.length - part2.length < part3.length) {
+            var n = index - part1.length - part2.length;
+            tw.innerHTML = part1 + '<span class="highlight">' + part2 + '</span>' + part3.slice(0, n + 1);
+            index++;
+            setTimeout(tick, 85);
+            return;
+        }
+        var cursor = document.querySelector('.hero-typewriter-cursor');
+        if (cursor) cursor.classList.add('hero-typewriter-cursor-done');
+    }
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', function() { setTimeout(tick, 600); });
+    else setTimeout(tick, 600);
+})();
+</script>
+
+<!-- Soluciones Integrales (pestañas) -->
+<section class="tabs-system services-wp" id="soluciones" style="--soluciones-cyan: #00d4ff; --soluciones-success: #22c55e; --soluciones-warning: #eab308; --soluciones-light: #f8f9fa;">
+    <div class="container">
+        <h2 class="section-title">Soluciones <span>Integrales</span></h2>
+        <p class="section-subtitle">Paquetes completos que combinan estrategia, diseño, tecnología y marketing para resultados garantizados.</p>
+        <div class="tabs-container">
+            <div class="tabs-header">
+                <button type="button" class="tab-button active" data-tab="tab1-svc"><i class="fas fa-shield-alt"></i> Supervivencia Digital</button>
+                <button type="button" class="tab-button" data-tab="tab2-svc"><i class="fas fa-chart-line"></i> Crecimiento Acelerado</button>
+                <button type="button" class="tab-button" data-tab="tab3-svc"><i class="fas fa-crown"></i> Liderazgo Digital</button>
+                <button type="button" class="tab-button" data-tab="tab4-svc"><i class="fas fa-shield-alt"></i> Mantenimiento Web</button>
+            </div>
+            <div class="tab-content active" id="tab1-svc">
+                <div class="industry-card soluciones-industry-card">
+                    <h3 style="text-align: center; font-size: 2.5rem; margin-bottom: 30px;">Paquete de Supervivencia Digital</h3>
+                    <p style="text-align: center; font-size: 1.3rem; margin-bottom: 40px;">Para empresas que necesitan establecerse en el mundo digital y atraer sus primeros clientes online.</p>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px;">
+                        <div style="background: rgba(0,0,0,0.2); padding: 30px; border-radius: 15px; border-left: 4px solid var(--soluciones-cyan);">
+                            <h4 style="color: var(--soluciones-cyan); margin-bottom: 20px;"><i class="fas fa-globe"></i> Presencia Digital Básica</h4>
+                            <ul class="industry-features">
+                                <li>Landing page optimizada para móviles</li>
+                                <li>Diseño web responsive</li>
+                                <li>Integración con redes sociales</li>
+                                <li>Formulario de contacto profesional</li>
+                                <li>Google My Business optimizado</li>
+                            </ul>
+                        </div>
+                        <div style="background: rgba(0,0,0,0.2); padding: 30px; border-radius: 15px; border-left: 4px solid var(--soluciones-success);">
+                            <h4 style="color: var(--soluciones-success); margin-bottom: 20px;"><i class="fas fa-bullhorn"></i> Marketing Inicial</h4>
+                            <ul class="industry-features">
+                                <li>Estrategia de contenidos básica</li>
+                                <li>Configuración de redes sociales</li>
+                                <li>Campañas Facebook/Instagram</li>
+                                <li>Email marketing básico</li>
+                                <li>SEO local esencial</li>
+                            </ul>
+                        </div>
+                        <div style="background: rgba(0,0,0,0.2); padding: 30px; border-radius: 15px; border-left: 4px solid var(--soluciones-warning);">
+                            <h4 style="color: var(--soluciones-warning); margin-bottom: 20px;"><i class="fas fa-chart-bar"></i> Análisis y Reportes</h4>
+                            <ul class="industry-features">
+                                <li>Configuración Google Analytics</li>
+                                <li>Reporte mensual de desempeño</li>
+                                <li>Análisis de competencia</li>
+                                <li>Recomendaciones mensuales</li>
+                                <li>Soporte técnico básico</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div style="text-align: center; margin-top: 50px;">
+                        <a href="https://wa.me/523326225912?text=Hola%20OSDEMS%20Digital,%20quiero%20información%20sobre%20el%20Paquete%20de%20Supervivencia%20Digital" class="btn btn-primary btn-soluciones-cta" target="_blank" rel="noopener" style="font-size: 1.5rem; padding: 25px 50px;"><i class="fas fa-rocket"></i> Solicitar Paquete</a>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-content" id="tab2-svc">
+                <div class="industry-card soluciones-industry-card">
+                    <h3 style="text-align: center; font-size: 2.5rem; margin-bottom: 30px;">Paquete de Crecimiento Acelerado</h3>
+                    <p style="text-align: center; font-size: 1.3rem; margin-bottom: 40px;">Para empresas con presencia digital que buscan escalar y optimizar su inversión en marketing.</p>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px;">
+                        <div style="background: rgba(0,0,0,0.2); padding: 30px; border-radius: 15px; border-left: 4px solid var(--soluciones-cyan);">
+                            <h4 style="color: var(--soluciones-cyan); margin-bottom: 20px;"><i class="fas fa-chart-line"></i> Marketing Avanzado</h4>
+                            <ul class="industry-features">
+                                <li>Estrategia SEO integral</li>
+                                <li>Campañas PPC optimizadas</li>
+                                <li>Marketing de contenidos profesional</li>
+                                <li>Automatización de email marketing</li>
+                                <li>Social Media Management avanzado</li>
+                                <li>Generación de leads cualificados</li>
+                            </ul>
+                        </div>
+                        <div style="background: rgba(0,0,0,0.2); padding: 30px; border-radius: 15px; border-left: 4px solid var(--soluciones-success);">
+                            <h4 style="color: var(--soluciones-success); margin-bottom: 20px;"><i class="fas fa-shopping-cart"></i> E-commerce Avanzado</h4>
+                            <ul class="industry-features">
+                                <li>Tienda online completa</li>
+                                <li>Pasarelas de pago múltiples</li>
+                                <li>Sistema de inventario automatizado</li>
+                                <li>Logística y envíos integrados</li>
+                                <li>Programa de fidelización</li>
+                                <li>Carrito abandonado recovery</li>
+                            </ul>
+                        </div>
+                        <div style="background: rgba(0,0,0,0.2); padding: 30px; border-radius: 15px; border-left: 4px solid var(--soluciones-warning);">
+                            <h4 style="color: var(--soluciones-warning); margin-bottom: 20px;"><i class="fas fa-tools"></i> Optimización Técnica</h4>
+                            <ul class="industry-features">
+                                <li>Auditoría técnica completa</li>
+                                <li>Optimización de velocidad</li>
+                                <li>Migración a hosting premium</li>
+                                <li>Seguridad avanzada</li>
+                                <li>Backup automático diario</li>
+                                <li>Soporte técnico prioritario</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div style="text-align: center; margin-top: 50px;">
+                        <a href="https://wa.me/523326225912?text=Hola%20OSDEMS%20Digital,%20quiero%20información%20sobre%20el%20Paquete%20de%20Crecimiento%20Acelerado" class="btn btn-primary btn-soluciones-cta" target="_blank" rel="noopener" style="font-size: 1.5rem; padding: 25px 50px;"><i class="fas fa-rocket"></i> Solicitar Paquete</a>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-content" id="tab3-svc">
+                <div class="industry-card soluciones-industry-card">
+                    <h3 style="text-align: center; font-size: 2.5rem; margin-bottom: 30px;">Paquete de Liderazgo Digital</h3>
+                    <p style="text-align: center; font-size: 1.3rem; margin-bottom: 40px;">Para empresas que buscan dominar su mercado con innovación tecnológica y estrategias avanzadas.</p>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px;">
+                        <div style="background: rgba(0,0,0,0.2); padding: 30px; border-radius: 15px; border-left: 4px solid var(--soluciones-cyan);">
+                            <h4 style="color: var(--soluciones-cyan); margin-bottom: 20px;"><i class="fas fa-cloud"></i> Cloud y DevOps</h4>
+                            <ul class="industry-features">
+                                <li>Migración a cloud empresarial</li>
+                                <li>Infraestructura escalable</li>
+                                <li>CI/CD pipelines</li>
+                                <li>Monitoreo 24/7</li>
+                                <li>Auto-scaling automático</li>
+                                <li>Contenedores Docker/Kubernetes</li>
+                            </ul>
+                        </div>
+                        <div style="background: rgba(0,0,0,0.2); padding: 30px; border-radius: 15px; border-left: 4px solid var(--soluciones-success);">
+                            <h4 style="color: var(--soluciones-success); margin-bottom: 20px;"><i class="fas fa-users-cog"></i> CRM Empresarial</h4>
+                            <ul class="industry-features">
+                                <li>CRM personalizado</li>
+                                <li>Automatización de ventas</li>
+                                <li>Integración con ERP</li>
+                                <li>Business Intelligence</li>
+                                <li>Dashboards ejecutivos</li>
+                                <li>Workflow automation</li>
+                            </ul>
+                        </div>
+                        <div style="background: rgba(0,0,0,0.2); padding: 30px; border-radius: 15px; border-left: 4px solid var(--soluciones-warning);">
+                            <h4 style="color: var(--soluciones-warning); margin-bottom: 20px;"><i class="fas fa-vr-cardboard"></i> Realidad Aumentada/Virtual</h4>
+                            <ul class="industry-features">
+                                <li>Experiencias AR para productos</li>
+                                <li>VR para capacitación</li>
+                                <li>Showrooms virtuales</li>
+                                <li>Simulaciones interactivas</li>
+                                <li>Filtros personalizados</li>
+                                <li>Experiencias inmersivas</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div style="text-align: center; margin-top: 50px;">
+                        <a href="https://wa.me/523326225912?text=Hola%20OSDEMS%20Digital,%20quiero%20información%20sobre%20el%20Paquete%20de%20Liderazgo%20Digital" class="btn btn-primary btn-soluciones-cta" target="_blank" rel="noopener" style="font-size: 1.5rem; padding: 25px 50px;"><i class="fas fa-rocket"></i> Solicitar Paquete</a>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-content" id="tab4-svc">
+                <div class="industry-card soluciones-industry-card">
+                    <h3 style="text-align: center; font-size: 2.5rem; margin-bottom: 30px;">Mantenimiento Web Profesional</h3>
+                    <p style="text-align: center; font-size: 1.3rem; margin-bottom: 40px;">Protege tu inversión digital con nuestro servicio integral de mantenimiento web.</p>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px;">
+                        <div style="background: rgba(0,0,0,0.2); padding: 30px; border-radius: 15px; border-left: 4px solid var(--soluciones-cyan);">
+                            <h4 style="color: var(--soluciones-cyan); margin-bottom: 20px;"><i class="fas fa-shield-alt"></i> Seguridad y Protección</h4>
+                            <ul class="industry-features">
+                                <li>Firewall y protección malware</li>
+                                <li>Escaneo diario de seguridad</li>
+                                <li>Certificado SSL renovación</li>
+                                <li>Backup automático diario</li>
+                                <li>Monitoreo de intrusiones</li>
+                                <li>Respuesta a incidentes</li>
+                            </ul>
+                        </div>
+                        <div style="background: rgba(0,0,0,0.2); padding: 30px; border-radius: 15px; border-left: 4px solid var(--soluciones-success);">
+                            <h4 style="color: var(--soluciones-success); margin-bottom: 20px;"><i class="fas fa-tachometer-alt"></i> Optimización y Velocidad</h4>
+                            <ul class="industry-features">
+                                <li>Optimización continua de velocidad</li>
+                                <li>Actualización de plugins/themes</li>
+                                <li>Limpieza de base de datos</li>
+                                <li>Optimización de imágenes</li>
+                                <li>Cache management</li>
+                                <li>CDN configuration</li>
+                            </ul>
+                        </div>
+                        <div style="background: rgba(0,0,0,0.2); padding: 30px; border-radius: 15px; border-left: 4px solid var(--soluciones-warning);">
+                            <h4 style="color: var(--soluciones-warning); margin-bottom: 20px;"><i class="fas fa-headset"></i> Soporte Técnico</h4>
+                            <ul class="industry-features">
+                                <li>Soporte prioritario 24/7</li>
+                                <li>Respuesta en menos de 2 horas</li>
+                                <li>Actualizaciones de contenido</li>
+                                <li>Corrección de errores</li>
+                                <li>Capacitación del equipo</li>
+                                <li>Reportes mensuales detallados</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div style="text-align: center; margin-top: 50px;">
+                        <a href="https://wa.me/523326225912?text=Hola%20OSDEMS%20Digital,%20quiero%20información%20sobre%20Mantenimiento%20Web" class="btn btn-primary btn-soluciones-cta" target="_blank" rel="noopener" style="font-size: 1.5rem; padding: 25px 50px;"><i class="fas fa-rocket"></i> Solicitar Paquete</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+(function() {
+    var section = document.querySelector('.tabs-system.services-wp');
+    if (!section) return;
+    section.addEventListener('click', function(ev) {
+        var btn = ev.target.closest && ev.target.closest('.tab-button');
+        if (!btn || !btn.getAttribute('data-tab')) return;
+        var tabId = btn.getAttribute('data-tab');
+        var container = section.querySelector('.tabs-container');
+        if (!container) return;
+        container.querySelectorAll('.tab-button').forEach(function(b) { b.classList.remove('active'); });
+        container.querySelectorAll('.tab-content').forEach(function(c) {
+            c.classList.remove('active');
+            if (c.id === tabId) c.classList.add('active');
+        });
+        btn.classList.add('active');
+    });
+})();
+</script>
+
+<!-- Portafolio de Servicios -->
+<section class="portfolio-section services-wp" id="portfolio">
+    <h2 class="section-title">Nuestro <span>Portafolio</span> de Servicios</h2>
+    <p class="portfolio-subtitle">Ofrecemos un portafolio completo de servicios digitales diseñados para maximizar tu impacto en línea.</p>
+    <div class="portfolio-grid">
+        <div class="portfolio-card" style="--delay: 1;">
+            <div class="card-icon">EC</div>
+            <h3 class="card-title">Estrategia y Consultoría de Marca Digital</h3>
+            <p class="card-description">Diagnóstico y planificación estratégica para construir o redireccionar la presencia digital de tu marca con KPIs claros.</p>
+            <ul class="benefits-list">
+                <li>Claridad y dirección estratégica</li>
+                <li>Optimización de presupuesto</li>
+                <li>Diferenciación en el mercado</li>
+            </ul>
+            <div class="impact-tag">Impacto: +40% eficiencia en inversión digital</div>
+        </div>
+        <div class="portfolio-card" style="--delay: 2;">
+            <div class="card-icon">DW</div>
+            <h3 class="card-title">Desarrollo Web y Experiencia de Usuario</h3>
+            <p class="card-description">Sitios web y aplicaciones rápidas, seguras e intuitivas, con diseño centrado en el usuario.</p>
+            <ul class="benefits-list">
+                <li>Conversión optimizada</li>
+                <li>Rendimiento técnico impecable</li>
+                <li>Autonomía y escalabilidad</li>
+            </ul>
+            <div class="impact-tag">Impacto: +35% en tasa de conversión</div>
+        </div>
+        <div class="portfolio-card" style="--delay: 3;">
+            <div class="card-icon">MC</div>
+            <h3 class="card-title">Marketing de Contenidos y Storytelling</h3>
+            <p class="card-description">Contenido valioso y consistente para atraer, educar y convertir a tu audiencia ideal.</p>
+            <ul class="benefits-list">
+                <li>Autoridad y confianza en el sector</li>
+                <li>Tráfico orgánico de calidad</li>
+                <li>Nutrición del embudo de ventas</li>
+            </ul>
+            <div class="impact-tag">Impacto: +300% tráfico orgánico cualificado</div>
+        </div>
+        <div class="portfolio-card" style="--delay: 4;">
+            <div class="card-icon">PD</div>
+            <h3 class="card-title">Publicidad Digital y Performance Marketing</h3>
+            <p class="card-description">Gestión y optimización de campañas de pago por clic con enfoque en el ROI.</p>
+            <ul class="benefits-list">
+                <li>Resultados inmediatos y escalables</li>
+                <li>Segmentación precisa</li>
+                <li>Optimización en tiempo real</li>
+            </ul>
+            <div class="impact-tag">Impacto: ROAS promedio de 4:1 o superior</div>
+        </div>
+        <div class="portfolio-card" style="--delay: 5;">
+            <div class="card-icon">AM</div>
+            <h3 class="card-title">Automatización de Marketing y CRM</h3>
+            <p class="card-description">Sistemas para automatizar flujos, nutrir leads y gestionar relaciones con clientes.</p>
+            <ul class="benefits-list">
+                <li>Eficiencia operativa</li>
+                <li>Personalización a escala</li>
+                <li>Visión 360 del cliente</li>
+            </ul>
+            <div class="impact-tag">Impacto: +25% velocidad del ciclo de ventas</div>
+        </div>
+        <div class="portfolio-card" style="--delay: 6;">
+            <div class="card-icon">GD</div>
+            <h3 class="card-title">Gestión de Crecimiento Digital (Growth)</h3>
+            <p class="card-description">Programa que combina todos los servicios con un equipo dedicado como tu departamento de crecimiento externo.</p>
+            <ul class="benefits-list">
+                <li>Simplicidad y predictibilidad</li>
+                <li>Sinergia entre canales</li>
+                <li>Enfoque en resultados</li>
+            </ul>
+            <div class="impact-tag">Impacto: Crecimiento sostenido mes tras mes</div>
+        </div>
+    </div>
+
+    <!-- Ecosistema + CTAs -->
+    <div class="services-ecosystem">
+        <div class="services-ecosystem-content">
+            <p class="services-ecosystem-tag">Todo conectado</p>
+            <h3 class="services-ecosystem-title">Un ecosistema, <span>resultados multiplicados</span></h3>
+            <p class="services-ecosystem-desc">Estrategia, desarrollo, contenido, paid, CRM y growth no trabajan solos: se potencian. Un solo equipo alinea tu marca con tu audiencia y tus números.</p>
+            <div class="services-ecosystem-cta">
+                <a href="https://wa.me/523326225912?text=Hola%20OSDEMS%20Digital,%20quiero%20conversar%20sobre%20mis%20servicios%20digitales" class="btn-ecosystem" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Conversemos</a>
+                <a href="mailto:hola@osdemsdigital.com?subject=Consulta%20portafolio%20de%20servicios" class="btn-ecosystem btn-ecosystem-alt"><i class="fas fa-envelope"></i> Agendar diagnóstico</a>
+            </div>
+        </div>
+        <div class="eco-diagram" aria-hidden="true">
+            <svg class="eco-lines" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+                <path class="eco-path-base" d="M 320 200 L 260 96 L 140 96 L 80 200 L 140 304 L 260 304 Z" fill="none" stroke="rgba(54,209,220,0.35)" stroke-width="1.5"/>
+                <path class="eco-path-glow" d="M 320 200 L 260 96 L 140 96 L 80 200 L 140 304 L 260 304 Z" fill="none" stroke="#36D1DC" stroke-width="3" stroke-linecap="round"/>
+            </svg>
+            <span class="eco-node eco-node-1"><i class="fas fa-chart-line"></i></span>
+            <span class="eco-node eco-node-2"><i class="fas fa-laptop-code"></i></span>
+            <span class="eco-node eco-node-3"><i class="fas fa-pen-nib"></i></span>
+            <span class="eco-node eco-node-4"><i class="fas fa-bullhorn"></i></span>
+            <span class="eco-node eco-node-5"><i class="fas fa-robot"></i></span>
+            <span class="eco-node eco-node-6"><i class="fas fa-rocket"></i></span>
+        </div>
+    </div>
+</section>
+
+<!-- Botones flotantes (WhatsApp, Teléfono, Email). Para ocultar el botón de WhatsApp que trae el tema/plugin y dejar solo estos 3: desactiva "WhatsApp" o "Click to Chat" en Apariencia → Personalizar o en el plugin, o añade en CSS adicional la regla que está abajo. -->
+<style id="services-floating-buttons-styles">
+/* Oculta el botón de WhatsApp del tema/plugin; solo se ven los 3 iconos de .floating-buttons */
+body > a[href*="wa.me"]:not(.floating-btn),
+a[href*="wa.me"]:not(.floating-btn)[style*="fixed"],
+a[href*="wa.me"]:not(.floating-btn)[style*="position:fixed"],
+.wa-floating-btn, .whatsapp-float, .whatsapp-chat, .wa-btn, .wa-whatsapp,
+#wac_bubble, #whatsapp-bubble, #wa-button, #whatsapp-button, [id^="wac_"],
+.wc-chat-button, .ht-ctc-chat, .ht-ctc-wrap, .ht-ctc-div, .ht-ctc,
+.elementor-widget-whatsapp-chat, .elementor-widget-click-to-chat,
+[class*="whatsapp-float"], [id*="whatsapp-float"], [class*="wa-float"],
+[data-widget_type*="whatsapp"], [class*="wac_"], .floating-whatsapp,
+div[class*="whatsapp"][class*="float"], div[class*="wa-"][class*="float"],
+.qlwapp, .qlwapp__button, .qlwapp__button--bubble { display: none !important; }
+.floating-buttons { position: fixed !important; right: 20px !important; bottom: 20px !important; top: auto !important; transform: none !important; z-index: 1000 !important; display: flex !important; flex-direction: column !important; gap: 16px !important; }
+.floating-btn { width: 50px !important; height: 50px !important; border-radius: 50% !important; display: flex !important; align-items: center !important; justify-content: center !important; color: white !important; font-size: 1.25rem !important; text-decoration: none !important; transition: all 0.3s ease !important; position: relative !important; box-shadow: 0 5px 15px rgba(0,0,0,0.3) !important; }
+.floating-btn.whatsapp { background: linear-gradient(135deg, #25D366, #128C7E) !important; }
+.floating-btn.phone { background: linear-gradient(135deg, #6C63FF, #4A45B8) !important; }
+.floating-btn.message { background: linear-gradient(135deg, #FF6B6B, #EE5A6F) !important; }
+.floating-btn:hover { transform: scale(1.15) translateX(-10px) !important; box-shadow: 0 10px 30px rgba(0,0,0,0.5) !important; }
+.floating-btn::after { content: attr(data-tooltip) !important; position: absolute !important; right: 68px !important; top: 50% !important; transform: translateY(-50%) !important; background: rgba(0,0,0,0.9) !important; color: white !important; padding: 10px 15px !important; border-radius: 8px !important; font-size: 0.9rem !important; white-space: nowrap !important; opacity: 0 !important; visibility: hidden !important; transition: all 0.3s ease !important; pointer-events: none !important; z-index: 1001 !important; }
+.floating-btn:hover::after { opacity: 1 !important; visibility: visible !important; right: 76px !important; }
+.floating-btn::before { content: '' !important; position: absolute !important; right: 58px !important; top: 50% !important; transform: translateY(-50%) !important; border: 8px solid transparent !important; border-left-color: rgba(0,0,0,0.9) !important; opacity: 0 !important; visibility: hidden !important; transition: all 0.3s ease !important; pointer-events: none !important; z-index: 1002 !important; }
+.floating-btn:hover::before { opacity: 1 !important; visibility: visible !important; right: 66px !important; }
+@media (max-width: 768px) { .floating-buttons { right: 12px !important; top: auto !important; bottom: 24px !important; transform: none !important; gap: 10px !important; } .floating-btn { width: 44px !important; height: 44px !important; font-size: 1.1rem !important; } }
+@media (max-width: 480px) { .floating-buttons { right: 10px !important; bottom: 16px !important; gap: 8px !important; } .floating-btn { width: 40px !important; height: 40px !important; font-size: 1rem !important; } }
+</style>
+<div class="floating-buttons">
+    <a href="https://wa.me/523326225912?text=Hola%20OSDEMS%20Digital" class="floating-btn whatsapp" data-tooltip="WhatsApp: +52 (33) 2622 5912" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i></a>
+    <a href="tel:+523326225912" class="floating-btn phone" data-tooltip="Teléfono: +52 (33) 2622 5912"><i class="fas fa-phone"></i></a>
+    <a href="mailto:hola@osdemsdigital.com" class="floating-btn message" data-tooltip="Email: hola@osdemsdigital.com"><i class="fas fa-envelope"></i></a>
+</div>
+
+<!-- Fondo cyberpunk: partículas, nodos y líneas. Script inline para que funcione solo con HTML. -->
+<script>
+(function() {
+    'use strict';
+    function initCyberBg() {
+        try {
+            var canvasEl = document.getElementById('services-cyber-bg-canvas');
+            if (!canvasEl || window.SERVICES_CYBER_BG_ACTIVE) return;
+            window.SERVICES_CYBER_BG_ACTIVE = true;
+        var ctx2d = canvasEl.getContext('2d');
+        var particlesList = [];
+        var nodesList = [];
+        var connectionsList = [];
+        var animId = null;
+        var mousePosX = 0;
+        var mousePosY = 0;
+        document.addEventListener('mousemove', function(ev) {
+            mousePosX = ev.clientX;
+            mousePosY = ev.clientY;
+        });
+
+        function initCanvasSize() {
+            canvasEl.width = window.innerWidth;
+            canvasEl.height = window.innerHeight;
+            particlesList = [];
+            var numParticles = Math.min(200, Math.floor((canvasEl.width * canvasEl.height) / 8000));
+            for (var idx = 0; idx < numParticles; idx++) {
+                particlesList.push({
+                    x: Math.random() * canvasEl.width,
+                    y: Math.random() * canvasEl.height,
+                    size: Math.random() * 3 + 1,
+                    speedX: (Math.random() - 0.5) * 0.5,
+                    speedY: (Math.random() - 0.5) * 0.5,
+                    color: 'rgba(' + (100 + Math.floor(Math.random() * 100)) + ',' + (55 + Math.floor(Math.random() * 200)) + ',255,' + (0.1 + Math.random() * 0.4) + ')'
+                });
+            }
+            nodesList = [];
+            for (var ni = 0; ni < 30; ni++) {
+                nodesList.push({
+                    x: Math.random() * canvasEl.width,
+                    y: Math.random() * canvasEl.height,
+                    size: Math.random() * 4 + 2
+                });
+            }
+            connectionsList = [];
+            for (var ci = 0; ci < nodesList.length; ci++) {
+                for (var cj = ci + 1; cj < nodesList.length; cj++) {
+                    var distX = nodesList[ci].x - nodesList[cj].x;
+                    var distY = nodesList[ci].y - nodesList[cj].y;
+                    var dist = Math.sqrt(distX * distX + distY * distY);
+                    if (dist < 200) {
+                        connectionsList.push({
+                            node1: nodesList[ci],
+                            node2: nodesList[cj],
+                            opacity: 0.05 + (1 - dist / 200) * 0.2
+                        });
+                    }
+                }
+            }
+        }
+
+        function drawFrame() {
+            var grad = ctx2d.createRadialGradient(
+                canvasEl.width * 0.8, canvasEl.height * 0.5, 0,
+                canvasEl.width * 0.8, canvasEl.height * 0.5,
+                Math.max(canvasEl.width, canvasEl.height) * 0.8
+            );
+            grad.addColorStop(0, 'rgba(10,10,40,0.1)');
+            grad.addColorStop(1, 'rgba(5,5,20,0.9)');
+            ctx2d.fillStyle = grad;
+            ctx2d.fillRect(0, 0, canvasEl.width, canvasEl.height);
+
+            connectionsList.forEach(function(conn) {
+                var connDx = conn.node1.x - conn.node2.x;
+                var connDy = conn.node1.y - conn.node2.y;
+                if (Math.sqrt(connDx * connDx + connDy * connDy) < 200) {
+                    ctx2d.beginPath();
+                    ctx2d.strokeStyle = 'rgba(0,200,255,' + conn.opacity + ')';
+                    ctx2d.lineWidth = 0.8;
+                    ctx2d.moveTo(conn.node1.x, conn.node1.y);
+                    ctx2d.lineTo(conn.node2.x, conn.node2.y);
+                    ctx2d.stroke();
+                }
+            });
+
+            particlesList.forEach(function(particle) {
+                ctx2d.beginPath();
+                ctx2d.fillStyle = particle.color;
+                ctx2d.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
+                ctx2d.fill();
+                particle.x += particle.speedX;
+                particle.y += particle.speedY;
+                if (particle.x < 0 || particle.x > canvasEl.width) particle.speedX *= -1;
+                if (particle.y < 0 || particle.y > canvasEl.height) particle.speedY *= -1;
+                var toMouseX = mousePosX - particle.x;
+                var toMouseY = mousePosY - particle.y;
+                var toMouseDist = Math.sqrt(toMouseX * toMouseX + toMouseY * toMouseY);
+                if (toMouseDist < 100) {
+                    var repelAngle = Math.atan2(toMouseY, toMouseX);
+                    var repelForce = (100 - toMouseDist) / 100;
+                    particle.x -= Math.cos(repelAngle) * repelForce * 2;
+                    particle.y -= Math.sin(repelAngle) * repelForce * 2;
+                }
+            });
+
+            nodesList.forEach(function(nodeItem) {
+                ctx2d.beginPath();
+                ctx2d.fillStyle = 'rgba(0,220,255,0.8)';
+                ctx2d.arc(nodeItem.x, nodeItem.y, nodeItem.size, 0, Math.PI * 2);
+                ctx2d.fill();
+                var glowGrad = ctx2d.createRadialGradient(
+                    nodeItem.x, nodeItem.y, 0,
+                    nodeItem.x, nodeItem.y, nodeItem.size * 4
+                );
+                glowGrad.addColorStop(0, 'rgba(0,220,255,0.6)');
+                glowGrad.addColorStop(1, 'rgba(0,220,255,0)');
+                ctx2d.beginPath();
+                ctx2d.fillStyle = glowGrad;
+                ctx2d.arc(nodeItem.x, nodeItem.y, nodeItem.size * 4, 0, Math.PI * 2);
+                ctx2d.fill();
+            });
+
+            animId = requestAnimationFrame(drawFrame);
+        }
+
+            initCanvasSize();
+            drawFrame();
+            window.addEventListener('resize', function() {
+                if (animId) cancelAnimationFrame(animId);
+                initCanvasSize();
+                drawFrame();
+            });
+        } catch (err) {
+            console.warn('Services cyber background:', err);
+        }
+    }
+    function runWhenReady() {
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', function() { setTimeout(initCyberBg, 500); });
+        } else {
+            setTimeout(initCyberBg, 500);
+        }
+    }
+    runWhenReady();
+})();
+</script>

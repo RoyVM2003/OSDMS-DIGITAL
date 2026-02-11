@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Meta Tags Básicos -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <!-- SEO Meta Tags -->
+    <title>Premium - Especialización en Electrónica Industrial y Automotriz | OSDEMS Digital</title>
+    <meta name="description" content="Desarrollo web especializado para la industria electrónica industrial y automotriz. Páginas web, e-commerce, CRM y sistemas de gestión para fabricantes de PCBs, componentes automotrices e integradores de electrónica.">
+    <meta name="keywords" content="desarrollo web industrial, electrónica industrial, sector automotriz, fabricación PCBs, e-commerce componentes, CRM industrial, páginas web manufactura">
+    <meta name="author" content="OSDEMS Digital Group">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://osdemsdigital.com/premium/">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://osdemsdigital.com/premium/">
+    <meta property="og:title" content="Premium - Especialización en Electrónica Industrial | OSDEMS Digital">
+    <meta property="og:description" content="Soluciones web especializadas para la industria electrónica industrial y automotriz. Desarrollo de plataformas, e-commerce y sistemas de gestión.">
+    <meta property="og:image" content="https://osdemsdigital.com/assets/og-image-premium.jpg">
+    <meta property="og:locale" content="es_MX">
+    <meta property="og:site_name" content="OSDEMS Digital">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://osdemsdigital.com/premium/">
+    <meta property="twitter:title" content="Premium - Especialización en Electrónica Industrial | OSDEMS Digital">
+    <meta property="twitter:description" content="Soluciones web especializadas para la industria electrónica industrial y automotriz.">
+    <meta property="twitter:image" content="https://osdemsdigital.com/assets/twitter-image-premium.jpg">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    
+    <!-- Preconnect para optimización -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    
+    <!-- Estilos Electronics Premium (inline para evitar 404 en WordPress) -->
+    <style id="electronics-premium-css">
+/* PREMIUM Electrónica Industrial | OSDEMS Digital - CSS inline */
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{--primary-color:#00d4ff;--secondary-color:#0066ff;--dark-bg:#0a0e27;--darker-bg:#050811;--text-light:#fff;--text-gray:#a8b2d1;--accent-gradient:linear-gradient(135deg,#00d4ff 0%,#0066ff 100%);--card-bg:rgba(255,255,255,0.05);--border-color:rgba(0,212,255,0.2);--font-base:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;--font-size-4xl:3.5rem;--font-size-3xl:2.5rem;--transition-base:0.3s ease;--transition-fast:0.2s ease;}
+html{scroll-behavior:smooth;font-size:16px;}
+body{font-family:var(--font-base);background:var(--darker-bg);color:var(--text-light);line-height:1.6;overflow-x:hidden;}
+.skip-link{position:absolute;top:-40px;left:0;background:var(--primary-color);color:var(--darker-bg);padding:0.5rem 1rem;text-decoration:none;font-weight:bold;z-index:100;}
+.skip-link:focus{top:0;}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border-width:0;}
+.hero{background:linear-gradient(135deg,var(--dark-bg) 0%,var(--darker-bg) 100%);padding:7.5rem 1.25rem 5rem;text-align:center;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(circle at 20% 50%,rgba(0,212,255,0.1) 0%,transparent 50%),radial-gradient(circle at 80% 50%,rgba(0,102,255,0.1) 0%,transparent 50%);pointer-events:none;}
+.hero-content{max-width:75rem;margin:0 auto;position:relative;z-index:1;}
+.premium-badge{display:inline-block;padding:0.5rem 1.5rem;background:var(--accent-gradient);border-radius:1.875rem;font-size:0.875rem;font-weight:600;letter-spacing:0.0625rem;margin-bottom:1.25rem;text-transform:uppercase;}
+.hero h1{font-size:clamp(2rem,5vw,var(--font-size-4xl));font-weight:700;margin-bottom:1.25rem;background:var(--accent-gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.hero p{font-size:clamp(1rem,2vw,1.25rem);color:var(--text-gray);max-width:50rem;margin:0 auto 2.5rem;}
+.cta-button{display:inline-block;padding:1rem 2.5rem;background:var(--accent-gradient);color:var(--text-light);text-decoration:none;border-radius:0.5rem;font-weight:600;font-size:1.1rem;transition:transform var(--transition-base),box-shadow var(--transition-base);border:none;cursor:pointer;}
+.cta-button:hover,.cta-button:focus{transform:translateY(-0.1875rem);box-shadow:0 0.625rem 1.875rem rgba(0,212,255,0.3);outline:2px solid var(--primary-color);outline-offset:2px;}
+.section{padding:5rem 1.25rem;}
+.container{max-width:75rem;margin:0 auto;padding:0 1.25rem;}
+.section-title{text-align:center;font-size:clamp(2rem,4vw,var(--font-size-3xl));font-weight:700;margin-bottom:1.25rem;background:var(--accent-gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.section-subtitle{text-align:center;font-size:clamp(1rem,2vw,1.25rem);color:var(--text-gray);max-width:43.75rem;margin:0 auto 3.75rem;}
+.industries-grid,.services-grid,.expertise-grid{display:grid;gap:1.875rem;margin-bottom:3.75rem;}
+.industries-grid{grid-template-columns:repeat(auto-fit,minmax(min(100%,17.5rem),1fr));}
+.services-grid{grid-template-columns:repeat(auto-fit,minmax(min(100%,20rem),1fr));gap:2.5rem;}
+.expertise-grid{grid-template-columns:repeat(auto-fit,minmax(min(100%,15.625rem),1fr));gap:1.5625rem;}
+.industry-card,.service-card,.expertise-item{background:var(--card-bg);border:1px solid var(--border-color);border-radius:1rem;padding:2.5rem 1.875rem;transition:transform var(--transition-base),border-color var(--transition-base),box-shadow var(--transition-base);}
+.industry-card{text-align:center;}
+.industry-card:hover,.industry-card:focus-within{transform:translateY(-0.625rem);border-color:var(--primary-color);box-shadow:0 1.25rem 2.5rem rgba(0,212,255,0.2);}
+.service-card:hover,.service-card:focus-within{transform:translateY(-0.3125rem);border-color:var(--primary-color);}
+.industry-icon{width:5rem;height:5rem;margin:0 auto 1.25rem;background:var(--accent-gradient);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:2.5rem;}
+.industry-card h3{font-size:1.5rem;margin-bottom:0.9375rem;color:var(--primary-color);}
+.industry-card p,.service-card li,.expertise-item p{color:var(--text-gray);}
+.service-header{display:flex;align-items:center;margin-bottom:1.25rem;}
+.service-badge{width:3.125rem;height:3.125rem;background:var(--accent-gradient);border-radius:0.75rem;display:flex;align-items:center;justify-content:center;margin-right:0.9375rem;font-size:1.5rem;flex-shrink:0;}
+.service-card h3{font-size:1.3rem;color:var(--text-light);}
+.service-card ul{list-style:none;}
+.service-card li{padding:0.625rem 0;padding-left:1.5625rem;position:relative;}
+.service-card li::before{content:'✓';position:absolute;left:0;color:var(--primary-color);font-weight:bold;}
+.carousel-container{background:var(--dark-bg);border-radius:1.25rem;padding:2.5rem;position:relative;overflow:hidden;}
+.carousel-wrapper{position:relative;overflow:hidden;width:100%;}
+.carousel{display:flex;gap:1.875rem;padding:1.25rem 0;transition:transform 0.5s ease;}
+.project-card{min-width:100%;width:100%;flex-shrink:0;background:var(--card-bg);border:1px solid var(--border-color);border-radius:1rem;overflow:hidden;transition:transform var(--transition-base);box-sizing:border-box;}
+.project-card:hover,.project-card:focus-within{transform:scale(1.05);}
+.project-image{width:100%;height:14rem;background:linear-gradient(135deg,rgba(0,212,255,0.125) 0%,rgba(0,102,255,0.125) 100%);display:block;overflow:hidden;position:relative;}
+.project-image img{display:block;width:100%;height:100%;object-fit:cover;object-position:center;position:absolute;top:0;left:0;}
+.project-content{padding:1.5625rem 2rem;}
+.project-content h4{font-size:1.3rem;margin-bottom:0.625rem;color:var(--primary-color);}
+.project-content p{margin-bottom:0.9375rem;color:var(--text-gray);}
+.project-tags{display:flex;flex-wrap:wrap;gap:0.5rem;}
+.tag{padding:0.25rem 0.75rem;background:rgba(0,212,255,0.1);border:1px solid var(--border-color);border-radius:1.25rem;font-size:0.85rem;color:var(--primary-color);}
+.carousel-controls{display:flex;justify-content:center;align-items:center;gap:1.25rem;margin-top:1.875rem;}
+.carousel-button{width:3rem;height:3rem;background:var(--accent-gradient);border:none;border-radius:50%;color:var(--text-light);font-size:1.5rem;cursor:pointer;transition:transform var(--transition-base),box-shadow var(--transition-base);display:flex;align-items:center;justify-content:center;}
+.carousel-button:hover,.carousel-button:focus{transform:scale(1.1);box-shadow:0 0.3125rem 0.9375rem rgba(0,212,255,0.4);outline:2px solid var(--primary-color);outline-offset:2px;}
+.carousel-button:disabled{opacity:0.3;cursor:not-allowed;}
+.carousel-indicators{display:flex;gap:0.5rem;}
+.carousel-indicator{width:0.625rem;height:0.625rem;background:var(--border-color);border:none;border-radius:50%;cursor:pointer;transition:background var(--transition-fast),transform var(--transition-fast);padding:0;}
+.carousel-indicator:hover,.carousel-indicator:focus{background:var(--text-gray);transform:scale(1.2);outline:2px solid var(--primary-color);outline-offset:2px;}
+.carousel-indicator.active{background:var(--primary-color);transform:scale(1.3);}
+.expertise-item{border-left:4px solid var(--primary-color);padding:1.5625rem;border-radius:0.5rem;}
+.expertise-item h4{font-size:1.2rem;margin-bottom:0.625rem;color:var(--primary-color);}
+.stats-section{background:var(--dark-bg);padding:5rem 1.25rem;text-align:center;}
+.stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,12.5rem),1fr));gap:2.5rem;max-width:62.5rem;margin:0 auto;}
+.stat-number{font-size:clamp(2rem,5vw,3rem);font-weight:700;background:var(--accent-gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:0.625rem;}
+.stat-label{font-size:1.1rem;color:var(--text-gray);}
+.testimonials-section{background:var(--darker-bg);}
+.testimonials-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,18.75rem),1fr));gap:2rem;}
+.testimonial-card{background:var(--card-bg);border:1px solid var(--border-color);border-radius:1rem;padding:2rem;}
+.testimonial-header{display:flex;align-items:center;margin-bottom:1.25rem;}
+.testimonial-avatar{width:3.75rem;height:3.75rem;border-radius:50%;background:var(--accent-gradient);display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-right:1rem;}
+.testimonial-info h4{color:var(--text-light);font-size:1.1rem;}
+.testimonial-info p,.testimonial-text{color:var(--text-gray);font-style:italic;}
+.contact-form-section{background:var(--dark-bg);}
+.form-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,18.75rem),1fr));gap:1.5rem;max-width:50rem;margin:0 auto;}
+.form-group{display:flex;flex-direction:column;}
+.form-group label{margin-bottom:0.5rem;color:var(--text-light);font-weight:500;}
+.form-group input,.form-group textarea,.form-group select{padding:0.875rem;background:var(--card-bg);border:1px solid var(--border-color);border-radius:0.5rem;color:var(--text-light);font-family:var(--font-base);font-size:1rem;}
+.form-group input:focus,.form-group textarea:focus,.form-group select:focus{outline:none;border-color:var(--primary-color);box-shadow:0 0 0 3px rgba(0,212,255,0.1);}
+.form-group textarea{min-height:9.375rem;resize:vertical;}
+.form-group.full-width{grid-column:1/-1;}
+.submit-button{padding:1rem 2.5rem;background:var(--accent-gradient);border:none;border-radius:0.5rem;color:var(--text-light);font-weight:600;font-size:1.1rem;cursor:pointer;}
+.submit-button:hover,.submit-button:focus{transform:translateY(-0.1875rem);box-shadow:0 0.625rem 1.875rem rgba(0,212,255,0.3);outline:2px solid var(--primary-color);outline-offset:2px;}
+.cta-section{background:linear-gradient(135deg,var(--dark-bg) 0%,var(--darker-bg) 100%);padding:6.25rem 1.25rem;text-align:center;}
+.cta-section h2{font-size:clamp(2rem,4vw,var(--font-size-3xl));margin-bottom:1.25rem;}
+.cta-section p{color:var(--text-gray);max-width:43.75rem;margin:0 auto 2.5rem;}
+@media (max-width:768px){.hero{padding:5rem 1rem 3rem;}.section{padding:3rem 1rem;}.carousel{gap:1rem;}.project-image{height:11rem;}.carousel-button{width:2.5rem;height:2.5rem;font-size:1.25rem;}}
+/* === HERO CARRUSEL PRINCIPAL (cada slide: imagen + texto sector + mismo CTA) === */
+.hero.hero-sectors-carousel{padding:0;overflow:hidden;min-height:85vh;display:flex;align-items:stretch;}
+.hero-sectors-carousel .hero-carousel-wrap{flex:1;max-width:100%;margin:0;border-radius:0;min-height:85vh;}
+.hero-sectors-carousel .hero-carousel-track{display:flex;transition:transform 0.8s cubic-bezier(0.4,0,0.2,1);will-change:transform;min-height:85vh;}
+.hero-sectors-carousel .hero-carousel-slide{min-width:100%;min-height:85vh;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;}
+.hero-sectors-carousel .hero-carousel-slide img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;}
+.hero-sectors-carousel .hero-carousel-slide::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(5,8,17,0.88) 0%,rgba(5,8,17,0.6) 50%,rgba(5,8,17,0.4) 100%);pointer-events:none;}
+.hero-slide-caption{position:relative;z-index:2;text-align:center;padding:3rem 1.5rem;max-width:42rem;margin:0 auto;}
+.hero-slide-caption .premium-badge{display:inline-block;padding:0.4rem 1rem;background:var(--accent-gradient);border-radius:1.5rem;font-size:0.75rem;font-weight:600;letter-spacing:0.05em;margin-bottom:1rem;text-transform:uppercase;}
+.hero-slide-caption h2{font-size:clamp(1.75rem,4vw,2.75rem);font-weight:700;margin-bottom:1rem;background:var(--accent-gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.hero-slide-caption p{font-size:clamp(0.95rem,2vw,1.15rem);color:var(--text-gray);line-height:1.65;margin-bottom:1.75rem;}
+.hero-slide-caption .cta-button{display:inline-block;padding:0.9rem 2rem;background:var(--accent-gradient);color:var(--text-light);text-decoration:none;border-radius:0.5rem;font-weight:600;font-size:1rem;transition:transform 0.3s ease,box-shadow 0.3s ease;}
+.hero-slide-caption .cta-button:hover,.hero-slide-caption .cta-button:focus{transform:translateY(-3px);box-shadow:0 10px 25px rgba(0,212,255,0.35);outline:2px solid var(--primary-color);outline-offset:2px;}
+.hero-carousel-nav{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);display:flex;gap:0.5rem;z-index:3;}
+.hero-carousel-dot{width:10px;height:10px;border-radius:50%;border:2px solid rgba(0,212,255,0.8);background:transparent;cursor:pointer;transition:all 0.3s ease;padding:0;}
+.hero-carousel-dot:hover,.hero-carousel-dot.active{background:var(--primary-color);border-color:var(--primary-color);transform:scale(1.2);}
+.hero-carousel-arrow{position:absolute;top:50%;transform:translateY(-50%);width:3rem;height:3rem;border-radius:50%;background:rgba(0,0,0,0.5);border:2px solid rgba(0,212,255,0.5);color:var(--primary-color);font-size:1.5rem;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:3;transition:all 0.3s ease;}
+.hero-carousel-arrow:hover{background:rgba(0,212,255,0.2);border-color:var(--primary-color);}
+.hero-carousel-arrow.prev{left:1rem;}
+.hero-carousel-arrow.next{right:1rem;}
+@media (max-width:768px){.hero-sectors-carousel,.hero-sectors-carousel .hero-carousel-track,.hero-sectors-carousel .hero-carousel-slide{min-height:75vh;}.hero-slide-caption{padding:2rem 1rem;}.hero-carousel-arrow{width:2.5rem;height:2.5rem;font-size:1.2rem;left:0.5rem;}.hero-carousel-arrow.next{right:0.5rem;}}
+    </style>
+    
+    <!-- Structured Data / Schema.org -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "Premium - Especialización en Electrónica Industrial",
+      "description": "Desarrollo web especializado para la industria electrónica industrial y automotriz",
+      "provider": {
+        "@type": "Organization",
+        "name": "OSDEMS Digital Group",
+        "url": "https://osdemsdigital.com",
+        "logo": "https://osdemsdigital.com/wp-content/uploads/2026/02/Captura-removebg-preview.png",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Blvd. Puerta de Hierro 5153, Fracc. Plaza Andares, Piso 2",
+          "addressLocality": "Zapopan",
+          "addressRegion": "Jalisco",
+          "postalCode": "45116",
+          "addressCountry": "MX"
+        },
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "+52-33-2622-5912",
+          "contactType": "customer service",
+          "areaServed": "MX",
+          "availableLanguage": ["es", "en"]
+        }
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "Mexico"
+      },
+      "serviceType": "Web Development for Electronics Industry"
+    }
+    </script>
+</head>
+<body>
+    <!-- Skip Link para Accesibilidad -->
+    <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+
+    <!-- Hero: carrusel por sectores (cada slide = imagen + texto del sector + mismo CTA) -->
+    <header class="hero hero-sectors-carousel" role="banner">
+        <div class="hero-carousel-wrap" id="hero-carousel-wrap" aria-roledescription="carrusel" aria-label="Sectores Premium">
+            <div class="hero-carousel-track" id="hero-carousel-track">
+                <div class="hero-carousel-slide">
+                    <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=1600&h=900&fit=crop" alt="Sector automotriz">
+                    <div class="hero-slide-caption">
+                        <span class="premium-badge">Premium - Especialización</span>
+                        <h2>Automotriz</h2>
+                        <p>Desarrollo web y sistemas para fabricantes de autopartes, distribuidores y OEM. Catálogos por VIN, e-commerce B2B y portales de proveedores.</p>
+                        <a href="https://wa.me/523326225912?text=Hola,%20me%20interesa%20la%20especialización%20Premium%20en%20Electrónica%20Industrial" class="cta-button" target="_blank" rel="noopener" aria-label="Solicitar consultoría premium por WhatsApp">Solicitar Consultoría Premium</a>
+                    </div>
+                </div>
+                <div class="hero-carousel-slide">
+                    <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=1600&h=900&fit=crop" alt="Médico y salud">
+                    <div class="hero-slide-caption">
+                        <span class="premium-badge">Premium - Especialización</span>
+                        <h2>Médico / Salud</h2>
+                        <p>Plataformas para equipos médicos, dispositivos de diagnóstico y salud digital. Cumplimiento normativo, portales de proveedores y experiencias seguras.</p>
+                        <a href="https://wa.me/523326225912?text=Hola,%20me%20interesa%20la%20especialización%20Premium%20en%20Electrónica%20Industrial" class="cta-button" target="_blank" rel="noopener" aria-label="Solicitar consultoría premium por WhatsApp">Solicitar Consultoría Premium</a>
+                    </div>
+                </div>
+                <div class="hero-carousel-slide">
+                    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1600&h=900&fit=crop" alt="Electrónica industrial">
+                    <div class="hero-slide-caption">
+                        <span class="premium-badge">Premium - Especialización</span>
+                        <h2>Electrónica Industrial</h2>
+                        <p>Web para fabricantes de PCBs, componentes y sistemas de control. Cotizadores, carga Gerber, integración ERP y portales técnicos B2B.</p>
+                        <a href="https://wa.me/523326225912?text=Hola,%20me%20interesa%20la%20especialización%20Premium%20en%20Electrónica%20Industrial" class="cta-button" target="_blank" rel="noopener" aria-label="Solicitar consultoría premium por WhatsApp">Solicitar Consultoría Premium</a>
+                    </div>
+                </div>
+                <div class="hero-carousel-slide">
+                    <img src="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?w=1600&h=900&fit=crop" alt="Vuelos y defensa">
+                    <div class="hero-slide-caption">
+                        <span class="premium-badge">Premium - Especialización</span>
+                        <h2>Vuelos y Defensa</h2>
+                        <p>Soluciones digitales para aeroespacial, aviónica y defensa. Portales seguros, documentación técnica y sistemas de trazabilidad especializados.</p>
+                        <a href="https://wa.me/523326225912?text=Hola,%20me%20interesa%20la%20especialización%20Premium%20en%20Electrónica%20Industrial" class="cta-button" target="_blank" rel="noopener" aria-label="Solicitar consultoría premium por WhatsApp">Solicitar Consultoría Premium</a>
+                    </div>
+                </div>
+                <div class="hero-carousel-slide">
+                    <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?w=1600&h=900&fit=crop" alt="Energía y smart grid">
+                    <div class="hero-slide-caption">
+                        <span class="premium-badge">Premium - Especialización</span>
+                        <h2>Energía y Smart Grid</h2>
+                        <p>Plataformas para utilities, renovables y redes inteligentes. Monitoreo, dashboards operativos e integración con sistemas SCADA y IoT.</p>
+                        <a href="https://wa.me/523326225912?text=Hola,%20me%20interesa%20la%20especialización%20Premium%20en%20Electrónica%20Industrial" class="cta-button" target="_blank" rel="noopener" aria-label="Solicitar consultoría premium por WhatsApp">Solicitar Consultoría Premium</a>
+                    </div>
+                </div>
+                <div class="hero-carousel-slide">
+                    <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=1600&h=900&fit=crop" alt="Telecomunicaciones">
+                    <div class="hero-slide-caption">
+                        <span class="premium-badge">Premium - Especialización</span>
+                        <h2>Telecomunicaciones</h2>
+                        <p>Portales para operadores, fabricantes de equipos e infraestructura. Catálogos de red, 5G y soluciones de conectividad B2B.</p>
+                        <a href="https://wa.me/523326225912?text=Hola,%20me%20interesa%20la%20especialización%20Premium%20en%20Electrónica%20Industrial" class="cta-button" target="_blank" rel="noopener" aria-label="Solicitar consultoría premium por WhatsApp">Solicitar Consultoría Premium</a>
+                    </div>
+                </div>
+                <div class="hero-carousel-slide">
+                    <img src="https://images.unsplash.com/photo-1565793298595-6a879b1d9492?w=1600&h=900&fit=crop" alt="Industrial 4.0 y fábrica">
+                    <div class="hero-slide-caption">
+                        <span class="premium-badge">Premium - Especialización</span>
+                        <h2>Industrial 4.0 / Fábrica</h2>
+                        <p>Fábricas inteligentes, MES y automatización. Dashboards en tiempo real, IoT y sistemas que conectan producción con la nube.</p>
+                        <a href="https://wa.me/523326225912?text=Hola,%20me%20interesa%20la%20especialización%20Premium%20en%20Electrónica%20Industrial" class="cta-button" target="_blank" rel="noopener" aria-label="Solicitar consultoría premium por WhatsApp">Solicitar Consultoría Premium</a>
+                    </div>
+                </div>
+            </div>
+            <button type="button" class="hero-carousel-arrow prev" id="hero-carousel-prev" aria-label="Slide anterior">‹</button>
+            <button type="button" class="hero-carousel-arrow next" id="hero-carousel-next" aria-label="Slide siguiente">›</button>
+            <div class="hero-carousel-nav" id="hero-carousel-dots" role="tablist" aria-label="Elegir sector"></div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        
+        <!-- Industries Section -->
+        <section class="section" aria-labelledby="industries-title">
+            <div class="container">
+                <h2 id="industries-title" class="section-title">Industrias que Atendemos</h2>
+                <p class="section-subtitle">Especialización enfocada en el desarrollo web y soluciones digitales para el sector electrónico industrial y automotriz</p>
+                
+                <div class="industries-grid" role="list">
+                    <article class="industry-card" role="listitem">
+                        <div class="industry-icon" aria-hidden="true">🔌</div>
+                        <h3>Electrónica Industrial</h3>
+                        <p>Desarrollo de plataformas web para empresas de fabricación de tarjetas electrónicas, PCBs, componentes industriales y sistemas de control.</p>
+                    </article>
+
+                    <article class="industry-card" role="listitem">
+                        <div class="industry-icon" aria-hidden="true">🚗</div>
+                        <h3>Sector Automotriz</h3>
+                        <p>Sitios web, sistemas de gestión y e-commerce para fabricantes de componentes automotrices, distribuidores y talleres especializados.</p>
+                    </article>
+
+                    <article class="industry-card" role="listitem">
+                        <div class="industry-icon" aria-hidden="true">⚙️</div>
+                        <h3>Integradores de Electrónica</h3>
+                        <p>Portales web y sistemas para empresas integradoras, distribuidores de componentes y proveedores de soluciones electrónicas especializadas.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section class="section" style="background: var(--dark-bg);" aria-labelledby="services-title">
+            <div class="container">
+                <h2 id="services-title" class="section-title">Servicios Especializados</h2>
+                <p class="section-subtitle">Soluciones web diseñadas específicamente para las necesidades del sector electrónico e industrial</p>
+                
+                <div class="services-grid" role="list">
+                    <article class="service-card" role="listitem">
+                        <div class="service-header">
+                            <div class="service-badge" aria-hidden="true">🌐</div>
+                            <h3>Páginas Web Industriales</h3>
+                        </div>
+                        <ul>
+                            <li>Sitios corporativos para fabricantes de electrónica</li>
+                            <li>Catálogos técnicos digitales con fichas de productos</li>
+                            <li>Diseño orientado a ingenieros y compradores B2B</li>
+                            <li>Integración con sistemas CAD/CAM</li>
+                            <li>Secciones técnicas con especificaciones y datasheets</li>
+                        </ul>
+                    </article>
+
+                    <article class="service-card" role="listitem">
+                        <div class="service-header">
+                            <div class="service-badge" aria-hidden="true">🛒</div>
+                            <h3>E-commerce Especializado</h3>
+                        </div>
+                        <ul>
+                            <li>Tiendas online para componentes electrónicos</li>
+                            <li>Búsqueda avanzada por especificaciones técnicas</li>
+                            <li>Sistema de cotización automática para volumen</li>
+                            <li>Integración con inventarios y ERP</li>
+                            <li>Portal de distribuidores con precios diferenciados</li>
+                        </ul>
+                    </article>
+
+                    <article class="service-card" role="listitem">
+                        <div class="service-header">
+                            <div class="service-badge" aria-hidden="true">📊</div>
+                            <h3>CRM y Sistemas de Gestión</h3>
+                        </div>
+                        <ul>
+                            <li>CRM personalizado para seguimiento de proyectos</li>
+                            <li>Sistema de órdenes de trabajo y producción</li>
+                            <li>Trazabilidad de componentes y lotes</li>
+                            <li>Gestión de proveedores y certificaciones</li>
+                            <li>Dashboards de producción en tiempo real</li>
+                        </ul>
+                    </article>
+
+                    <article class="service-card" role="listitem">
+                        <div class="service-header">
+                            <div class="service-badge" aria-hidden="true">🔗</div>
+                            <h3>Integración de Sistemas</h3>
+                        </div>
+                        <ul>
+                            <li>Conexión con sistemas MES y SCADA</li>
+                            <li>APIs para intercambio de datos técnicos</li>
+                            <li>Integración con software de diseño electrónico</li>
+                            <li>Sincronización con sistemas de calidad</li>
+                            <li>Automatización de procesos de cotización</li>
+                        </ul>
+                    </article>
+
+                    <article class="service-card" role="listitem">
+                        <div class="service-header">
+                            <div class="service-badge" aria-hidden="true">📱</div>
+                            <h3>Aplicaciones Web Industriales</h3>
+                        </div>
+                        <ul>
+                            <li>Configuradores de productos técnicos</li>
+                            <li>Calculadoras de especificaciones</li>
+                            <li>Herramientas de selección de componentes</li>
+                            <li>Portales de soporte técnico</li>
+                            <li>Sistemas de RMA y garantías</li>
+                        </ul>
+                    </article>
+
+                    <article class="service-card" role="listitem">
+                        <div class="service-header">
+                            <div class="service-badge" aria-hidden="true">📈</div>
+                            <h3>Marketing Digital Industrial</h3>
+                        </div>
+                        <ul>
+                            <li>SEO técnico para búsquedas industriales</li>
+                            <li>Contenido especializado para ingenieros</li>
+                            <li>Campañas en LinkedIn y plataformas B2B</li>
+                            <li>Marketing automation para leads técnicos</li>
+                            <li>Webinars y contenido educativo técnico</li>
+                        </ul>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Carousel -->
+        <section class="section" aria-labelledby="projects-title">
+            <div class="container">
+                <h2 id="projects-title" class="section-title">Proyectos Destacados</h2>
+                <p class="section-subtitle">Casos de éxito en desarrollo web para la industria electrónica y automotriz</p>
+                
+                <div class="carousel-container" role="region" aria-label="Carrusel de proyectos destacados">
+                    <div class="carousel-wrapper">
+                        <div class="carousel" role="list">
+                            <article class="project-card" role="listitem">
+                                <div class="project-image" aria-hidden="true">
+                                    <img src="https://osdemsdigital.com/wp-content/uploads/2026/02/AI-PICS-2_danielindustrial1325_45534_3d_electronic_pcb_board_-v_6.1_770226c6-eca4-477c-9acd-2689977ca4c6_2.png" alt="Portal de fabricante de PCBs" loading="lazy">
+                                </div>
+                                <div class="project-content">
+                                    <h4>Portal de Fabricante de PCBs</h4>
+                                    <p>Plataforma web con cotizador automático, carga de archivos Gerber y seguimiento de órdenes en tiempo real.</p>
+                                    <div class="project-tags">
+                                        <span class="tag">React</span>
+                                        <span class="tag">Laravel API</span>
+                                        <span class="tag">Cotizador</span>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <article class="project-card" role="listitem">
+                                <div class="project-image" aria-hidden="true">
+                                    <img src="https://osdemsdigital.com/wp-content/uploads/2025/08/Gemini_Generated_Image_a73rkla73rkla73r-1.png" alt="E-commerce de componentes electrónicos" loading="lazy">
+                                </div>
+                                <div class="project-content">
+                                    <h4>E-commerce de Componentes</h4>
+                                    <p>Tienda online especializada con más de 50,000 referencias, búsqueda por parámetros técnicos y stock en tiempo real.</p>
+                                    <div class="project-tags">
+                                        <span class="tag">WordPress</span>
+                                        <span class="tag">WooCommerce</span>
+                                        <span class="tag">Integración ERP</span>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <article class="project-card" role="listitem">
+                                <div class="project-image" aria-hidden="true">
+                                    <img src="https://osdemsdigital.com/wp-content/uploads/2026/02/AI-PICS-2_danielindustrial1325_45534_Benefits_of_Using_APIs_or_Applicat_ad04a669-db27-47c6-ae6a-dec91c92a380_2-1.png" alt="Sistema MES web-based" loading="lazy">
+                                </div>
+                                <div class="project-content">
+                                    <h4>Sistema MES Web-Based</h4>
+                                    <p>Panel de control de producción con visualización en tiempo real de líneas de ensamble y control de calidad.</p>
+                                    <div class="project-tags">
+                                        <span class="tag">Angular</span>
+                                        <span class="tag">Python</span>
+                                        <span class="tag">IoT</span>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <article class="project-card" role="listitem">
+                                <div class="project-image" aria-hidden="true">
+                                    <img src="https://osdemsdigital.com/wp-content/uploads/2025/04/mobile-600.png" alt="Portal automotriz B2B" loading="lazy">
+                                </div>
+                                <div class="project-content">
+                                    <h4>Portal Automotriz B2B</h4>
+                                    <p>Plataforma para distribuidores de autopartes con catálogo por VIN, compatibilidad de vehículos y pedidos masivos.</p>
+                                    <div class="project-tags">
+                                        <span class="tag">Laravel</span>
+                                        <span class="tag">MySQL</span>
+                                        <span class="tag">API REST</span>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <article class="project-card" role="listitem">
+                                <div class="project-image" aria-hidden="true">
+                                    <img src="https://osdemsdigital.com/wp-content/uploads/2026/02/AI-PICS-2_danielindustrial1325_45534_beautiful_staffnmeeting_were_commi_5d9368a7-f90b-4ca0-b0ce-88105a32df2c_0.png" alt="Configurador de sistemas eléctricos" loading="lazy">
+                                </div>
+                                <div class="project-content">
+                                    <h4>Configurador de Sistemas</h4>
+                                    <p>Herramienta web interactiva para diseñar y cotizar sistemas eléctricos industriales personalizados.</p>
+                                    <div class="project-tags">
+                                        <span class="tag">React</span>
+                                        <span class="tag">Node.js</span>
+                                        <span class="tag">PDF Generator</span>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                    
+                    <!-- Controles del Carousel -->
+                    <div class="carousel-controls">
+                        <button class="carousel-button carousel-prev" aria-label="Proyecto anterior">
+                            ‹
+                        </button>
+                        
+                        <div class="carousel-indicators" role="tablist" aria-label="Indicadores de diapositiva">
+                            <button type="button" class="carousel-indicator active" role="tab" aria-label="Ir a diapositiva 1" aria-selected="true"></button>
+                            <button type="button" class="carousel-indicator" role="tab" aria-label="Ir a diapositiva 2" aria-selected="false"></button>
+                            <button type="button" class="carousel-indicator" role="tab" aria-label="Ir a diapositiva 3" aria-selected="false"></button>
+                            <button type="button" class="carousel-indicator" role="tab" aria-label="Ir a diapositiva 4" aria-selected="false"></button>
+                            <button type="button" class="carousel-indicator" role="tab" aria-label="Ir a diapositiva 5" aria-selected="false"></button>
+                        </div>
+                        
+                        <button class="carousel-button carousel-next" aria-label="Proyecto siguiente">
+                            ›
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Expertise Section -->
+        <section class="section" style="background: var(--dark-bg);" aria-labelledby="expertise-title">
+            <div class="container">
+                <h2 id="expertise-title" class="section-title">Nuestra Experiencia en el Sector</h2>
+                <p class="section-subtitle">Conocimiento profundo de las necesidades técnicas y comerciales de la industria electrónica</p>
+                
+                <div class="expertise-grid" role="list">
+                    <article class="expertise-item" role="listitem">
+                        <h4>🎯 Comprensión Técnica</h4>
+                        <p>Entendemos términos como THT, SMD, BOM, Gerber, AOI, y las necesidades específicas de ingenieros y técnicos.</p>
+                    </article>
+
+                    <article class="expertise-item" role="listitem">
+                        <h4>🔍 SEO Especializado</h4>
+                        <p>Optimización para búsquedas técnicas específicas del sector electrónico e industrial en motores de búsqueda.</p>
+                    </article>
+
+                    <article class="expertise-item" role="listitem">
+                        <h4>📐 Diseño B2B</h4>
+                        <p>Interfaces diseñadas para compradores industriales, ingenieros de diseño y gerentes de compras.</p>
+                    </article>
+
+                    <article class="expertise-item" role="listitem">
+                        <h4>🔌 Integraciones Complejas</h4>
+                        <p>Conexión con sistemas ERP, MES, PLM y herramientas específicas de la industria electrónica.</p>
+                    </article>
+
+                    <article class="expertise-item" role="listitem">
+                        <h4>📋 Normativas y Certificaciones</h4>
+                        <p>Experiencia mostrando cumplimiento con ISO, RoHS, REACH, UL, CE y otras certificaciones industriales.</p>
+                    </article>
+
+                    <article class="expertise-item" role="listitem">
+                        <h4>🌐 Portales Multiidioma</h4>
+                        <p>Desarrollo de sitios web en múltiples idiomas para alcance global en mercados internacionales.</p>
+                    </article>
+
+                    <article class="expertise-item" role="listitem">
+                        <h4>💾 Gestión de Datos Técnicos</h4>
+                        <p>Manejo de grandes volúmenes de especificaciones, datasheets y documentación técnica.</p>
+                    </article>
+
+                    <article class="expertise-item" role="listitem">
+                        <h4>⚙️ Automatización de Procesos</h4>
+                        <p>Desarrollo de herramientas que automatizan cotizaciones, selección de componentes y gestión de órdenes.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <section class="stats-section" aria-labelledby="stats-title">
+            <div class="container">
+                <h2 id="stats-title" class="section-title">Resultados que Importan</h2>
+                <div class="stats-grid" role="list">
+                    <div class="stat-item" role="listitem">
+                        <div class="stat-number" aria-label="15 más">15+</div>
+                        <div class="stat-label">Años de Experiencia</div>
+                    </div>
+                    <div class="stat-item" role="listitem">
+                        <div class="stat-number" aria-label="50 más">50+</div>
+                        <div class="stat-label">Proyectos Industriales</div>
+                    </div>
+                    <div class="stat-item" role="listitem">
+                        <div class="stat-number" aria-label="98 porciento">98%</div>
+                        <div class="stat-label">Satisfacción del Cliente</div>
+                    </div>
+                    <div class="stat-item" role="listitem">
+                        <div class="stat-number" aria-label="24 7">24/7</div>
+                        <div class="stat-label">Soporte Premium</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="section testimonials-section" aria-labelledby="testimonials-title">
+            <div class="container">
+                <h2 id="testimonials-title" class="section-title">Lo Que Dicen Nuestros Clientes</h2>
+                <p class="section-subtitle">Testimonios de empresas líderes en electrónica industrial</p>
+                
+                <div class="testimonials-grid" role="list">
+                    <article class="testimonial-card" role="listitem">
+                        <div class="testimonial-header">
+                            <div class="testimonial-avatar" aria-hidden="true">JM</div>
+                            <div class="testimonial-info">
+                                <h4>Juan Martínez</h4>
+                                <p>Director de Operaciones - TechPCB Manufacturing</p>
+                            </div>
+                        </div>
+                        <blockquote class="testimonial-text">
+                            "El portal web que desarrollaron transformó completamente nuestra forma de recibir cotizaciones. Ahora procesamos 3x más órdenes con la mitad del tiempo administrativo."
+                        </blockquote>
+                        <div class="rating" aria-label="Calificación 5 de 5 estrellas">★★★★★</div>
+                    </article>
+
+                    <article class="testimonial-card" role="listitem">
+                        <div class="testimonial-header">
+                            <div class="testimonial-avatar" aria-hidden="true">MR</div>
+                            <div class="testimonial-info">
+                                <h4>María Rodríguez</h4>
+                                <p>Gerente de Ventas - AutoParts Express</p>
+                            </div>
+                        </div>
+                        <blockquote class="testimonial-text">
+                            "La integración con nuestro ERP fue perfecta. Los clientes ahora pueden ver inventarios en tiempo real y hacer pedidos 24/7. Las ventas aumentaron un 45%."
+                        </blockquote>
+                        <div class="rating" aria-label="Calificación 5 de 5 estrellas">★★★★★</div>
+                    </article>
+
+                    <article class="testimonial-card" role="listitem">
+                        <div class="testimonial-header">
+                            <div class="testimonial-avatar" aria-hidden="true">CS</div>
+                            <div class="testimonial-info">
+                                <h4>Carlos Sánchez</h4>
+                                <p>CEO - Electronics Solutions MX</p>
+                            </div>
+                        </div>
+                        <blockquote class="testimonial-text">
+                            "Profesionalismo de primer nivel. Entendieron perfectamente nuestras necesidades técnicas y entregaron una solución que superó nuestras expectativas."
+                        </blockquote>
+                        <div class="rating" aria-label="Calificación 5 de 5 estrellas">★★★★★</div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Form Section -->
+        <section class="section contact-form-section" aria-labelledby="contact-title">
+            <div class="container">
+                <h2 id="contact-title" class="section-title">Solicita Información Personalizada</h2>
+                <p class="section-subtitle">Cuéntanos sobre tu proyecto y te contactaremos en menos de 24 horas</p>
+                
+                <form id="contact-form" class="form-grid" novalidate>
+                    <div class="form-group">
+                        <label for="name">Nombre completo *</label>
+                        <input type="text" id="name" name="name" required aria-required="true" autocomplete="name">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="company">Empresa *</label>
+                        <input type="text" id="company" name="company" required aria-required="true" autocomplete="organization">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email corporativo *</label>
+                        <input type="email" id="email" name="email" required aria-required="true" autocomplete="email">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Teléfono *</label>
+                        <input type="tel" id="phone" name="phone" required aria-required="true" autocomplete="tel">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="industry">Industria</label>
+                        <select id="industry" name="industry">
+                            <option value="">Selecciona una opción</option>
+                            <option value="electronica">Fabricación de Electrónica</option>
+                            <option value="pcb">Manufactura de PCBs</option>
+                            <option value="automotriz">Sector Automotriz</option>
+                            <option value="integrador">Integrador de Sistemas</option>
+                            <option value="distribuidor">Distribuidor de Componentes</option>
+                            <option value="otro">Otro</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="service">Servicio de interés</label>
+                        <select id="service" name="service">
+                            <option value="">Selecciona una opción</option>
+                            <option value="web">Página Web Industrial</option>
+                            <option value="ecommerce">E-commerce Especializado</option>
+                            <option value="crm">CRM / Sistema de Gestión</option>
+                            <option value="integracion">Integración de Sistemas</option>
+                            <option value="app">Aplicación Web</option>
+                            <option value="marketing">Marketing Digital</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label for="message">Cuéntanos sobre tu proyecto *</label>
+                        <textarea id="message" name="message" required aria-required="true" placeholder="Describe brevemente qué necesitas y cuáles son tus objetivos..."></textarea>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <button type="submit" class="submit-button">Enviar Solicitud</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <!-- CTA Final Section -->
+        <section class="cta-section" aria-labelledby="cta-title">
+            <div class="container">
+                <h2 id="cta-title">¿Listo para Llevar tu Empresa Electrónica al Siguiente Nivel?</h2>
+                <p>Agenda una consultoría gratuita y descubre cómo podemos transformar tu presencia digital en el sector industrial y automotriz.</p>
+                <a href="https://wa.me/523326225912?text=Hola,%20quiero%20agendar%20una%20consultoría%20Premium%20para%20mi%20empresa%20de%20electrónica" 
+                   class="cta-button"
+                   aria-label="Agendar consultoría gratuita por WhatsApp">
+                    Agendar Consultoría Gratuita
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- El pie de página (© 2026 OSDEMS, enlaces, etc.) va en el footer global del sitio/WordPress; aquí no se incluye. -->
+
+    <!-- JavaScript Electronics Premium (inline para evitar 404 en WordPress) -->
+    <script id="electronics-premium-js">
+(function(){'use strict';
+function Carousel(container){this.container=container;this.wrapper=container.querySelector('.carousel-wrapper');this.carousel=container.querySelector('.carousel');this.cards=container.querySelectorAll('.project-card');this.prevButton=container.querySelector('.carousel-prev');this.nextButton=container.querySelector('.carousel-next');this.indicatorsContainer=container.querySelector('.carousel-indicators');this.indicators=[];this.currentIndex=0;this.cardWidth=0;this.visibleCards=1;this.totalPages=this.cards.length?Math.ceil(this.cards.length/1):0;this.init();}
+Carousel.prototype.init=function(){this.buildIndicators();this.updateCardWidth();this.attachEventListeners();this.updateIndicators();var self=this;if(document.readyState==='complete')setTimeout(function(){self.refreshSlidePosition();},100);else window.addEventListener('load',function(){setTimeout(function(){self.refreshSlidePosition();},100);});window.addEventListener('resize',this.debounce(function(){self.visibleCards=1;self.totalPages=Math.ceil(self.cards.length/1);self.updateCardWidth();self.goToSlide(self.currentIndex);},250));};
+Carousel.prototype.refreshSlidePosition=function(){this.updateCardWidth();this.goToSlide(this.currentIndex);this.updateIndicators();};
+Carousel.prototype.buildIndicators=function(){if(!this.indicatorsContainer||this.totalPages<=0)return;this.indicatorsContainer.innerHTML='';this.indicators=[];for(var i=0;i<this.totalPages;i++){var btn=document.createElement('button');btn.type='button';btn.className='carousel-indicator'+(i===0?' active':'');btn.setAttribute('role','tab');btn.setAttribute('aria-label','Ir a diapositiva '+(i+1));btn.setAttribute('aria-selected',i===0?'true':'false');this.indicatorsContainer.appendChild(btn);this.indicators.push(btn);}};
+Carousel.prototype.updateCardWidth=function(){if(this.wrapper&&this.wrapper.clientWidth>0)this.cardWidth=this.wrapper.clientWidth;else if(this.cards.length>0)this.cardWidth=this.cards[0].offsetWidth;};
+Carousel.prototype.attachEventListeners=function(){var self=this;if(this.prevButton)this.prevButton.addEventListener('click',function(){self.prev();});if(this.nextButton)this.nextButton.addEventListener('click',function(){self.next();});this.indicators.forEach(function(ind,idx){ind.addEventListener('click',function(){self.goToSlide(idx);});});this.container.addEventListener('keydown',function(evt){if(evt.key==='ArrowLeft')self.prev();else if(evt.key==='ArrowRight')self.next();});var touchStartX=0,touchEndX=0;this.carousel.addEventListener('touchstart',function(evt){touchStartX=evt.changedTouches[0].screenX;},{passive:true});this.carousel.addEventListener('touchend',function(evt){touchEndX=evt.changedTouches[0].screenX;if(Math.abs(touchStartX-touchEndX)>50)self[(touchStartX-touchEndX)>0?'next':'prev']();},{passive:true});};
+Carousel.prototype.goToSlide=function(index){this.currentIndex=index;var offset=-this.currentIndex*this.cardWidth*this.visibleCards;this.carousel.style.transform='translateX('+offset+'px)';this.updateIndicators();};
+Carousel.prototype.prev=function(){var nextIndex=this.currentIndex>0?this.currentIndex-1:this.totalPages-1;this.goToSlide(nextIndex);};
+Carousel.prototype.next=function(){var nextIndex=this.currentIndex<this.totalPages-1?this.currentIndex+1:0;this.goToSlide(nextIndex);};
+Carousel.prototype.updateIndicators=function(){var self=this;this.indicators.forEach(function(indicator,index){indicator.classList.toggle('active',index===self.currentIndex);indicator.setAttribute('aria-selected',index===self.currentIndex?'true':'false');indicator.setAttribute('aria-label','Ir a diapositiva '+(index+1));});};
+Carousel.prototype.debounce=function(callback,wait){var timeoutId;return function(){var self=this,args=arguments;var later=function(){clearTimeout(timeoutId);callback.apply(self,args);};clearTimeout(timeoutId);timeoutId=setTimeout(later,wait);};};
+function ContactForm(form){var that=this;this.form=form;var inputs=form.querySelectorAll('input,textarea,select');this.form.addEventListener('submit',function(evt){evt.preventDefault();var valid=true;inputs.forEach(function(inp){if(!that.validateField(inp))valid=false;});if(!valid)return;var submitBtn=form.querySelector('.submit-button');var orig=submitBtn.textContent;submitBtn.textContent='Enviando...';submitBtn.disabled=true;setTimeout(function(){submitBtn.textContent=orig;submitBtn.disabled=false;form.reset();var msg=document.createElement('div');msg.className='form-message success';msg.textContent='Gracias. Te contactaremos pronto.';msg.style.cssText='background:rgba(0,212,255,0.1);border:1px solid #00d4ff;color:#00d4ff;padding:1rem;border-radius:0.5rem;margin-bottom:1rem;text-align:center;';form.insertBefore(msg,form.firstChild);setTimeout(function(){msg.remove();},5000);},1500);});inputs.forEach(function(inp){inp.addEventListener('blur',function(){that.validateField(inp);});});}
+ContactForm.prototype.validateField=function(field){var value=field.value.trim(),isValid=true,msg='';if(field.hasAttribute('required')&&!value){isValid=false;msg='Obligatorio';}else if(field.type==='email'&&value&&!/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(value)){isValid=false;msg='Email no válido';}var err=field.parentElement.querySelector('.field-error');if(err)err.remove();if(!isValid){field.setAttribute('aria-invalid','true');field.style.borderColor='#ff4444';var span=document.createElement('span');span.className='field-error';span.textContent=msg;span.style.cssText='color:#ff4444;font-size:0.875rem;margin-top:0.25rem;display:block;';field.parentElement.appendChild(span);}else{field.removeAttribute('aria-invalid');field.style.borderColor='';}return isValid;};
+function initSmoothScroll(){document.querySelectorAll('a[href^="#"]').forEach(function(anchor){anchor.addEventListener('click',function(evt){var href=this.getAttribute('href');if(href==='#')return;evt.preventDefault();var target=document.querySelector(href);if(target){target.scrollIntoView({behavior:'smooth',block:'start'});target.focus();if(!target.hasAttribute('tabindex'))target.setAttribute('tabindex','-1');}});});}
+function initHeroCarousel(){var wrap=document.getElementById('hero-carousel-wrap');if(!wrap)return;var track=document.getElementById('hero-carousel-track');var dotsContainer=document.getElementById('hero-carousel-dots');var prevBtn=document.getElementById('hero-carousel-prev');var nextBtn=document.getElementById('hero-carousel-next');var slides=track?track.querySelectorAll('.hero-carousel-slide'):[];var total=slides.length;if(total===0)return;var current=0;var autoplayInterval;function goTo(idx){current=(idx%total+total)%total;if(track)track.style.transform='translateX(-'+current*100+'%)';if(dotsContainer){var dots=dotsContainer.querySelectorAll('.hero-carousel-dot');dots.forEach(function(d,i){d.classList.toggle('active',i===current);d.setAttribute('aria-selected',i===current?'true':'false');});}}
+function buildDots(){if(!dotsContainer)return;dotsContainer.innerHTML='';for(var i=0;i<total;i++){var dot=document.createElement('button');dot.type='button';dot.className='hero-carousel-dot'+(i===0?' active':'');dot.setAttribute('role','tab');dot.setAttribute('aria-label','Ir a imagen '+(i+1));dot.setAttribute('aria-selected',i===0?'true':'false');dot.addEventListener('click',function(){var idx=parseInt(this.getAttribute('data-idx'),10);if(!isNaN(idx)){goTo(idx);resetAutoplay();}});dot.setAttribute('data-idx',i);dotsContainer.appendChild(dot);}}
+function startAutoplay(){stopAutoplay();autoplayInterval=setInterval(function(){goTo(current+1);},4500);}
+function stopAutoplay(){if(autoplayInterval){clearInterval(autoplayInterval);autoplayInterval=null;}}
+function resetAutoplay(){startAutoplay();}
+buildDots();goTo(0);startAutoplay();if(prevBtn)prevBtn.addEventListener('click',function(){goTo(current-1);resetAutoplay();});if(nextBtn)nextBtn.addEventListener('click',function(){goTo(current+1);resetAutoplay();});wrap.addEventListener('mouseenter',stopAutoplay);wrap.addEventListener('mouseleave',startAutoplay);}
+document.addEventListener('DOMContentLoaded',function(){initHeroCarousel();var carouselContainer=document.querySelector('.carousel-container');if(carouselContainer)new Carousel(carouselContainer);var contactForm=document.querySelector('#contact-form');if(contactForm)new ContactForm(contactForm);initSmoothScroll();});
+})();
+    </script>
+</body>
+</html>

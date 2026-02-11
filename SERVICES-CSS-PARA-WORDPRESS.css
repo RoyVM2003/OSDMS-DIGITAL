@@ -1,0 +1,1396 @@
+/*
+  SERVICES - Estilos para WordPress/Elementor
+  Anade este CSS en Apariencia, Personalizar, CSS adicional; o en widget HTML con etiqueta style.
+*/
+
+.elementor-widget-html .services-wp,
+body .services-wp {
+    --services-primary: #6C63FF;
+    --services-accent: #36D1DC;
+    --services-text-muted: #a0a0c0;
+    --services-transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+}
+
+/* Fondos fijos por seccion (evitar que se muevan o se intercambien en Elementor) */
+section.hero-section.services-wp,
+.hero-section.services-wp {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+}
+section.industries-section.services-wp,
+.industries-section.services-wp {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+}
+section.tabs-system.services-wp,
+.tabs-system.services-wp {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+}
+section.portfolio-section.services-wp,
+.portfolio-section.services-wp {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+@keyframes gradientShift {
+    0%   { background-position: 0% 50%; }
+    50%  { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+@keyframes fadeUp {
+    to { opacity: 1; transform: translateY(0); }
+}
+@keyframes rotateCube {
+    0%   { transform: rotateX(0) rotateY(0) rotateZ(0); }
+    100% { transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg); }
+}
+@keyframes cubeFaceGlow {
+    0%, 100% { box-shadow: 0 0 25px rgba(0, 212, 255, 0.4), 0 0 50px rgba(108, 99, 255, 0.2), inset 0 0 40px rgba(0, 212, 255, 0.06), inset 0 1px 0 rgba(255, 255, 255, 0.08); }
+    50% { box-shadow: 0 0 35px rgba(0, 212, 255, 0.5), 0 0 60px rgba(108, 99, 255, 0.3), inset 0 0 50px rgba(0, 212, 255, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.1); }
+}
+@keyframes cubeIconShift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+@keyframes textGlow {
+    0% { text-shadow: 0 0 15px rgba(0, 212, 255, 0.5), 0 0 30px rgba(0, 212, 255, 0.3); }
+    100% { text-shadow: 0 0 25px rgba(0, 212, 255, 0.8), 0 0 50px rgba(0, 212, 255, 0.4), 0 0 70px rgba(54, 209, 220, 0.3); }
+}
+
+/* ========== FONDO GLOBAL ========== */
+/* El fondo de toda la página es la capa fija #services-cyber-bg (gradiente + patrón). Las secciones son transparentes. */
+
+/* ========== HERO (transparente; título iluminado tipo Transformación Digital Integral) ========== */
+.hero-section.services-wp {
+    min-height: 85vh !important;
+    display: flex !important;
+    align-items: center !important;
+    padding: 120px 3% 80px 3% !important;
+    position: relative !important;
+    overflow: hidden !important;
+    background: transparent !important;
+}
+
+.hero-section.services-wp .hero-bg-pattern {
+    position: absolute !important;
+    top: 0; left: 0; width: 100%; height: 100% !important;
+    background: none !important;
+    pointer-events: none !important;
+    z-index: 0 !important;
+}
+
+.hero-section.services-wp .hero-title br { display: block !important; }
+
+.hero-section.services-wp .hero-title.hero-title-typewriter {
+    display: block !important;
+    text-align: center !important;
+    min-height: 1.3em !important;
+}
+.hero-section.services-wp .hero-title-typewriter #hero-typewriter-text {
+    display: inline-block !important;
+    text-align: left !important;
+}
+.hero-section.services-wp .hero-title .highlight {
+    color: var(--services-accent) !important;
+    -webkit-background-clip: unset !important;
+    background-clip: unset !important;
+    text-shadow: 0 0 20px rgba(54, 209, 220, 0.6) !important;
+}
+.hero-section.services-wp .hero-title-typewriter .hero-typewriter-cursor {
+    display: inline-block !important;
+    font-weight: 300 !important;
+    opacity: 1 !important;
+    animation: hero-cursor-blink 0.9s step-end infinite !important;
+}
+.hero-section.services-wp .hero-title-typewriter .hero-typewriter-cursor-done {
+    animation: hero-cursor-blink 0.9s step-end infinite !important;
+}
+@keyframes hero-cursor-blink {
+    0%, 50% { opacity: 1 !important; }
+    51%, 100% { opacity: 0 !important; }
+}
+
+.hero-section.services-wp .hero-section-inner {
+    width: 100% !important;
+    max-width: 1400px !important;
+    margin: 0 auto !important;
+    position: relative !important;
+    z-index: 1 !important;
+    padding-left: 1.5% !important;
+}
+
+.hero-section.services-wp .hero-title {
+    text-align: left !important;
+    margin-bottom: 2rem !important;
+    font-size: clamp(2rem, 5vw, 4.2rem) !important;
+    line-height: 1.1 !important;
+    font-family: 'Orbitron', sans-serif !important;
+    text-transform: uppercase !important;
+    letter-spacing: 2px !important;
+    background: linear-gradient(90deg, #ffffff, #00d4ff, #00ff9d, #b967ff) !important;
+    background-size: 300% 100% !important;
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
+    color: transparent !important;
+    animation: gradientShift 5s ease infinite, textGlow 3s ease-in-out infinite alternate !important;
+    text-shadow: 0 0 20px rgba(0, 212, 255, 0.5) !important;
+}
+
+/* En pantallas pequeñas mantenemos el título centrado para mejor legibilidad */
+@media (max-width: 768px) {
+    .hero-section.services-wp .hero-title {
+        text-align: center !important;
+    }
+}
+
+.hero-section.services-wp .hero-grid {
+    display: grid !important;
+    grid-template-columns: 1.2fr 0.9fr !important;
+    gap: 3rem !important;
+    align-items: center !important;
+}
+
+.hero-section.services-wp .hero-content-left { text-align: left !important; }
+
+.hero-section.services-wp .hero-subtitle {
+    font-size: clamp(1rem, 1.8vw, 1.4rem) !important;
+    line-height: 1.65 !important;
+    margin-bottom: 2rem !important;
+    color: rgba(255, 255, 255, 0.88) !important;
+}
+
+.hero-section.services-wp .hero-stats {
+    display: flex !important;
+    gap: 1.5rem !important;
+    margin-top: 2rem !important;
+    flex-wrap: wrap !important;
+}
+
+.hero-section.services-wp .stat-item {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 1.25rem 1.75rem !important;
+    background: rgba(255, 255, 255, 0.05) !important;
+    border-radius: 20px !important;
+    min-width: 140px !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    transition: var(--services-transition) !important;
+}
+
+.hero-section.services-wp .stat-item:hover {
+    transform: translateY(-8px) !important;
+    border-color: rgba(108, 99, 255, 0.4) !important;
+    box-shadow: 0 15px 35px rgba(108, 99, 255, 0.2) !important;
+}
+
+.hero-section.services-wp .stat-number {
+    font-size: clamp(1.75rem, 3vw, 2.5rem) !important;
+    font-weight: 800 !important;
+    color: #00d4ff !important;
+    margin-bottom: 0.4rem !important;
+    text-shadow: 0 0 20px rgba(0, 212, 255, 0.7) !important;
+}
+
+.hero-section.services-wp .stat-label {
+    font-size: 0.9rem !important;
+    color: rgba(255, 255, 255, 0.75) !important;
+    text-align: center !important;
+}
+
+.hero-section.services-wp .hero-visual {
+    position: relative !important;
+    height: 360px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    perspective: 1200px !important;
+}
+
+.hero-section.services-wp .cyber-cube {
+    position: relative !important;
+    width: 260px !important;
+    height: 260px !important;
+    transform-style: preserve-3d !important;
+    animation: rotateCube 20s infinite linear !important;
+}
+
+.hero-section.services-wp .cube-face {
+    position: absolute !important;
+    width: 260px !important;
+    height: 260px !important;
+    left: 0; top: 0;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 3.2rem !important;
+    border-radius: 12px !important;
+    background: linear-gradient(135deg, rgba(0, 212, 255, 0.12) 0%, rgba(108, 99, 255, 0.08) 50%, rgba(185, 103, 255, 0.06) 100%) !important;
+    border: 1px solid rgba(0, 212, 255, 0.5) !important;
+    animation: cubeFaceGlow 4s ease-in-out infinite !important;
+}
+
+.hero-section.services-wp .cube-face i {
+    background: linear-gradient(135deg, var(--services-accent), var(--services-primary)) !important;
+    background-size: 200% 200% !important;
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
+    color: transparent !important;
+    animation: cubeIconShift 5s ease infinite !important;
+}
+
+.hero-section.services-wp .cube-face.front { transform: translateZ(130px) !important; }
+.hero-section.services-wp .cube-face.back { transform: rotateY(180deg) translateZ(130px) !important; }
+.hero-section.services-wp .cube-face.right { transform: rotateY(90deg) translateZ(130px) !important; }
+.hero-section.services-wp .cube-face.left { transform: rotateY(-90deg) translateZ(130px) !important; }
+.hero-section.services-wp .cube-face.top { transform: rotateX(90deg) translateZ(130px) !important; }
+.hero-section.services-wp .cube-face.bottom { transform: rotateX(-90deg) translateZ(130px) !important; }
+
+@media (max-width: 1024px) {
+    .hero-section.services-wp .hero-grid { grid-template-columns: 1fr !important; gap: 2.5rem !important; }
+    .hero-section.services-wp .hero-visual { height: 280px !important; order: -1 !important; }
+    .hero-section.services-wp .cyber-cube { width: 200px !important; height: 200px !important; }
+    .hero-section.services-wp .cube-face { width: 200px !important; height: 200px !important; font-size: 2.5rem !important; }
+    .hero-section.services-wp .cube-face.front { transform: translateZ(100px) !important; }
+    .hero-section.services-wp .cube-face.back { transform: rotateY(180deg) translateZ(100px) !important; }
+    .hero-section.services-wp .cube-face.right { transform: rotateY(90deg) translateZ(100px) !important; }
+    .hero-section.services-wp .cube-face.left { transform: rotateY(-90deg) translateZ(100px) !important; }
+    .hero-section.services-wp .cube-face.top { transform: rotateX(90deg) translateZ(100px) !important; }
+    .hero-section.services-wp .cube-face.bottom { transform: rotateX(-90deg) translateZ(100px) !important; }
+}
+
+@media (max-width: 768px) {
+    .hero-section.services-wp { padding: 90px 4% 60px !important; min-height: auto !important; }
+    .hero-section.services-wp .hero-visual { height: 220px !important; }
+    .hero-section.services-wp .cyber-cube { width: 160px !important; height: 160px !important; }
+    .hero-section.services-wp .cube-face { width: 160px !important; height: 160px !important; font-size: 2rem !important; }
+    .hero-section.services-wp .cube-face.front { transform: translateZ(80px) !important; }
+    .hero-section.services-wp .cube-face.back { transform: rotateY(180deg) translateZ(80px) !important; }
+    .hero-section.services-wp .cube-face.right { transform: rotateY(90deg) translateZ(80px) !important; }
+    .hero-section.services-wp .cube-face.left { transform: rotateY(-90deg) translateZ(80px) !important; }
+    .hero-section.services-wp .cube-face.top { transform: rotateX(90deg) translateZ(80px) !important; }
+    .hero-section.services-wp .cube-face.bottom { transform: rotateX(-90deg) translateZ(80px) !important; }
+    .hero-section.services-wp .stat-item { min-width: calc(50% - 0.5rem) !important; }
+}
+
+/* ========== INDUSTRIAS (transparente; mismo fondo que toda la página) ========== */
+.industries-section.services-wp {
+    padding: 4rem 5% 8rem !important;
+    text-align: center !important;
+    position: relative !important;
+    background: transparent !important;
+    overflow: hidden !important;
+    min-height: 950px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+}
+
+.industries-section.services-wp .industries-desktop-wrap {
+    display: block !important;
+}
+
+.industries-section.services-wp .industry-counter-large {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+    padding: 0.5rem 1.25rem !important;
+    background: rgba(108, 99, 255, 0.2) !important;
+    border: 1px solid rgba(108, 99, 255, 0.4) !important;
+    border-radius: 999px !important;
+    color: #fff !important;
+    font-size: 1rem !important;
+    font-weight: 600 !important;
+    margin-bottom: 2rem !important;
+    position: relative !important;
+    z-index: 10 !important;
+}
+
+.industries-section.services-wp .industry-counter-large i {
+    color: var(--services-accent) !important;
+}
+
+.industries-section.services-wp .section-title {
+    text-align: center !important;
+    margin-top: 0 !important;
+    margin-bottom: 6rem !important;
+    font-size: clamp(1.8rem, 4vw, 2.8rem) !important;
+    color: #fff !important;
+    position: relative !important;
+    z-index: 10 !important;
+}
+
+.industries-section.services-wp .section-title span {
+    color: var(--services-accent) !important;
+    text-shadow: 0 0 15px rgba(54, 209, 220, 0.5) !important;
+}
+
+/* ----- Carrusel stack: una al frente, dos atrás a los lados ----- */
+.industries-section.services-wp.industries-stack-carousel {
+    min-height: auto !important;
+    padding: 4rem 5% 5rem !important;
+}
+.industries-section.services-wp .industries-stack-wrap {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 1rem !important;
+    max-width: 1100px !important;
+    margin: 0 auto !important;
+    position: relative !important;
+}
+.industries-section.services-wp .stack-carousel-btn {
+    flex-shrink: 0 !important;
+    width: 52px !important;
+    height: 52px !important;
+    border-radius: 50% !important;
+    background: linear-gradient(135deg, var(--services-primary), var(--services-accent)) !important;
+    border: 2px solid rgba(255, 255, 255, 0.2) !important;
+    color: #fff !important;
+    font-size: 1.1rem !important;
+    cursor: pointer !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    transition: var(--services-transition) !important;
+    box-shadow: 0 10px 30px rgba(108, 99, 255, 0.4) !important;
+}
+.industries-section.services-wp .stack-carousel-btn:hover {
+    transform: scale(1.1) !important;
+    box-shadow: 0 15px 40px rgba(108, 99, 255, 0.5) !important;
+}
+.industries-section.services-wp .industries-stack-viewport {
+    flex: 1 !important;
+    min-width: 0 !important;
+    overflow: hidden !important;
+    perspective: 1400px !important;
+    padding: 2rem 0 !important;
+}
+.industries-section.services-wp .industries-stack-track {
+    width: 100% !important;
+    height: 420px !important;
+    min-height: 420px !important;
+    position: relative !important;
+    transform-style: preserve-3d !important;
+}
+.industries-section.services-wp .industry-stack-card {
+    position: absolute !important;
+    left: 50% !important;
+    top: 50% !important;
+    margin-left: -140px !important;
+    margin-top: -190px !important;
+    width: 280px !important;
+    max-width: 85vw !important;
+    border-radius: 20px !important;
+    overflow: hidden !important;
+    background: linear-gradient(135deg, rgba(26, 26, 46, 0.98) 0%, rgba(40, 40, 60, 0.98) 100%) !important;
+    border: 2px solid rgba(108, 99, 255, 0.3) !important;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4) !important;
+    cursor: pointer !important;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease, box-shadow 0.4s ease, border-color 0.35s ease !important;
+    transform-style: preserve-3d !important;
+}
+/* Fallback: si el JS no ha corrido, mostrar la primera tarjeta */
+.industries-section.services-wp .industry-stack-card:not(.stack-prev):not(.stack-current):not(.stack-next):not(.stack-hidden) {
+    opacity: 0 !important;
+    pointer-events: none !important;
+    transform: translateX(-9999px) scale(0.5) !important;
+    z-index: 0 !important;
+}
+.industries-section.services-wp .industry-stack-card:not(.stack-prev):not(.stack-current):not(.stack-next):not(.stack-hidden):first-of-type {
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    transform: translateZ(0) scale(1) !important;
+    z-index: 10 !important;
+}
+.industries-section.services-wp .industry-stack-card.stack-prev {
+    transform: translateX(-320px) translateZ(-140px) scale(0.82) !important;
+    z-index: 2 !important;
+    opacity: 0.85 !important;
+    pointer-events: auto !important;
+}
+.industries-section.services-wp .industry-stack-card.stack-current {
+    transform: translateZ(0) scale(1) !important;
+    z-index: 10 !important;
+    opacity: 1 !important;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5), 0 0 50px rgba(108, 99, 255, 0.25), 0 0 30px rgba(54, 209, 220, 0.2) !important;
+    border-color: rgba(108, 99, 255, 0.6) !important;
+}
+.industries-section.services-wp .industry-stack-card.stack-current .industry-stack-cover::after {
+    content: '' !important;
+    position: absolute !important;
+    inset: 0 !important;
+    background: linear-gradient(180deg, transparent 40%, rgba(26, 26, 46, 0.4) 100%) !important;
+    pointer-events: none !important;
+}
+.industries-section.services-wp .industry-stack-card.stack-next {
+    transform: translateX(320px) translateZ(-140px) scale(0.82) !important;
+    z-index: 2 !important;
+    opacity: 0.85 !important;
+    pointer-events: auto !important;
+}
+.industries-section.services-wp .industry-stack-card.stack-hidden {
+    opacity: 0 !important;
+    pointer-events: none !important;
+    transform: translateX(-9999px) translateZ(-300px) scale(0.5) !important;
+    z-index: 0 !important;
+}
+.industries-section.services-wp .industry-stack-card:hover {
+    border-color: rgba(108, 99, 255, 0.5) !important;
+}
+.industries-section.services-wp .industry-stack-card.stack-current:hover {
+    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.5), 0 0 60px rgba(54, 209, 220, 0.3) !important;
+}
+.industries-section.services-wp .industry-stack-cover {
+    position: relative !important;
+    width: 100% !important;
+    height: 280px !important;
+    min-height: 200px !important;
+    overflow: hidden !important;
+    display: block !important;
+    background: rgba(26, 26, 46, 0.9) !important;
+}
+.industries-section.services-wp .industry-stack-cover img {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    display: block !important;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+.industries-section.services-wp .industry-stack-card.stack-current .industry-stack-cover img {
+    transform: scale(1.05) !important;
+}
+.industries-section.services-wp .industry-stack-info {
+    padding: 1.25rem 1rem !important;
+    text-align: center !important;
+}
+.industries-section.services-wp .industry-stack-info h3 {
+    color: #fff !important;
+    font-size: 1.1rem !important;
+    font-weight: 700 !important;
+    margin: 0 0 0.4rem 0 !important;
+}
+.industries-section.services-wp .industry-stack-info p {
+    color: rgba(255, 255, 255, 0.75) !important;
+    font-size: 0.9rem !important;
+    line-height: 1.4 !important;
+    margin: 0 !important;
+}
+.industries-section.services-wp .stack-carousel-dots {
+    display: flex !important;
+    justify-content: center !important;
+    gap: 0.5rem !important;
+    margin-top: 1.5rem !important;
+}
+.industries-section.services-wp .stack-carousel-dots .stack-dot {
+    width: 10px !important;
+    height: 10px !important;
+    border-radius: 50% !important;
+    background: rgba(255, 255, 255, 0.3) !important;
+    border: none !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+}
+.industries-section.services-wp .stack-carousel-dots .stack-dot.active {
+    background: linear-gradient(135deg, var(--services-primary), var(--services-accent)) !important;
+    transform: scale(1.3) !important;
+    box-shadow: 0 0 15px var(--services-accent) !important;
+}
+@media (max-width: 900px) {
+    .industries-section.services-wp .industry-stack-card { width: 240px !important; margin-left: -120px !important; margin-top: -170px !important; }
+    .industries-section.services-wp .industry-stack-card.stack-prev { transform: translateX(-260px) translateZ(-120px) scale(0.8) !important; }
+    .industries-section.services-wp .industry-stack-card.stack-next { transform: translateX(260px) translateZ(-120px) scale(0.8) !important; }
+}
+@media (max-width: 600px) {
+    .industries-section.services-wp .industries-stack-wrap { flex-direction: column !important; gap: 0.5rem !important; }
+    .industries-section.services-wp .stack-carousel-btn { width: 44px !important; height: 44px !important; font-size: 0.95rem !important; }
+    .industries-section.services-wp .industry-stack-card { width: 260px !important; margin-left: -130px !important; margin-top: -175px !important; }
+    .industries-section.services-wp .industry-stack-card.stack-prev { transform: translateX(-180px) translateZ(-100px) scale(0.75) !important; }
+    .industries-section.services-wp .industry-stack-card.stack-next { transform: translateX(180px) translateZ(-100px) scale(0.75) !important; }
+}
+
+.industries-section.services-wp .carousel-container {
+    position: relative !important;
+    width: 100% !important;
+    max-width: 1200px !important;
+    height: 780px !important;
+    margin: 0 auto !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    perspective: 1500px !important;
+}
+
+.industries-section.services-wp .earth-aura {
+    position: absolute !important;
+    width: 280px !important;
+    height: 280px !important;
+    margin-left: -140px !important;
+    margin-top: -140px !important;
+    border-radius: 50% !important;
+    background: radial-gradient(circle at center, rgba(54, 209, 220, 0.1) 0%, rgba(54, 209, 220, 0.05) 40%, transparent 70%) !important;
+    animation: auraPulse 4s ease-in-out infinite !important;
+    z-index: 4 !important;
+}
+
+@keyframes auraPulse {
+    0%, 100% { transform: scale(1); opacity: 0.5; }
+    50% { transform: scale(1.1); opacity: 0.8; }
+}
+
+.industries-section.services-wp .earth-center {
+    position: absolute !important;
+    width: 220px !important;
+    height: 220px !important;
+    border-radius: 50% !important;
+    background: url('https://images.unsplash.com/photo-1614730321146-b6fa6a46bcb4?w=600&h=600&fit=crop') center/cover !important;
+    box-shadow: 0 0 60px rgba(54, 209, 220, 0.6), inset 0 0 50px rgba(0, 0, 0, 0.9) !important;
+    z-index: 5 !important;
+    animation: earthSpin 40s linear infinite !important;
+}
+
+@keyframes earthSpin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.industries-section.services-wp .orbit-path {
+    position: absolute !important;
+    width: 780px !important;
+    height: 780px !important;
+    border-radius: 50% !important;
+    border: 1px solid rgba(54, 209, 220, 0.15) !important;
+    animation: orbitRotate 80s linear infinite !important;
+}
+
+@keyframes orbitRotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.industries-section.services-wp .industry-card-wrapper {
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform-origin: center center !important;
+    width: 240px !important;
+    height: 300px !important;
+    margin-left: -120px !important;
+    margin-top: -150px !important;
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    opacity: 0 !important;
+    animation: cardAppear 0.8s forwards !important;
+    animation-delay: calc(var(--card-index) * 0.1s) !important;
+}
+
+@keyframes cardAppear {
+    to { opacity: 1; }
+}
+
+.industries-section.services-wp .industry-card-large {
+    width: 100% !important;
+    height: 100% !important;
+    position: relative !important;
+    border-radius: 25px !important;
+    overflow: hidden !important;
+    background: linear-gradient(135deg, rgba(26, 26, 46, 0.95) 0%, rgba(40, 40, 60, 0.95) 100%) !important;
+    backdrop-filter: blur(20px) !important;
+    border: 2px solid rgba(108, 99, 255, 0.3) !important;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 10px 30px rgba(108, 99, 255, 0.4) !important;
+    cursor: pointer !important;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.industries-section.services-wp .industry-image-large {
+    width: 100% !important;
+    height: 65% !important;
+    min-height: 180px !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    position: relative !important;
+    overflow: hidden !important;
+    display: block !important;
+}
+
+.industries-section.services-wp .industry-image-large .industry-card-img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    display: block !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+}
+
+.industries-section.services-wp .industry-image-large::after {
+    content: '' !important;
+    position: absolute !important;
+    top: 0; left: 0; right: 0; bottom: 0 !important;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.4) 100%) !important;
+    z-index: 1 !important;
+}
+
+.industries-section.services-wp .industry-content {
+    padding: 25px !important;
+    height: 35% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    text-align: center !important;
+    background: linear-gradient(to bottom, rgba(26, 26, 46, 0.9) 0%, rgba(20, 20, 35, 0.95) 100%) !important;
+}
+
+.industries-section.services-wp .industry-name-large {
+    color: #fff !important;
+    font-size: 18px !important;
+    font-weight: 700 !important;
+    margin: 0 0 10px 0 !important;
+}
+
+.industries-section.services-wp .industry-description {
+    color: rgba(255, 255, 255, 0.8) !important;
+    font-size: 13px !important;
+    line-height: 1.5 !important;
+}
+
+.industries-section.services-wp .industry-card-wrapper.active .industry-card-large {
+    border-color: rgba(108, 99, 255, 0.6) !important;
+    box-shadow: 0 35px 70px rgba(108, 99, 255, 0.5), 0 0 100px rgba(54, 209, 220, 0.7) !important;
+}
+
+.industries-section.services-wp .industry-card-wrapper.active .industry-image-large {
+    filter: brightness(1.3) saturate(1.2) !important;
+}
+
+.industries-section.services-wp .carousel-controls-large {
+    position: absolute !important;
+    top: 50% !important;
+    right: 20px !important;
+    transform: translateY(-50%) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 20px !important;
+    z-index: 200 !important;
+}
+
+.industries-section.services-wp .control-btn-large {
+    width: 52px !important;
+    height: 52px !important;
+    border-radius: 50% !important;
+    background: linear-gradient(135deg, var(--services-primary), var(--services-accent)) !important;
+    border: 2px solid rgba(255, 255, 255, 0.2) !important;
+    color: #fff !important;
+    font-size: 18px !important;
+    cursor: pointer !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    transition: all 0.4s ease !important;
+    box-shadow: 0 15px 30px rgba(108, 99, 255, 0.5) !important;
+}
+
+.industries-section.services-wp .control-btn-large:hover {
+    transform: scale(1.15) !important;
+    box-shadow: 0 20px 40px rgba(108, 99, 255, 0.7) !important;
+}
+
+.industries-section.services-wp .position-indicators {
+    position: absolute !important;
+    top: 50% !important;
+    right: 20px !important;
+    transform: translateY(90px) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 8px !important;
+    z-index: 200 !important;
+}
+
+.industries-section.services-wp .position-dot {
+    width: 12px !important;
+    height: 12px !important;
+    border-radius: 50% !important;
+    background: rgba(255, 255, 255, 0.2) !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+}
+
+.industries-section.services-wp .position-dot.active {
+    background: var(--services-accent) !important;
+    transform: scale(1.4) !important;
+    box-shadow: 0 0 20px var(--services-accent) !important;
+}
+
+.industries-section.services-wp .industry-counter-large {
+    position: absolute !important;
+    top: 30px !important;
+    right: 20px !important;
+    z-index: 200 !important;
+    background: linear-gradient(135deg, rgba(108, 99, 255, 0.2), rgba(54, 209, 220, 0.2)) !important;
+    padding: 15px 25px !important;
+    border-radius: 40px !important;
+    color: var(--services-accent) !important;
+    font-size: 16px !important;
+    font-weight: 700 !important;
+    border: 1px solid rgba(54, 209, 220, 0.4) !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+}
+
+.industries-section.services-wp .orbit-particles-large {
+    position: absolute !important;
+    width: 100% !important;
+    height: 100% !important;
+    pointer-events: none !important;
+}
+
+.industries-section.services-wp .orbit-particle-large {
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    width: 6px !important;
+    height: 6px !important;
+    border-radius: 50% !important;
+    background: linear-gradient(135deg, var(--services-primary), var(--services-accent)) !important;
+    opacity: 0.6 !important;
+    animation: particleOrbit 25s linear infinite !important;
+    animation-delay: calc(var(--particle-index) * -0.5s) !important;
+}
+
+@keyframes particleOrbit {
+    0% { transform: rotate(0deg) translateX(360px) rotate(0deg); opacity: 0.3; }
+    100% { transform: rotate(360deg) translateX(360px) rotate(-360deg); opacity: 0.3; }
+}
+
+.industries-section.services-wp .star-field {
+    position: absolute !important;
+    width: 100% !important;
+    height: 100% !important;
+    pointer-events: none !important;
+}
+
+.industries-section.services-wp .star {
+    position: absolute !important;
+    width: 2px !important;
+    height: 2px !important;
+    background: #fff !important;
+    border-radius: 50% !important;
+    animation: starTwinkle 3s infinite alternate !important;
+}
+
+@keyframes starTwinkle {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 1; }
+}
+
+.industries-section.services-wp .light-rays {
+    position: absolute !important;
+    width: 100% !important;
+    height: 100% !important;
+    pointer-events: none !important;
+    opacity: 0.3 !important;
+}
+
+.industries-section.services-wp .light-ray {
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    width: 1px !important;
+    height: 900px !important;
+    background: linear-gradient(to bottom, transparent 0%, rgba(54, 209, 220, 0.6) 15%, rgba(108, 99, 255, 0.4) 50%, transparent 100%) !important;
+    transform-origin: 0 0 !important;
+    animation: rayRotate 30s linear infinite !important;
+}
+
+@keyframes rayRotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Industrias móvil */
+.industries-section.services-wp .industries-mobile-carousel {
+    display: none !important;
+}
+
+.industries-section.services-wp .industries-mobile-viewport {
+    width: 100% !important;
+    overflow: hidden !important;
+    border-radius: 20px !important;
+}
+
+.industries-section.services-wp .industries-mobile-track {
+    display: flex !important;
+    transition: transform 0.4s ease !important;
+}
+
+.industries-section.services-wp .industries-mobile-card {
+    flex: 0 0 100% !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+.industries-section.services-wp .industries-mobile-card-img {
+    width: 100% !important;
+    height: 180px !important;
+    position: relative !important;
+    overflow: hidden !important;
+    display: block !important;
+}
+
+.industries-section.services-wp .industries-mobile-card-img .industry-mobile-img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    display: block !important;
+}
+
+.industries-section.services-wp .industries-mobile-viewport {
+    width: 100% !important;
+    overflow: hidden !important;
+    border-radius: 20px !important;
+}
+
+.industries-section.services-wp .industries-mobile-track {
+    display: flex !important;
+    transition: transform 0.4s ease !important;
+    will-change: transform !important;
+}
+
+.industries-section.services-wp .industries-mobile-card {
+    flex: 0 0 100% !important;
+    width: 100% !important;
+    padding: 0 0.5rem !important;
+}
+
+.industries-section.services-wp .industries-mobile-card-inner {
+    background: linear-gradient(135deg, rgba(26, 26, 46, 0.98) 0%, rgba(40, 40, 60, 0.98) 100%) !important;
+    border-radius: 20px !important;
+    overflow: hidden !important;
+    border: 1px solid rgba(108, 99, 255, 0.3) !important;
+}
+
+.industries-section.services-wp .industries-mobile-card-img {
+    width: 100% !important;
+    height: 180px !important;
+    background-size: cover !important;
+    background-position: center !important;
+}
+
+.industries-section.services-wp .industries-mobile-card-body {
+    padding: 1.25rem 1rem !important;
+    text-align: center !important;
+}
+
+.industries-section.services-wp .industries-mobile-card-body h3 {
+    color: #fff !important;
+    font-size: 1.15rem !important;
+    margin: 0 0 0.5rem 0 !important;
+}
+
+.industries-section.services-wp .industries-mobile-card-body p {
+    color: rgba(255, 255, 255, 0.85) !important;
+    font-size: 0.9rem !important;
+    margin: 0 !important;
+}
+
+.industries-section.services-wp .industries-mobile-counter {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+    margin-bottom: 1rem !important;
+    color: var(--services-accent) !important;
+    font-weight: 700 !important;
+}
+
+.industries-section.services-wp .industries-mobile-controls {
+    display: flex !important;
+    justify-content: center !important;
+    gap: 1rem !important;
+    margin-top: 1rem !important;
+}
+
+.industries-section.services-wp .industries-mobile-btn {
+    width: 48px !important;
+    height: 48px !important;
+    border-radius: 50% !important;
+    background: linear-gradient(135deg, var(--services-primary), var(--services-accent)) !important;
+    color: #fff !important;
+    border: none !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    cursor: pointer !important;
+}
+
+.industries-section.services-wp .industries-mobile-dots {
+    display: flex !important;
+    justify-content: center !important;
+    gap: 0.5rem !important;
+    margin-top: 1rem !important;
+}
+
+.industries-section.services-wp .industries-mobile-dot {
+    width: 10px !important;
+    height: 10px !important;
+    border-radius: 50% !important;
+    background: rgba(255, 255, 255, 0.3) !important;
+    border: none !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+}
+
+.industries-section.services-wp .industries-mobile-dot.active {
+    background: linear-gradient(135deg, var(--services-primary), var(--services-accent)) !important;
+    transform: scale(1.2) !important;
+}
+
+@media (max-width: 768px) {
+    .industries-section.services-wp { min-height: 520px !important; padding: 3rem 5% 4rem !important; }
+    .industries-section.services-wp .industries-desktop-wrap { display: none !important; }
+    .industries-section.services-wp .industries-mobile-carousel { display: block !important; }
+    .industries-section.services-wp .carousel-container { height: 560px !important; }
+}
+
+/* ========== PESTAÑAS SOLUCIONES (transparente; mismo fondo que toda la página) ========== */
+.tabs-system.services-wp {
+    padding: 120px 0 !important;
+    background: transparent !important;
+}
+
+.tabs-system.services-wp .section-title {
+    text-align: center !important;
+    font-size: 3.2rem !important;
+    margin-bottom: 70px !important;
+    color: var(--soluciones-light, #f8f9fa) !important;
+    font-weight: 800 !important;
+    font-family: 'Orbitron', sans-serif !important;
+    text-transform: uppercase !important;
+    letter-spacing: 2px !important;
+    position: relative !important;
+}
+
+.tabs-system.services-wp .section-title span {
+    color: var(--soluciones-cyan, #00d4ff) !important;
+    position: relative !important;
+}
+
+.tabs-system.services-wp .section-title span::after {
+    content: '' !important;
+    position: absolute !important;
+    bottom: -10px !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 4px !important;
+    background: linear-gradient(90deg, var(--soluciones-cyan, #00d4ff), transparent) !important;
+    border-radius: 2px !important;
+}
+
+.tabs-system.services-wp .section-subtitle {
+    text-align: center !important;
+    font-size: 1.5rem !important;
+    margin-bottom: 70px !important;
+    color: rgba(255, 255, 255, 0.9) !important;
+    max-width: 900px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+.tabs-system.services-wp .tabs-container { max-width: 1200px !important; margin: 0 auto !important; }
+
+.tabs-system.services-wp .tabs-header {
+    display: flex !important;
+    justify-content: center !important;
+    flex-wrap: nowrap !important;
+    gap: 16px !important;
+    margin-bottom: 60px !important;
+}
+
+.tabs-system.services-wp .tab-button {
+    padding: 16px 28px !important;
+    background: rgba(255, 255, 255, 0.05) !important;
+    border: 2px solid rgba(255, 255, 255, 0.1) !important;
+    border-radius: 15px !important;
+    color: var(--soluciones-light, #f8f9fa) !important;
+    font-weight: 600 !important;
+    font-size: 1rem !important;
+    cursor: pointer !important;
+    transition: var(--services-transition) !important;
+    display: flex !important;
+    align-items: center !important;
+    min-width: 0 !important;
+    flex: 0 1 auto !important;
+    white-space: nowrap !important;
+}
+
+.tabs-system.services-wp .tab-button i { margin-right: 15px !important; font-size: 1.5rem !important; }
+
+.tabs-system.services-wp .tab-button:hover {
+    background: rgba(0, 212, 255, 0.1) !important;
+    border-color: var(--soluciones-cyan, #00d4ff) !important;
+    transform: translateY(-5px) !important;
+    box-shadow: 0 0 25px rgba(0, 212, 255, 0.4), 0 0 50px rgba(0, 212, 255, 0.2) !important;
+}
+
+.tabs-system.services-wp .tab-button.active {
+    background: rgba(0, 212, 255, 0.2) !important;
+    border-color: var(--soluciones-cyan, #00d4ff) !important;
+    box-shadow: 0 10px 30px rgba(0, 212, 255, 0.3) !important;
+    color: var(--soluciones-cyan, #00d4ff) !important;
+}
+
+.tabs-system.services-wp .tab-content { display: none !important; }
+.tabs-system.services-wp .tab-content.active { display: block !important; }
+
+.tabs-system.services-wp .industry-card.soluciones-industry-card {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border-radius: 20px !important;
+    padding: 40px 30px !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    transition: var(--services-transition) !important;
+}
+
+.tabs-system.services-wp .industry-card.soluciones-industry-card:hover {
+    box-shadow: 0 0 30px rgba(0, 212, 255, 0.25), 0 0 60px rgba(0, 212, 255, 0.15) !important;
+    border-color: rgba(0, 212, 255, 0.4) !important;
+}
+
+.tabs-system.services-wp .industry-card.soluciones-industry-card h3,
+.tabs-system.services-wp .industry-card.soluciones-industry-card p {
+    color: #fff !important;
+}
+
+.tabs-system.services-wp .industry-card.soluciones-industry-card .industry-features li {
+    color: rgba(255, 255, 255, 0.9) !important;
+}
+
+.tabs-system.services-wp .industry-features {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.tabs-system.services-wp .industry-features li {
+    padding-left: 30px !important;
+    position: relative !important;
+    margin-bottom: 12px !important;
+    color: rgba(255, 255, 255, 0.7) !important;
+}
+
+.tabs-system.services-wp .industry-features li::before {
+    content: '\25B8' !important;
+    position: absolute !important;
+    left: 0 !important;
+    color: var(--soluciones-cyan, #00d4ff) !important;
+}
+
+.tabs-system.services-wp .btn-soluciones-cta {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+    background: linear-gradient(90deg, var(--soluciones-cyan, #00d4ff), var(--soluciones-success, #22c55e)) !important;
+    color: #fff !important;
+    font-weight: 700 !important;
+    border: none !important;
+    border-radius: 12px !important;
+    text-decoration: none !important;
+    padding: 16px 32px !important;
+    transition: var(--services-transition) !important;
+}
+
+.tabs-system.services-wp .btn-soluciones-cta:hover {
+    transform: translateY(-3px) !important;
+    box-shadow: 0 15px 40px rgba(0, 212, 255, 0.4) !important;
+}
+
+@media (max-width: 992px) {
+    .tabs-system.services-wp .tabs-header { flex-wrap: wrap !important; justify-content: center !important; }
+}
+
+@media (max-width: 768px) {
+    .tabs-system.services-wp { padding: 80px 0 !important; }
+    .tabs-system.services-wp .section-title { font-size: 2.2rem !important; margin-bottom: 40px !important; }
+    .tabs-system.services-wp .section-subtitle { font-size: 1.2rem !important; margin-bottom: 40px !important; }
+    .tabs-system.services-wp .tab-button { min-width: 140px !important; padding: 12px 16px !important; font-size: 0.9rem !important; }
+}
+
+/* ========== PORTAFOLIO (transparente; mismo fondo que toda la página) ========== */
+.portfolio-section.services-wp {
+    padding: 5rem 5% !important;
+    position: relative !important;
+    background: transparent !important;
+}
+
+.portfolio-section.services-wp .section-title {
+    text-align: center !important;
+    margin-bottom: 1rem !important;
+    font-size: clamp(1.8rem, 4vw, 2.5rem) !important;
+    color: #fff !important;
+}
+
+.portfolio-section.services-wp .section-title span { color: var(--services-accent) !important; }
+
+.portfolio-section.services-wp .portfolio-subtitle {
+    text-align: center !important;
+    color: var(--services-text-muted) !important;
+    max-width: 700px !important;
+    margin: 0 auto 3rem !important;
+    font-size: 1.1rem !important;
+}
+
+.portfolio-section.services-wp .portfolio-grid {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)) !important;
+    gap: 2rem !important;
+    max-width: 1400px !important;
+    margin: 0 auto !important;
+}
+
+.portfolio-section.services-wp .portfolio-card {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border-radius: 20px !important;
+    padding: 2rem !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    transition: var(--services-transition) !important;
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+    animation: fadeUp 0.8s ease forwards !important;
+    animation-delay: calc(var(--delay, 1) * 0.1s) !important;
+    visibility: visible !important;
+}
+
+.portfolio-section.services-wp .portfolio-grid {
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+.portfolio-section.services-wp .portfolio-card:hover {
+    transform: translateY(-8px) !important;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25) !important;
+    border-color: rgba(108, 99, 255, 0.25) !important;
+}
+
+.portfolio-section.services-wp .card-icon {
+    width: 64px !important;
+    height: 64px !important;
+    background: linear-gradient(135deg, var(--services-primary), var(--services-accent)) !important;
+    border-radius: 14px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin-bottom: 1.25rem !important;
+    font-size: 1.6rem !important;
+    color: #fff !important;
+}
+
+.portfolio-section.services-wp .card-title {
+    font-size: 1.25rem !important;
+    margin-bottom: 0.75rem !important;
+    color: #fff !important;
+    font-weight: 700 !important;
+}
+
+.portfolio-section.services-wp .card-description {
+    color: rgba(255, 255, 255, 0.75) !important;
+    margin-bottom: 1.25rem !important;
+    line-height: 1.6 !important;
+    font-size: 0.95rem !important;
+}
+
+.portfolio-section.services-wp .benefits-list {
+    list-style: none !important;
+    margin-bottom: 1.25rem !important;
+    padding: 0 !important;
+}
+
+.portfolio-section.services-wp .benefits-list li {
+    padding: 0.35rem 0 !important;
+    padding-left: 1.5rem !important;
+    position: relative !important;
+    color: rgba(255, 255, 255, 0.85) !important;
+    font-size: 0.95rem !important;
+}
+
+.portfolio-section.services-wp .benefits-list li::before {
+    content: '\2713' !important;
+    position: absolute !important;
+    left: 0 !important;
+    color: var(--services-accent) !important;
+    font-weight: bold !important;
+}
+
+.portfolio-section.services-wp .impact-tag {
+    display: block !important;
+    padding: 0.5rem 0.75rem !important;
+    background: rgba(108, 99, 255, 0.15) !important;
+    border-left: 4px solid var(--services-accent) !important;
+    border-radius: 4px !important;
+    color: var(--services-accent) !important;
+    font-weight: 600 !important;
+    font-size: 0.9rem !important;
+    margin-top: 0.5rem !important;
+}
+
+/* ========== ECOSISTEMA (transparente; mismo fondo; solo borde para destacar) ========== */
+.portfolio-section.services-wp .services-ecosystem {
+    margin-top: 4rem !important;
+    padding: 3rem 2rem !important;
+    border-radius: 24px !important;
+    background: transparent !important;
+    border: 1px solid rgba(108, 99, 255, 0.2) !important;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    gap: 2.5rem !important;
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+.portfolio-section.services-wp .services-ecosystem::before {
+    display: none !important;
+}
+
+.services-ecosystem-content {
+    flex: 1 1 320px !important;
+    min-width: 0 !important;
+    text-align: left !important;
+}
+
+.services-ecosystem-tag {
+    display: inline-block !important;
+    font-size: 0.85rem !important;
+    font-weight: 600 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.15em !important;
+    color: var(--services-accent) !important;
+    margin-bottom: 0.75rem !important;
+}
+
+.services-ecosystem-title {
+    font-size: clamp(1.5rem, 3.5vw, 2.2rem) !important;
+    font-weight: 700 !important;
+    color: #fff !important;
+    margin-bottom: 1rem !important;
+}
+
+.services-ecosystem-title span {
+    background: linear-gradient(90deg, var(--services-accent), var(--services-primary)) !important;
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
+    color: transparent !important;
+}
+
+.services-ecosystem-desc {
+    max-width: 520px !important;
+    margin-bottom: 1.75rem !important;
+    color: var(--services-text-muted) !important;
+    font-size: 1.05rem !important;
+    line-height: 1.6 !important;
+}
+
+.services-ecosystem-cta {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 1rem !important;
+}
+
+.btn-ecosystem {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+    padding: 0.9rem 1.75rem !important;
+    border-radius: 50px !important;
+    font-weight: 600 !important;
+    font-size: 1rem !important;
+    text-decoration: none !important;
+    transition: var(--services-transition) !important;
+    background: linear-gradient(135deg, #25D366, #128C7E) !important;
+    color: #fff !important;
+    border: none !important;
+}
+
+.btn-ecosystem:hover {
+    transform: translateY(-3px) !important;
+    box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4) !important;
+}
+
+.btn-ecosystem-alt {
+    background: transparent !important;
+    color: var(--services-accent) !important;
+    border: 2px solid var(--services-accent) !important;
+}
+
+.btn-ecosystem-alt:hover {
+    background: rgba(54, 209, 220, 0.15) !important;
+}
+
+.eco-diagram {
+    position: relative !important;
+    flex: 0 0 auto !important;
+    width: 100% !important;
+    max-width: 340px !important;
+    aspect-ratio: 1 !important;
+    margin-left: auto !important;
+}
+
+.eco-lines { position: absolute !important; top: 0 !important; left: 0 !important; width: 100% !important; height: 100% !important; }
+
+.eco-path-base { stroke: rgba(54, 209, 220, 0.35) !important; stroke-width: 1.5 !important; }
+
+/* Línea que recorre el hexágono: destello animado por JS (stroke-dashoffset) */
+.eco-path-glow,
+.portfolio-section.services-wp .eco-path-glow,
+.services-ecosystem .eco-path-glow {
+    stroke: var(--services-accent) !important;
+    stroke-width: 3 !important;
+    stroke-linecap: round !important;
+    fill: none !important;
+    filter: drop-shadow(0 0 10px rgba(54, 209, 220, 0.9)) !important;
+}
+
+@keyframes ecoGlowTravel {
+    0% { stroke-dashoffset: 0; }
+    100% { stroke-dashoffset: -1200; }
+}
+
+.eco-node {
+    position: absolute !important;
+    width: 52px !important;
+    height: 52px !important;
+    margin-left: -26px !important;
+    margin-top: -26px !important;
+    border-radius: 14px !important;
+    background: rgba(26, 26, 46, 0.95) !important;
+    border: 1px solid rgba(108, 99, 255, 0.4) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 1.25rem !important;
+    color: var(--services-accent) !important;
+    z-index: 2 !important;
+}
+
+.eco-node-1 { left: 80% !important; top: 50% !important; }
+.eco-node-2 { left: 65% !important; top: 24% !important; }
+.eco-node-3 { left: 35% !important; top: 24% !important; }
+.eco-node-4 { left: 20% !important; top: 50% !important; }
+.eco-node-5 { left: 35% !important; top: 76% !important; }
+.eco-node-6 { left: 65% !important; top: 76% !important; }
+
+@media (max-width: 768px) {
+    .portfolio-section.services-wp .services-ecosystem { flex-direction: column !important; text-align: center !important; }
+    .services-ecosystem-content { text-align: center !important; }
+    .services-ecosystem-desc { margin-left: auto !important; margin-right: auto !important; }
+    .services-ecosystem-cta { justify-content: center !important; }
+    .eco-diagram { margin-left: auto !important; margin-right: auto !important; }
+}

@@ -1,0 +1,1014 @@
+/*
+  AGENTIVAS + CONVERSIÓN WEB - Estilos para WordPress/Elementor
+  Alcance: .exp-page-wp (igual que experiencias.html con clase experiencias-page)
+  Carga este archivo en la página o embebe su contenido en una etiqueta style dentro del HTML.
+*/
+
+/* Variables y contenedor (usar dentro de .exp-page-wp) */
+.exp-page-wp {
+    --primary-color: #6C63FF;
+    --secondary-color: #FF6584;
+    --accent-color: #36D1DC;
+    --text: #f7f7ff;
+    --text-muted: #a0a0c0;
+    --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+    padding-top: 0;
+    box-sizing: border-box;
+    color: var(--text);
+}
+
+/* WordPress/Elementor: ancho completo y ocultar título de página */
+.exp-page-wp {
+    background: #1a1a2e !important;
+    width: 100vw !important;
+    max-width: 100vw !important;
+    margin-left: calc(-50vw + 50%) !important;
+    margin-right: calc(-50vw + 50%) !important;
+}
+.entry-header, .page-header, .elementor-page-title, body.page h1.entry-title { display: none !important; }
+.elementor-section:has(.exp-page-wp) + .elementor-section {
+    background: #1a1a2e !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    min-height: 0 !important;
+}
+.elementor-widget-html:has(.exp-page-wp), .elementor-element:has(.exp-page-wp) { overflow: visible !important; }
+
+.exp-page-wp .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+
+/* Hero */
+.exp-page-wp .exp-hero {
+    padding: clamp(6rem, 12vw, 10rem) 0 clamp(4rem, 8vw, 6rem);
+    background: linear-gradient(135deg, rgba(108, 99, 255, 0.12) 0%, rgba(54, 209, 220, 0.08) 100%);
+    text-align: center;
+}
+.exp-page-wp .exp-hero-content { max-width: 800px; margin: 0 auto; }
+.exp-page-wp .exp-hero h1 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    margin-bottom: 1rem;
+    background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+.exp-page-wp .exp-hero p {
+    font-size: 1.1rem;
+    color: var(--text);
+    margin-bottom: 1.5rem;
+}
+.exp-page-wp .exp-cta-btn {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: #fff;
+    padding: 0.9rem 1.8rem;
+    border-radius: 999px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transition);
+    margin-bottom: 3rem;
+}
+.exp-page-wp .exp-cta-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(108, 99, 255, 0.35); }
+.exp-page-wp .exp-hero-visual {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    justify-content: center;
+    align-items: stretch;
+    max-width: 960px;
+    margin: 0 auto;
+}
+@media (max-width: 768px) {
+    .exp-page-wp .exp-hero-visual { grid-template-columns: 1fr; }
+}
+.exp-page-wp .exp-visual-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(108, 99, 255, 0.2);
+    border-radius: 16px;
+    padding: 2rem;
+    text-align: center;
+    transition: var(--transition);
+}
+.exp-page-wp .exp-visual-card:hover { transform: translateY(-6px); border-color: var(--accent-color); }
+.exp-page-wp .exp-visual-card i {
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+    color: var(--accent-color);
+}
+.exp-page-wp .exp-visual-card h3 { font-size: 1.15rem; margin-bottom: 0.5rem; }
+.exp-page-wp .exp-visual-card p { font-size: 0.9rem; color: var(--text); }
+
+/* Secciones genéricas */
+.exp-page-wp .exp-section-header { text-align: center; margin-bottom: 3rem; }
+.exp-page-wp .exp-section-header h2 { font-size: clamp(1.75rem, 3vw, 2.4rem); margin-bottom: 0.75rem; color: var(--text) !important; }
+.exp-page-wp .exp-section-header p { color: var(--text); max-width: 700px; margin: 0 auto; }
+.exp-page-wp .exp-grid-2cols {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    align-items: start;
+}
+/* Cuadros "¿Qué es una Experiencia Agentiva?" – más color e interactividad */
+.exp-page-wp .exp-ia-box {
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.02) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+}
+.exp-page-wp .exp-ia-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    border-radius: 20px 0 0 20px;
+    transition: width 0.3s ease, box-shadow 0.3s ease;
+}
+.exp-page-wp .exp-agentiva .exp-grid-2cols .exp-ia-box:first-child {
+    border-left-color: rgba(54, 209, 220, 0.4);
+}
+.exp-page-wp .exp-agentiva .exp-grid-2cols .exp-ia-box:first-child::before {
+    background: linear-gradient(180deg, var(--accent-color), var(--primary-color));
+    box-shadow: 0 0 20px rgba(54, 209, 220, 0.4);
+}
+.exp-page-wp .exp-agentiva .exp-grid-2cols .exp-ia-box:last-child {
+    border-left-color: rgba(108, 99, 255, 0.4);
+}
+.exp-page-wp .exp-agentiva .exp-grid-2cols .exp-ia-box:last-child::before {
+    background: linear-gradient(180deg, var(--primary-color), var(--secondary-color));
+    box-shadow: 0 0 20px rgba(108, 99, 255, 0.4);
+}
+.exp-page-wp .exp-ia-box:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35), 0 0 40px rgba(108, 99, 255, 0.12);
+    border-color: rgba(255, 255, 255, 0.18);
+}
+.exp-page-wp .exp-agentiva .exp-grid-2cols .exp-ia-box:first-child:hover {
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35), 0 0 35px rgba(54, 209, 220, 0.2);
+}
+.exp-page-wp .exp-agentiva .exp-grid-2cols .exp-ia-box:last-child:hover {
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35), 0 0 35px rgba(108, 99, 255, 0.2);
+}
+.exp-page-wp .exp-ia-box:hover::before {
+    width: 6px;
+    box-shadow: 0 0 25px rgba(54, 209, 220, 0.5);
+}
+.exp-page-wp .exp-agentiva .exp-grid-2cols .exp-ia-box:last-child:hover::before {
+    box-shadow: 0 0 25px rgba(108, 99, 255, 0.5);
+}
+.exp-page-wp .exp-ia-box h3 {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    font-size: 1.25rem;
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.85rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+.exp-page-wp .exp-agentiva .exp-grid-2cols .exp-ia-box:first-child h3 {
+    color: var(--accent-color);
+}
+.exp-page-wp .exp-agentiva .exp-grid-2cols .exp-ia-box:first-child h3 i {
+    background: rgba(54, 209, 220, 0.2);
+    color: var(--accent-color);
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 12px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+}
+.exp-page-wp .exp-agentiva .exp-grid-2cols .exp-ia-box:last-child h3 {
+    color: var(--primary-color);
+}
+.exp-page-wp .exp-agentiva .exp-grid-2cols .exp-ia-box:last-child h3 i {
+    background: rgba(108, 99, 255, 0.2);
+    color: var(--primary-color);
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 12px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+}
+.exp-page-wp .exp-ia-box h4 {
+    font-size: 1rem;
+    margin: 1.25rem 0 0.5rem;
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.exp-page-wp .exp-ia-box h4::before {
+    content: '';
+    width: 4px;
+    height: 1em;
+    background: linear-gradient(180deg, var(--primary-color), var(--accent-color));
+    border-radius: 2px;
+}
+.exp-page-wp .exp-ia-box p {
+    color: var(--text);
+    line-height: 1.65;
+    margin-bottom: 0.85rem;
+}
+.exp-page-wp .exp-ia-box p:last-of-type { margin-bottom: 0; }
+.exp-page-wp .exp-feature-list,
+.exp-page-wp .exp-checklist {
+    list-style: none;
+    margin-top: 1.25rem;
+}
+.exp-page-wp .exp-feature-list li,
+.exp-page-wp .exp-checklist li {
+    padding: 0.6rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    color: var(--text) !important;
+}
+.exp-page-wp .exp-agentiva .exp-feature-list li {
+    padding: 0.7rem 0.85rem 0.7rem 0;
+    margin-bottom: 0.5rem;
+    border-radius: 12px;
+    border-bottom: none;
+    border: 1px solid transparent;
+    background: rgba(255, 255, 255, 0.03);
+    transition: background 0.25s ease, border-color 0.25s ease, transform 0.2s ease;
+}
+.exp-page-wp .exp-agentiva .exp-feature-list li:hover {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.08);
+    transform: translateX(4px);
+}
+.exp-page-wp .exp-feature-list li strong,
+.exp-page-wp .exp-checklist li strong { color: var(--text) !important; }
+.exp-page-wp .exp-feature-list li:last-child,
+.exp-page-wp .exp-checklist li:last-child,
+.exp-page-wp .exp-checklist-readable li:last-child { border-bottom: none; margin-bottom: 0; }
+.exp-page-wp .exp-agentiva .exp-feature-list li:last-child { margin-bottom: 0; }
+.exp-page-wp .exp-agentiva .exp-feature-list {
+    text-align: left;
+    padding-left: 0;
+    margin-left: 0;
+}
+.exp-page-wp .exp-agentiva .exp-feature-list i {
+    color: var(--accent-color);
+    flex-shrink: 0;
+}
+.exp-page-wp .exp-agentiva .exp-grid-2cols .exp-ia-box:last-child .exp-feature-list i {
+    color: var(--primary-color);
+}
+.exp-page-wp .exp-checklist i { color: var(--primary-color); }
+.exp-page-wp .exp-text-justify { text-align: justify; }
+.exp-page-wp .exp-grid-justify .exp-ia-box p { text-align: justify; }
+.exp-page-wp .exp-conversion-cols { align-items: start; }
+.exp-page-wp .exp-conversion-box {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    padding: 2rem;
+}
+.exp-page-wp .exp-conversion-box h3 { color: var(--text) !important; }
+.exp-page-wp .exp-checklist-readable {
+    list-style: none;
+    margin-top: 1rem;
+}
+.exp-page-wp .exp-checklist-readable li {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0.35rem 1rem;
+    align-items: start;
+    padding: 0.85rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    line-height: 1.5;
+}
+.exp-page-wp .exp-checklist-readable li i {
+    color: var(--primary-color);
+    margin-top: 0.2rem;
+    grid-column: 1;
+    grid-row: 1 / -1;
+}
+.exp-page-wp .exp-checklist-readable li strong {
+    display: block;
+    margin-bottom: 0.2rem;
+    color: var(--text);
+    grid-column: 2;
+}
+.exp-page-wp .exp-checklist-readable li span {
+    grid-column: 2;
+    color: var(--text);
+    font-size: 0.95rem;
+    text-align: justify;
+}
+.exp-page-wp .exp-benefit-dual {
+    background: rgba(108, 99, 255, 0.1);
+    padding: 1.25rem;
+    border-radius: 12px;
+    margin-top: 1.5rem;
+    border-left: 4px solid var(--primary-color);
+}
+.exp-page-wp .exp-benefit-dual h4 { margin-top: 0; }
+.exp-page-wp .exp-benefit-dual p { font-size: 0.95rem; color: var(--text); margin: 0; }
+
+.exp-page-wp .exp-agentiva,
+.exp-page-wp .exp-conversion { padding: 4rem 0; }
+.exp-page-wp .exp-conversion { background: rgba(0, 0, 0, 0.2); }
+
+/* Demostración de Implementación */
+.exp-page-wp .exp-demo-implementacion {
+    padding: 4rem 0;
+    background: linear-gradient(135deg, rgba(26, 26, 46, 0.98) 0%, rgba(15, 23, 42, 0.98) 100%);
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    color: var(--text);
+}
+.exp-page-wp .exp-demo-impl-header h2 { color: var(--text); }
+.exp-page-wp .exp-demo-impl-header p { color: var(--text); }
+.exp-page-wp .exp-demo-impl-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: start;
+}
+@media (max-width: 900px) {
+    .exp-page-wp .exp-demo-impl-grid { grid-template-columns: 1fr; }
+}
+.exp-page-wp .exp-code-preview {
+    background: #0f3460;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.exp-page-wp .exp-code-preview-header {
+    background: #0d2b4e;
+    padding: 1rem 1.25rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+.exp-page-wp .exp-code-preview-title {
+    font-weight: 600;
+    color: var(--text);
+    font-size: 0.95rem;
+}
+.exp-page-wp .exp-code-preview-title i { color: var(--accent-color); margin-right: 0.5rem; }
+.exp-page-wp .exp-code-dots { display: flex; gap: 8px; }
+.exp-page-wp .exp-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+.exp-page-wp .exp-dot-red { background: #ff5f56; }
+.exp-page-wp .exp-dot-yellow { background: #ffbd2e; }
+.exp-page-wp .exp-dot-green { background: #27c93f; }
+.exp-page-wp .exp-code-preview-content {
+    padding: 1.25rem;
+    font-family: 'Consolas', 'Monaco', monospace;
+    font-size: 0.85rem;
+    line-height: 1.55;
+    max-height: 420px;
+    overflow-y: auto;
+}
+.exp-page-wp .exp-code-line { margin-bottom: 0.25rem; color: #e0e0e0; }
+.exp-page-wp .exp-code-tag { color: #ff79c6; }
+.exp-page-wp .exp-code-attr { color: #50fa7b; }
+.exp-page-wp .exp-code-value { color: #f1fa8c; }
+.exp-page-wp .exp-code-comment { color: #6272a4; }
+.exp-page-wp .exp-demo-impl-explicacion {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 2rem;
+}
+.exp-page-wp .exp-demo-impl-explicacion h3 {
+    font-size: 1.15rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--accent-color);
+}
+.exp-page-wp .exp-demo-impl-explicacion > p {
+    color: var(--text);
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+}
+.exp-page-wp .exp-demo-impl-list {
+    color: var(--text);
+    padding-left: 1.25rem;
+    margin: 0 0 1.5rem;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+.exp-page-wp .exp-demo-impl-list li { margin-bottom: 0.75rem; }
+.exp-page-wp .exp-demo-impl-list li:last-child { margin-bottom: 0; }
+.exp-page-wp .exp-demo-impl-impacto {
+    background: rgba(108, 99, 255, 0.15);
+    padding: 1.25rem;
+    border-radius: 12px;
+    border-left: 4px solid var(--primary-color);
+}
+.exp-page-wp .exp-demo-impl-impacto h4 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.exp-page-wp .exp-demo-impl-impacto h4 i { color: var(--primary-color); }
+.exp-page-wp .exp-demo-impl-impacto p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--text);
+    line-height: 1.5;
+}
+
+/* Arquitectura RAG */
+.exp-page-wp .exp-arch {
+    padding: 4rem 0;
+    background: linear-gradient(180deg, rgba(26, 26, 46, 0.6) 0%, transparent 100%);
+}
+.exp-page-wp .exp-arch-title,
+.exp-page-wp .exp-demo-title,
+.exp-page-wp .exp-steps-title,
+.exp-page-wp .exp-benefits-title {
+    text-align: center;
+    font-size: clamp(1.5rem, 2.5vw, 2.2rem);
+    margin-bottom: 0.5rem;
+    color: var(--text) !important;
+}
+.exp-page-wp .exp-arch-subtitle,
+.exp-page-wp .exp-demo-subtitle,
+.exp-page-wp .exp-steps-subtitle,
+.exp-page-wp .exp-benefits-subtitle {
+    text-align: center;
+    color: var(--text) !important;
+    max-width: 700px;
+    margin: 0 auto 2.5rem;
+}
+.exp-page-wp .exp-arch-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+}
+.exp-page-wp .exp-arch-card {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(54, 209, 220, 0.2);
+    border-radius: 16px;
+    padding: 2rem;
+    transition: var(--transition);
+}
+.exp-page-wp .exp-arch-card:hover { border-color: var(--accent-color); transform: translateY(-4px); }
+.exp-page-wp .exp-arch-icon { font-size: 2rem; color: var(--accent-color); margin-bottom: 1rem; }
+.exp-page-wp .exp-arch-card h3 { font-size: 1.1rem; margin-bottom: 0.75rem; }
+.exp-page-wp .exp-arch-card p { font-size: 0.95rem; color: var(--text); margin: 0; }
+
+/* Demo Chatbot */
+.exp-page-wp .exp-demo {
+    padding: 4rem 0;
+    background: linear-gradient(135deg, rgba(26, 26, 46, 0.95) 0%, rgba(15, 23, 42, 0.98) 100%);
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+.exp-page-wp .exp-chatbot-section {
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 16px;
+    padding: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.exp-page-wp .exp-chatbot-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: start;
+}
+@media (max-width: 900px) {
+    .exp-page-wp .exp-chatbot-container { grid-template-columns: 1fr; }
+}
+@media (max-width: 768px) {
+    .exp-page-wp .exp-chatbot-section { padding: 1rem; }
+    .exp-page-wp .exp-chatbot-container { gap: 1rem; }
+    .exp-page-wp .exp-chat-interface {
+        height: 500px;
+        min-height: 500px;
+        display: flex;
+        flex-direction: column;
+    }
+    .exp-page-wp .exp-chat-header { padding: 0.75rem 1rem; gap: 10px; flex-shrink: 0; }
+    .exp-page-wp .exp-chat-avatar { width: 40px; height: 40px; font-size: 1.2rem; }
+    .exp-page-wp .exp-chat-header h3 { font-size: 0.95rem; }
+    .exp-page-wp .exp-chat-header p { font-size: 0.8rem; }
+    .exp-page-wp .exp-chat-messages {
+        flex: 1;
+        min-height: 0;
+        overflow-y: auto;
+        overflow-x: hidden;
+        padding: 0.85rem 1rem 0.75rem;
+        -webkit-overflow-scrolling: touch;
+        justify-content: flex-start;
+    }
+    .exp-page-wp .exp-message {
+        max-width: 92%;
+        font-size: 0.9rem;
+        padding: 0.7rem 1rem;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        word-break: break-word;
+    }
+    .exp-page-wp .exp-chat-input-area {
+        padding: 0.6rem 1rem 0.75rem;
+        gap: 8px;
+        flex-shrink: 0;
+        flex-wrap: nowrap;
+        min-height: 56px;
+        align-items: center;
+    }
+    .exp-page-wp .exp-chat-input {
+        padding: 0.6rem 1rem;
+        font-size: 16px;
+        min-height: 44px;
+        min-width: 0;
+        flex: 1;
+        width: 100%;
+        box-sizing: border-box;
+    }
+    .exp-page-wp .exp-send-btn {
+        width: 44px;
+        height: 44px;
+        font-size: 1rem;
+        flex-shrink: 0;
+    }
+    .exp-page-wp .exp-suggestions { padding: 0 1rem 0.75rem; gap: 6px; flex-shrink: 0; }
+    .exp-page-wp .exp-suggestion-chip { padding: 0.45rem 0.85rem; font-size: 0.8rem; }
+}
+@media (max-width: 480px) {
+    .exp-page-wp .exp-chat-interface { height: 450px; min-height: 450px; }
+    .exp-page-wp .exp-chat-messages { padding: 0.75rem 0.75rem 0.6rem; }
+    .exp-page-wp .exp-chat-input { font-size: 16px; min-height: 42px; }
+    .exp-page-wp .exp-chat-input::placeholder { opacity: 0.9; }
+    .exp-page-wp .exp-send-btn { width: 42px; height: 42px; }
+}
+.exp-page-wp .exp-chat-interface {
+    background: rgba(15, 23, 42, 0.95);
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+.exp-page-wp .exp-chat-header {
+    background: rgba(108, 99, 255, 0.1);
+    padding: 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.exp-page-wp .exp-chat-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: #fff;
+    flex-shrink: 0;
+}
+.exp-page-wp .exp-chat-header h3 { font-size: 1.2rem; margin: 0; }
+.exp-page-wp .exp-chat-header p { font-size: 0.85rem; color: var(--text); margin: 0; }
+.exp-page-wp .exp-suggestions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 0 1.5rem 1.5rem;
+}
+.exp-page-wp .exp-suggestion-chip {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--text);
+    padding: 0.6rem 1.2rem;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: var(--transition);
+}
+.exp-page-wp .exp-suggestion-chip:hover {
+    background: rgba(108, 99, 255, 0.2);
+    color: var(--text);
+    border-color: var(--primary-color);
+}
+.exp-page-wp .exp-chat-messages {
+    flex: 1;
+    padding: 1.25rem;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    justify-content: flex-start;
+}
+.exp-page-wp .exp-message {
+    max-width: 85%;
+    padding: 0.9rem 1.1rem;
+    border-radius: 18px;
+    line-height: 1.5;
+    font-size: 0.95rem;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    color: var(--text) !important;
+}
+.exp-page-wp .exp-message strong { color: var(--text) !important; }
+.exp-page-wp .exp-message-bot {
+    background: rgba(108, 99, 255, 0.15);
+    border-bottom-left-radius: 6px;
+    align-self: flex-start;
+    border: 1px solid rgba(108, 99, 255, 0.25);
+}
+.exp-page-wp .exp-message-user {
+    background: rgba(255, 255, 255, 0.1);
+    border-bottom-right-radius: 6px;
+    align-self: flex-end;
+}
+.exp-page-wp .exp-message-system {
+    background: rgba(245, 158, 11, 0.12);
+    border: 1px solid rgba(245, 158, 11, 0.25);
+    align-self: center;
+    text-align: center;
+    font-size: 0.85rem;
+}
+.exp-page-wp .exp-chat-input-area {
+    padding: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    gap: 12px;
+}
+.exp-page-wp .exp-chat-input {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 999px;
+    padding: 0.85rem 1.25rem;
+    color: var(--text);
+    font-size: 1rem;
+}
+.exp-page-wp .exp-chat-input:focus {
+    outline: none;
+    border-color: var(--accent-color);
+}
+.exp-page-wp .exp-send-btn {
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 55px;
+    height: 55px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    transition: var(--transition);
+}
+.exp-page-wp .exp-send-btn:hover { transform: scale(1.05); box-shadow: 0 5px 15px rgba(108, 99, 255, 0.4); }
+.exp-page-wp .exp-chat-info {
+    background: rgba(255, 255, 255, 0.04);
+    border-radius: 16px;
+    padding: 2.5rem;
+    height: 600px;
+    overflow-y: auto;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.exp-page-wp .exp-info-tabs {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1.25rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 0.75rem;
+}
+.exp-page-wp .exp-tab-btn {
+    background: transparent;
+    border: none;
+    color: var(--text);
+    padding: 0.6rem 1.2rem;
+    border-radius: 999px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: var(--transition);
+}
+.exp-page-wp .exp-tab-btn.active {
+    background: rgba(108, 99, 255, 0.2);
+    color: var(--primary-color);
+}
+.exp-page-wp .exp-tab-content { display: none; }
+.exp-page-wp .exp-tab-content.active { display: block; }
+.exp-page-wp .exp-tab-content h4 { font-size: 1rem; margin-bottom: 1.5rem; color: var(--primary-color); }
+.exp-page-wp .exp-tab-content > p { color: var(--text); font-size: 0.95rem; margin-bottom: 1.5rem; }
+.exp-page-wp .exp-tab-block { margin-bottom: 2rem; }
+.exp-page-wp .exp-tab-block h5 { color: var(--accent-color); margin-bottom: 0.8rem; font-size: 0.95rem; display: flex; align-items: center; gap: 0.5rem; }
+.exp-page-wp .exp-tab-block h5 i { color: var(--primary-color); }
+.exp-page-wp .exp-tab-block p { color: var(--text); font-size: 0.95rem; margin: 0; }
+.exp-page-wp .exp-benefit-item {
+    display: flex;
+    gap: 15px;
+    align-items: flex-start;
+    margin-bottom: 1.5rem;
+}
+.exp-page-wp .exp-benefit-icon {
+    background: rgba(16, 185, 129, 0.15);
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #10b981;
+    flex-shrink: 0;
+}
+.exp-page-wp .exp-benefit-icon-pink { background: rgba(255, 101, 132, 0.15); color: var(--secondary-color); }
+.exp-page-wp .exp-benefit-icon-cyan { background: rgba(54, 209, 220, 0.15); color: var(--accent-color); }
+.exp-page-wp .exp-benefit-item h5 { margin-bottom: 0.3rem; font-size: 0.95rem; }
+.exp-page-wp .exp-benefit-item p { color: var(--text); font-size: 0.9rem; margin: 0; }
+.exp-page-wp .exp-tab-content ol,
+.exp-page-wp .exp-tab-content ul { color: var(--text); font-size: 0.95rem; margin: 0.5rem 0 1rem; padding-left: 1.25rem; }
+.exp-page-wp .exp-rag-info {
+    background: rgba(108, 99, 255, 0.1);
+    padding: 1.2rem;
+    border-radius: 10px;
+    margin-top: 1rem;
+    border-left: 4px solid var(--primary-color);
+}
+.exp-page-wp .exp-rag-info h5 { font-size: 0.95rem; margin-bottom: 0.5rem; color: var(--primary-color); display: flex; align-items: center; gap: 0.5rem; }
+.exp-page-wp .exp-rag-info p { margin: 0; font-size: 0.9rem; color: var(--text); }
+.exp-page-wp .exp-rag-info ul { margin: 0.5rem 0 0; padding-left: 1.2rem; }
+.exp-page-wp .exp-tab-content pre {
+    background: rgba(0, 0, 0, 0.35);
+    padding: 1rem;
+    border-radius: 10px;
+    font-size: 0.8rem;
+    overflow: auto;
+    margin: 0.5rem 0 0;
+    color: var(--text);
+}
+.exp-page-wp .exp-stats-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+.exp-page-wp .exp-stat-box {
+    background: rgba(108, 99, 255, 0.08);
+    padding: 1rem;
+    border-radius: 12px;
+    text-align: center;
+}
+.exp-page-wp .exp-stat-value { display: block; font-size: 1.5rem; font-weight: 700; color: var(--accent-color); }
+.exp-page-wp .exp-stat-box span:last-child { font-size: 0.85rem; color: var(--text); }
+.exp-page-wp .exp-chat-note {
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--text);
+    margin-top: 1.5rem;
+}
+
+/* Implementación Paso a Paso */
+.exp-page-wp .exp-steps,
+.exp-page-wp .exp-benefits { padding: 4rem 0; }
+.exp-page-wp .exp-steps-title {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 1rem;
+    color: var(--text);
+}
+.exp-page-wp .exp-steps-subtitle {
+    text-align: center;
+    color: var(--text);
+    max-width: 700px;
+    margin: 0 auto 3rem;
+}
+@media (max-width: 768px) {
+    .exp-page-wp .exp-steps-title { font-size: 2rem; }
+}
+.exp-page-wp .exp-steps-grid-2x3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+@media (max-width: 992px) {
+    .exp-page-wp .exp-steps-grid-2x3 { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 576px) {
+    .exp-page-wp .exp-steps-grid-2x3 { grid-template-columns: 1fr; }
+}
+.exp-page-wp .exp-step-card-box {
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text);
+    border-radius: 16px;
+    padding: 2rem;
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.exp-page-wp .exp-step-card-box:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent-color);
+}
+.exp-page-wp .exp-step-badge {
+    position: absolute;
+    top: -15px;
+    left: -15px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #fff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+.exp-page-wp .exp-step-card-box h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    color: #f8fafc;
+    padding-right: 1.5rem;
+    font-weight: 700;
+}
+.exp-page-wp .exp-step-card-box > p {
+    font-size: 0.9rem;
+    color: #cbd5e1;
+    margin-bottom: 1rem;
+    line-height: 1.45;
+}
+.exp-page-wp .exp-step-code {
+    background: rgba(0, 0, 0, 0.3);
+    color: #f8fafc;
+    padding: 1rem;
+    border-radius: 8px;
+    font-family: 'JetBrains Mono', 'Consolas', monospace;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin: 0;
+    overflow-x: auto;
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+
+/* Beneficios – 6 tarjetas */
+.exp-page-wp .exp-benefits-grid-6 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+}
+@media (max-width: 1100px) {
+    .exp-page-wp .exp-benefits-grid-6 { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 768px) {
+    .exp-page-wp .exp-benefits-grid-6 { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 480px) {
+    .exp-page-wp .exp-benefits-grid-6 { grid-template-columns: 1fr; }
+}
+.exp-page-wp .exp-benefit-card-v2 {
+    background: rgba(30, 41, 59, 0.6);
+    border-radius: 20px;
+    padding: 2rem;
+    border: 1px solid rgba(59, 130, 246, 0.4);
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.08);
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+    min-height: 220px;
+}
+.exp-page-wp .exp-benefit-card-v2:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 28px rgba(59, 130, 246, 0.15);
+    border-color: rgba(59, 130, 246, 0.5);
+}
+.exp-page-wp .exp-benefit-card-v2 h3 {
+    font-size: 1.05rem;
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text);
+    font-weight: 700;
+}
+.exp-page-wp .exp-benefit-card-v2 h3 i { font-size: 1.2rem; }
+.exp-page-wp .exp-benefit-green h3 i { color: #10b981; }
+.exp-page-wp .exp-benefit-blue h3 i { color: #3b82f6; }
+.exp-page-wp .exp-benefit-orange h3 i { color: #f59e0b; }
+.exp-page-wp .exp-benefit-purple h3 i { color: #8b5cf6; }
+.exp-page-wp .exp-benefit-red h3 i { color: #ef4444; }
+.exp-page-wp .exp-benefit-green2 h3 i { color: #10b981; }
+.exp-page-wp .exp-benefit-card-v2 > p {
+    font-size: 0.9rem;
+    color: var(--text);
+    line-height: 1.55;
+    margin-bottom: 1.25rem;
+}
+.exp-page-wp .exp-benefit-metric {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: auto;
+    padding-top: 0.75rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+.exp-page-wp .exp-metric-label {
+    font-size: 0.9rem;
+    color: var(--text);
+}
+.exp-page-wp .exp-metric-value {
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+.exp-page-wp .exp-benefit-green .exp-metric-value { color: #10b981; }
+.exp-page-wp .exp-benefit-blue .exp-metric-value { color: #3b82f6; }
+.exp-page-wp .exp-benefit-orange .exp-metric-value { color: #f59e0b; }
+.exp-page-wp .exp-benefit-purple .exp-metric-value { color: #8b5cf6; }
+.exp-page-wp .exp-benefit-red .exp-metric-value { color: #ef4444; }
+.exp-page-wp .exp-benefit-green2 .exp-metric-value { color: #10b981; }
+.exp-page-wp .exp-benefit-card-v2 .exp-metric-value small { font-size: 0.85em; font-weight: 600; }
+
+/* Formulario */
+.exp-page-wp .exp-form-section {
+    padding: 4rem 0;
+    background: rgba(0, 0, 0, 0.2);
+}
+.exp-page-wp .exp-form-container {
+    max-width: 720px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    padding: 2.5rem;
+}
+.exp-page-wp .exp-form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+}
+@media (max-width: 600px) {
+    .exp-page-wp .exp-form-row { grid-template-columns: 1fr; }
+}
+.exp-page-wp .exp-form-group { margin-bottom: 1.25rem; }
+.exp-page-wp .exp-form-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: var(--text);
+}
+.exp-page-wp .exp-form-input,
+.exp-page-wp .exp-form-textarea {
+    width: 100%;
+    padding: 0.9rem 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text);
+    font-size: 1rem;
+}
+.exp-page-wp .exp-form-input:focus,
+.exp-page-wp .exp-form-textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+.exp-page-wp .exp-form-feedback { font-size: 0.85rem; margin-top: 0.35rem; }
+.exp-page-wp .exp-form-checkgrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 0.75rem;
+    margin-top: 0.5rem;
+}
+.exp-page-wp .exp-form-checkgrid label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    font-size: 0.95rem;
+    color: var(--text);
+}
+.exp-page-wp .exp-consent {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+}
+.exp-page-wp .exp-consent label { cursor: pointer; font-size: 0.9rem; color: var(--text); margin: 0; }
+.exp-page-wp .exp-cta-full { width: 100%; margin-top: 1rem; text-align: center; }
+.exp-page-wp .exp-form-note {
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--text);
+    margin-top: 1.25rem;
+}

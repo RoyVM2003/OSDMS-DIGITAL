@@ -53,6 +53,21 @@ body {
     padding: 1.5rem 1.5% 1.5rem 0.75%;
 }
 
+/* Evitar que el título del hero quede tapado por el header fijo */
+body:has(.site-header) {
+    padding-top: 100px;
+}
+body:has(.site-header) .hero-section {
+    padding-top: 1.5rem;
+}
+#inicio, section#inicio, .hero-section {
+    scroll-margin-top: 100px;
+}
+@media (max-width: 768px) {
+    body:has(.site-header) { padding-top: 88px; }
+    #inicio, section#inicio, .hero-section { scroll-margin-top: 88px; }
+}
+
 .header-inner {
     display: flex;
     align-items: center;
@@ -803,6 +818,50 @@ button.industries-btn {
     color: var(--text-muted);
 }
 
+/* ========== ABOUT PAGE - Fondo animado (archivo 5 - blobs + formas flotantes) ========== */
+.about-interactive-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.about-gradient-blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.15;
+    animation: aboutBlobFloat 25s infinite alternate ease-in-out;
+}
+
+.about-floating-shape {
+    position: absolute;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
+    opacity: 0.1;
+    animation: aboutShapeFloat 20s infinite linear;
+}
+
+@keyframes aboutBlobFloat {
+    0%   { transform: translate(0, 0) scale(1); }
+    33%  { transform: translate(30px, -50px) scale(1.1); }
+    66%  { transform: translate(-20px, 20px) scale(0.9); }
+    100% { transform: translate(0, 0) scale(1); }
+}
+
+@keyframes aboutShapeFloat {
+    0%   { transform: translateY(0) rotate(0deg); }
+    100% { transform: translateY(-100vh) rotate(360deg); }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(60px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
 /* ========== ABOUT PAGE HERO (archivo 5 - título que se escribe + CTA) ========== */
 .about-hero {
     padding: 150px 0 80px;
@@ -821,7 +880,7 @@ button.industries-btn {
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
-    animation: gradientShift 6s ease infinite;
+    animation: gradientShift 6s ease infinite, fadeInUp 1.2s both;
     min-height: 1.2em;
 }
 
@@ -2881,23 +2940,24 @@ button.industries-btn {
 .floating-buttons {
     position: fixed;
     right: 20px;
-    top: 50%;
-    transform: translateY(-50%);
+    bottom: 20px;
+    top: auto;
+    transform: none;
     z-index: 1000;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 16px;
 }
 
 .floating-btn {
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     color: white;
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     text-decoration: none;
     transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     position: relative;
@@ -2925,7 +2985,7 @@ button.industries-btn {
 .floating-btn::after {
     content: attr(data-tooltip);
     position: absolute;
-    right: 80px;
+    right: 68px;
     top: 50%;
     transform: translateY(-50%);
     background: rgba(0, 0, 0, 0.9);
@@ -2945,7 +3005,7 @@ button.industries-btn {
 .floating-btn::before {
     content: '';
     position: absolute;
-    right: 70px;
+    right: 58px;
     top: 50%;
     transform: translateY(-50%);
     border: 8px solid transparent;
@@ -2961,11 +3021,11 @@ button.industries-btn {
 .floating-btn:hover::before {
     opacity: 1;
     visibility: visible;
-    right: 90px;
+    right: 76px;
 }
 
 .floating-btn:hover::before {
-    right: 80px;
+    right: 66px;
 }
 
 @media (max-width: 768px) {
@@ -2975,24 +3035,24 @@ button.industries-btn {
         bottom: 24px;
         transform: none;
         flex-direction: column;
-        gap: 12px;
+        gap: 10px;
     }
     .floating-btn {
-        width: 48px;
-        height: 48px;
-        font-size: 1.2rem;
+        width: 44px;
+        height: 44px;
+        font-size: 1.1rem;
     }
     .floating-btn::after {
         font-size: 0.75rem;
         padding: 6px 10px;
-        right: 60px;
+        right: 52px;
     }
     .floating-btn:hover::after,
     .floating-btn:hover::before {
-        right: 58px;
+        right: 50px;
     }
     .floating-btn:hover::before {
-        right: 50px;
+        right: 42px;
     }
 }
 
@@ -3000,12 +3060,12 @@ button.industries-btn {
     .floating-buttons {
         right: 10px;
         bottom: 16px;
-        gap: 10px;
+        gap: 8px;
     }
     .floating-btn {
-        width: 44px;
-        height: 44px;
-        font-size: 1.1rem;
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
     }
 }
 

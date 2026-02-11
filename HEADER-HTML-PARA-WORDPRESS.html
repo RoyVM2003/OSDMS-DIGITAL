@@ -1,0 +1,243 @@
+<!-- Encabezado para WordPress - Pegar en widget HTML del Theme Builder (Header) -->
+<!-- Incluye overlay + header. CSS: HEADER-CSS-PARA-WORDPRESS.css | JS: HEADER-JS-PARA-WORDPRESS.js -->
+
+<div class="menu-overlay" id="menuOverlay"></div>
+
+<header class="site-header">
+    <div class="container header-inner">
+        <a href="/#inicio" class="logo" aria-label="OSDEMS Digital - Inicio">
+            <img src="https://osdemsdigital.com/wp-content/uploads/2026/02/Captura-removebg-preview.png" alt="OSDEMS Digital" class="logo-img">
+        </a>
+        <button class="nav-toggle" id="navToggle" type="button" aria-label="Abrir menú">
+            <span class="nav-toggle-line"></span>
+            <span class="nav-toggle-line"></span>
+            <span class="nav-toggle-line"></span>
+        </button>
+        <nav class="main-nav" id="mainNav">
+            <a href="/#inicio">Home</a>
+            <a href="/quienes-somos/">About Us</a>
+            <div class="services-dropdown">
+                <a href="/servicios/" class="services-btn" id="servicesBtn">
+                    <i class="fas fa-cogs"></i> Services <i class="fas fa-chevron-down"></i>
+                </a>
+                <div class="mega-menu" id="servicesMegaMenu">
+                    <div class="mega-menu-category">
+                        <h3><i class="fas fa-paint-brush"></i> Web Design</h3>
+                        <ul>
+                            <li><a href="/servicios/"><i class="fas fa-arrow-right"></i> Website Design & Development</a></li>
+                            <li><a href="/servicios/"><i class="fab fa-wordpress"></i> WordPress Development</a></li>
+                            <li><a href="/servicios/"><i class="fas fa-shopping-cart"></i> E-commerce Development</a></li>
+                            <li><a href="/servicios/"><i class="fas fa-palette"></i> UI/UX Design</a></li>
+                            <li><a href="/servicios/"><i class="fas fa-search"></i> Website Discovery</a></li>
+                            <li><a href="/servicios/"><i class="fas fa-sitemap"></i> Sitemaps & Wireframes</a></li>
+                            <li><a href="/servicios/"><i class="fas fa-pen"></i> Website Content Writing</a></li>
+                            <li><a href="/servicios/"><i class="fas fa-server"></i> Website Maintenance & Hosting</a></li>
+                            <li><a href="/servicios/"><i class="fas fa-landmark"></i> Landing Page Design</a></li>
+                            <li><a href="/servicios/"><i class="fas fa-store"></i> Shopify Development</a></li>
+                            <li><a href="/servicios/"><i class="fas fa-cog"></i> Custom CMS Development</a></li>
+                            <li><a href="/servicios/"><i class="fas fa-code"></i> Headless CMS Development</a></li>
+                            <li><a href="/servicios/"><i class="fas fa-clipboard-check"></i> Design Audits</a></li>
+                        </ul>
+                    </div>
+                    <div class="mega-menu-category">
+                        <h3><i class="fas fa-bullhorn"></i> Digital Marketing</h3>
+                        <ul>
+                            <li><a href="/servicios/"><i class="fas fa-chart-line"></i> Marketing Strategy</a></li>
+                            <li><a href="/servicios/"><i class="fas fa-search-plus"></i> Search Engine Optimization (SEO)</a></li>
+                            <li><a href="/servicios/"><i class="fas fa-ad"></i> Paid Ad Campaigns (PPC)</a></li>
+                            <li><a href="/servicios/"><i class="fas fa-users"></i> Social Media Management</a></li>
+                            <li><a href="/servicios/"><i class="fas fa-envelope"></i> Email Marketing</a></li>
+                            <li><a href="/servicios/"><i class="fas fa-robot"></i> Sales Support & Automation (CRM)</a></li>
+                            <li><a href="/servicios/"><i class="fas fa-file-alt"></i> Content Strategy & Execution</a></li>
+                            <li><a href="/servicios/"><i class="fas fa-brain"></i> Generative Engine Optimization (GEO)</a></li>
+                        </ul>
+                    </div>
+                    <div class="mega-menu-category">
+                        <h3><i class="fas fa-mobile-alt"></i> App Development</h3>
+                        <ul>
+                            <li><a href="/servicios/"><i class="fas fa-globe"></i> Web App Development</a></li>
+                            <li><a href="/servicios/"><i class="fas fa-mobile"></i> Mobile App Development</a></li>
+                            <li><a href="/servicios/"><i class="fas fa-tachometer-alt"></i> Portal & Dashboard Development</a></li>
+                            <li><a href="/servicios/"><i class="fas fa-graduation-cap"></i> LMS Development</a></li>
+                            <li><a href="/servicios/"><i class="fas fa-handshake"></i> CRM Integration</a></li>
+                            <li><a href="/servicios/"><i class="fab fa-react"></i> React Development</a></li>
+                            <li><a href="/servicios/"><i class="fab fa-node-js"></i> Node.js Development</a></li>
+                            <li><a href="/servicios/"><i class="fab fa-laravel"></i> Laravel Development</a></li>
+                            <li><a href="/servicios/"><i class="fas fa-code"></i> No Code Development</a></li>
+                            <li><a href="/servicios/"><i class="fas fa-robot"></i> Advanced AI Development</a></li>
+                            <li><a href="/servicios/"><i class="fas fa-link"></i> Blockchain Development</a></li>
+                        </ul>
+                    </div>
+                    <div class="mega-menu-category">
+                        <h3><i class="fas fa-building"></i> Enterprise Solutions</h3>
+                        <ul>
+                            <li><a href="/servicios/"><i class="fas fa-cogs"></i> Application Maintenance</a></li>
+                            <li><a href="/servicios/"><i class="fas fa-cloud"></i> Cloud Hosting Services</a></li>
+                        </ul>
+                    </div>
+                    <div class="mega-menu-category">
+                        <h3><i class="fas fa-pen-fancy"></i> Design & Branding</h3>
+                        <ul>
+                            <li><a href="/servicios/"><i class="fas fa-trademark"></i> Brand Development</a></li>
+                            <li><a href="/servicios/"><i class="fas fa-icons"></i> Logo Design</a></li>
+                            <li><a href="/servicios/"><i class="fas fa-book"></i> Brand Guidelines</a></li>
+                            <li><a href="/servicios/"><i class="fas fa-comment-alt"></i> Brand Identity Messaging</a></li>
+                            <li><a href="/servicios/"><i class="fas fa-sync-alt"></i> Rebranding Services</a></li>
+                            <li><a href="/servicios/"><i class="fas fa-ad"></i> Ad Creative Design</a></li>
+                            <li><a href="/servicios/"><i class="fas fa-share-alt"></i> Social Media Design</a></li>
+                            <li><a href="/servicios/"><i class="fas fa-presentation"></i> Presentation Design</a></li>
+                            <li><a href="/servicios/"><i class="fas fa-mail-bulk"></i> Email Design</a></li>
+                            <li><a href="/servicios/"><i class="fas fa-draw-polygon"></i> Illustrations & Iconography</a></li>
+                            <li><a href="/servicios/"><i class="fas fa-chart-bar"></i> Corporate Reports</a></li>
+                            <li><a href="/servicios/"><i class="fas fa-file-contract"></i> Product Sheets & One Pagers</a></li>
+                            <li><a href="/servicios/"><i class="fas fa-box-open"></i> Print & Packaging Design</a></li>
+                        </ul>
+                    </div>
+                    <div class="mega-menu-category">
+                        <h3><i class="fas fa-video"></i> Photo & Video</h3>
+                        <ul>
+                            <li><a href="/servicios/"><i class="fas fa-video"></i> Video Production</a></li>
+                            <li><a href="/servicios/"><i class="fas fa-film"></i> Post Production & Editing</a></li>
+                            <li><a href="/servicios/"><i class="fas fa-tv"></i> Commercials</a></li>
+                            <li><a href="/servicios/"><i class="fas fa-star"></i> Hero Videos</a></li>
+                            <li><a href="/servicios/"><i class="fas fa-film"></i> Animated Explainer Videos</a></li>
+                            <li><a href="/servicios/"><i class="fas fa-cube"></i> Product Renders</a></li>
+                            <li><a href="/servicios/"><i class="fas fa-running"></i> Animation & Motion Graphics</a></li>
+                            <li><a href="/servicios/"><i class="fas fa-cube"></i> 3D & AR Design</a></li>
+                            <li><a href="/servicios/"><i class="fas fa-music"></i> Sound & Music Design</a></li>
+                            <li><a href="/servicios/"><i class="fas fa-user-tie"></i> Professional Headshots</a></li>
+                            <li><a href="/servicios/"><i class="fas fa-camera"></i> Product Photography</a></li>
+                            <li><a href="/servicios/"><i class="fas fa-calendar-alt"></i> Event Photography</a></li>
+                            <li><a href="/servicios/"><i class="fas fa-images"></i> Brand & Lifestyle Photography</a></li>
+                            <li><a href="/servicios/"><i class="fas fa-broadcast-tower"></i> Live Streaming & Broadcasting</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="industries-dropdown">
+                <button class="industries-btn" id="industriesBtn">
+                    <i class="fas fa-industry"></i> Industries <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="mega-menu" id="industriesMegaMenu">
+                    <div class="mega-menu-category">
+                        <h3><i class="fas fa-hotel"></i> Hostelería y Viajes</h3>
+                        <ul>
+                            <li><a href="#"><i class="fas fa-utensils"></i> Restaurantes & Cafeterías</a></li>
+                            <li><a href="#"><i class="fas fa-bed"></i> Hoteles & Resorts</a></li>
+                            <li><a href="#"><i class="fas fa-plane"></i> Agencias de Viajes</a></li>
+                            <li><a href="#"><i class="fas fa-ship"></i> Cruceros & Turismo</a></li>
+                            <li><a href="#"><i class="fas fa-hiking"></i> Ecoturismo & Aventura</a></li>
+                            <li><a href="#"><i class="fas fa-concierge-bell"></i> Eventos & Catering</a></li>
+                        </ul>
+                    </div>
+                    <div class="mega-menu-category">
+                        <h3><i class="fas fa-briefcase"></i> Servicios Profesionales</h3>
+                        <ul>
+                            <li><a href="#"><i class="fas fa-chart-line"></i> Consultoría de Negocios</a></li>
+                            <li><a href="#"><i class="fas fa-users"></i> Coaching & Mentoring</a></li>
+                            <li><a href="#"><i class="fas fa-handshake"></i> Servicios B2B</a></li>
+                            <li><a href="#"><i class="fas fa-search-dollar"></i> Asesoría Financiera</a></li>
+                            <li><a href="#"><i class="fas fa-project-diagram"></i> Gestión de Proyectos</a></li>
+                        </ul>
+                    </div>
+                    <div class="mega-menu-category">
+                        <h3><i class="fas fa-gavel"></i> Consultoría y Derecho</h3>
+                        <ul>
+                            <li><a href="#"><i class="fas fa-balance-scale"></i> Firmas Legales</a></li>
+                            <li><a href="#"><i class="fas fa-user-tie"></i> Consultoría Jurídica</a></li>
+                            <li><a href="#"><i class="fas fa-file-contract"></i> Servicios Corporativos</a></li>
+                            <li><a href="#"><i class="fas fa-landmark"></i> Asesoría Regulatoria</a></li>
+                        </ul>
+                    </div>
+                    <div class="mega-menu-category">
+                        <h3><i class="fas fa-graduation-cap"></i> Educación e Investigación</h3>
+                        <ul>
+                            <li><a href="#"><i class="fas fa-school"></i> Universidades & Colegios</a></li>
+                            <li><a href="#"><i class="fas fa-book-open"></i> E-Learning & EdTech</a></li>
+                            <li><a href="#"><i class="fas fa-flask"></i> Centros de Investigación</a></li>
+                            <li><a href="#"><i class="fas fa-chalkboard-teacher"></i> Formación Corporativa</a></li>
+                            <li><a href="#"><i class="fas fa-language"></i> Idiomas & Educación</a></li>
+                        </ul>
+                    </div>
+                    <div class="mega-menu-category">
+                        <h3><i class="fas fa-university"></i> Finanzas y Banca</h3>
+                        <ul>
+                            <li><a href="#"><i class="fas fa-piggy-bank"></i> Bancos & Fintech</a></li>
+                            <li><a href="#"><i class="fas fa-chart-pie"></i> Inversiones & Wealth Management</a></li>
+                            <li><a href="#"><i class="fas fa-hand-holding-usd"></i> Préstamos & Créditos</a></li>
+                            <li><a href="#"><i class="fas fa-shield-alt"></i> Seguros & Pensiones</a></li>
+                            <li><a href="#"><i class="fas fa-credit-card"></i> Pagos Digitales</a></li>
+                        </ul>
+                    </div>
+                    <div class="mega-menu-category">
+                        <h3><i class="fas fa-hands-helping"></i> Organizaciones Sin Ánimo de Lucro</h3>
+                        <ul>
+                            <li><a href="#"><i class="fas fa-heart"></i> ONGs & Fundaciones</a></li>
+                            <li><a href="#"><i class="fas fa-leaf"></i> Medio Ambiente</a></li>
+                            <li><a href="#"><i class="fas fa-hand-holding-heart"></i> Asistencia Social</a></li>
+                            <li><a href="#"><i class="fas fa-globe-americas"></i> Cooperación Internacional</a></li>
+                        </ul>
+                    </div>
+                    <div class="mega-menu-category">
+                        <h3><i class="fas fa-bolt"></i> Energía y Medio Ambiente</h3>
+                        <ul>
+                            <li><a href="#"><i class="fas fa-solar-panel"></i> Energías Renovables</a></li>
+                            <li><a href="#"><i class="fas fa-industry"></i> Gestión Ambiental</a></li>
+                            <li><a href="#"><i class="fas fa-recycle"></i> Sostenibilidad</a></li>
+                            <li><a href="#"><i class="fas fa-water"></i> Gestión de Aguas</a></li>
+                        </ul>
+                    </div>
+                    <div class="mega-menu-category">
+                        <h3><i class="fas fa-laptop-code"></i> Tecnología y Software (SaaS)</h3>
+                        <ul>
+                            <li><a href="#"><i class="fas fa-cloud"></i> Startups SaaS</a></li>
+                            <li><a href="#"><i class="fas fa-mobile-alt"></i> Desarrollo de Apps</a></li>
+                            <li><a href="#"><i class="fas fa-server"></i> Infraestructura IT</a></li>
+                            <li><a href="#"><i class="fas fa-robot"></i> Inteligencia Artificial</a></li>
+                        </ul>
+                    </div>
+                    <div class="mega-menu-category">
+                        <h3><i class="fas fa-utensils"></i> Alimentación y Bebidas</h3>
+                        <ul>
+                            <li><a href="#"><i class="fas fa-seedling"></i> Producción Agrícola</a></li>
+                            <li><a href="#"><i class="fas fa-wine-bottle"></i> Bebidas & Licores</a></li>
+                            <li><a href="#"><i class="fas fa-truck"></i> Distribución Alimentaria</a></li>
+                            <li><a href="#"><i class="fas fa-cookie-bite"></i> Productos Gourmet</a></li>
+                        </ul>
+                    </div>
+                    <div class="mega-menu-category">
+                        <h3><i class="fas fa-shopping-cart"></i> Comercio Electrónico y Retail</h3>
+                        <ul>
+                            <li><a href="#"><i class="fas fa-store"></i> Tiendas Online</a></li>
+                            <li><a href="#"><i class="fas fa-tshirt"></i> Moda & Accesorios</a></li>
+                            <li><a href="#"><i class="fas fa-gem"></i> Joyería & Lujo</a></li>
+                            <li><a href="#"><i class="fas fa-home"></i> Hogar & Decoración</a></li>
+                        </ul>
+                    </div>
+                    <div class="mega-menu-category">
+                        <h3><i class="fas fa-heartbeat"></i> Salud y Farmacia</h3>
+                        <ul>
+                            <li><a href="#"><i class="fas fa-hospital"></i> Hospitales & Clínicas</a></li>
+                            <li><a href="#"><i class="fas fa-pills"></i> Farmacias & Farmacéuticas</a></li>
+                            <li><a href="#"><i class="fas fa-dumbbell"></i> Wellness & Fitness</a></li>
+                            <li><a href="#"><i class="fas fa-stethoscope"></i> Telemedicina</a></li>
+                        </ul>
+                    </div>
+                    <div class="mega-menu-category">
+                        <h3><i class="fas fa-building"></i> Inmobiliario y Promoción</h3>
+                        <ul>
+                            <li><a href="#"><i class="fas fa-home"></i> Constructoras</a></li>
+                            <li><a href="#"><i class="fas fa-city"></i> Desarrollo Inmobiliario</a></li>
+                            <li><a href="#"><i class="fas fa-key"></i> Gestión de Propiedades</a></li>
+                            <li><a href="#"><i class="fas fa-hard-hat"></i> Arquitectura & Diseño</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <a href="/electronics-automotive/">Electronics & Automotive</a>
+            <a href="/mantto-web/">Mantto Web</a>
+            <a href="/experiencias/">Agentivas + Conversión Web</a>
+            <a href="/options/">Product Branding</a>
+        </nav>
+    </div>
+</header>

@@ -3115,23 +3115,24 @@ button.industries-btn {
 .floating-buttons {
     position: fixed;
     right: 20px;
-    top: 50%;
-    transform: translateY(-50%);
+    bottom: 20px;
+    top: auto;
+    transform: none;
     z-index: 1000;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 16px;
 }
 
 .floating-btn {
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     color: white;
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     text-decoration: none;
     transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     position: relative;
@@ -3159,7 +3160,7 @@ button.industries-btn {
 .floating-btn::after {
     content: attr(data-tooltip);
     position: absolute;
-    right: 80px;
+    right: 68px;
     top: 50%;
     transform: translateY(-50%);
     background: rgba(0, 0, 0, 0.9);
@@ -3179,7 +3180,7 @@ button.industries-btn {
 .floating-btn::before {
     content: '';
     position: absolute;
-    right: 70px;
+    right: 58px;
     top: 50%;
     transform: translateY(-50%);
     border: 8px solid transparent;
@@ -3195,11 +3196,11 @@ button.industries-btn {
 .floating-btn:hover::before {
     opacity: 1;
     visibility: visible;
-    right: 90px;
+    right: 76px;
 }
 
 .floating-btn:hover::before {
-    right: 80px;
+    right: 66px;
 }
 
 @media (max-width: 768px) {
@@ -3209,24 +3210,24 @@ button.industries-btn {
         bottom: 24px;
         transform: none;
         flex-direction: column;
-        gap: 12px;
+        gap: 10px;
     }
     .floating-btn {
-        width: 48px;
-        height: 48px;
-        font-size: 1.2rem;
+        width: 44px;
+        height: 44px;
+        font-size: 1.1rem;
     }
     .floating-btn::after {
         font-size: 0.75rem;
         padding: 6px 10px;
-        right: 60px;
+        right: 52px;
     }
     .floating-btn:hover::after,
     .floating-btn:hover::before {
-        right: 58px;
+        right: 50px;
     }
     .floating-btn:hover::before {
-        right: 50px;
+        right: 42px;
     }
 }
 
@@ -3234,12 +3235,12 @@ button.industries-btn {
     .floating-buttons {
         right: 10px;
         bottom: 16px;
-        gap: 10px;
+        gap: 8px;
     }
     .floating-btn {
-        width: 44px;
-        height: 44px;
-        font-size: 1.1rem;
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
     }
 }
 

@@ -10,6 +10,8 @@
 </head>
 <body>
     <div class="menu-overlay" id="menuOverlay"></div>
+    <!-- Fondo animado (blobs + formas) como en archivo 5 Quiénes somos -->
+    <div id="about-interactive-bg" class="about-interactive-bg" aria-hidden="true"></div>
 
     <header class="site-header">
         <div class="container header-inner">
@@ -400,6 +402,42 @@
 
     <script src="assets/js/main.js"></script>
     <script>
+        // Fondo animado: blobs y formas flotantes (como archivo 5 Quiénes somos)
+        (function() {
+            const bg = document.getElementById('about-interactive-bg');
+            if (!bg) return;
+            for (let i = 0; i < 5; i++) {
+                const blob = document.createElement('div');
+                blob.className = 'about-gradient-blob';
+                const size = Math.random() * 400 + 200;
+                blob.style.width = size + 'px';
+                blob.style.height = size + 'px';
+                blob.style.left = Math.random() * 100 + '%';
+                blob.style.top = Math.random() * 100 + '%';
+                var gradients = [
+                    'linear-gradient(135deg, rgba(108, 99, 255, 0.7) 0%, rgba(54, 209, 220, 0.5) 100%)',
+                    'linear-gradient(135deg, rgba(255, 101, 132, 0.6) 0%, rgba(255, 154, 158, 0.4) 100%)',
+                    'linear-gradient(135deg, rgba(18, 24, 38, 0.9) 0%, rgba(108, 99, 255, 0.4) 100%)'
+                ];
+                blob.style.background = gradients[i % gradients.length];
+                blob.style.animationDelay = (Math.random() * 20) + 's';
+                bg.appendChild(blob);
+            }
+            for (let i = 0; i < 15; i++) {
+                const shape = document.createElement('div');
+                shape.className = 'about-floating-shape';
+                const size = Math.random() * 30 + 10;
+                shape.style.width = size + 'px';
+                shape.style.height = size + 'px';
+                shape.style.left = Math.random() * 100 + '%';
+                shape.style.top = Math.random() * 100 + '%';
+                shape.style.borderRadius = Math.random() > 0.5 ? '50%' : '10%';
+                shape.style.animationDelay = (Math.random() * 30) + 's';
+                shape.style.animationDuration = (Math.random() * 30 + 20) + 's';
+                bg.appendChild(shape);
+            }
+        })();
+
         // Efecto máquina de escribir en el título (archivo 5)
         (function() {
             const heroTitle = document.querySelector('.about-hero-title');
@@ -417,8 +455,6 @@
             }
             setTimeout(typeWriter, 1000);
         })();
-
-        // Trayectoria siempre visible (sin mostrar/ocultar)
     </script>
 </body>
 </html>

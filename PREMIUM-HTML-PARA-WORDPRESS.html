@@ -1,0 +1,102 @@
+<!--
+  PREMIUM / CONTACTANOS - Contenido para WordPress/Elementor
+  Pega este HTML en un widget HTML en la página Premium (o Contactanos).
+  Ajusta enlaces: /, /about-us/, /services/, /mantto-web/, etc.
+-->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+<main class="premium-pro-page premium-wp" id="contactanos">
+    <section class="premium-pro-hero">
+        <div class="container">
+            <h1 class="premium-pro-title">Contactanos</h1>
+            <div class="premium-pro-layout">
+                <!-- Columna 1: Formulario -->
+                <div class="premium-pro-form-wrap">
+                    <form class="premium-pro-form" action="#" method="post" id="premiumProForm">
+                        <div class="premium-pro-form-row">
+                            <div class="form-group">
+                                <label for="nombre">Tu nombre</label>
+                                <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre" />
+                            </div>
+                            <div class="form-group">
+                                <label for="correo">Correo empresarial</label>
+                                <input type="email" id="correo" name="correo" required placeholder="Correo empresarial" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="empresa">Nombre de la empresa</label>
+                            <input type="text" id="empresa" name="empresa" placeholder="Nombre de la empresa" />
+                        </div>
+                        <div class="form-group">
+                            <label for="telefono">Número Telefonico</label>
+                            <input type="tel" id="telefono" name="telefono" placeholder="Número Telefonico" />
+                        </div>
+                        <div class="form-group form-group-select">
+                            <label for="servicio">Selecciona uno</label>
+                            <select id="servicio" name="servicio">
+                                <option value="">Selecciona uno</option>
+                                <option value="branding">Branding</option>
+                                <option value="diseno-web">Diseño web</option>
+                                <option value="diseno-grafico">Diseño gráfico</option>
+                                <option value="ui-ux">UI/UX</option>
+                                <option value="experiencial">Experiencial</option>
+                                <option value="logotipo">Logotipo</option>
+                                <option value="recursos-marca">Recursos de marca</option>
+                                <option value="decks">Decks</option>
+                                <option value="otros">Otros</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="mensaje">Cuéntenos brevemente sobre su empresa, su sitio web, su desafío de marketing o negocio.</label>
+                            <textarea id="mensaje" name="mensaje" rows="5" placeholder="Cuéntenos brevemente sobre su empresa, su sitio web, su desafío de marketing o negocio."></textarea>
+                        </div>
+                        <button type="submit" class="premium-pro-btn">Enviar</button>
+                    </form>
+                </div>
+                <!-- Columna 2: Información de contacto -->
+                <div class="premium-pro-info">
+                    <p class="premium-pro-intro">En Osdems Digital será un placer atenderte; escríbenos por cualquiera de nuestros medios.</p>
+                    <h2 class="premium-pro-location">Guadalajara</h2>
+                    <ul class="premium-pro-contact-list">
+                        <li><a href="mailto:hello@osdemsdigital.com"><i class="fas fa-envelope"></i> hello@osdemsdigital.com</a></li>
+                        <li><a href="tel:+523318224312"><i class="fas fa-phone"></i> +52 33 1822 4312</a></li>
+                        <li><a href="tel:+523311744584"><i class="fas fa-phone"></i> +52 33 1174 4584</a></li>
+                        <li><a href="tel:+523326225912"><i class="fas fa-phone"></i> +52 33 2622 5912</a></li>
+                        <li><a href="https://www.google.com/maps/dir//Blvd.+Puerta+de+Hierro+5153+Fracc.+Plaza+Andares+Zapopan,+Jalisco,+45116+Piso+2" target="_blank" rel="noopener"><i class="fas fa-map-marker-alt"></i> Blvd. Puerta de Hierro 5153 Fracc. Plaza Andares Zapopan, Jalisco 45116 Piso 2</a></li>
+                    </ul>
+                    <div class="premium-pro-social">
+                        <a href="https://www.facebook.com/osdems.digital" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/osdems.digital/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://youtube.com/@osdemsdigital" target="_blank" rel="noopener" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="https://www.tiktok.com/@osdems.digital" target="_blank" rel="noopener" aria-label="Tiktok"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+                <!-- Columna 3: Menú + Horario + Tarjetas -->
+                <div class="premium-pro-sidebar">
+                    <nav class="premium-pro-menu" aria-label="Menú principal">
+                        <h2 class="premium-pro-menu-title">Menú</h2>
+                        <ul class="premium-pro-menu-list">
+                            <li><a href="/">Home</a></li>
+                            <li><a href="/about-us/">About Us</a></li>
+                            <li><a href="/services/">Services</a></li>
+                            <li><a href="/mantto-web/">Mantto Web</a></li>
+                            <li><a href="/experiencias/">Agentivas</a></li>
+                        </ul>
+                    </nav>
+                    <div class="premium-pro-hours">
+                        <h3>Horario de oficina</h3>
+                        <p>Lunes - Sábado<br>08:00 AM a 7:00 PM</p>
+                    </div>
+                    <div class="premium-pro-cards">
+                        <span class="premium-pro-cards-label">Tarjetas que aceptamos</span>
+                        <div class="premium-pro-cards-logos">
+                            <i class="fab fa-cc-visa" aria-hidden="true" title="Visa"></i>
+                            <i class="fab fa-cc-mastercard" aria-hidden="true" title="Mastercard"></i>
+                            <i class="fab fa-cc-amex" aria-hidden="true" title="American Express"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>

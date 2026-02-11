@@ -1,0 +1,418 @@
+/*
+  PREMIUM / CONTACTANOS - Estilos para WordPress/Elementor
+  Añade este CSS en Apariencia → Personalizar → CSS adicional; o en el CSS del tema.
+*/
+
+.elementor-widget-html .premium-wp,
+body .premium-wp {
+    --premium-primary: #6C63FF;
+    --premium-accent: #36D1DC;
+    --premium-bg: #050510;
+    --premium-transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+}
+
+.premium-pro-page.premium-wp,
+body .premium-pro-page.premium-wp {
+    padding-top: 100px !important;
+    min-height: 100vh !important;
+}
+
+.premium-pro-hero.premium-wp,
+body .premium-wp .premium-pro-hero {
+    padding: 3rem 5% 4rem !important;
+    background: linear-gradient(160deg, rgba(26, 26, 46, 0.85) 0%, var(--premium-bg) 45%) !important;
+}
+
+body .premium-wp .premium-pro-hero .container {
+    max-width: 1180px !important;
+    margin: 0 auto !important;
+    width: min(1120px, 100% - 2.5rem) !important;
+}
+
+body .premium-wp .premium-pro-title {
+    text-align: center !important;
+    font-size: 2.25rem !important;
+    font-weight: 700 !important;
+    margin-bottom: 2rem !important;
+    color: #fff !important;
+    letter-spacing: 0.02em !important;
+}
+
+body .premium-wp .premium-pro-layout {
+    display: grid !important;
+    grid-template-columns: 1.5fr 1.1fr 220px !important;
+    gap: 2rem !important;
+    max-width: 1180px !important;
+    margin: 0 auto !important;
+    align-items: start !important;
+}
+
+body .premium-wp .premium-pro-sidebar {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1.25rem !important;
+    position: sticky !important;
+    top: 100px !important;
+    align-self: start !important;
+}
+
+body .premium-wp .premium-pro-form-row {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 1rem !important;
+    margin-bottom: 1.35rem !important;
+}
+
+body .premium-wp .premium-pro-form-row .form-group {
+    margin-bottom: 0 !important;
+}
+
+body .premium-wp .premium-pro-menu {
+    flex-shrink: 0 !important;
+    width: 100% !important;
+    background: rgba(255, 255, 255, 0.06) !important;
+    border: 1px solid rgba(108, 99, 255, 0.25) !important;
+    border-radius: 12px !important;
+    padding: 1rem !important;
+}
+
+body .premium-wp .premium-pro-menu-title {
+    font-size: 1.1rem !important;
+    font-weight: 700 !important;
+    color: #fff !important;
+    margin-bottom: 0.65rem !important;
+    letter-spacing: 0.03em !important;
+    padding-bottom: 0.5rem !important;
+    border-bottom: 2px solid rgba(108, 99, 255, 0.3) !important;
+}
+
+body .premium-wp .premium-pro-menu-list {
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+body .premium-wp .premium-pro-menu-list li {
+    margin-bottom: 0.35rem !important;
+}
+
+body .premium-wp .premium-pro-menu-list a {
+    color: #e0e0ff !important;
+    text-decoration: none !important;
+    font-size: 0.82rem !important;
+    transition: color 0.2s ease, padding-left 0.2s ease !important;
+    display: block !important;
+    padding: 0.25rem 0 !important;
+    line-height: 1.3 !important;
+}
+
+body .premium-wp .premium-pro-menu-list a:hover {
+    color: var(--premium-accent) !important;
+    padding-left: 8px !important;
+}
+
+body .premium-wp .premium-pro-form-wrap {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border: 1px solid rgba(108, 99, 255, 0.22) !important;
+    border-radius: 16px !important;
+    padding: 2rem 2.25rem !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2) !important;
+}
+
+body .premium-wp .premium-pro-form .form-group {
+    margin-bottom: 1.35rem !important;
+}
+
+body .premium-wp .premium-pro-form label {
+    display: block !important;
+    margin-bottom: 0.5rem !important;
+    font-weight: 600 !important;
+    color: #e8e8ff !important;
+    font-size: 0.95rem !important;
+    letter-spacing: 0.01em !important;
+}
+
+body .premium-wp .premium-pro-form input,
+body .premium-wp .premium-pro-form select,
+body .premium-wp .premium-pro-form textarea {
+    width: 100% !important;
+    padding: 0.85rem 1rem !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    border-radius: 10px !important;
+    background: rgba(255, 255, 255, 0.08) !important;
+    color: #f0f0ff !important;
+    font-size: 1rem !important;
+    font-family: inherit !important;
+    transition: border-color 0.2s ease, background 0.2s ease !important;
+}
+
+body .premium-wp .premium-pro-form input::placeholder,
+body .premium-wp .premium-pro-form textarea::placeholder {
+    color: rgba(255, 255, 255, 0.5) !important;
+}
+
+body .premium-wp .premium-pro-form .form-group-select label,
+body .premium-wp .premium-pro-form .form-group-select select {
+    color: #e8e8ff !important;
+}
+
+body .premium-wp .premium-pro-form .form-group-select select option {
+    background: #1a1a2e !important;
+    color: #e8e8ff !important;
+}
+
+body .premium-wp .premium-pro-form input:focus,
+body .premium-wp .premium-pro-form select:focus,
+body .premium-wp .premium-pro-form textarea:focus {
+    outline: none !important;
+    border-color: var(--premium-primary) !important;
+    background: rgba(255, 255, 255, 0.1) !important;
+}
+
+body .premium-wp .premium-pro-form select {
+    cursor: pointer !important;
+    appearance: none !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12' fill='%23e0e0ff'%3E%3Cpath d='M6 8L1 3h10z'/%3E%3C/svg%3E") !important;
+    background-repeat: no-repeat !important;
+    background-position: right 1rem center !important;
+    padding-right: 2.5rem !important;
+}
+
+body .premium-wp .premium-pro-form textarea {
+    resize: vertical !important;
+    min-height: 110px !important;
+    line-height: 1.5 !important;
+}
+
+body .premium-wp .premium-pro-btn {
+    width: 100% !important;
+    padding: 1rem 1.5rem !important;
+    margin-top: 0.75rem !important;
+    background: linear-gradient(135deg, var(--premium-primary), var(--premium-accent)) !important;
+    color: #fff !important;
+    border: none !important;
+    border-radius: 50px !important;
+    font-weight: 600 !important;
+    font-size: 1.05rem !important;
+    cursor: pointer !important;
+    transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+}
+
+body .premium-wp .premium-pro-btn:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 24px rgba(108, 99, 255, 0.45) !important;
+}
+
+body .premium-wp .premium-pro-info {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border: 1px solid rgba(108, 99, 255, 0.22) !important;
+    border-radius: 16px !important;
+    padding: 2rem 2.25rem !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2) !important;
+}
+
+body .premium-wp .premium-pro-intro {
+    color: #c0c0e0 !important;
+    margin-bottom: 1.5rem !important;
+    line-height: 1.65 !important;
+    font-size: 1rem !important;
+}
+
+body .premium-wp .premium-pro-location {
+    font-size: 1.35rem !important;
+    font-weight: 600 !important;
+    color: var(--premium-accent) !important;
+    margin-bottom: 1.25rem !important;
+    letter-spacing: 0.02em !important;
+}
+
+body .premium-wp .premium-pro-contact-list {
+    list-style: none !important;
+    margin: 0 0 1.5rem 0 !important;
+    padding: 0 !important;
+}
+
+body .premium-wp .premium-pro-contact-list li {
+    margin-bottom: 0.65rem !important;
+}
+
+body .premium-wp .premium-pro-contact-list a {
+    color: #e4e4ff !important;
+    text-decoration: none !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.75rem !important;
+    font-size: 0.95rem !important;
+    transition: color 0.2s ease !important;
+}
+
+body .premium-wp .premium-pro-contact-list a:hover {
+    color: var(--premium-accent) !important;
+}
+
+body .premium-wp .premium-pro-contact-list i {
+    color: rgba(108, 99, 255, 0.8) !important;
+    width: 1.1em !important;
+}
+
+body .premium-wp .premium-pro-social {
+    display: flex !important;
+    gap: 0.75rem !important;
+    margin-bottom: 1.5rem !important;
+}
+
+body .premium-wp .premium-pro-social a {
+    width: 42px !important;
+    height: 42px !important;
+    border-radius: 50% !important;
+    background: rgba(108, 99, 255, 0.25) !important;
+    color: #e0e0ff !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 1.1rem !important;
+    transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease !important;
+}
+
+body .premium-wp .premium-pro-social a:hover {
+    background: var(--premium-primary) !important;
+    color: #fff !important;
+    transform: scale(1.08) !important;
+}
+
+body .premium-wp .premium-pro-hours {
+    margin-bottom: 1.5rem !important;
+}
+
+body .premium-wp .premium-pro-hours h3 {
+    font-size: 0.85rem !important;
+    color: #a0a0c8 !important;
+    margin-bottom: 0.4rem !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.08em !important;
+    font-weight: 600 !important;
+}
+
+body .premium-wp .premium-pro-hours p {
+    color: #e4e4ff !important;
+    line-height: 1.5 !important;
+    font-size: 0.95rem !important;
+}
+
+body .premium-wp .premium-pro-sidebar .premium-pro-hours {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border: 1px solid rgba(108, 99, 255, 0.2) !important;
+    border-radius: 12px !important;
+    padding: 1rem !important;
+}
+
+body .premium-wp .premium-pro-sidebar .premium-pro-hours h3 {
+    font-size: 0.75rem !important;
+}
+
+body .premium-wp .premium-pro-sidebar .premium-pro-hours p {
+    font-size: 0.82rem !important;
+}
+
+body .premium-wp .premium-pro-sidebar .premium-pro-cards {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border: 1px solid rgba(108, 99, 255, 0.2) !important;
+    border-radius: 12px !important;
+    padding: 1rem !important;
+    margin-top: 0 !important;
+}
+
+body .premium-wp .premium-pro-sidebar .premium-pro-cards-label {
+    font-size: 0.7rem !important;
+}
+
+body .premium-wp .premium-pro-sidebar .premium-pro-cards-logos i {
+    font-size: 1.5rem !important;
+}
+
+body .premium-wp .premium-pro-cards {
+    margin-top: 1.25rem !important;
+    padding-top: 1.25rem !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.12) !important;
+}
+
+body .premium-wp .premium-pro-cards-label {
+    display: block !important;
+    font-size: 0.8rem !important;
+    color: #a0a0c8 !important;
+    margin-bottom: 0.65rem !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.08em !important;
+    font-weight: 600 !important;
+}
+
+body .premium-wp .premium-pro-cards-logos {
+    display: flex !important;
+    align-items: center !important;
+    gap: 1rem !important;
+    flex-wrap: wrap !important;
+}
+
+body .premium-wp .premium-pro-cards-logos i {
+    font-size: 1.75rem !important;
+    color: rgba(255, 255, 255, 0.85) !important;
+    transition: color 0.2s ease, transform 0.2s ease !important;
+}
+
+body .premium-wp .premium-pro-cards-logos i:hover {
+    color: var(--premium-accent) !important;
+    transform: scale(1.1) !important;
+}
+
+@media (max-width: 900px) {
+    body .premium-wp .premium-pro-hero {
+        padding: 2rem 5% 3rem !important;
+    }
+    body .premium-wp .premium-pro-title {
+        font-size: 1.9rem !important;
+        margin-bottom: 1.5rem !important;
+    }
+    body .premium-wp .premium-pro-layout {
+        grid-template-columns: 1fr !important;
+        gap: 2rem !important;
+    }
+    body .premium-wp .premium-pro-sidebar {
+        order: 1 !important;
+        position: static !important;
+    }
+    body .premium-wp .premium-pro-form-row {
+        grid-template-columns: 1fr !important;
+        margin-bottom: 1.25rem !important;
+    }
+    body .premium-wp .premium-pro-form-row .form-group {
+        margin-bottom: 1.35rem !important;
+    }
+    body .premium-wp .premium-pro-form-row .form-group:last-child {
+        margin-bottom: 0 !important;
+    }
+    body .premium-wp .premium-pro-menu {
+        position: static !important;
+        padding: 1.25rem !important;
+    }
+    body .premium-wp .premium-pro-menu-title {
+        font-size: 1.35rem !important;
+        margin-bottom: 0.75rem !important;
+    }
+    body .premium-wp .premium-pro-menu-list {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        gap: 0.5rem 1rem !important;
+    }
+    body .premium-wp .premium-pro-menu-list li {
+        margin-bottom: 0 !important;
+    }
+    body .premium-wp .premium-pro-menu-list a {
+        padding: 0.4rem 0.75rem !important;
+        background: rgba(255, 255, 255, 0.06) !important;
+        border-radius: 8px !important;
+    }
+    body .premium-wp .premium-pro-form-wrap,
+    body .premium-wp .premium-pro-info {
+        padding: 1.5rem 1.25rem !important;
+    }
+}

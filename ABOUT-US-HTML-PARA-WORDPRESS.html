@@ -1,0 +1,124 @@
+<!--
+  ABOUT US - Contenido principal para WordPress/Elementor
+  Pega este HTML en un widget HTML de Elementor en la página About Us.
+  Reemplaza los textos por tu propio contenido.
+  Enlaces: ajusta /about-us/, /services/, etc. según tu estructura de páginas.
+-->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+<!-- Fondo animado: blobs y formas flotantes generados por JS (como en el original) -->
+<div id="about-hero-bg" class="about-hero-animated-bg about-us-wp" aria-hidden="true"><!-- blobs y .floating-shape se inyectan con JS --></div>
+
+<!-- Hero Quiénes Somos (título con efecto máquina de escribir + gradiente animado) -->
+<section class="about-hero about-us-wp container" id="about-hero">
+    <h1 class="about-hero-title" id="about-hero-title">Donde la Visión se Convierte en Experiencia Digital</h1>
+    <p class="about-hero-desc">En OSDEMS Digital, fusionamos la precisión técnica alemana, la creatividad holandesa y la elegancia narrativa francesa para crear soluciones digitales que no solo se ven bien, sino que generan resultados tangibles. Desde 2022, hemos sido el motor de transformación digital para más de 150 empresas en 12 países.</p>
+</section>
+
+<!-- Nuestra Trayectoria -->
+<section id="story" class="story-section about-us-wp container">
+    <h2 class="story-section-title">Una Trayectoria de Innovación</h2>
+    <p class="story-section-subtitle">Nuestra historia es un viaje de constante evolución, impulsado por la curiosidad y el compromiso con la excelencia.</p>
+
+    <div class="story-timeline" id="storyTimeline">
+        <div class="timeline-line"></div>
+
+        <div class="timeline-item">
+            <div class="timeline-content">
+                <div class="timeline-year">2022</div>
+                <h3>Los Cimientos</h3>
+                <p>Fundada en Guadalajara, México, con una misión clara: democratizar el acceso a soluciones digitales de alto impacto. Nuestro primer proyecto, una plataforma para una cafetería local, aumentó sus ventas online en un <strong>300% en 3 meses</strong>.</p>
+                <p><em>Inspiración: El enfoque pragmático y de calidad alemana.</em></p>
+            </div>
+            <div class="timeline-icon"></div>
+        </div>
+
+        <div class="timeline-item">
+            <div class="timeline-content">
+                <div class="timeline-year">2024</div>
+                <h3>Expansión Global</h3>
+                <p>Con un equipo multicultural, comenzamos a servir clientes en Europa y América del Sur. Desarrollamos nuestra metodología <strong>"Digital Experience Design"</strong>, integrando narrativa interactiva y performance técnica.</p>
+                <p><em>Inspiración: La creatividad y interactividad holandesa.</em></p>
+            </div>
+            <div class="timeline-icon"></div>
+        </div>
+
+        <div class="timeline-item">
+            <div class="timeline-content">
+                <div class="timeline-year">2026</div>
+                <h3>El Futuro Digital</h3>
+                <p>Hoy, somos un referente en innovación con un equipo de <strong>40+ especialistas</strong>. Nuestra visión para 2026 integra <strong>IA generativa, experiencias inmersivas 3D y sostenibilidad digital</strong> en cada solución.</p>
+                <p><em>Inspiración: La visión futurista y técnica de la República Checa.</em></p>
+            </div>
+            <div class="timeline-icon"></div>
+        </div>
+    </div>
+</section>
+
+<!-- Cierre (frase final) -->
+<section class="story-closing-section about-us-wp">
+    <div class="container">
+        <p class="story-closing-line story-closing-line-1">Tu visión.</p>
+        <p class="story-closing-line story-closing-line-2">Nuestro compromiso.</p>
+        <p class="story-closing-line story-closing-line-3">Resultados que <span class="story-closing-highlight">transforman</span>.</p>
+    </div>
+</section>
+
+<script>
+(function() {
+    document.addEventListener('DOMContentLoaded', function() {
+        var bg = document.getElementById('about-hero-bg');
+        if (!bg) return;
+
+        // 1. Crear blobs de gradiente (fondo animado)
+        for (var i = 0; i < 5; i++) {
+            var blob = document.createElement('div');
+            blob.className = 'gradient-blob';
+            var size = Math.random() * 400 + 200;
+            blob.style.width = size + 'px';
+            blob.style.height = size + 'px';
+            blob.style.left = (Math.random() * 100) + '%';
+            blob.style.top = (Math.random() * 100) + '%';
+            var gradients = [
+                'linear-gradient(135deg, rgba(108, 99, 255, 0.7) 0%, rgba(54, 209, 220, 0.5) 100%)',
+                'linear-gradient(135deg, rgba(255, 101, 132, 0.6) 0%, rgba(255, 154, 158, 0.4) 100%)',
+                'linear-gradient(135deg, rgba(18, 24, 38, 0.9) 0%, rgba(108, 99, 255, 0.4) 100%)'
+            ];
+            blob.style.background = gradients[i % gradients.length];
+            blob.style.animationDelay = (Math.random() * 20) + 's';
+            bg.appendChild(blob);
+        }
+
+        // 2. Crear formas flotantes
+        for (var j = 0; j < 15; j++) {
+            var shape = document.createElement('div');
+            shape.className = 'floating-shape';
+            var sz = Math.random() * 30 + 10;
+            shape.style.width = sz + 'px';
+            shape.style.height = sz + 'px';
+            shape.style.left = (Math.random() * 100) + '%';
+            shape.style.top = (Math.random() * 100) + '%';
+            shape.style.borderRadius = Math.random() > 0.5 ? '50%' : '10%';
+            shape.style.animationDelay = (Math.random() * 30) + 's';
+            shape.style.animationDuration = (Math.random() * 30 + 20) + 's';
+            bg.appendChild(shape);
+        }
+
+        // 3. Efecto máquina de escribir en el título del hero
+        var heroTitle = document.getElementById('about-hero-title');
+        if (heroTitle) {
+            var originalText = heroTitle.textContent;
+            heroTitle.textContent = '';
+            var idx = 0;
+            function typeWriter() {
+                if (idx < originalText.length) {
+                    heroTitle.textContent += originalText.charAt(idx);
+                    idx++;
+                    setTimeout(typeWriter, 50);
+                }
+            }
+            setTimeout(typeWriter, 1000);
+        }
+    });
+})();
+</script>
