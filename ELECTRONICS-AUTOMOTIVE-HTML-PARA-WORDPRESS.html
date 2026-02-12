@@ -45,8 +45,6 @@
 :root{--primary-color:#00d4ff;--secondary-color:#0066ff;--dark-bg:#0a0e27;--darker-bg:#050811;--text-light:#fff;--text-gray:#a8b2d1;--accent-gradient:linear-gradient(135deg,#00d4ff 0%,#0066ff 100%);--card-bg:rgba(255,255,255,0.05);--border-color:rgba(0,212,255,0.2);--font-base:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;--font-size-4xl:3.5rem;--font-size-3xl:2.5rem;--transition-base:0.3s ease;--transition-fast:0.2s ease;}
 html{scroll-behavior:smooth;font-size:16px;}
 body{font-family:var(--font-base);background:var(--darker-bg);color:var(--text-light);line-height:1.6;overflow-x:hidden;}
-.skip-link{position:absolute;top:-40px;left:0;background:var(--primary-color);color:var(--darker-bg);padding:0.5rem 1rem;text-decoration:none;font-weight:bold;z-index:100;}
-.skip-link:focus{top:0;}
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border-width:0;}
 .hero{background:linear-gradient(135deg,var(--dark-bg) 0%,var(--darker-bg) 100%);padding:7.5rem 1.25rem 5rem;text-align:center;position:relative;overflow:hidden;}
 .hero::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(circle at 20% 50%,rgba(0,212,255,0.1) 0%,transparent 50%),radial-gradient(circle at 80% 50%,rgba(0,102,255,0.1) 0%,transparent 50%);pointer-events:none;}
@@ -124,27 +122,42 @@ body{font-family:var(--font-base);background:var(--darker-bg);color:var(--text-l
 .cta-section h2{font-size:clamp(2rem,4vw,var(--font-size-3xl));margin-bottom:1.25rem;}
 .cta-section p{color:var(--text-gray);max-width:43.75rem;margin:0 auto 2.5rem;}
 @media (max-width:768px){.hero{padding:5rem 1rem 3rem;}.section{padding:3rem 1rem;}.carousel{gap:1rem;}.project-image{height:11rem;}.carousel-button{width:2.5rem;height:2.5rem;font-size:1.25rem;}}
-/* === HERO CARRUSEL PRINCIPAL (cada slide: imagen + texto sector + mismo CTA) === */
-.hero.hero-sectors-carousel{padding:0;overflow:hidden;min-height:85vh;display:flex;align-items:stretch;}
-.hero-sectors-carousel .hero-carousel-wrap{flex:1;max-width:100%;margin:0;border-radius:0;min-height:85vh;}
-.hero-sectors-carousel .hero-carousel-track{display:flex;transition:transform 0.8s cubic-bezier(0.4,0,0.2,1);will-change:transform;min-height:85vh;}
-.hero-sectors-carousel .hero-carousel-slide{min-width:100%;min-height:85vh;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;}
-.hero-sectors-carousel .hero-carousel-slide img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;}
-.hero-sectors-carousel .hero-carousel-slide::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(5,8,17,0.88) 0%,rgba(5,8,17,0.6) 50%,rgba(5,8,17,0.4) 100%);pointer-events:none;}
-.hero-slide-caption{position:relative;z-index:2;text-align:center;padding:3rem 1.5rem;max-width:42rem;margin:0 auto;}
-.hero-slide-caption .premium-badge{display:inline-block;padding:0.4rem 1rem;background:var(--accent-gradient);border-radius:1.5rem;font-size:0.75rem;font-weight:600;letter-spacing:0.05em;margin-bottom:1rem;text-transform:uppercase;}
-.hero-slide-caption h2{font-size:clamp(1.75rem,4vw,2.75rem);font-weight:700;margin-bottom:1rem;background:var(--accent-gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
-.hero-slide-caption p{font-size:clamp(0.95rem,2vw,1.15rem);color:var(--text-gray);line-height:1.65;margin-bottom:1.75rem;}
-.hero-slide-caption .cta-button{display:inline-block;padding:0.9rem 2rem;background:var(--accent-gradient);color:var(--text-light);text-decoration:none;border-radius:0.5rem;font-weight:600;font-size:1rem;transition:transform 0.3s ease,box-shadow 0.3s ease;}
-.hero-slide-caption .cta-button:hover,.hero-slide-caption .cta-button:focus{transform:translateY(-3px);box-shadow:0 10px 25px rgba(0,212,255,0.35);outline:2px solid var(--primary-color);outline-offset:2px;}
-.hero-carousel-nav{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);display:flex;gap:0.5rem;z-index:3;}
-.hero-carousel-dot{width:10px;height:10px;border-radius:50%;border:2px solid rgba(0,212,255,0.8);background:transparent;cursor:pointer;transition:all 0.3s ease;padding:0;}
-.hero-carousel-dot:hover,.hero-carousel-dot.active{background:var(--primary-color);border-color:var(--primary-color);transform:scale(1.2);}
-.hero-carousel-arrow{position:absolute;top:50%;transform:translateY(-50%);width:3rem;height:3rem;border-radius:50%;background:rgba(0,0,0,0.5);border:2px solid rgba(0,212,255,0.5);color:var(--primary-color);font-size:1.5rem;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:3;transition:all 0.3s ease;}
-.hero-carousel-arrow:hover{background:rgba(0,212,255,0.2);border-color:var(--primary-color);}
-.hero-carousel-arrow.prev{left:1rem;}
-.hero-carousel-arrow.next{right:1rem;}
-@media (max-width:768px){.hero-sectors-carousel,.hero-sectors-carousel .hero-carousel-track,.hero-sectors-carousel .hero-carousel-slide{min-height:75vh;}.hero-slide-caption{padding:2rem 1rem;}.hero-carousel-arrow{width:2.5rem;height:2.5rem;font-size:1.2rem;left:0.5rem;}.hero-carousel-arrow.next{right:0.5rem;}}
+/* === HERO CARRUSEL (nuevo: imágenes propias, título/descripción, CTA arriba de dots, loop, flechas blancas) === */
+.ea-hero-carousel-wrap{--primary-color:#00d4ff;--secondary-color:#0066ff;--text-light:#fff;--text-gray:#b8c5e6;}
+.ea-hero-carousel-wrap{padding:0;overflow:hidden;min-height:90vh;display:flex;align-items:stretch;}
+.ea-hero-carousel-wrap .hero-carousel-wrap{flex:1;max-width:100%;margin:0;min-height:90vh;position:relative;}
+.ea-hero-carousel-wrap .hero-carousel-track{display:flex;transition:transform 0.85s cubic-bezier(0.22,1,0.36,1);will-change:transform;min-height:90vh;}
+.ea-hero-carousel-wrap .hero-carousel-slide{min-width:100%;min-height:90vh;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;}
+.ea-hero-carousel-wrap .hero-carousel-slide img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;transition:transform 0.6s ease;}
+.ea-hero-carousel-wrap .hero-carousel-slide:hover img{transform:scale(1.04);}
+.ea-hero-carousel-wrap .hero-carousel-slide::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(5,8,17,0.92) 0%,rgba(5,8,17,0.65) 50%,rgba(5,8,17,0.4) 100%);pointer-events:none;}
+.ea-hero-carousel-wrap .hero-slide-caption{position:relative;z-index:2;text-align:center;padding:3rem 1.5rem 4.5rem;max-width:48rem;margin:0 auto;}
+.ea-hero-carousel-wrap .hero-carousel-slide .hero-slide-caption h2{font-size:clamp(3.25rem,8vw,5.5rem);font-weight:800;margin-bottom:1.35rem;line-height:1.06;letter-spacing:-0.03em;opacity:0;background:var(--accent-gradient);background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.ea-hero-carousel-wrap .hero-carousel-slide .hero-slide-caption p{font-size:clamp(1.05rem,2vw,1.25rem);color:var(--text-gray);line-height:1.75;margin-bottom:0;max-width:42rem;margin-left:auto;margin-right:auto;opacity:0;}
+.ea-hero-carousel-wrap .hero-carousel-slide.animate-in .hero-slide-caption h2{animation:eaTitleFromTop 0.8s cubic-bezier(0.22,1,0.36,1) 0.1s forwards;}
+.ea-hero-carousel-wrap .hero-carousel-slide.animate-in .hero-slide-caption p{animation:eaTextFromBottom 0.8s cubic-bezier(0.22,1,0.36,1) 0.25s forwards;}
+.ea-hero-carousel-wrap .hero-carousel-slide[data-sector="automotriz"] .hero-slide-caption h2{background:linear-gradient(135deg,#00d4ff,#0066ff);-webkit-background-clip:text;background-clip:text;}
+.ea-hero-carousel-wrap .hero-carousel-slide[data-sector="salud"] .hero-slide-caption h2{background:linear-gradient(135deg,#34d399,#10b981);-webkit-background-clip:text;background-clip:text;}
+.ea-hero-carousel-wrap .hero-carousel-slide[data-sector="electronica"] .hero-slide-caption h2{background:linear-gradient(135deg,#a78bfa,#7c3aed);-webkit-background-clip:text;background-clip:text;}
+.ea-hero-carousel-wrap .hero-carousel-slide[data-sector="aero"] .hero-slide-caption h2{background:linear-gradient(135deg,#60a5fa,#3b82f6);-webkit-background-clip:text;background-clip:text;}
+.ea-hero-carousel-wrap .hero-carousel-slide[data-sector="energia"] .hero-slide-caption h2{background:linear-gradient(135deg,#fbbf24,#f59e0b);-webkit-background-clip:text;background-clip:text;}
+.ea-hero-carousel-wrap .hero-carousel-slide[data-sector="teleco"] .hero-slide-caption h2{background:linear-gradient(135deg,#f472b6,#ec4899);-webkit-background-clip:text;background-clip:text;}
+.ea-hero-carousel-wrap .hero-carousel-slide[data-sector="industria40"] .hero-slide-caption h2{background:linear-gradient(135deg,#fb923c,#ea580c);-webkit-background-clip:text;background-clip:text;}
+@keyframes eaTitleFromTop{0%{opacity:0;transform:translateY(-70px);}100%{opacity:1;transform:translateY(0);}}
+@keyframes eaTextFromBottom{0%{opacity:0;transform:translateY(50px);}100%{opacity:1;transform:translateY(0);}}
+.ea-hero-carousel-wrap .hero-carousel-bottom{position:absolute;bottom:0;left:0;right:0;z-index:3;display:flex;flex-direction:column;align-items:center;gap:1rem;padding:0 1rem 1.75rem;}
+.ea-hero-carousel-wrap .hero-cta-link{display:inline-flex;align-items:center;gap:0.5rem;padding:0.75rem 1.75rem;background:rgba(10,14,39,0.85);backdrop-filter:blur(12px);color:#00d4ff;text-decoration:none;font-weight:600;font-size:0.9rem;border:1px solid rgba(0,212,255,0.4);border-radius:2rem;transition:all 0.3s ease;}
+.ea-hero-carousel-wrap .hero-cta-link:hover,.ea-hero-carousel-wrap .hero-cta-link:focus{background:rgba(0,212,255,0.15);border-color:#00d4ff;color:#fff;transform:translateY(-2px);outline:none;}
+.ea-hero-carousel-wrap .hero-cta-link svg{width:1.1rem;height:1.1rem;}
+.ea-hero-carousel-wrap .hero-carousel-nav{order:2;display:flex;gap:0.6rem;}
+.ea-hero-carousel-wrap .hero-carousel-dot{width:10px;height:10px;border-radius:50%;border:2px solid rgba(255,255,255,0.5);background:transparent;cursor:pointer;padding:0;transition:all 0.3s ease;}
+.ea-hero-carousel-wrap .hero-carousel-dot:hover{background:rgba(255,255,255,0.4);transform:scale(1.35);}
+.ea-hero-carousel-wrap .hero-carousel-dot.active{background:#fff;border-color:#fff;transform:scale(1.4);box-shadow:0 0 16px rgba(255,255,255,0.5);}
+.ea-hero-carousel-wrap .hero-carousel-arrow{position:absolute;top:42%;transform:translateY(-50%);padding:0.5rem;background:transparent;border:none;color:rgba(255,255,255,0.95);font-size:3rem;cursor:pointer;z-index:3;transition:transform 0.25s ease,opacity 0.25s ease;text-shadow:0 2px 12px rgba(0,0,0,0.5);opacity:0.9;}
+.ea-hero-carousel-wrap .hero-carousel-arrow:hover,.ea-hero-carousel-wrap .hero-carousel-arrow:focus{color:#fff;opacity:1;transform:translateY(-50%) scale(1.15);outline:none;}
+.ea-hero-carousel-wrap .hero-carousel-arrow.prev{left:1.5rem;}
+.ea-hero-carousel-wrap .hero-carousel-arrow.next{right:1.5rem;}
+@media (max-width:768px){.ea-hero-carousel-wrap,.ea-hero-carousel-wrap .hero-carousel-track,.ea-hero-carousel-wrap .hero-carousel-slide{min-height:80vh;}.ea-hero-carousel-wrap .hero-slide-caption h2{font-size:clamp(2.25rem,9vw,3.25rem);}.ea-hero-carousel-wrap .hero-carousel-arrow{font-size:2.5rem;left:0.75rem;}.ea-hero-carousel-wrap .hero-carousel-arrow.next{right:0.75rem;}}
     </style>
     
     <!-- Structured Data / Schema.org -->
@@ -184,82 +197,79 @@ body{font-family:var(--font-base);background:var(--darker-bg);color:var(--text-l
     </script>
 </head>
 <body>
-    <!-- Skip Link para Accesibilidad -->
-    <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
-
-    <!-- Hero: carrusel por sectores (cada slide = imagen + texto del sector + mismo CTA) -->
-    <header class="hero hero-sectors-carousel" role="banner">
-        <div class="hero-carousel-wrap" id="hero-carousel-wrap" aria-roledescription="carrusel" aria-label="Sectores Premium">
+    <!-- Hero: carrusel nuevo (imágenes propias, CTA arriba de dots, loop, flechas blancas) -->
+    <header class="hero hero-sectors-carousel ea-hero-carousel-wrap" role="banner">
+        <div class="hero-carousel-wrap" id="hero-carousel-wrap" tabindex="0" aria-roledescription="carrusel" aria-label="Sectores Premium. Usa flechas para navegar.">
             <div class="hero-carousel-track" id="hero-carousel-track">
-                <div class="hero-carousel-slide">
-                    <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=1600&h=900&fit=crop" alt="Sector automotriz">
+                <div class="hero-carousel-slide active" data-sector="automotriz">
+                    <img src="https://osdemsdigital.com/wp-content/uploads/2026/02/automotriz.png" alt="Sector automotriz">
                     <div class="hero-slide-caption">
-                        <span class="premium-badge">Premium - Especialización</span>
                         <h2>Automotriz</h2>
                         <p>Desarrollo web y sistemas para fabricantes de autopartes, distribuidores y OEM. Catálogos por VIN, e-commerce B2B y portales de proveedores.</p>
-                        <a href="https://wa.me/523326225912?text=Hola,%20me%20interesa%20la%20especialización%20Premium%20en%20Electrónica%20Industrial" class="cta-button" target="_blank" rel="noopener" aria-label="Solicitar consultoría premium por WhatsApp">Solicitar Consultoría Premium</a>
                     </div>
                 </div>
-                <div class="hero-carousel-slide">
-                    <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=1600&h=900&fit=crop" alt="Médico y salud">
+                <div class="hero-carousel-slide" data-sector="salud">
+                    <img src="https://osdemsdigital.com/wp-content/uploads/2026/02/salud.png" alt="Médico y salud">
                     <div class="hero-slide-caption">
-                        <span class="premium-badge">Premium - Especialización</span>
                         <h2>Médico / Salud</h2>
-                        <p>Plataformas para equipos médicos, dispositivos de diagnóstico y salud digital. Cumplimiento normativo, portales de proveedores y experiencias seguras.</p>
-                        <a href="https://wa.me/523326225912?text=Hola,%20me%20interesa%20la%20especialización%20Premium%20en%20Electrónica%20Industrial" class="cta-button" target="_blank" rel="noopener" aria-label="Solicitar consultoría premium por WhatsApp">Solicitar Consultoría Premium</a>
+                        <p>Plataformas para equipos médicos, dispositivos de diagnóstico y salud digital. Cumplimiento normativo y experiencias seguras.</p>
                     </div>
                 </div>
-                <div class="hero-carousel-slide">
-                    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1600&h=900&fit=crop" alt="Electrónica industrial">
+                <div class="hero-carousel-slide" data-sector="electronica">
+                    <img src="https://osdemsdigital.com/wp-content/uploads/2026/02/electronicaindustrial.png" alt="Electrónica industrial">
                     <div class="hero-slide-caption">
-                        <span class="premium-badge">Premium - Especialización</span>
                         <h2>Electrónica Industrial</h2>
                         <p>Web para fabricantes de PCBs, componentes y sistemas de control. Cotizadores, carga Gerber, integración ERP y portales técnicos B2B.</p>
-                        <a href="https://wa.me/523326225912?text=Hola,%20me%20interesa%20la%20especialización%20Premium%20en%20Electrónica%20Industrial" class="cta-button" target="_blank" rel="noopener" aria-label="Solicitar consultoría premium por WhatsApp">Solicitar Consultoría Premium</a>
                     </div>
                 </div>
-                <div class="hero-carousel-slide">
-                    <img src="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?w=1600&h=900&fit=crop" alt="Vuelos y defensa">
+                <div class="hero-carousel-slide" data-sector="aero">
+                    <img src="https://osdemsdigital.com/wp-content/uploads/2026/02/aereoespacioal-y-defensa.png" alt="Aerospacial y defensa">
                     <div class="hero-slide-caption">
-                        <span class="premium-badge">Premium - Especialización</span>
-                        <h2>Vuelos y Defensa</h2>
+                        <h2>Aerospacial y Defensa</h2>
                         <p>Soluciones digitales para aeroespacial, aviónica y defensa. Portales seguros, documentación técnica y sistemas de trazabilidad especializados.</p>
-                        <a href="https://wa.me/523326225912?text=Hola,%20me%20interesa%20la%20especialización%20Premium%20en%20Electrónica%20Industrial" class="cta-button" target="_blank" rel="noopener" aria-label="Solicitar consultoría premium por WhatsApp">Solicitar Consultoría Premium</a>
                     </div>
                 </div>
-                <div class="hero-carousel-slide">
-                    <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?w=1600&h=900&fit=crop" alt="Energía y smart grid">
+                <div class="hero-carousel-slide" data-sector="energia">
+                    <img src="https://osdemsdigital.com/wp-content/uploads/2026/02/energia-y-smartgrid.png" alt="Energía y smart grid">
                     <div class="hero-slide-caption">
-                        <span class="premium-badge">Premium - Especialización</span>
                         <h2>Energía y Smart Grid</h2>
-                        <p>Plataformas para utilities, renovables y redes inteligentes. Monitoreo, dashboards operativos e integración con sistemas SCADA y IoT.</p>
-                        <a href="https://wa.me/523326225912?text=Hola,%20me%20interesa%20la%20especialización%20Premium%20en%20Electrónica%20Industrial" class="cta-button" target="_blank" rel="noopener" aria-label="Solicitar consultoría premium por WhatsApp">Solicitar Consultoría Premium</a>
+                        <p>Plataformas para utilities, renovables y redes inteligentes. Monitoreo, dashboards operativos e integración SCADA e IoT.</p>
                     </div>
                 </div>
-                <div class="hero-carousel-slide">
-                    <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=1600&h=900&fit=crop" alt="Telecomunicaciones">
+                <div class="hero-carousel-slide" data-sector="teleco">
+                    <img src="https://osdemsdigital.com/wp-content/uploads/2026/02/telecomunicaciones.png" alt="Telecomunicaciones">
                     <div class="hero-slide-caption">
-                        <span class="premium-badge">Premium - Especialización</span>
                         <h2>Telecomunicaciones</h2>
                         <p>Portales para operadores, fabricantes de equipos e infraestructura. Catálogos de red, 5G y soluciones de conectividad B2B.</p>
-                        <a href="https://wa.me/523326225912?text=Hola,%20me%20interesa%20la%20especialización%20Premium%20en%20Electrónica%20Industrial" class="cta-button" target="_blank" rel="noopener" aria-label="Solicitar consultoría premium por WhatsApp">Solicitar Consultoría Premium</a>
                     </div>
                 </div>
-                <div class="hero-carousel-slide">
-                    <img src="https://images.unsplash.com/photo-1565793298595-6a879b1d9492?w=1600&h=900&fit=crop" alt="Industrial 4.0 y fábrica">
+                <div class="hero-carousel-slide" data-sector="industria40">
+                    <img src="https://osdemsdigital.com/wp-content/uploads/2026/02/industria-4.0.png" alt="Industrial 4.0 y fábrica">
                     <div class="hero-slide-caption">
-                        <span class="premium-badge">Premium - Especialización</span>
                         <h2>Industrial 4.0 / Fábrica</h2>
                         <p>Fábricas inteligentes, MES y automatización. Dashboards en tiempo real, IoT y sistemas que conectan producción con la nube.</p>
-                        <a href="https://wa.me/523326225912?text=Hola,%20me%20interesa%20la%20especialización%20Premium%20en%20Electrónica%20Industrial" class="cta-button" target="_blank" rel="noopener" aria-label="Solicitar consultoría premium por WhatsApp">Solicitar Consultoría Premium</a>
                     </div>
                 </div>
             </div>
             <button type="button" class="hero-carousel-arrow prev" id="hero-carousel-prev" aria-label="Slide anterior">‹</button>
             <button type="button" class="hero-carousel-arrow next" id="hero-carousel-next" aria-label="Slide siguiente">›</button>
-            <div class="hero-carousel-nav" id="hero-carousel-dots" role="tablist" aria-label="Elegir sector"></div>
+            <div class="hero-carousel-bottom">
+                <div class="hero-cta-wrap">
+                    <a href="https://wa.me/523326225912?text=Hola,%20me%20interesa%20la%20especialización%20Premium%20en%20Electrónica%20Industrial" class="hero-cta-link" target="_blank" rel="noopener" aria-label="Solicitar consultoría por WhatsApp">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.865 9.865 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                        Solicitar consultoría
+                    </a>
+                </div>
+                <div class="hero-carousel-nav" id="hero-carousel-dots" role="tablist" aria-label="Elegir sector"></div>
+            </div>
         </div>
     </header>
+    <script id="electronics-hero-carousel-js">
+(function(){'use strict';
+function initHeroCarousel(){var wrap=document.getElementById('hero-carousel-wrap');if(!wrap)return;var track=document.getElementById('hero-carousel-track');var dotsContainer=document.getElementById('hero-carousel-dots');var prevBtn=document.getElementById('hero-carousel-prev');var nextBtn=document.getElementById('hero-carousel-next');var slides=track?track.querySelectorAll('.hero-carousel-slide'):[];var total=slides.length;if(total===0)return;var current=0;var autoplayInterval;var trackTransition='transform 0.85s cubic-bezier(0.22,1,0.36,1)';function setActiveSlide(idx,instant){var next=(idx%total+total)%total;var isWrap=(next===0&&current===total-1)||(next===total-1&&current===0);if(instant||isWrap){if(track){track.style.transition='none';track.style.transform='translateX(-'+next*100+'%)';track.offsetHeight;track.style.transition=trackTransition;}}else if(track){track.style.transform='translateX(-'+next*100+'%)';}current=next;slides.forEach(function(s,i){s.classList.toggle('active',i===current);s.classList.remove('animate-in');});if(dotsContainer){var dots=dotsContainer.querySelectorAll('.hero-carousel-dot');for(var i=0;i<dots.length;i++){dots[i].classList.toggle('active',i===current);dots[i].setAttribute('aria-selected',i===current?'true':'false');}}requestAnimationFrame(function(){if(slides[current])slides[current].classList.add('animate-in');});}function goTo(idx){var next=(idx%total+total)%total;var wrapNext=current===total-1&&idx>current;var wrapPrev=current===0&&idx<current;setActiveSlide(idx,wrapNext||wrapPrev);}function buildDots(){if(!dotsContainer)return;dotsContainer.innerHTML='';for(var i=0;i<total;i++){var dot=document.createElement('button');dot.type='button';dot.className='hero-carousel-dot'+(i===0?' active':'');dot.setAttribute('role','tab');dot.setAttribute('aria-label','Ir a sector '+(i+1));dot.setAttribute('aria-selected',i===0?'true':'false');dot.setAttribute('data-idx',String(i));dot.addEventListener('click',function(){var idx=parseInt(this.getAttribute('data-idx'),10);if(!isNaN(idx)){goTo(idx);resetAutoplay();}});dotsContainer.appendChild(dot);}}function startAutoplay(){stopAutoplay();autoplayInterval=setInterval(function(){goTo(current+1);},4500);}function stopAutoplay(){if(autoplayInterval){clearInterval(autoplayInterval);autoplayInterval=null;}}function resetAutoplay(){startAutoplay();}buildDots();setActiveSlide(0);startAutoplay();if(prevBtn)prevBtn.addEventListener('click',function(){goTo(current-1);resetAutoplay();});if(nextBtn)nextBtn.addEventListener('click',function(){goTo(current+1);resetAutoplay();});wrap.addEventListener('mouseenter',stopAutoplay);wrap.addEventListener('mouseleave',startAutoplay);wrap.addEventListener('keydown',function(evt){if(evt.key==='ArrowLeft'){evt.preventDefault();goTo(current-1);resetAutoplay();}else if(evt.key==='ArrowRight'){evt.preventDefault();goTo(current+1);resetAutoplay();}});var touchStartX=0;wrap.addEventListener('touchstart',function(evt){touchStartX=evt.changedTouches[0].screenX;},{passive:true});wrap.addEventListener('touchend',function(evt){var touchEndX=evt.changedTouches[0].screenX;if(Math.abs(touchStartX-touchEndX)>60){goTo((touchStartX-touchEndX)>0?current+1:current-1);resetAutoplay();}},{passive:true});}
+if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',initHeroCarousel);}else{initHeroCarousel();}
+})();
+    </script>
 
     <!-- Main Content -->
     <main id="main-content">
@@ -726,7 +736,7 @@ function startAutoplay(){stopAutoplay();autoplayInterval=setInterval(function(){
 function stopAutoplay(){if(autoplayInterval){clearInterval(autoplayInterval);autoplayInterval=null;}}
 function resetAutoplay(){startAutoplay();}
 buildDots();goTo(0);startAutoplay();if(prevBtn)prevBtn.addEventListener('click',function(){goTo(current-1);resetAutoplay();});if(nextBtn)nextBtn.addEventListener('click',function(){goTo(current+1);resetAutoplay();});wrap.addEventListener('mouseenter',stopAutoplay);wrap.addEventListener('mouseleave',startAutoplay);}
-document.addEventListener('DOMContentLoaded',function(){initHeroCarousel();var carouselContainer=document.querySelector('.carousel-container');if(carouselContainer)new Carousel(carouselContainer);var contactForm=document.querySelector('#contact-form');if(contactForm)new ContactForm(contactForm);initSmoothScroll();});
+document.addEventListener('DOMContentLoaded',function(){var carouselContainer=document.querySelector('.carousel-container');if(carouselContainer)new Carousel(carouselContainer);var contactForm=document.querySelector('#contact-form');if(contactForm)new ContactForm(contactForm);initSmoothScroll();});
 })();
     </script>
 </body>

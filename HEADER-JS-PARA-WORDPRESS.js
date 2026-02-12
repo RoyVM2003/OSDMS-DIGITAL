@@ -103,18 +103,7 @@
             });
         }
 
-        /* En móvil: dejar que el enlace "Services" lleve a /servicios/ (no prevenir por defecto).
-           En desktop: hover ya abre el menú; clic en el botón no se usa para navegar. */
-        servicesBtn.addEventListener('click', function(e) {
-            if (window.matchMedia('(max-width: 992px)').matches) {
-                /* No hacer preventDefault: que el href="/servicios/" funcione y mande a la página */
-                closeAllMegaMenus();
-                return;
-            }
-            e.preventDefault();
-            if (servicesMegaMenu.classList.contains('active')) closeAllMegaMenus();
-            else openServicesMenu();
-        });
+        /* No agregar listener de clic a servicesBtn: el <a href="/servicios/"> debe navegar siempre al hacer clic. */
         industriesBtn.addEventListener('click', function(e) {
             e.preventDefault();
             e.stopPropagation();
@@ -141,6 +130,7 @@
                 }
             });
             mainNav.querySelectorAll('a[href]').forEach(function(link) {
+                if (link.id === 'servicesBtn') return;
                 link.addEventListener('click', function() {
                     document.body.classList.remove('nav-open');
                     menuOverlay.classList.remove('active');
